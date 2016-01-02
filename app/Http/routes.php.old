@@ -1,0 +1,80 @@
+<?php
+
+/****************   Model binding into route **************************/
+Route::model('material', 'App\Material');
+Route::model('materialcategory', 'App\MaterialCategory');
+Route::model('language', 'App\Language');
+Route::model('photoalbum', 'App\PhotoAlbum');
+Route::model('photo', 'App\Photo');
+Route::model('user', 'App\User');
+Route::pattern('id', '[0-9]+');
+Route::pattern('slug', '[0-9a-z-_]+');
+
+/***************    Site routes  **********************************/
+Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
+Route::get('about', 'PagesController@about');
+Route::get('contact', 'PagesController@contact');
+Route::get('materials', 'MaterialsController@index');
+Route::get('material/{slug}', 'MaterialsController@show');
+
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
+/***************    Auth  routes  **********************************/
+
+Route::get('material/create', 'MaterialsController@create');
+
+/***************    Admin routes  **********************************/
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+
+    # Admin Dashboard
+    Route::get('dashboard', 'Admin\DashboardController@index');
+
+    # Language
+    Route::get('language/data', 'Admin\LanguageController@data');
+    Route::get('language/{language}/show', 'Admin\LanguageController@show');
+    Route::get('language/{language}/edit', 'Admin\LanguageController@edit');
+    Route::get('language/{language}/delete', 'Admin\LanguageController@delete');
+    Route::resource('language', 'Admin\LanguageController');
+
+    # Material category
+    Route::get('materialcategory/data', 'Admin\MaterialCategoriesController@data');
+    Route::get('materialcategory/{materialcategory}/show', 'Admin\MaterialCategoriesController@show');
+    Route::get('materialcategory/{materialcategory}/edit', 'Admin\MaterialCategoriesController@edit');
+    Route::get('materialcategory/{materialcategory}/delete', 'Admin\MaterialCategoriesController@delete');
+    Route::get('materialcategory/reorder', 'MaterialCategoriesController@getReorder');
+    Route::resource('materialcategory', 'Admin\MaterialCategoriesController');
+
+    # Materials
+    Route::get('material/data', 'Admin\MaterialController@data');
+    Route::get('material/{material}/show', 'Admin\MaterialController@show');
+    Route::get('material/{material}/edit', 'Admin\MaterialController@edit');
+    Route::get('material/{material}/delete', 'Admin\MaterialController@delete');
+    Route::get('material/reorder', 'Admin\MaterialController@getReorder');
+    Route::resource('material', 'Admin\MaterialController');
+
+    # Photo Album
+    Route::get('photoalbum/data', 'Admin\PhotoAlbumController@data');
+    Route::get('photoalbum/{photoalbum}/show', 'Admin\PhotoAlbumController@show');
+    Route::get('photoalbum/{photoalbum}/edit', 'Admin\PhotoAlbumController@edit');
+    Route::get('photoalbum/{photoalbum}/delete', 'Admin\PhotoAlbumController@delete');
+    Route::resource('photoalbum', 'Admin\PhotoAlbumController');
+
+    # Photo
+    Route::get('photo/data', 'Admin\PhotoController@data');
+    Route::get('photo/{photo}/show', 'Admin\PhotoController@show');
+    Route::get('photo/{photo}/edit', 'Admin\PhotoController@edit');
+    Route::get('photo/{photo}/delete', 'Admin\PhotoController@delete');
+    Route::resource('photo', 'Admin\PhotoController');
+
+    # Users
+    Route::get('user/data', 'Admin\UserController@data');
+    Route::get('user/{user}/show', 'Admin\UserController@show');
+    Route::get('user/{user}/edit', 'Admin\UserController@edit');
+    Route::get('user/{user}/delete', 'Admin\UserController@delete');
+    Route::resource('user', 'Admin\UserController');
+});

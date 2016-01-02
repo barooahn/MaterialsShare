@@ -1,0 +1,154 @@
+body, html {
+    height:100%;
+}
+
+.container {
+    padding-top:60px;
+}
+.center_form {
+    text-align: center;
+}
+
+.form_padding {
+    padding-top: 20px;
+}
+
+#create, #edit{
+    background:#38839E;
+}
+
+#create_level, #edit_level{
+    background:#38839E;
+}
+
+#create_title, #edit_title{
+    background:#754C77;
+}
+#create_times, #edit_times{
+    background:#67A066;
+}
+
+#create_optional, #edit_optional{
+    background:#BD5A2A;
+}
+
+.white_text{
+    color: white;
+}
+.hero-unit {
+    background-image:url('../img/large_hero.jpg');
+    background-size:cover;
+    background-color: #EEEEEE;
+    height:100%;
+    margin-top: 50px;
+}
+
+.hero-unit h1 {
+    color: #FFFFFF;
+    font-size: 60px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 22px;
+    padding-top: 10%;
+    text-align: center;
+}
+.hero-unit h2 {
+    font-size: 25px;
+    color: #FFFFFF;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.hero-unit div {
+    position:absolute;
+    color:#fff;
+    top:50%;
+    left:50%;
+    padding:15px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 20%;
+
+}
+.fill{
+    width:100%;
+    height:100%;
+    background-position:center;
+    background-size:cover;
+}
+
+.material_image{
+    width:100%;
+}
+
+.user_buttons{
+    display: inline-block;
+    padding:5px;
+    float: right;
+    width:100%;
+}
+
+.user_button{
+    float: right;
+}
+
+.heading {
+    padding-top: 20px;
+
+}
+
+@media (max-width: 1050px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+
+@media print {
+    /* Print CSS rules go here */
+    /* Note: You need a separate @media screen group for other rules */
+}
+
+
+/*/!* Large desktop *!/*/
+/*@media (min-width: 1200px) { ... }*/
+
+/*/!* Portrait tablet to landscape and desktop *!/*/
+/*@media (min-width: 768px) and (max-width: 979px) { ... }*/
+
+/*/!* Landscape phone to portrait tablet *!/*/
+/*@media (max-width: 767px) { ... }*/
+
+/*/!* Landscape phones and down *!/*/
+/*@media (max-width: 480px) { ... }*/
