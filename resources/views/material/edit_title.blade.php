@@ -10,7 +10,7 @@
 @section('content')
     <div class="row center_form">
         <div class="col-md-8 col-md-offset-2">
-            <h1 class="white_text">{{$material->title}}e</h1>
+            <h1 class="white_text">{{$material->title}}</h1>
             <hr>
 
             {!! Form::model($material, [

@@ -3,21 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Material;
 use App\MaterialActivityUse;
+use App\MaterialCategory;
 use App\MaterialFile;
 use App\MaterialLanguageFocus;
+use App\MaterialLevel;
 use App\MaterialPupilTask;
+use Conner\Likeable\LikeableTrait;
 use Ghanem\Rating\Models\Rating;
 use Illuminate\Http\Request;
-use App\Material;
-use App\MaterialCategory;
-use App\MaterialLevel;
 use Illuminate\Support\Facades\Auth;
-use Session;
-use Conner\Likeable\LikeableTrait;
-use Validator;
 use Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Session;
+use Validator;
 
 
 class MaterialsController extends Controller
@@ -41,14 +40,21 @@ class MaterialsController extends Controller
         return view('material.view', compact('material', 'stars'));
     }
 
+    public function showStars($id)
+    {
+        $material = Material::findBySlugOrIdOrFail($id);
+        return $material->averageRating();
+    }
+
+
+    // Material edit page
+
     public function create()
     {
         $categories = MaterialCategory::lists('category', 'category');
         return view('material.create', compact('categories'));
     }
 
-
-    // Material edit page
     public function edit(Material $material)
     {
         return view('material.edit', compact('material'));
@@ -83,13 +89,6 @@ class MaterialsController extends Controller
         //  go to next step
 
         return redirect()->action('MaterialsController@createTitle');
-    }
-
-    protected function getModelValueAttribute($name)
-    {
-        $value = parent::getModelValueAttribute($name);
-
-        return ($value instanceof Collection) ? $value->modelKeys() : $value;
     }
 
     public function editCategory($id)
@@ -161,7 +160,8 @@ class MaterialsController extends Controller
 
     public function updateTitle(Request $request, $id)
     {
-        $material = Material::findBySlugOrId($id);
+
+        $material = Material::findBySlugOrIdOrFail($request->id);
 
         //$material = $request->session()->get('material');
 
@@ -171,9 +171,8 @@ class MaterialsController extends Controller
         $material->objective = ucfirst($request->objective);
 
         $material->update();
-        $request->session()->get('material')->update($material->toArray());
         Session::flash('success', $material->slug . ' successfully updated!');
-        return view('material.view', ['material' => $request->session()->get('material')]);
+        return view('material.view', compact('material'));
     }
 
     public function createTimes(Request $request)
@@ -635,12 +634,6 @@ class MaterialsController extends Controller
         return redirect()->back();
     }
 
-    public function showStars($id)
-    {
-        $material = Material::findBySlugOrIdOrFail($id);
-        return $material->averageRating();
-    }
-
     public function togglePrivate(Request $request)
     {
         $material = Material::findBySlugOrIdOrFail($request->id);
@@ -661,5 +654,12 @@ class MaterialsController extends Controller
 
         return view('material.index', compact('materials'));
 
+    }
+
+    protected function getModelValueAttribute($name)
+    {
+        $value = parent::getModelValueAttribute($name);
+
+        return ($value instanceof Collection) ? $value->modelKeys() : $value;
     }
 }

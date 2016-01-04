@@ -6,14 +6,14 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="heading">
                 <h1> {!! $material->title !!}</h1>
             </div>
         </div>
 
 
-        <div class="col-md-4">
+        <div class="col-md-5">
             @include('partials.user_buttons')
         </div>
     </div>
@@ -214,13 +214,11 @@
                     </div>
 
                     @if(Auth::user())
-                        @if(Auth::user()->id == $material->user_id)
                             <div class="form-padding">
 
                                 <a class="btn btn-success btn-large form-control" href="{{ URL::route('material.get_download',
                                 array('path' => $file->file_path, 'filename' =>$file->filename, )) }}">Download</a>
                             </div>
-                        @endif
                     @endif
 
 
@@ -248,7 +246,11 @@
 
 @section('scripts')
     <script>
-        $(".rating").rating();
+        $(".rating").rating(
+                {
+                    'size': 'sm'
+
+                });
     </script>
 
 

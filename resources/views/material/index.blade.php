@@ -25,10 +25,12 @@
                     <p>{{ $item->target_language}}</p>
 
 
-                    <div>
+                    <div class="form_padding">
                         <a class="btn btn-success user_button form-control" href="{{ URL::to('material/'.$item->slug) }}">Go to
                             Material</a>
                     </div>
+
+                    <hr>
 
                     @if(Auth::User())
                         @if(Auth::User()->id != $item->user_id )
@@ -87,12 +89,6 @@
 
                     </div>
 
-                    <div>
-
-                        <h3>Comments</h3>
-
-
-                    </div>
                 </div>
             </div>
 
