@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Foundation\Auth\Access\Authorizable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 
 
 class User extends Model implements AuthenticatableContract,
@@ -30,6 +30,39 @@ class User extends Model implements AuthenticatableContract,
      *
      * @return MaterialCategories
      */
+
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function ($user) {
+            $key = \Config::get('app.key');
+            $confirmation_code = hash_hmac('sha256', str_random(40), $key);
+            $user->confirmation_code = $confirmation_code;
+        });
+    }
+
+    /**
+     * Set the password attribute.
+     *
+     * @param string $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    /**
+     * Confirm the user.
+     *
+     * @return void
+     */
+    public function confirmEmail()
+    {
+        $this->verified = true;
+        $this->token = null;
+        $this->save();
+    }
+
     public function material_category()
     {
         return $this->belongsToMany('App\MaterialCategory');
@@ -39,5 +72,6 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('App\Material');
     }
+
 
 }

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -22,6 +24,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    protected $redirectPath = 'admin/user/home';
 
     /**
      * Create a new authentication controller instance.
@@ -43,7 +47,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'username' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -57,11 +61,26 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
-            'username' => $data['username'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'username' => $data['username'],
+            'password' => $data['password'],
         ]);
+
+        //do your role stuffs here
+
+        //send verification mail to user
+        //--------------------------------------------------------------------------------------------------------------
+        $data['confirmation_code'] = $user->confirmation_code;
+
+        Mail::queue('emails.verify', $data, function ($message) use ($data) {
+            $message->from('barooahn@gmail.com', "Materials Share");
+            $message->subject("Welcome to Materials Share " . $data['name']);
+            $message->to($data['email']);
+        });
+
+        Session::flash('success', 'Thanks for signing up! Please check your email!');
+        return $user;
     }
 }

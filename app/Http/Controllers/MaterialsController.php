@@ -24,6 +24,12 @@ class MaterialsController extends Controller
 
     use LikeableTrait;
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('activated', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
         $materials = Material::where('private', 0)
@@ -35,7 +41,7 @@ class MaterialsController extends Controller
 
     public function show($slug)
     {
-        $material = Material::findBySlugOrId($slug);
+        $material = Material::findBySlugOrIdOrFail($slug);
         $stars = $this->showStars($material->id);
         return view('material.view', compact('material', 'stars'));
     }
