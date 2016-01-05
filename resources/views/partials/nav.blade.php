@@ -73,7 +73,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ URL::to('admin/user/'.Auth::user()->id.'/home') }}"><i
+                                <a href="{{ URL::to('admin/user/home') }}"><i
                                             class="fa fa-sign-out"></i> My materials</a>
                             </li>
 

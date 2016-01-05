@@ -1,11 +1,12 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
-use App\User;
 use App\Http\Requests\Admin\UserRequest;
-use Datatables;
-use Auth;
 use App\Material;
+use App\User;
+use Auth;
+use Datatables;
+use Session;
 
 
 class UserController extends AdminController
@@ -134,6 +135,34 @@ class UserController extends AdminController
 
     }
 
+    public function activate()
+    {
+
+        return view('user.activate');
+
+    }
+
+    public function verify($code, User $user)
+    {
+        if (UserController::accountIsActive($code)) {
+            Session::flash('message', 'Success, your account has been activated.');
+            return redirect('admin/user/home');
+        }
+        Session::flash('message', 'Your account couldn\'t be activated, please try again');
+        return redirect('home');
+    }
+
+    public function accountIsActive($code)
+    {
+
+        $user = User::where('confirmation_code', '=', $code)->first();
+        $user->confirmed = 1;
+        $user->confirmation_code = '';
+        if ($user->save()) {
+            \Auth::login($user);
+        }
+        return true;
+    }
 
 
 }
