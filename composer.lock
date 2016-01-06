@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8a6feba6fded70eee6e9a4476731bf79",
-    "content-hash": "327b7571a54d656495b4e2dda24cc3d8",
+    "hash": "48c77d74ff4d25bcc5100133b2fce39e",
+    "content-hash": "cfc3a0b3d4909660cce643027982a994",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -2999,7 +2999,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6eb8034a72b4cc9c81491e7a40bd91ae0c2dc82c",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/67d5a0f3501d808ee27265c391b532c64e04db1b",
                 "reference": "6eb8034a72b4cc9c81491e7a40bd91ae0c2dc82c",
                 "shasum": ""
             },

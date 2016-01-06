@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50370ab1-aa98-46e3-bbcd-347b7bb6d1f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+    <list default="true" id="50370ab1-aa98-46e3-bbcd-347b7bb6d1f1" name="Default" comment="-removed debug bar">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/pt-BR.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/pt-BR.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/hu.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/hu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/az.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/az.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/gl.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/gl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/vi.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/vi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/da.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/da.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ru.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ru.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/zh-CN.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/zh-CN.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ms.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/bg.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/bg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/site.css" afterPath="$PROJECT_DIR$/public/css/site.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/hr.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/hr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/select2.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/select2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/it.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/it.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/et.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/et.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/fa.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/fa.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/mk.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/mk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/pl.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/pl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/lt.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/lt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/admin.js" afterPath="$PROJECT_DIR$/public/js/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/tr.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/tr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/he.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/he.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/css/main.css" afterPath="$PROJECT_DIR$/resources/assets/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/nl.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/nl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/hi.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/hi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/de.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/de.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/es.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/es.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/fi.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/fi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/eu.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/eu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/sk.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/sk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/select2-built.css" afterPath="$PROJECT_DIR$/components/select2/select2-built.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/th.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/th.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/uk.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/uk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/id.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/id.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/admin.css" afterPath="$PROJECT_DIR$/public/css/admin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/require.css" afterPath="$PROJECT_DIR$/components/require.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/hero.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/hero.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/zh-TW.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/zh-TW.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ko.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ko.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ca.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ca.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/sr-Cyrl.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/sr-Cyrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site.js" afterPath="$PROJECT_DIR$/public/js/site.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/cs.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/cs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/nb.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/nb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/fr.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/fr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/en.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/en.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/select2-built.js" afterPath="$PROJECT_DIR$/components/select2/select2-built.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/require.js" afterPath="$PROJECT_DIR$/components/require.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/lv.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/lv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/pt.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/pt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/sv.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/sv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/require-built.js" afterPath="$PROJECT_DIR$/components/require-built.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/is.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/is.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ja.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ja.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/css/select2.css" afterPath="$PROJECT_DIR$/components/select2/dist/css/select2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ro.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ro.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/require.config.js" afterPath="$PROJECT_DIR$/components/require.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/sr.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/sr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/select2/dist/js/i18n/ar.js" afterPath="$PROJECT_DIR$/components/select2/dist/js/i18n/ar.js" />
     </list>
     <ignored path="materialsshare.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +86,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8125">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hero.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/hero.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -41,7 +139,7 @@
       <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.294118">
+            <state vertical-scroll-proportion="0.0">
               <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="49" />
               <folding />
             </state>
@@ -63,9 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2015_12_16_122709_create_material_material_activity_pivot_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_12_16_122721_create_material_material_pupil_task_pivot_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_12_16_122732_create_material_file_material_pivot_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_12_16_122709_create_material_material_activity_use_pivot_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_12_16_122656_create_material_material_language_focus_pivot_table.php" />
         <option value="$PROJECT_DIR$/app/MaterialLanguageFocus.php" />
@@ -95,15 +190,12 @@
         <option value="$PROJECT_DIR$/resources/views/material/edit_level.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/material/create_level.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/material/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/hero.blade.php" />
         <option value="$PROJECT_DIR$/app/Material.php" />
         <option value="$PROJECT_DIR$/resources/views/material/view.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/edit.blade.php" />
         <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/resources/assets/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/material/create_title.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/material/edit_title.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/material/create_times.blade.php" />
@@ -114,6 +206,12 @@
         <option value="$PROJECT_DIR$/resources/views/material/index.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$USER_HOME$/.homestead/Homestead.yaml" />
+        <option value="$PROJECT_DIR$/vendor/autoload.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/resources/views/partials/hero.blade.php" />
       </list>
     </option>
   </component>
@@ -162,6 +260,11 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files" />
+        <subPane subId="Tests" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -180,20 +283,175 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kartik-v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap-fileinput" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kartik-v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap-fileinput" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MaterialsShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files" />
-        <subPane subId="Tests" />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="css&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/assets/css/main.css&#10;vie&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/view.blade.php&#10;mat&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/Controllers/MaterialsController.php&#10;inde&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/index.blade.php&#10;mater&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Material.php&#10;mai&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/assets/css/main.css&#10;ma&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/Controllers/MaterialCategoryController.php&#10;ind&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/index.blade.php&#10;user&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/Controllers/Admin/UserController.php&#10;route&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;auth&#9;null&#9;null&#10;na&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/partials/nav.blade.php&#10;routes&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;edit&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/edit.blade.php&#10;rou&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;ro&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;rout&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;addl&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/add_level.blade.php&#10;cre&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/category/create.blade.php&#10;.env&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file://C:/Users/thinb/Desktop/Projects/MaterialsShare/resources/assets/css/main.css&#10;css&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/assets/css/main.css&#10;vie&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/view.blade.php&#10;mat&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/Controllers/MaterialsController.php&#10;inde&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/index.blade.php&#10;mater&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Material.php&#10;mai&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/assets/css/main.css&#10;ma&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/Controllers/MaterialCategoryController.php&#10;ind&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/index.blade.php&#10;user&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/Controllers/Admin/UserController.php&#10;route&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;auth&#9;null&#9;null&#10;na&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/partials/nav.blade.php&#10;routes&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;edit&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/edit.blade.php&#10;rou&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;ro&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;rout&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/app/Http/routes.php&#10;addl&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/material/add_level.blade.php&#10;cre&#9;FILE&#9;file://C:/Users/john/Code/materialsshare/resources/views/category/create.blade.php&#10;.env&#9;null&#9;null" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -201,11 +459,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\thinb\Desktop\Projects\MaterialsShare" />
       <recent name="C:\Users\john\Code\materialsshare\public\js" />
       <recent name="C:\Users\john\Code\materialsshare\resources\assets\js" />
       <recent name="C:\Users\john\Code\materialsshare\resources\views\layouts" />
       <recent name="C:\Users\john\Code\materialsshare\resources\views\material" />
-      <recent name="C:\Users\john\Code\materialsshare\app\Http\Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\john\Code\materialsshare\public\js" />
@@ -266,31 +524,37 @@
       <option name="project" value="LOCAL" />
       <updated>1452050788838</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="-removed debug bar">
+      <created>1452051764600</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1452051764600</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21858217" sideWeight="0.30080366" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21858217" sideWeight="0.69919634" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22180451" sideWeight="0.3065442" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22824919" sideWeight="0.6934558" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -307,63 +571,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="-removed debug bar" />
     <option name="LAST_COMMIT_MESSAGE" value="-removed debug bar" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/disqus.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.823529">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8201439">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/user_buttons.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.058823">
-          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.382353">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.647058">
@@ -497,13 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/hero.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Material.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -557,13 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.911764">
           <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -644,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/material/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4443128">
@@ -658,18 +856,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.homestead/Homestead.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50959235">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.764706">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.294118">
+        <state vertical-scroll-proportion="0.0">
           <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8125">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/hero.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding />
         </state>
       </provider>

@@ -10362,7 +10362,8 @@ if (typeof jQuery === 'undefined') {
 
 +function ($) {
   'use strict';
-  var version = $.fn.jquery.split(' ')[0].split('.')
+	var version = $.fn.jquery.split(' ')[0].split('.');
+	;
   if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] > 2)) {
     throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3')
   }
@@ -10384,14 +10385,16 @@ if (typeof jQuery === 'undefined') {
   // ============================================================
 
   function transitionEnd() {
-    var el = document.createElement('bootstrap')
+	  var el = document.createElement('bootstrap');
+	  ;
 
     var transEndEventNames = {
       WebkitTransition : 'webkitTransitionEnd',
       MozTransition    : 'transitionend',
       OTransition      : 'oTransitionEnd otransitionend',
       transition       : 'transitionend'
-    }
+	};
+	  ;
 
     for (var name in transEndEventNames) {
       if (el.style[name] !== undefined) {
@@ -10399,23 +10402,36 @@ if (typeof jQuery === 'undefined') {
       }
     }
 
-    return false // explicit for ie8 (  ._.)
+	  return false;
+	  ; // explicit for ie8 (  ._.)
   }
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false
-    var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-    setTimeout(callback, duration)
+	  var called = false;
+	  ;
+	  var $el = this;
+	  ;
+	  $(this).one('bsTransitionEnd', function () {
+		  called = true
+	  });
+	  ;
+	  var callback = function () {
+		  if (!called) $($el).trigger($.support.transition.end)
+	  };
+	  ;
+	  setTimeout(callback, duration);
+	  ;
     return this
-  }
+  };
+	;
 
   $(function () {
-    $.support.transition = transitionEnd()
+	  $.support.transition = transitionEnd();
+	  ;
 
-    if (!$.support.transition) return
+	  if (!$.support.transition) return;
+	  ;
 
     $.event.special.bsTransitionEnd = {
       bindType: $.support.transition.end,
@@ -10443,37 +10459,50 @@ if (typeof jQuery === 'undefined') {
   // ALERT CLASS DEFINITION
   // ======================
 
-  var dismiss = '[data-dismiss="alert"]'
+	var dismiss = '[data-dismiss="alert"]';
+	;
   var Alert   = function (el) {
     $(el).on('click', dismiss, this.close)
-  }
+  };
+	;
 
-  Alert.VERSION = '3.3.6'
+	Alert.VERSION = '3.3.6';
+	;
 
-  Alert.TRANSITION_DURATION = 150
+	Alert.TRANSITION_DURATION = 150;
+	;
 
   Alert.prototype.close = function (e) {
-    var $this    = $(this)
-    var selector = $this.attr('data-target')
+	  var $this = $(this);
+	  ;
+	  var selector = $this.attr('data-target');
+	  ;
 
     if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+		selector = $this.attr('href');
+		;
+		selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '');
+		; // strip for ie7
     }
 
-    var $parent = $(selector)
+	  var $parent = $(selector);
+	  ;
 
-    if (e) e.preventDefault()
+	  if (e) e.preventDefault();
+	  ;
 
     if (!$parent.length) {
       $parent = $this.closest('.alert')
     }
 
-    $parent.trigger(e = $.Event('close.bs.alert'))
+	  $parent.trigger(e = $.Event('close.bs.alert'));
+	  ;
 
-    if (e.isDefaultPrevented()) return
+	  if (e.isDefaultPrevented()) return;
+	  ;
 
-    $parent.removeClass('in')
+	  $parent.removeClass('in');
+	  ;
 
     function removeElement() {
       // detach from parent, fire event then clean up data
@@ -10485,7 +10514,8 @@ if (typeof jQuery === 'undefined') {
         .one('bsTransitionEnd', removeElement)
         .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
       removeElement()
-  }
+  };
+	;
 
 
   // ALERT PLUGIN DEFINITION
@@ -10493,27 +10523,35 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.alert')
+		var $this = $(this);
+		;
+		var data = $this.data('bs.alert');
+		;
 
-      if (!data) $this.data('bs.alert', (data = new Alert(this)))
+		if (!data) $this.data('bs.alert', (data = new Alert(this)));
+		;
       if (typeof option == 'string') data[option].call($this)
     })
   }
 
-  var old = $.fn.alert
+	var old = $.fn.alert;
+	;
 
-  $.fn.alert             = Plugin
-  $.fn.alert.Constructor = Alert
+	$.fn.alert = Plugin;
+	;
+	$.fn.alert.Constructor = Alert;
+	;
 
 
   // ALERT NO CONFLICT
   // =================
 
   $.fn.alert.noConflict = function () {
-    $.fn.alert = old
+	  $.fn.alert = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // ALERT DATA-API
@@ -10539,62 +10577,86 @@ if (typeof jQuery === 'undefined') {
   // ==============================
 
   var Button = function (element, options) {
-    this.$element  = $(element)
-    this.options   = $.extend({}, Button.DEFAULTS, options)
+	  this.$element = $(element);
+	  ;
+	  this.options = $.extend({}, Button.DEFAULTS, options);
+	  ;
     this.isLoading = false
-  }
+  };
+	;
 
-  Button.VERSION  = '3.3.6'
+	Button.VERSION = '3.3.6';
+	;
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
-  }
+  };
+	;
 
   Button.prototype.setState = function (state) {
-    var d    = 'disabled'
-    var $el  = this.$element
-    var val  = $el.is('input') ? 'val' : 'html'
-    var data = $el.data()
+	  var d = 'disabled';
+	  ;
+	  var $el = this.$element;
+	  ;
+	  var val = $el.is('input') ? 'val' : 'html';
+	  ;
+	  var data = $el.data();
+	  ;
 
-    state += 'Text'
+	  state += 'Text';
+	  ;
 
-    if (data.resetText == null) $el.data('resetText', $el[val]())
+	  if (data.resetText == null) $el.data('resetText', $el[val]());
+	  ;
 
     // push to event loop to allow forms to submit
     setTimeout($.proxy(function () {
-      $el[val](data[state] == null ? this.options[state] : data[state])
+		$el[val](data[state] == null ? this.options[state] : data[state]);
+		;
 
       if (state == 'loadingText') {
-        this.isLoading = true
+		  this.isLoading = true;
+		  ;
         $el.addClass(d).attr(d, d)
       } else if (this.isLoading) {
-        this.isLoading = false
+		  this.isLoading = false;
+		  ;
         $el.removeClass(d).removeAttr(d)
       }
     }, this), 0)
-  }
+  };
+	;
 
   Button.prototype.toggle = function () {
-    var changed = true
-    var $parent = this.$element.closest('[data-toggle="buttons"]')
+	  var changed = true;
+	  ;
+	  var $parent = this.$element.closest('[data-toggle="buttons"]');
+	  ;
 
     if ($parent.length) {
-      var $input = this.$element.find('input')
+		var $input = this.$element.find('input');
+		;
       if ($input.prop('type') == 'radio') {
-        if ($input.prop('checked')) changed = false
-        $parent.find('.active').removeClass('active')
+		  if ($input.prop('checked')) changed = false;
+		  ;
+		  $parent.find('.active').removeClass('active');
+		  ;
         this.$element.addClass('active')
       } else if ($input.prop('type') == 'checkbox') {
-        if (($input.prop('checked')) !== this.$element.hasClass('active')) changed = false
+		  if (($input.prop('checked')) !== this.$element.hasClass('active')) changed = false;
+		  ;
         this.$element.toggleClass('active')
       }
-      $input.prop('checked', this.$element.hasClass('active'))
+		$input.prop('checked', this.$element.hasClass('active'));
+		;
       if (changed) $input.trigger('change')
     } else {
-      this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
+		this.$element.attr('aria-pressed', !this.$element.hasClass('active'));
+		;
       this.$element.toggleClass('active')
     }
-  }
+  };
+	;
 
 
   // BUTTON PLUGIN DEFINITION
@@ -10602,30 +10664,40 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.button')
-      var options = typeof option == 'object' && option
+		var $this = $(this);
+		;
+		var data = $this.data('bs.button');
+		;
+		var options = typeof option == 'object' && option;
+		;
 
-      if (!data) $this.data('bs.button', (data = new Button(this, options)))
+		if (!data) $this.data('bs.button', (data = new Button(this, options)));
+		;
 
-      if (option == 'toggle') data.toggle()
+		if (option == 'toggle') data.toggle();
+		;
       else if (option) data.setState(option)
     })
   }
 
-  var old = $.fn.button
+	var old = $.fn.button;
+	;
 
-  $.fn.button             = Plugin
-  $.fn.button.Constructor = Button
+	$.fn.button = Plugin;
+	;
+	$.fn.button.Constructor = Button;
+	;
 
 
   // BUTTON NO CONFLICT
   // ==================
 
   $.fn.button.noConflict = function () {
-    $.fn.button = old
+	  $.fn.button = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // BUTTON DATA-API
@@ -10633,9 +10705,12 @@ if (typeof jQuery === 'undefined') {
 
   $(document)
     .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
-      var $btn = $(e.target)
-      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
-      Plugin.call($btn, 'toggle')
+		  var $btn = $(e.target);
+		  ;
+		  if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn');
+		  ;
+		  Plugin.call($btn, 'toggle');
+		  ;
       if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) e.preventDefault()
     })
     .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
@@ -10660,160 +10735,236 @@ if (typeof jQuery === 'undefined') {
   // =========================
 
   var Carousel = function (element, options) {
-    this.$element    = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
-    this.options     = options
-    this.paused      = null
-    this.sliding     = null
-    this.interval    = null
-    this.$active     = null
-    this.$items      = null
+	  this.$element = $(element);
+	  ;
+	  this.$indicators = this.$element.find('.carousel-indicators');
+	  ;
+	  this.options = options;
+	  ;
+	  this.paused = null;
+	  ;
+	  this.sliding = null;
+	  ;
+	  this.interval = null;
+	  ;
+	  this.$active = null;
+	  ;
+	  this.$items = null;
+	  ;
 
-    this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
+	  this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this));
+	  ;
 
     this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element
       .on('mouseenter.bs.carousel', $.proxy(this.pause, this))
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
-  }
+  };
+	;
 
-  Carousel.VERSION  = '3.3.6'
+	Carousel.VERSION = '3.3.6';
+	;
 
-  Carousel.TRANSITION_DURATION = 600
+	Carousel.TRANSITION_DURATION = 600;
+	;
 
   Carousel.DEFAULTS = {
     interval: 5000,
     pause: 'hover',
     wrap: true,
     keyboard: true
-  }
+  };
+	;
 
   Carousel.prototype.keydown = function (e) {
-    if (/input|textarea/i.test(e.target.tagName)) return
+	  if (/input|textarea/i.test(e.target.tagName)) return;
+	  ;
     switch (e.which) {
-      case 37: this.prev(); break
-      case 39: this.next(); break
+		case 37:
+			this.prev();
+			break;
+			;
+		case 39:
+			this.next();
+			break;
+			;
       default: return
     }
 
     e.preventDefault()
-  }
+  };
+	;
 
   Carousel.prototype.cycle = function (e) {
-    e || (this.paused = false)
+	  e || (this.paused = false);
+	  ;
 
-    this.interval && clearInterval(this.interval)
+	  this.interval && clearInterval(this.interval);
+	  ;
 
     this.options.interval
       && !this.paused
-      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+	&& (this.interval = setInterval($.proxy(this.next, this), this.options.interval));
+	  ;
 
     return this
-  }
+  };
+	;
 
   Carousel.prototype.getItemIndex = function (item) {
-    this.$items = item.parent().children('.item')
+	  this.$items = item.parent().children('.item');
+	  ;
     return this.$items.index(item || this.$active)
-  }
+  };
+	;
 
   Carousel.prototype.getItemForDirection = function (direction, active) {
-    var activeIndex = this.getItemIndex(active)
+	  var activeIndex = this.getItemIndex(active);
+	  ;
     var willWrap = (direction == 'prev' && activeIndex === 0)
-                || (direction == 'next' && activeIndex == (this.$items.length - 1))
-    if (willWrap && !this.options.wrap) return active
-    var delta = direction == 'prev' ? -1 : 1
-    var itemIndex = (activeIndex + delta) % this.$items.length
+		|| (direction == 'next' && activeIndex == (this.$items.length - 1));
+	  ;
+	  if (willWrap && !this.options.wrap) return active;
+	  ;
+	  var delta = direction == 'prev' ? -1 : 1;
+	  ;
+	  var itemIndex = (activeIndex + delta) % this.$items.length;
+	  ;
     return this.$items.eq(itemIndex)
-  }
+  };
+	;
 
   Carousel.prototype.to = function (pos) {
-    var that        = this
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
+	  var that = this;
+	  ;
+	  var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'));
+	  ;
 
-    if (pos > (this.$items.length - 1) || pos < 0) return
+	  if (pos > (this.$items.length - 1) || pos < 0) return;
+	  ;
 
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
-    if (activeIndex == pos) return this.pause().cycle()
+	  if (this.sliding)       return this.$element.one('slid.bs.carousel', function () {
+		  that.to(pos)
+	  });
+	  ; // yes, "slid"
+	  if (activeIndex == pos) return this.pause().cycle();
+	  ;
 
     return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))
-  }
+  };
+	;
 
   Carousel.prototype.pause = function (e) {
-    e || (this.paused = true)
+	  e || (this.paused = true);
+	  ;
 
     if (this.$element.find('.next, .prev').length && $.support.transition) {
-      this.$element.trigger($.support.transition.end)
+		this.$element.trigger($.support.transition.end);
+		;
       this.cycle(true)
     }
 
-    this.interval = clearInterval(this.interval)
+	  this.interval = clearInterval(this.interval);
+	  ;
 
     return this
-  }
+  };
+	;
 
   Carousel.prototype.next = function () {
-    if (this.sliding) return
+	  if (this.sliding) return;
+	  ;
     return this.slide('next')
-  }
+  };
+	;
 
   Carousel.prototype.prev = function () {
-    if (this.sliding) return
+	  if (this.sliding) return;
+	  ;
     return this.slide('prev')
-  }
+  };
+	;
 
   Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
-    var $next     = next || this.getItemForDirection(type, $active)
-    var isCycling = this.interval
-    var direction = type == 'next' ? 'left' : 'right'
-    var that      = this
+	  var $active = this.$element.find('.item.active');
+	  ;
+	  var $next = next || this.getItemForDirection(type, $active);
+	  ;
+	  var isCycling = this.interval;
+	  ;
+	  var direction = type == 'next' ? 'left' : 'right';
+	  ;
+	  var that = this;
+	  ;
 
-    if ($next.hasClass('active')) return (this.sliding = false)
+	  if ($next.hasClass('active')) return (this.sliding = false);
+	  ;
 
-    var relatedTarget = $next[0]
+	  var relatedTarget = $next[0];
+	  ;
     var slideEvent = $.Event('slide.bs.carousel', {
       relatedTarget: relatedTarget,
       direction: direction
-    })
-    this.$element.trigger(slideEvent)
-    if (slideEvent.isDefaultPrevented()) return
+	});
+	  ;
+	  this.$element.trigger(slideEvent);
+	  ;
+	  if (slideEvent.isDefaultPrevented()) return;
+	  ;
 
-    this.sliding = true
+	  this.sliding = true;
+	  ;
 
-    isCycling && this.pause()
+	  isCycling && this.pause();
+	  ;
 
     if (this.$indicators.length) {
-      this.$indicators.find('.active').removeClass('active')
-      var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])
+		this.$indicators.find('.active').removeClass('active');
+		;
+		var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)]);
+		;
       $nextIndicator && $nextIndicator.addClass('active')
     }
 
-    var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid"
+	  var slidEvent = $.Event('slid.bs.carousel', {relatedTarget: relatedTarget, direction: direction});
+	  ; // yes, "slid"
     if ($.support.transition && this.$element.hasClass('slide')) {
-      $next.addClass(type)
-      $next[0].offsetWidth // force reflow
-      $active.addClass(direction)
-      $next.addClass(direction)
+		$next.addClass(type);
+		;
+		$next[0].offsetWidth;
+		; // force reflow
+		$active.addClass(direction);
+		;
+		$next.addClass(direction);
+		;
       $active
         .one('bsTransitionEnd', function () {
-          $next.removeClass([type, direction].join(' ')).addClass('active')
-          $active.removeClass(['active', direction].join(' '))
-          that.sliding = false
+			  $next.removeClass([type, direction].join(' ')).addClass('active');
+			  ;
+			  $active.removeClass(['active', direction].join(' '));
+			  ;
+			  that.sliding = false;
+			  ;
           setTimeout(function () {
             that.$element.trigger(slidEvent)
           }, 0)
         })
         .emulateTransitionEnd(Carousel.TRANSITION_DURATION)
     } else {
-      $active.removeClass('active')
-      $next.addClass('active')
-      this.sliding = false
+		$active.removeClass('active');
+		;
+		$next.addClass('active');
+		;
+		this.sliding = false;
+		;
       this.$element.trigger(slidEvent)
     }
 
-    isCycling && this.cycle()
+	  isCycling && this.cycle();
+	  ;
 
     return this
-  }
+  };
+	;
 
 
   // CAROUSEL PLUGIN DEFINITION
@@ -10821,61 +10972,85 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.carousel')
-      var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.slide
+		var $this = $(this);
+		;
+		var data = $this.data('bs.carousel');
+		;
+		var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option);
+		;
+		var action = typeof option == 'string' ? option : options.slide;
+		;
 
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
-      if (typeof option == 'number') data.to(option)
-      else if (action) data[action]()
+		if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)));
+		;
+		if (typeof option == 'number') data.to(option);
+		;
+		else
+		if (action) data[action]();
+		;
       else if (options.interval) data.pause().cycle()
     })
   }
 
-  var old = $.fn.carousel
+	var old = $.fn.carousel;
+	;
 
-  $.fn.carousel             = Plugin
-  $.fn.carousel.Constructor = Carousel
+	$.fn.carousel = Plugin;
+	;
+	$.fn.carousel.Constructor = Carousel;
+	;
 
 
   // CAROUSEL NO CONFLICT
   // ====================
 
   $.fn.carousel.noConflict = function () {
-    $.fn.carousel = old
+	  $.fn.carousel = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // CAROUSEL DATA-API
   // =================
 
   var clickHandler = function (e) {
-    var href
-    var $this   = $(this)
-    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
-    if (!$target.hasClass('carousel')) return
-    var options = $.extend({}, $target.data(), $this.data())
-    var slideIndex = $this.attr('data-slide-to')
-    if (slideIndex) options.interval = false
+	  var href;
+	  ;
+	  var $this = $(this);
+	  ;
+	  var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''));
+	  ; // strip for ie7
+	  if (!$target.hasClass('carousel')) return;
+	  ;
+	  var options = $.extend({}, $target.data(), $this.data());
+	  ;
+	  var slideIndex = $this.attr('data-slide-to');
+	  ;
+	  if (slideIndex) options.interval = false;
+	  ;
 
-    Plugin.call($target, options)
+	  Plugin.call($target, options);
+	  ;
 
     if (slideIndex) {
       $target.data('bs.carousel').to(slideIndex)
     }
 
     e.preventDefault()
-  }
+  };
+	;
 
   $(document)
     .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)
-    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)
+	  .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler);
+	;
 
   $(window).on('load', function () {
     $('[data-ride="carousel"]').each(function () {
-      var $carousel = $(this)
+		var $carousel = $(this);
+		;
       Plugin.call($carousel, $carousel.data())
     })
   })
@@ -10898,11 +11073,15 @@ if (typeof jQuery === 'undefined') {
   // ================================
 
   var Collapse = function (element, options) {
-    this.$element      = $(element)
-    this.options       = $.extend({}, Collapse.DEFAULTS, options)
+	  this.$element = $(element);
+	  ;
+	  this.options = $.extend({}, Collapse.DEFAULTS, options);
+	  ;
     this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
-                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
-    this.transitioning = null
+		'[data-toggle="collapse"][data-target="#' + element.id + '"]');
+	  ;
+	  this.transitioning = null;
+	  ;
 
     if (this.options.parent) {
       this.$parent = this.getParent()
@@ -10911,137 +11090,182 @@ if (typeof jQuery === 'undefined') {
     }
 
     if (this.options.toggle) this.toggle()
-  }
+  };
+	;
 
-  Collapse.VERSION  = '3.3.6'
+	Collapse.VERSION = '3.3.6';
+	;
 
-  Collapse.TRANSITION_DURATION = 350
+	Collapse.TRANSITION_DURATION = 350;
+	;
 
   Collapse.DEFAULTS = {
     toggle: true
-  }
+  };
+	;
 
   Collapse.prototype.dimension = function () {
-    var hasWidth = this.$element.hasClass('width')
+	  var hasWidth = this.$element.hasClass('width');
+	  ;
     return hasWidth ? 'width' : 'height'
-  }
+  };
+	;
 
   Collapse.prototype.show = function () {
-    if (this.transitioning || this.$element.hasClass('in')) return
+	  if (this.transitioning || this.$element.hasClass('in')) return;
+	  ;
 
-    var activesData
-    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
+	  var activesData;
+	  ;
+	  var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing');
+	  ;
 
     if (actives && actives.length) {
-      activesData = actives.data('bs.collapse')
+		activesData = actives.data('bs.collapse');
+		;
       if (activesData && activesData.transitioning) return
     }
 
-    var startEvent = $.Event('show.bs.collapse')
-    this.$element.trigger(startEvent)
-    if (startEvent.isDefaultPrevented()) return
+	  var startEvent = $.Event('show.bs.collapse');
+	  ;
+	  this.$element.trigger(startEvent);
+	  ;
+	  if (startEvent.isDefaultPrevented()) return;
+	  ;
 
     if (actives && actives.length) {
-      Plugin.call(actives, 'hide')
+		Plugin.call(actives, 'hide');
+		;
       activesData || actives.data('bs.collapse', null)
     }
 
-    var dimension = this.dimension()
+	  var dimension = this.dimension();
+	  ;
 
     this.$element
       .removeClass('collapse')
       .addClass('collapsing')[dimension](0)
-      .attr('aria-expanded', true)
+		.attr('aria-expanded', true);
+	  ;
 
     this.$trigger
       .removeClass('collapsed')
-      .attr('aria-expanded', true)
+		.attr('aria-expanded', true);
+	  ;
 
-    this.transitioning = 1
+	  this.transitioning = 1;
+	  ;
 
     var complete = function () {
       this.$element
         .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('')
-      this.transitioning = 0
+		  .addClass('collapse in')[dimension]('');
+		;
+		this.transitioning = 0;
+		;
       this.$element
         .trigger('shown.bs.collapse')
-    }
+	};
+	  ;
 
-    if (!$.support.transition) return complete.call(this)
+	  if (!$.support.transition) return complete.call(this);
+	  ;
 
-    var scrollSize = $.camelCase(['scroll', dimension].join('-'))
+	  var scrollSize = $.camelCase(['scroll', dimension].join('-'));
+	  ;
 
     this.$element
       .one('bsTransitionEnd', $.proxy(complete, this))
       .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
-  }
+  };
+	;
 
   Collapse.prototype.hide = function () {
-    if (this.transitioning || !this.$element.hasClass('in')) return
+	  if (this.transitioning || !this.$element.hasClass('in')) return;
+	  ;
 
-    var startEvent = $.Event('hide.bs.collapse')
-    this.$element.trigger(startEvent)
-    if (startEvent.isDefaultPrevented()) return
+	  var startEvent = $.Event('hide.bs.collapse');
+	  ;
+	  this.$element.trigger(startEvent);
+	  ;
+	  if (startEvent.isDefaultPrevented()) return;
+	  ;
 
-    var dimension = this.dimension()
+	  var dimension = this.dimension();
+	  ;
 
-    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
+	  this.$element[dimension](this.$element[dimension]())[0].offsetHeight;
+	  ;
 
     this.$element
       .addClass('collapsing')
       .removeClass('collapse in')
-      .attr('aria-expanded', false)
+		.attr('aria-expanded', false);
+	  ;
 
     this.$trigger
       .addClass('collapsed')
-      .attr('aria-expanded', false)
+		.attr('aria-expanded', false);
+	  ;
 
-    this.transitioning = 1
+	  this.transitioning = 1;
+	  ;
 
     var complete = function () {
-      this.transitioning = 0
+		this.transitioning = 0;
+		;
       this.$element
         .removeClass('collapsing')
         .addClass('collapse')
         .trigger('hidden.bs.collapse')
-    }
+	};
+	  ;
 
-    if (!$.support.transition) return complete.call(this)
+	  if (!$.support.transition) return complete.call(this);
+	  ;
 
     this.$element
       [dimension](0)
       .one('bsTransitionEnd', $.proxy(complete, this))
       .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
-  }
+  };
+	;
 
   Collapse.prototype.toggle = function () {
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
-  }
+  };
+	;
 
   Collapse.prototype.getParent = function () {
     return $(this.options.parent)
       .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
       .each($.proxy(function (i, element) {
-        var $element = $(element)
+			var $element = $(element);
+			;
         this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
       }, this))
       .end()
-  }
+  };
+	;
 
   Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
-    var isOpen = $element.hasClass('in')
+	  var isOpen = $element.hasClass('in');
+	  ;
 
-    $element.attr('aria-expanded', isOpen)
+	  $element.attr('aria-expanded', isOpen);
+	  ;
     $trigger
       .toggleClass('collapsed', !isOpen)
       .attr('aria-expanded', isOpen)
-  }
+  };
+	;
 
   function getTargetFromTrigger($trigger) {
-    var href
+	  var href;
+	  ;
     var target = $trigger.attr('data-target')
-      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+		|| (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
+	  ; // strip for ie7
 
     return $(target)
   }
@@ -11052,42 +11276,57 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.collapse')
-      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
+		var $this = $(this);
+		;
+		var data = $this.data('bs.collapse');
+		;
+		var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option);
+		;
 
-      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
-      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+		if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false;
+		;
+		if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)));
+		;
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.collapse
+	var old = $.fn.collapse;
+	;
 
-  $.fn.collapse             = Plugin
-  $.fn.collapse.Constructor = Collapse
+	$.fn.collapse = Plugin;
+	;
+	$.fn.collapse.Constructor = Collapse;
+	;
 
 
   // COLLAPSE NO CONFLICT
   // ====================
 
   $.fn.collapse.noConflict = function () {
-    $.fn.collapse = old
+	  $.fn.collapse = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // COLLAPSE DATA-API
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
-    var $this   = $(this)
+	  var $this = $(this);
+	  ;
 
-    if (!$this.attr('data-target')) e.preventDefault()
+	  if (!$this.attr('data-target')) e.preventDefault();
+	  ;
 
-    var $target = getTargetFromTrigger($this)
-    var data    = $target.data('bs.collapse')
-    var option  = data ? 'toggle' : $this.data()
+	  var $target = getTargetFromTrigger($this);
+	  ;
+	  var data = $target.data('bs.collapse');
+	  ;
+	  var option = data ? 'toggle' : $this.data();
+	  ;
 
     Plugin.call($target, option)
   })
@@ -11109,57 +11348,80 @@ if (typeof jQuery === 'undefined') {
   // DROPDOWN CLASS DEFINITION
   // =========================
 
-  var backdrop = '.dropdown-backdrop'
-  var toggle   = '[data-toggle="dropdown"]'
+	var backdrop = '.dropdown-backdrop';
+	;
+	var toggle = '[data-toggle="dropdown"]';
+	;
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
-  }
+  };
+	;
 
-  Dropdown.VERSION = '3.3.6'
+	Dropdown.VERSION = '3.3.6';
+	;
 
   function getParent($this) {
-    var selector = $this.attr('data-target')
+	  var selector = $this.attr('data-target');
+	  ;
 
     if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+		selector = $this.attr('href');
+		;
+		selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '');
+		; // strip for ie7
     }
 
-    var $parent = selector && $(selector)
+	  var $parent = selector && $(selector);
+	  ;
 
     return $parent && $parent.length ? $parent : $this.parent()
   }
 
   function clearMenus(e) {
-    if (e && e.which === 3) return
-    $(backdrop).remove()
+	  if (e && e.which === 3) return;
+	  ;
+	  $(backdrop).remove();
+	  ;
     $(toggle).each(function () {
-      var $this         = $(this)
-      var $parent       = getParent($this)
-      var relatedTarget = { relatedTarget: this }
+		var $this = $(this);
+		;
+		var $parent = getParent($this);
+		;
+		var relatedTarget = {relatedTarget: this};
+		;
 
-      if (!$parent.hasClass('open')) return
+		if (!$parent.hasClass('open')) return;
+		;
 
-      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+		if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return;
+		;
 
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+		$parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget));
+		;
 
-      if (e.isDefaultPrevented()) return
+		if (e.isDefaultPrevented()) return;
+		;
 
-      $this.attr('aria-expanded', 'false')
+		$this.attr('aria-expanded', 'false');
+		;
       $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
     })
   }
 
   Dropdown.prototype.toggle = function (e) {
-    var $this = $(this)
+	  var $this = $(this);
+	  ;
 
-    if ($this.is('.disabled, :disabled')) return
+	  if ($this.is('.disabled, :disabled')) return;
+	  ;
 
-    var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+	  var $parent = getParent($this);
+	  ;
+	  var isActive = $parent.hasClass('open');
+	  ;
 
-    clearMenus()
+	  clearMenus();
+	  ;
 
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
@@ -11170,14 +11432,18 @@ if (typeof jQuery === 'undefined') {
           .on('click', clearMenus)
       }
 
-      var relatedTarget = { relatedTarget: this }
-      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+		var relatedTarget = {relatedTarget: this};
+		;
+		$parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget));
+		;
 
-      if (e.isDefaultPrevented()) return
+		if (e.isDefaultPrevented()) return;
+		;
 
       $this
         .trigger('focus')
-        .attr('aria-expanded', 'true')
+		  .attr('aria-expanded', 'true');
+		;
 
       $parent
         .toggleClass('open')
@@ -11185,39 +11451,56 @@ if (typeof jQuery === 'undefined') {
     }
 
     return false
-  }
+  };
+	;
 
   Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+	  if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return;
+	  ;
 
-    var $this = $(this)
+	  var $this = $(this);
+	  ;
 
-    e.preventDefault()
-    e.stopPropagation()
+	  e.preventDefault();
+	  ;
+	  e.stopPropagation();
+	  ;
 
-    if ($this.is('.disabled, :disabled')) return
+	  if ($this.is('.disabled, :disabled')) return;
+	  ;
 
-    var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+	  var $parent = getParent($this);
+	  ;
+	  var isActive = $parent.hasClass('open');
+	  ;
 
     if (!isActive && e.which != 27 || isActive && e.which == 27) {
-      if (e.which == 27) $parent.find(toggle).trigger('focus')
+		if (e.which == 27) $parent.find(toggle).trigger('focus');
+		;
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.disabled):visible a'
-    var $items = $parent.find('.dropdown-menu' + desc)
+	  var desc = ' li:not(.disabled):visible a';
+	  ;
+	  var $items = $parent.find('.dropdown-menu' + desc);
+	  ;
 
-    if (!$items.length) return
+	  if (!$items.length) return;
+	  ;
 
-    var index = $items.index(e.target)
+	  var index = $items.index(e.target);
+	  ;
 
-    if (e.which == 38 && index > 0)                 index--         // up
-    if (e.which == 40 && index < $items.length - 1) index++         // down
-    if (!~index)                                    index = 0
+	  if (e.which == 38 && index > 0)                 index--;
+	  ;         // up
+	  if (e.which == 40 && index < $items.length - 1) index++;
+	  ;         // down
+	  if (!~index)                                    index = 0;
+	  ;
 
     $items.eq(index).trigger('focus')
-  }
+  };
+	;
 
 
   // DROPDOWN PLUGIN DEFINITION
@@ -11225,27 +11508,35 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.dropdown')
+		var $this = $(this);
+		;
+		var data = $this.data('bs.dropdown');
+		;
 
-      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+		if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)));
+		;
       if (typeof option == 'string') data[option].call($this)
     })
   }
 
-  var old = $.fn.dropdown
+	var old = $.fn.dropdown;
+	;
 
-  $.fn.dropdown             = Plugin
-  $.fn.dropdown.Constructor = Dropdown
+	$.fn.dropdown = Plugin;
+	;
+	$.fn.dropdown.Constructor = Dropdown;
+	;
 
 
   // DROPDOWN NO CONFLICT
   // ====================
 
   $.fn.dropdown.noConflict = function () {
-    $.fn.dropdown = old
+	  $.fn.dropdown = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
@@ -11276,15 +11567,24 @@ if (typeof jQuery === 'undefined') {
   // ======================
 
   var Modal = function (element, options) {
-    this.options             = options
-    this.$body               = $(document.body)
-    this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
-    this.$backdrop           = null
-    this.isShown             = null
-    this.originalBodyPad     = null
-    this.scrollbarWidth      = 0
-    this.ignoreBackdropClick = false
+	  this.options = options;
+	  ;
+	  this.$body = $(document.body);
+	  ;
+	  this.$element = $(element);
+	  ;
+	  this.$dialog = this.$element.find('.modal-dialog');
+	  ;
+	  this.$backdrop = null;
+	  ;
+	  this.isShown = null;
+	  ;
+	  this.originalBodyPad = null;
+	  ;
+	  this.scrollbarWidth = 0;
+	  ;
+	  this.ignoreBackdropClick = false;
+	  ;
 
     if (this.options.remote) {
       this.$element
@@ -11293,70 +11593,96 @@ if (typeof jQuery === 'undefined') {
           this.$element.trigger('loaded.bs.modal')
         }, this))
     }
-  }
+  };
+	;
 
-  Modal.VERSION  = '3.3.6'
+	Modal.VERSION = '3.3.6';
+	;
 
-  Modal.TRANSITION_DURATION = 300
-  Modal.BACKDROP_TRANSITION_DURATION = 150
+	Modal.TRANSITION_DURATION = 300;
+	;
+	Modal.BACKDROP_TRANSITION_DURATION = 150;
+	;
 
   Modal.DEFAULTS = {
     backdrop: true,
     keyboard: true,
     show: true
-  }
+  };
+	;
 
   Modal.prototype.toggle = function (_relatedTarget) {
     return this.isShown ? this.hide() : this.show(_relatedTarget)
-  }
+  };
+	;
 
   Modal.prototype.show = function (_relatedTarget) {
-    var that = this
-    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
+	  var that = this;
+	  ;
+	  var e = $.Event('show.bs.modal', {relatedTarget: _relatedTarget});
+	  ;
 
-    this.$element.trigger(e)
+	  this.$element.trigger(e);
+	  ;
 
-    if (this.isShown || e.isDefaultPrevented()) return
+	  if (this.isShown || e.isDefaultPrevented()) return;
+	  ;
 
-    this.isShown = true
+	  this.isShown = true;
+	  ;
 
-    this.checkScrollbar()
-    this.setScrollbar()
-    this.$body.addClass('modal-open')
+	  this.checkScrollbar();
+	  ;
+	  this.setScrollbar();
+	  ;
+	  this.$body.addClass('modal-open');
+	  ;
 
-    this.escape()
-    this.resize()
+	  this.escape();
+	  ;
+	  this.resize();
+	  ;
 
-    this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
+	  this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this));
+	  ;
 
     this.$dialog.on('mousedown.dismiss.bs.modal', function () {
       that.$element.one('mouseup.dismiss.bs.modal', function (e) {
         if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
       })
-    })
+	});
+	  ;
 
     this.backdrop(function () {
-      var transition = $.support.transition && that.$element.hasClass('fade')
+		var transition = $.support.transition && that.$element.hasClass('fade');
+		;
 
       if (!that.$element.parent().length) {
-        that.$element.appendTo(that.$body) // don't move modals dom position
+		  that.$element.appendTo(that.$body);
+		  ; // don't move modals dom position
       }
 
       that.$element
         .show()
-        .scrollTop(0)
+		  .scrollTop(0);
+		;
 
-      that.adjustDialog()
+		that.adjustDialog();
+		;
 
       if (transition) {
-        that.$element[0].offsetWidth // force reflow
+		  that.$element[0].offsetWidth;
+		  ; // force reflow
       }
 
-      that.$element.addClass('in')
+		that.$element.addClass('in');
+		;
 
-      that.enforceFocus()
+		that.enforceFocus();
+		;
 
-      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
+		var e = $.Event('shown.bs.modal', {relatedTarget: _relatedTarget});
+		;
 
       transition ?
         that.$dialog // wait for modal to slide in
@@ -11366,37 +11692,49 @@ if (typeof jQuery === 'undefined') {
           .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
         that.$element.trigger('focus').trigger(e)
     })
-  }
+  };
+	;
 
   Modal.prototype.hide = function (e) {
-    if (e) e.preventDefault()
+	  if (e) e.preventDefault();
+	  ;
 
-    e = $.Event('hide.bs.modal')
+	  e = $.Event('hide.bs.modal');
+	  ;
 
-    this.$element.trigger(e)
+	  this.$element.trigger(e);
+	  ;
 
-    if (!this.isShown || e.isDefaultPrevented()) return
+	  if (!this.isShown || e.isDefaultPrevented()) return;
+	  ;
 
-    this.isShown = false
+	  this.isShown = false;
+	  ;
 
-    this.escape()
-    this.resize()
+	  this.escape();
+	  ;
+	  this.resize();
+	  ;
 
-    $(document).off('focusin.bs.modal')
+	  $(document).off('focusin.bs.modal');
+	  ;
 
     this.$element
       .removeClass('in')
       .off('click.dismiss.bs.modal')
-      .off('mouseup.dismiss.bs.modal')
+		.off('mouseup.dismiss.bs.modal');
+	  ;
 
-    this.$dialog.off('mousedown.dismiss.bs.modal')
+	  this.$dialog.off('mousedown.dismiss.bs.modal');
+	  ;
 
     $.support.transition && this.$element.hasClass('fade') ?
       this.$element
         .one('bsTransitionEnd', $.proxy(this.hideModal, this))
         .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
       this.hideModal()
-  }
+  };
+	;
 
   Modal.prototype.enforceFocus = function () {
     $(document)
@@ -11406,7 +11744,8 @@ if (typeof jQuery === 'undefined') {
           this.$element.trigger('focus')
         }
       }, this))
-  }
+  };
+	;
 
   Modal.prototype.escape = function () {
     if (this.isShown && this.options.keyboard) {
@@ -11416,7 +11755,8 @@ if (typeof jQuery === 'undefined') {
     } else if (!this.isShown) {
       this.$element.off('keydown.dismiss.bs.modal')
     }
-  }
+  };
+	;
 
   Modal.prototype.resize = function () {
     if (this.isShown) {
@@ -11424,51 +11764,70 @@ if (typeof jQuery === 'undefined') {
     } else {
       $(window).off('resize.bs.modal')
     }
-  }
+  };
+	;
 
   Modal.prototype.hideModal = function () {
-    var that = this
-    this.$element.hide()
+	  var that = this;
+	  ;
+	  this.$element.hide();
+	  ;
     this.backdrop(function () {
-      that.$body.removeClass('modal-open')
-      that.resetAdjustments()
-      that.resetScrollbar()
+		that.$body.removeClass('modal-open');
+		;
+		that.resetAdjustments();
+		;
+		that.resetScrollbar();
+		;
       that.$element.trigger('hidden.bs.modal')
     })
-  }
+  };
+	;
 
   Modal.prototype.removeBackdrop = function () {
-    this.$backdrop && this.$backdrop.remove()
+	  this.$backdrop && this.$backdrop.remove();
+	  ;
     this.$backdrop = null
-  }
+  };
+	;
 
   Modal.prototype.backdrop = function (callback) {
-    var that = this
-    var animate = this.$element.hasClass('fade') ? 'fade' : ''
+	  var that = this;
+	  ;
+	  var animate = this.$element.hasClass('fade') ? 'fade' : '';
+	  ;
 
     if (this.isShown && this.options.backdrop) {
-      var doAnimate = $.support.transition && animate
+		var doAnimate = $.support.transition && animate;
+		;
 
       this.$backdrop = $(document.createElement('div'))
         .addClass('modal-backdrop ' + animate)
-        .appendTo(this.$body)
+		  .appendTo(this.$body);
+		;
 
       this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
         if (this.ignoreBackdropClick) {
-          this.ignoreBackdropClick = false
+			this.ignoreBackdropClick = false;
+			;
           return
         }
-        if (e.target !== e.currentTarget) return
+		  if (e.target !== e.currentTarget) return;
+		  ;
         this.options.backdrop == 'static'
           ? this.$element[0].focus()
           : this.hide()
-      }, this))
+	  }, this));
+		;
 
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+		if (doAnimate) this.$backdrop[0].offsetWidth;
+		; // force reflow
 
-      this.$backdrop.addClass('in')
+		this.$backdrop.addClass('in');
+		;
 
-      if (!callback) return
+		if (!callback) return;
+		;
 
       doAnimate ?
         this.$backdrop
@@ -11477,12 +11836,15 @@ if (typeof jQuery === 'undefined') {
         callback()
 
     } else if (!this.isShown && this.$backdrop) {
-      this.$backdrop.removeClass('in')
+		this.$backdrop.removeClass('in');
+		;
 
       var callbackRemove = function () {
-        that.removeBackdrop()
+		  that.removeBackdrop();
+		  ;
         callback && callback()
-      }
+	  };
+		;
       $.support.transition && this.$element.hasClass('fade') ?
         this.$backdrop
           .one('bsTransitionEnd', callbackRemove)
@@ -11492,58 +11854,77 @@ if (typeof jQuery === 'undefined') {
     } else if (callback) {
       callback()
     }
-  }
+  };
+	;
 
   // these following methods are used to handle overflowing modals
 
   Modal.prototype.handleUpdate = function () {
     this.adjustDialog()
-  }
+  };
+	;
 
   Modal.prototype.adjustDialog = function () {
-    var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight
+	  var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight;
+	  ;
 
     this.$element.css({
       paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
       paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''
     })
-  }
+  };
+	;
 
   Modal.prototype.resetAdjustments = function () {
     this.$element.css({
       paddingLeft: '',
       paddingRight: ''
     })
-  }
+  };
+	;
 
   Modal.prototype.checkScrollbar = function () {
-    var fullWindowWidth = window.innerWidth
+	  var fullWindowWidth = window.innerWidth;
+	  ;
     if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
-      var documentElementRect = document.documentElement.getBoundingClientRect()
+		var documentElementRect = document.documentElement.getBoundingClientRect();
+		;
       fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
     }
-    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
+	  this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth;
+	  ;
     this.scrollbarWidth = this.measureScrollbar()
-  }
+  };
+	;
 
   Modal.prototype.setScrollbar = function () {
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-    this.originalBodyPad = document.body.style.paddingRight || ''
+	  var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10);
+	  ;
+	  this.originalBodyPad = document.body.style.paddingRight || '';
+	  ;
     if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
-  }
+  };
+	;
 
   Modal.prototype.resetScrollbar = function () {
     this.$body.css('padding-right', this.originalBodyPad)
-  }
+  };
+	;
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
-    var scrollDiv = document.createElement('div')
-    scrollDiv.className = 'modal-scrollbar-measure'
-    this.$body.append(scrollDiv)
-    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-    this.$body[0].removeChild(scrollDiv)
+	  var scrollDiv = document.createElement('div');
+	  ;
+	  scrollDiv.className = 'modal-scrollbar-measure';
+	  ;
+	  this.$body.append(scrollDiv);
+	  ;
+	  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+	  ;
+	  this.$body[0].removeChild(scrollDiv);
+	  ;
     return scrollbarWidth
-  }
+  };
+	;
 
 
   // MODAL PLUGIN DEFINITION
@@ -11551,48 +11932,65 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option, _relatedTarget) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.modal')
-      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
+		var $this = $(this);
+		;
+		var data = $this.data('bs.modal');
+		;
+		var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option);
+		;
 
-      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-      if (typeof option == 'string') data[option](_relatedTarget)
+		if (!data) $this.data('bs.modal', (data = new Modal(this, options)));
+		;
+		if (typeof option == 'string') data[option](_relatedTarget);
+		;
       else if (options.show) data.show(_relatedTarget)
     })
   }
 
-  var old = $.fn.modal
+	var old = $.fn.modal;
+	;
 
-  $.fn.modal             = Plugin
-  $.fn.modal.Constructor = Modal
+	$.fn.modal = Plugin;
+	;
+	$.fn.modal.Constructor = Modal;
+	;
 
 
   // MODAL NO CONFLICT
   // =================
 
   $.fn.modal.noConflict = function () {
-    $.fn.modal = old
+	  $.fn.modal = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // MODAL DATA-API
   // ==============
 
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
-    var $this   = $(this)
-    var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
-    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+	  var $this = $(this);
+	  ;
+	  var href = $this.attr('href');
+	  ;
+	  var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, '')));
+	  ; // strip for ie7
+	  var option = $target.data('bs.modal') ? 'toggle' : $.extend({remote: !/#/.test(href) && href}, $target.data(), $this.data());
+	  ;
 
-    if ($this.is('a')) e.preventDefault()
+	  if ($this.is('a')) e.preventDefault();
+	  ;
 
     $target.one('show.bs.modal', function (showEvent) {
-      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
+		if (showEvent.isDefaultPrevented()) return;
+		; // only register focus restorer if modal will actually get shown
       $target.one('hidden.bs.modal', function () {
         $this.is(':visible') && $this.trigger('focus')
       })
-    })
+	});
+	  ;
     Plugin.call($target, option, this)
   })
 
@@ -11615,20 +12013,30 @@ if (typeof jQuery === 'undefined') {
   // ===============================
 
   var Tooltip = function (element, options) {
-    this.type       = null
-    this.options    = null
-    this.enabled    = null
-    this.timeout    = null
-    this.hoverState = null
-    this.$element   = null
-    this.inState    = null
+	  this.type = null;
+	  ;
+	  this.options = null;
+	  ;
+	  this.enabled = null;
+	  ;
+	  this.timeout = null;
+	  ;
+	  this.hoverState = null;
+	  ;
+	  this.$element = null;
+	  ;
+	  this.inState = null;
+	  ;
 
     this.init('tooltip', element, options)
-  }
+  };
+	;
 
-  Tooltip.VERSION  = '3.3.6'
+	Tooltip.VERSION = '3.3.6';
+	;
 
-  Tooltip.TRANSITION_DURATION = 150
+	Tooltip.TRANSITION_DURATION = 150;
+	;
 
   Tooltip.DEFAULTS = {
     animation: true,
@@ -11644,32 +12052,44 @@ if (typeof jQuery === 'undefined') {
       selector: 'body',
       padding: 0
     }
-  }
+  };
+	;
 
   Tooltip.prototype.init = function (type, element, options) {
-    this.enabled   = true
-    this.type      = type
-    this.$element  = $(element)
-    this.options   = this.getOptions(options)
-    this.$viewport = this.options.viewport && $($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
-    this.inState   = { click: false, hover: false, focus: false }
+	  this.enabled = true;
+	  ;
+	  this.type = type;
+	  ;
+	  this.$element = $(element);
+	  ;
+	  this.options = this.getOptions(options);
+	  ;
+	  this.$viewport = this.options.viewport && $($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport));
+	  ;
+	  this.inState = {click: false, hover: false, focus: false};
+	  ;
 
     if (this.$element[0] instanceof document.constructor && !this.options.selector) {
       throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
     }
 
-    var triggers = this.options.trigger.split(' ')
+	  var triggers = this.options.trigger.split(' ');
+	  ;
 
     for (var i = triggers.length; i--;) {
-      var trigger = triggers[i]
+		var trigger = triggers[i];
+		;
 
       if (trigger == 'click') {
         this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
       } else if (trigger != 'manual') {
-        var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'
-        var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'
+		  var eventIn = trigger == 'hover' ? 'mouseenter' : 'focusin';
+		  ;
+		  var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout';
+		  ;
 
-        this.$element.on(eventIn  + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
+		  this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this));
+		  ;
         this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
       }
     }
@@ -11677,14 +12097,17 @@ if (typeof jQuery === 'undefined') {
     this.options.selector ?
       (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
       this.fixTitle()
-  }
+  };
+	;
 
   Tooltip.prototype.getDefaults = function () {
     return Tooltip.DEFAULTS
-  }
+  };
+	;
 
   Tooltip.prototype.getOptions = function (options) {
-    options = $.extend({}, this.getDefaults(), this.$element.data(), options)
+	  options = $.extend({}, this.getDefaults(), this.$element.data(), options);
+	  ;
 
     if (options.delay && typeof options.delay == 'number') {
       options.delay = {
@@ -11694,25 +12117,32 @@ if (typeof jQuery === 'undefined') {
     }
 
     return options
-  }
+  };
+	;
 
   Tooltip.prototype.getDelegateOptions = function () {
-    var options  = {}
-    var defaults = this.getDefaults()
+	  var options = {};
+	  ;
+	  var defaults = this.getDefaults();
+	  ;
 
     this._options && $.each(this._options, function (key, value) {
       if (defaults[key] != value) options[key] = value
-    })
+	});
+	  ;
 
     return options
-  }
+  };
+	;
 
   Tooltip.prototype.enter = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget).data('bs.' + this.type)
+		obj : $(obj.currentTarget).data('bs.' + this.type);
+	  ;
 
     if (!self) {
-      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
+		self = new this.constructor(obj.currentTarget, this.getDelegateOptions());
+		;
       $(obj.currentTarget).data('bs.' + this.type, self)
     }
 
@@ -11721,20 +12151,25 @@ if (typeof jQuery === 'undefined') {
     }
 
     if (self.tip().hasClass('in') || self.hoverState == 'in') {
-      self.hoverState = 'in'
+		self.hoverState = 'in';
+		;
       return
     }
 
-    clearTimeout(self.timeout)
+	  clearTimeout(self.timeout);
+	  ;
 
-    self.hoverState = 'in'
+	  self.hoverState = 'in';
+	  ;
 
-    if (!self.options.delay || !self.options.delay.show) return self.show()
+	  if (!self.options.delay || !self.options.delay.show) return self.show();
+	  ;
 
     self.timeout = setTimeout(function () {
       if (self.hoverState == 'in') self.show()
     }, self.options.delay.show)
-  }
+  };
+	;
 
   Tooltip.prototype.isInStateTrue = function () {
     for (var key in this.inState) {
@@ -11742,14 +12177,17 @@ if (typeof jQuery === 'undefined') {
     }
 
     return false
-  }
+  };
+	;
 
   Tooltip.prototype.leave = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget).data('bs.' + this.type)
+		obj : $(obj.currentTarget).data('bs.' + this.type);
+	  ;
 
     if (!self) {
-      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
+		self = new this.constructor(obj.currentTarget, this.getDelegateOptions());
+		;
       $(obj.currentTarget).data('bs.' + this.type, self)
     }
 
@@ -11757,86 +12195,121 @@ if (typeof jQuery === 'undefined') {
       self.inState[obj.type == 'focusout' ? 'focus' : 'hover'] = false
     }
 
-    if (self.isInStateTrue()) return
+	  if (self.isInStateTrue()) return;
+	  ;
 
-    clearTimeout(self.timeout)
+	  clearTimeout(self.timeout);
+	  ;
 
-    self.hoverState = 'out'
+	  self.hoverState = 'out';
+	  ;
 
-    if (!self.options.delay || !self.options.delay.hide) return self.hide()
+	  if (!self.options.delay || !self.options.delay.hide) return self.hide();
+	  ;
 
     self.timeout = setTimeout(function () {
       if (self.hoverState == 'out') self.hide()
     }, self.options.delay.hide)
-  }
+  };
+	;
 
   Tooltip.prototype.show = function () {
-    var e = $.Event('show.bs.' + this.type)
+	  var e = $.Event('show.bs.' + this.type);
+	  ;
 
     if (this.hasContent() && this.enabled) {
-      this.$element.trigger(e)
+		this.$element.trigger(e);
+		;
 
-      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0])
-      if (e.isDefaultPrevented() || !inDom) return
-      var that = this
+		var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0]);
+		;
+		if (e.isDefaultPrevented() || !inDom) return;
+		;
+		var that = this;
+		;
 
-      var $tip = this.tip()
+		var $tip = this.tip();
+		;
 
-      var tipId = this.getUID(this.type)
+		var tipId = this.getUID(this.type);
+		;
 
-      this.setContent()
-      $tip.attr('id', tipId)
-      this.$element.attr('aria-describedby', tipId)
+		this.setContent();
+		;
+		$tip.attr('id', tipId);
+		;
+		this.$element.attr('aria-describedby', tipId);
+		;
 
-      if (this.options.animation) $tip.addClass('fade')
+		if (this.options.animation) $tip.addClass('fade');
+		;
 
       var placement = typeof this.options.placement == 'function' ?
         this.options.placement.call(this, $tip[0], this.$element[0]) :
-        this.options.placement
+		  this.options.placement;
+		;
 
-      var autoToken = /\s?auto?\s?/i
-      var autoPlace = autoToken.test(placement)
-      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'
+		var autoToken = /\s?auto?\s?/i;
+		;
+		var autoPlace = autoToken.test(placement);
+		;
+		if (autoPlace) placement = placement.replace(autoToken, '') || 'top';
+		;
 
       $tip
         .detach()
         .css({ top: 0, left: 0, display: 'block' })
         .addClass(placement)
-        .data('bs.' + this.type, this)
+		  .data('bs.' + this.type, this);
+		;
 
-      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
-      this.$element.trigger('inserted.bs.' + this.type)
+		this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element);
+		;
+		this.$element.trigger('inserted.bs.' + this.type);
+		;
 
-      var pos          = this.getPosition()
-      var actualWidth  = $tip[0].offsetWidth
-      var actualHeight = $tip[0].offsetHeight
+		var pos = this.getPosition();
+		;
+		var actualWidth = $tip[0].offsetWidth;
+		;
+		var actualHeight = $tip[0].offsetHeight;
+		;
 
       if (autoPlace) {
-        var orgPlacement = placement
-        var viewportDim = this.getPosition(this.$viewport)
+		  var orgPlacement = placement;
+		  ;
+		  var viewportDim = this.getPosition(this.$viewport);
+		  ;
 
         placement = placement == 'bottom' && pos.bottom + actualHeight > viewportDim.bottom ? 'top'    :
                     placement == 'top'    && pos.top    - actualHeight < viewportDim.top    ? 'bottom' :
                     placement == 'right'  && pos.right  + actualWidth  > viewportDim.width  ? 'left'   :
                     placement == 'left'   && pos.left   - actualWidth  < viewportDim.left   ? 'right'  :
-                    placement
+						placement;
+		  ;
 
         $tip
           .removeClass(orgPlacement)
           .addClass(placement)
       }
 
-      var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)
+		var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight);
+		;
 
-      this.applyPlacement(calculatedOffset, placement)
+		this.applyPlacement(calculatedOffset, placement);
+		;
 
       var complete = function () {
-        var prevHoverState = that.hoverState
-        that.$element.trigger('shown.bs.' + that.type)
-        that.hoverState = null
+		  var prevHoverState = that.hoverState;
+		  ;
+		  that.$element.trigger('shown.bs.' + that.type);
+		  ;
+		  that.hoverState = null;
+		  ;
 
         if (prevHoverState == 'out') that.leave(that)
-      }
+	  };
+		;
 
       $.support.transition && this.$tip.hasClass('fade') ?
         $tip
@@ -11844,23 +12317,33 @@ if (typeof jQuery === 'undefined') {
           .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
         complete()
     }
-  }
+  };
+	;
 
   Tooltip.prototype.applyPlacement = function (offset, placement) {
-    var $tip   = this.tip()
-    var width  = $tip[0].offsetWidth
-    var height = $tip[0].offsetHeight
+	  var $tip = this.tip();
+	  ;
+	  var width = $tip[0].offsetWidth;
+	  ;
+	  var height = $tip[0].offsetHeight;
+	  ;
 
     // manually read margins because getBoundingClientRect includes difference
-    var marginTop = parseInt($tip.css('margin-top'), 10)
-    var marginLeft = parseInt($tip.css('margin-left'), 10)
+	  var marginTop = parseInt($tip.css('margin-top'), 10);
+	  ;
+	  var marginLeft = parseInt($tip.css('margin-left'), 10);
+	  ;
 
     // we must check for NaN for ie 8/9
-    if (isNaN(marginTop))  marginTop  = 0
-    if (isNaN(marginLeft)) marginLeft = 0
+	  if (isNaN(marginTop))  marginTop = 0;
+	  ;
+	  if (isNaN(marginLeft)) marginLeft = 0;
+	  ;
 
-    offset.top  += marginTop
-    offset.left += marginLeft
+	  offset.top += marginTop;
+	  ;
+	  offset.left += marginLeft;
+	  ;
 
     // $.fn.offset doesn't round pixel values
     // so we use setOffset directly with our own function B-0
@@ -11871,103 +12354,143 @@ if (typeof jQuery === 'undefined') {
           left: Math.round(props.left)
         })
       }
-    }, offset), 0)
+	}, offset), 0);
+	  ;
 
-    $tip.addClass('in')
+	  $tip.addClass('in');
+	  ;
 
     // check to see if placing tip in new offset caused the tip to resize itself
-    var actualWidth  = $tip[0].offsetWidth
-    var actualHeight = $tip[0].offsetHeight
+	  var actualWidth = $tip[0].offsetWidth;
+	  ;
+	  var actualHeight = $tip[0].offsetHeight;
+	  ;
 
     if (placement == 'top' && actualHeight != height) {
       offset.top = offset.top + height - actualHeight
     }
 
-    var delta = this.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight)
+	  var delta = this.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight);
+	  ;
 
-    if (delta.left) offset.left += delta.left
-    else offset.top += delta.top
+	  if (delta.left) offset.left += delta.left;
+	  ;
+	  else
+	  offset.top += delta.top;
+	  ;
 
-    var isVertical          = /top|bottom/.test(placement)
-    var arrowDelta          = isVertical ? delta.left * 2 - width + actualWidth : delta.top * 2 - height + actualHeight
-    var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight'
+	  var isVertical = /top|bottom/.test(placement);
+	  ;
+	  var arrowDelta = isVertical ? delta.left * 2 - width + actualWidth : delta.top * 2 - height + actualHeight;
+	  ;
+	  var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight';
+	  ;
 
-    $tip.offset(offset)
+	  $tip.offset(offset);
+	  ;
     this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
-  }
+  };
+	;
 
   Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
     this.arrow()
       .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
       .css(isVertical ? 'top' : 'left', '')
-  }
+  };
+	;
 
   Tooltip.prototype.setContent = function () {
-    var $tip  = this.tip()
-    var title = this.getTitle()
+	  var $tip = this.tip();
+	  ;
+	  var title = this.getTitle();
+	  ;
 
-    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
+	  $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title);
+	  ;
     $tip.removeClass('fade in top bottom left right')
-  }
+  };
+	;
 
   Tooltip.prototype.hide = function (callback) {
-    var that = this
-    var $tip = $(this.$tip)
-    var e    = $.Event('hide.bs.' + this.type)
+	  var that = this;
+	  ;
+	  var $tip = $(this.$tip);
+	  ;
+	  var e = $.Event('hide.bs.' + this.type);
+	  ;
 
     function complete() {
-      if (that.hoverState != 'in') $tip.detach()
+		if (that.hoverState != 'in') $tip.detach();
+		;
       that.$element
         .removeAttr('aria-describedby')
-        .trigger('hidden.bs.' + that.type)
+		  .trigger('hidden.bs.' + that.type);
+		;
       callback && callback()
     }
 
-    this.$element.trigger(e)
+	  this.$element.trigger(e);
+	  ;
 
-    if (e.isDefaultPrevented()) return
+	  if (e.isDefaultPrevented()) return;
+	  ;
 
-    $tip.removeClass('in')
+	  $tip.removeClass('in');
+	  ;
 
     $.support.transition && $tip.hasClass('fade') ?
       $tip
         .one('bsTransitionEnd', complete)
         .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
-      complete()
+		complete();
+	  ;
 
-    this.hoverState = null
+	  this.hoverState = null;
+	  ;
 
     return this
-  }
+  };
+	;
 
   Tooltip.prototype.fixTitle = function () {
-    var $e = this.$element
+	  var $e = this.$element;
+	  ;
     if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
       $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
     }
-  }
+  };
+	;
 
   Tooltip.prototype.hasContent = function () {
     return this.getTitle()
-  }
+  };
+	;
 
   Tooltip.prototype.getPosition = function ($element) {
-    $element   = $element || this.$element
+	  $element = $element || this.$element;
+	  ;
 
-    var el     = $element[0]
-    var isBody = el.tagName == 'BODY'
+	  var el = $element[0];
+	  ;
+	  var isBody = el.tagName == 'BODY';
+	  ;
 
-    var elRect    = el.getBoundingClientRect()
+	  var elRect = el.getBoundingClientRect();
+	  ;
     if (elRect.width == null) {
       // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
       elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })
     }
-    var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()
-    var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
-    var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null
+	  var elOffset = isBody ? {top: 0, left: 0} : $element.offset();
+	  ;
+	  var scroll = {scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop()};
+	  ;
+	  var outerDims = isBody ? {width: $(window).width(), height: $(window).height()} : null;
+	  ;
 
     return $.extend({}, elRect, scroll, outerDims, elOffset)
-  }
+  };
+	;
 
   Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
     return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } :
@@ -11975,26 +12498,35 @@ if (typeof jQuery === 'undefined') {
            placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
         /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }
 
-  }
+  };
+	;
 
   Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
-    var delta = { top: 0, left: 0 }
-    if (!this.$viewport) return delta
+	  var delta = {top: 0, left: 0};
+	  ;
+	  if (!this.$viewport) return delta;
+	  ;
 
-    var viewportPadding = this.options.viewport && this.options.viewport.padding || 0
-    var viewportDimensions = this.getPosition(this.$viewport)
+	  var viewportPadding = this.options.viewport && this.options.viewport.padding || 0;
+	  ;
+	  var viewportDimensions = this.getPosition(this.$viewport);
+	  ;
 
     if (/right|left/.test(placement)) {
-      var topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll
-      var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight
+		var topEdgeOffset = pos.top - viewportPadding - viewportDimensions.scroll;
+		;
+		var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight;
+		;
       if (topEdgeOffset < viewportDimensions.top) { // top overflow
         delta.top = viewportDimensions.top - topEdgeOffset
       } else if (bottomEdgeOffset > viewportDimensions.top + viewportDimensions.height) { // bottom overflow
         delta.top = viewportDimensions.top + viewportDimensions.height - bottomEdgeOffset
       }
     } else {
-      var leftEdgeOffset  = pos.left - viewportPadding
-      var rightEdgeOffset = pos.left + viewportPadding + actualWidth
+		var leftEdgeOffset = pos.left - viewportPadding;
+		;
+		var rightEdgeOffset = pos.left + viewportPadding + actualWidth;
+		;
       if (leftEdgeOffset < viewportDimensions.left) { // left overflow
         delta.left = viewportDimensions.left - leftEdgeOffset
       } else if (rightEdgeOffset > viewportDimensions.right) { // right overflow
@@ -12003,83 +12535,109 @@ if (typeof jQuery === 'undefined') {
     }
 
     return delta
-  }
+  };
+	;
 
   Tooltip.prototype.getTitle = function () {
-    var title
-    var $e = this.$element
-    var o  = this.options
+	  var title;
+	  ;
+	  var $e = this.$element;
+	  ;
+	  var o = this.options;
+	  ;
 
     title = $e.attr('data-original-title')
-      || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
+		|| (typeof o.title == 'function' ? o.title.call($e[0]) : o.title);
+	  ;
 
     return title
-  }
+  };
+	;
 
   Tooltip.prototype.getUID = function (prefix) {
-    do prefix += ~~(Math.random() * 1000000)
-    while (document.getElementById(prefix))
+	  do prefix += ~~(Math.random() * 1000000);;
+	  while (document.getElementById(prefix));
+	  ;
     return prefix
-  }
+  };
+	;
 
   Tooltip.prototype.tip = function () {
     if (!this.$tip) {
-      this.$tip = $(this.options.template)
+		this.$tip = $(this.options.template);
+		;
       if (this.$tip.length != 1) {
         throw new Error(this.type + ' `template` option must consist of exactly 1 top-level element!')
       }
     }
     return this.$tip
-  }
+  };
+	;
 
   Tooltip.prototype.arrow = function () {
     return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
-  }
+  };
+	;
 
   Tooltip.prototype.enable = function () {
     this.enabled = true
-  }
+  };
+	;
 
   Tooltip.prototype.disable = function () {
     this.enabled = false
-  }
+  };
+	;
 
   Tooltip.prototype.toggleEnabled = function () {
     this.enabled = !this.enabled
-  }
+  };
+	;
 
   Tooltip.prototype.toggle = function (e) {
-    var self = this
+	  var self = this;
+	  ;
     if (e) {
-      self = $(e.currentTarget).data('bs.' + this.type)
+		self = $(e.currentTarget).data('bs.' + this.type);
+		;
       if (!self) {
-        self = new this.constructor(e.currentTarget, this.getDelegateOptions())
+		  self = new this.constructor(e.currentTarget, this.getDelegateOptions());
+		  ;
         $(e.currentTarget).data('bs.' + this.type, self)
       }
     }
 
     if (e) {
-      self.inState.click = !self.inState.click
-      if (self.isInStateTrue()) self.enter(self)
+		self.inState.click = !self.inState.click;
+		;
+		if (self.isInStateTrue()) self.enter(self);
+		;
       else self.leave(self)
     } else {
       self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
     }
-  }
+  };
+	;
 
   Tooltip.prototype.destroy = function () {
-    var that = this
-    clearTimeout(this.timeout)
+	  var that = this;
+	  ;
+	  clearTimeout(this.timeout);
+	  ;
     this.hide(function () {
-      that.$element.off('.' + that.type).removeData('bs.' + that.type)
+		that.$element.off('.' + that.type).removeData('bs.' + that.type);
+		;
       if (that.$tip) {
         that.$tip.detach()
       }
-      that.$tip = null
-      that.$arrow = null
+		that.$tip = null;
+		;
+		that.$arrow = null;
+		;
       that.$viewport = null
     })
-  }
+  };
+	;
 
 
   // TOOLTIP PLUGIN DEFINITION
@@ -12087,27 +12645,36 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.tooltip')
-      var options = typeof option == 'object' && option
+		var $this = $(this);
+		;
+		var data = $this.data('bs.tooltip');
+		;
+		var options = typeof option == 'object' && option;
+		;
 
-      if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
+		if (!data && /destroy|hide/.test(option)) return;
+		;
+		if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)));
+		;
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.tooltip
+	var old = $.fn.tooltip;
+	;
 
-  $.fn.tooltip             = Plugin
-  $.fn.tooltip.Constructor = Tooltip
+	$.fn.tooltip = Plugin;
+	;
+	$.fn.tooltip.Constructor = Tooltip;
+	;
 
 
   // TOOLTIP NO CONFLICT
   // ===================
 
   $.fn.tooltip.noConflict = function () {
-    $.fn.tooltip = old
+	  $.fn.tooltip = old;
+	  ;
     return this
   }
 
@@ -12130,65 +12697,84 @@ if (typeof jQuery === 'undefined') {
 
   var Popover = function (element, options) {
     this.init('popover', element, options)
-  }
+  };
+	;
 
-  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
+	if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js');
+	;
 
-  Popover.VERSION  = '3.3.6'
+	Popover.VERSION = '3.3.6';
+	;
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
     trigger: 'click',
     content: '',
     template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-  })
+  });
+	;
 
 
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
 
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
+	Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype);
+	;
 
-  Popover.prototype.constructor = Popover
+	Popover.prototype.constructor = Popover;
+	;
 
   Popover.prototype.getDefaults = function () {
     return Popover.DEFAULTS
-  }
+  };
+	;
 
   Popover.prototype.setContent = function () {
-    var $tip    = this.tip()
-    var title   = this.getTitle()
-    var content = this.getContent()
+	  var $tip = this.tip();
+	  ;
+	  var title = this.getTitle();
+	  ;
+	  var content = this.getContent();
+	  ;
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
+	  $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title);
+	  ;
     $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
       this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
-    ](content)
+		](content);
+	  ;
 
-    $tip.removeClass('fade top bottom left right in')
+	  $tip.removeClass('fade top bottom left right in');
+	  ;
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
     if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
-  }
+  };
+	;
 
   Popover.prototype.hasContent = function () {
     return this.getTitle() || this.getContent()
-  }
+  };
+	;
 
   Popover.prototype.getContent = function () {
-    var $e = this.$element
-    var o  = this.options
+	  var $e = this.$element;
+	  ;
+	  var o = this.options;
+	  ;
 
     return $e.attr('data-content')
       || (typeof o.content == 'function' ?
             o.content.call($e[0]) :
             o.content)
-  }
+  };
+	;
 
   Popover.prototype.arrow = function () {
     return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
-  }
+  };
+	;
 
 
   // POPOVER PLUGIN DEFINITION
@@ -12196,27 +12782,36 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.popover')
-      var options = typeof option == 'object' && option
+		var $this = $(this);
+		;
+		var data = $this.data('bs.popover');
+		;
+		var options = typeof option == 'object' && option;
+		;
 
-      if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
+		if (!data && /destroy|hide/.test(option)) return;
+		;
+		if (!data) $this.data('bs.popover', (data = new Popover(this, options)));
+		;
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.popover
+	var old = $.fn.popover;
+	;
 
-  $.fn.popover             = Plugin
-  $.fn.popover.Constructor = Popover
+	$.fn.popover = Plugin;
+	;
+	$.fn.popover.Constructor = Popover;
+	;
 
 
   // POPOVER NO CONFLICT
   // ===================
 
   $.fn.popover.noConflict = function () {
-    $.fn.popover = old
+	  $.fn.popover = old;
+	  ;
     return this
   }
 
@@ -12238,50 +12833,73 @@ if (typeof jQuery === 'undefined') {
   // ==========================
 
   function ScrollSpy(element, options) {
-    this.$body          = $(document.body)
-    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
-    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
-    this.selector       = (this.options.target || '') + ' .nav li > a'
-    this.offsets        = []
-    this.targets        = []
-    this.activeTarget   = null
-    this.scrollHeight   = 0
+	  this.$body = $(document.body);
+	  ;
+	  this.$scrollElement = $(element).is(document.body) ? $(window) : $(element);
+	  ;
+	  this.options = $.extend({}, ScrollSpy.DEFAULTS, options);
+	  ;
+	  this.selector = (this.options.target || '') + ' .nav li > a';
+	  ;
+	  this.offsets = [];
+	  ;
+	  this.targets = [];
+	  ;
+	  this.activeTarget = null;
+	  ;
+	  this.scrollHeight = 0;
+	  ;
 
-    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
-    this.refresh()
+	  this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this));
+	  ;
+	  this.refresh();
+	  ;
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.6'
+	ScrollSpy.VERSION = '3.3.6';
+	;
 
   ScrollSpy.DEFAULTS = {
     offset: 10
-  }
+  };
+	;
 
   ScrollSpy.prototype.getScrollHeight = function () {
     return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-  }
+  };
+	;
 
   ScrollSpy.prototype.refresh = function () {
-    var that          = this
-    var offsetMethod  = 'offset'
-    var offsetBase    = 0
+	  var that = this;
+	  ;
+	  var offsetMethod = 'offset';
+	  ;
+	  var offsetBase = 0;
+	  ;
 
-    this.offsets      = []
-    this.targets      = []
-    this.scrollHeight = this.getScrollHeight()
+	  this.offsets = [];
+	  ;
+	  this.targets = [];
+	  ;
+	  this.scrollHeight = this.getScrollHeight();
+	  ;
 
     if (!$.isWindow(this.$scrollElement[0])) {
-      offsetMethod = 'position'
+		offsetMethod = 'position';
+		;
       offsetBase   = this.$scrollElement.scrollTop()
     }
 
     this.$body
       .find(this.selector)
       .map(function () {
-        var $el   = $(this)
-        var href  = $el.data('target') || $el.attr('href')
-        var $href = /^#./.test(href) && $(href)
+			var $el = $(this);
+			;
+			var href = $el.data('target') || $el.attr('href');
+			;
+			var $href = /^#./.test(href) && $(href);
+			;
 
         return ($href
           && $href.length
@@ -12290,19 +12908,28 @@ if (typeof jQuery === 'undefined') {
       })
       .sort(function (a, b) { return a[0] - b[0] })
       .each(function () {
-        that.offsets.push(this[0])
+			that.offsets.push(this[0]);
+			;
         that.targets.push(this[1])
       })
-  }
+  };
+	;
 
   ScrollSpy.prototype.process = function () {
-    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
-    var scrollHeight = this.getScrollHeight()
-    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
-    var offsets      = this.offsets
-    var targets      = this.targets
-    var activeTarget = this.activeTarget
-    var i
+	  var scrollTop = this.$scrollElement.scrollTop() + this.options.offset;
+	  ;
+	  var scrollHeight = this.getScrollHeight();
+	  ;
+	  var maxScroll = this.options.offset + scrollHeight - this.$scrollElement.height();
+	  ;
+	  var offsets = this.offsets;
+	  ;
+	  var targets = this.targets;
+	  ;
+	  var activeTarget = this.activeTarget;
+	  ;
+	  var i;
+	  ;
 
     if (this.scrollHeight != scrollHeight) {
       this.refresh()
@@ -12313,7 +12940,8 @@ if (typeof jQuery === 'undefined') {
     }
 
     if (activeTarget && scrollTop < offsets[0]) {
-      this.activeTarget = null
+		this.activeTarget = null;
+		;
       return this.clear()
     }
 
@@ -12323,20 +12951,25 @@ if (typeof jQuery === 'undefined') {
         && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])
         && this.activate(targets[i])
     }
-  }
+  };
+	;
 
   ScrollSpy.prototype.activate = function (target) {
-    this.activeTarget = target
+	  this.activeTarget = target;
+	  ;
 
-    this.clear()
+	  this.clear();
+	  ;
 
     var selector = this.selector +
       '[data-target="' + target + '"],' +
-      this.selector + '[href="' + target + '"]'
+		this.selector + '[href="' + target + '"]';
+	  ;
 
     var active = $(selector)
       .parents('li')
-      .addClass('active')
+		.addClass('active');
+	  ;
 
     if (active.parent('.dropdown-menu').length) {
       active = active
@@ -12345,13 +12978,15 @@ if (typeof jQuery === 'undefined') {
     }
 
     active.trigger('activate.bs.scrollspy')
-  }
+  };
+	;
 
   ScrollSpy.prototype.clear = function () {
     $(this.selector)
       .parentsUntil(this.options.target, '.active')
       .removeClass('active')
-  }
+  };
+	;
 
 
   // SCROLLSPY PLUGIN DEFINITION
@@ -12359,28 +12994,37 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
-      var options = typeof option == 'object' && option
+		var $this = $(this);
+		;
+		var data = $this.data('bs.scrollspy');
+		;
+		var options = typeof option == 'object' && option;
+		;
 
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+		if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)));
+		;
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.scrollspy
+	var old = $.fn.scrollspy;
+	;
 
-  $.fn.scrollspy             = Plugin
-  $.fn.scrollspy.Constructor = ScrollSpy
+	$.fn.scrollspy = Plugin;
+	;
+	$.fn.scrollspy.Constructor = ScrollSpy;
+	;
 
 
   // SCROLLSPY NO CONFLICT
   // =====================
 
   $.fn.scrollspy.noConflict = function () {
-    $.fn.scrollspy = old
+	  $.fn.scrollspy = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // SCROLLSPY DATA-API
@@ -12388,7 +13032,8 @@ if (typeof jQuery === 'undefined') {
 
   $(window).on('load.bs.scrollspy.data-api', function () {
     $('[data-spy="scroll"]').each(function () {
-      var $spy = $(this)
+		var $spy = $(this);
+		;
       Plugin.call($spy, $spy.data())
     })
   })
@@ -12412,59 +13057,81 @@ if (typeof jQuery === 'undefined') {
 
   var Tab = function (element) {
     // jscs:disable requireDollarBeforejQueryAssignment
-    this.element = $(element)
+	  this.element = $(element);
+	  ;
     // jscs:enable requireDollarBeforejQueryAssignment
-  }
+  };
+	;
 
-  Tab.VERSION = '3.3.6'
+	Tab.VERSION = '3.3.6';
+	;
 
-  Tab.TRANSITION_DURATION = 150
+	Tab.TRANSITION_DURATION = 150;
+	;
 
   Tab.prototype.show = function () {
-    var $this    = this.element
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')
-    var selector = $this.data('target')
+	  var $this = this.element;
+	  ;
+	  var $ul = $this.closest('ul:not(.dropdown-menu)');
+	  ;
+	  var selector = $this.data('target');
+	  ;
 
     if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+		selector = $this.attr('href');
+		;
+		selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '');
+		; // strip for ie7
     }
 
-    if ($this.parent('li').hasClass('active')) return
+	  if ($this.parent('li').hasClass('active')) return;
+	  ;
 
-    var $previous = $ul.find('.active:last a')
+	  var $previous = $ul.find('.active:last a');
+	  ;
     var hideEvent = $.Event('hide.bs.tab', {
       relatedTarget: $this[0]
-    })
+	});
+	  ;
     var showEvent = $.Event('show.bs.tab', {
       relatedTarget: $previous[0]
-    })
+	});
+	  ;
 
-    $previous.trigger(hideEvent)
-    $this.trigger(showEvent)
+	  $previous.trigger(hideEvent);
+	  ;
+	  $this.trigger(showEvent);
+	  ;
 
-    if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return
+	  if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
+	  ;
 
-    var $target = $(selector)
+	  var $target = $(selector);
+	  ;
 
-    this.activate($this.closest('li'), $ul)
+	  this.activate($this.closest('li'), $ul);
+	  ;
     this.activate($target, $target.parent(), function () {
       $previous.trigger({
         type: 'hidden.bs.tab',
         relatedTarget: $this[0]
-      })
+	  });
+		;
       $this.trigger({
         type: 'shown.bs.tab',
         relatedTarget: $previous[0]
       })
     })
-  }
+  };
+	;
 
   Tab.prototype.activate = function (element, container, callback) {
-    var $active    = container.find('> .active')
+	  var $active = container.find('> .active');
+	  ;
     var transition = callback
       && $.support.transition
-      && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length)
+		&& ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length);
+	  ;
 
     function next() {
       $active
@@ -12473,15 +13140,18 @@ if (typeof jQuery === 'undefined') {
           .removeClass('active')
         .end()
         .find('[data-toggle="tab"]')
-          .attr('aria-expanded', false)
+		  .attr('aria-expanded', false);
+		;
 
       element
         .addClass('active')
         .find('[data-toggle="tab"]')
-          .attr('aria-expanded', true)
+		  .attr('aria-expanded', true);
+		;
 
       if (transition) {
-        element[0].offsetWidth // reflow for transition
+		  element[0].offsetWidth;
+		  ; // reflow for transition
         element.addClass('in')
       } else {
         element.removeClass('fade')
@@ -12503,10 +13173,12 @@ if (typeof jQuery === 'undefined') {
       $active
         .one('bsTransitionEnd', next)
         .emulateTransitionEnd(Tab.TRANSITION_DURATION) :
-      next()
+		next();
+	  ;
 
     $active.removeClass('in')
-  }
+  };
+	;
 
 
   // TAB PLUGIN DEFINITION
@@ -12514,36 +13186,46 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.tab')
+		var $this = $(this);
+		;
+		var data = $this.data('bs.tab');
+		;
 
-      if (!data) $this.data('bs.tab', (data = new Tab(this)))
+		if (!data) $this.data('bs.tab', (data = new Tab(this)));
+		;
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.tab
+	var old = $.fn.tab;
+	;
 
-  $.fn.tab             = Plugin
-  $.fn.tab.Constructor = Tab
+	$.fn.tab = Plugin;
+	;
+	$.fn.tab.Constructor = Tab;
+	;
 
 
   // TAB NO CONFLICT
   // ===============
 
   $.fn.tab.noConflict = function () {
-    $.fn.tab = old
+	  $.fn.tab = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // TAB DATA-API
   // ============
 
   var clickHandler = function (e) {
-    e.preventDefault()
+	  e.preventDefault();
+	  ;
     Plugin.call($(this), 'show')
-  }
+  };
+	;
 
   $(document)
     .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
@@ -12567,90 +13249,134 @@ if (typeof jQuery === 'undefined') {
   // ======================
 
   var Affix = function (element, options) {
-    this.options = $.extend({}, Affix.DEFAULTS, options)
+	  this.options = $.extend({}, Affix.DEFAULTS, options);
+	  ;
 
     this.$target = $(this.options.target)
       .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
+		.on('click.bs.affix.data-api', $.proxy(this.checkPositionWithEventLoop, this));
+	  ;
 
-    this.$element     = $(element)
-    this.affixed      = null
-    this.unpin        = null
-    this.pinnedOffset = null
+	  this.$element = $(element);
+	  ;
+	  this.affixed = null;
+	  ;
+	  this.unpin = null;
+	  ;
+	  this.pinnedOffset = null;
+	  ;
 
     this.checkPosition()
-  }
+  };
+	;
 
-  Affix.VERSION  = '3.3.6'
+	Affix.VERSION = '3.3.6';
+	;
 
-  Affix.RESET    = 'affix affix-top affix-bottom'
+	Affix.RESET = 'affix affix-top affix-bottom';
+	;
 
   Affix.DEFAULTS = {
     offset: 0,
     target: window
-  }
+  };
+	;
 
   Affix.prototype.getState = function (scrollHeight, height, offsetTop, offsetBottom) {
-    var scrollTop    = this.$target.scrollTop()
-    var position     = this.$element.offset()
-    var targetHeight = this.$target.height()
+	  var scrollTop = this.$target.scrollTop();
+	  ;
+	  var position = this.$element.offset();
+	  ;
+	  var targetHeight = this.$target.height();
+	  ;
 
-    if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTop ? 'top' : false
+	  if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTop ? 'top' : false;
+	  ;
 
     if (this.affixed == 'bottom') {
-      if (offsetTop != null) return (scrollTop + this.unpin <= position.top) ? false : 'bottom'
+		if (offsetTop != null) return (scrollTop + this.unpin <= position.top) ? false : 'bottom';
+		;
       return (scrollTop + targetHeight <= scrollHeight - offsetBottom) ? false : 'bottom'
     }
 
-    var initializing   = this.affixed == null
-    var colliderTop    = initializing ? scrollTop : position.top
-    var colliderHeight = initializing ? targetHeight : height
+	  var initializing = this.affixed == null;
+	  ;
+	  var colliderTop = initializing ? scrollTop : position.top;
+	  ;
+	  var colliderHeight = initializing ? targetHeight : height;
+	  ;
 
-    if (offsetTop != null && scrollTop <= offsetTop) return 'top'
-    if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom'
+	  if (offsetTop != null && scrollTop <= offsetTop) return 'top';
+	  ;
+	  if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom';
+	  ;
 
     return false
-  }
+  };
+	;
 
   Affix.prototype.getPinnedOffset = function () {
-    if (this.pinnedOffset) return this.pinnedOffset
-    this.$element.removeClass(Affix.RESET).addClass('affix')
-    var scrollTop = this.$target.scrollTop()
-    var position  = this.$element.offset()
+	  if (this.pinnedOffset) return this.pinnedOffset;
+	  ;
+	  this.$element.removeClass(Affix.RESET).addClass('affix');
+	  ;
+	  var scrollTop = this.$target.scrollTop();
+	  ;
+	  var position = this.$element.offset();
+	  ;
     return (this.pinnedOffset = position.top - scrollTop)
-  }
+  };
+	;
 
   Affix.prototype.checkPositionWithEventLoop = function () {
     setTimeout($.proxy(this.checkPosition, this), 1)
-  }
+  };
+	;
 
   Affix.prototype.checkPosition = function () {
-    if (!this.$element.is(':visible')) return
+	  if (!this.$element.is(':visible')) return;
+	  ;
 
-    var height       = this.$element.height()
-    var offset       = this.options.offset
-    var offsetTop    = offset.top
-    var offsetBottom = offset.bottom
-    var scrollHeight = Math.max($(document).height(), $(document.body).height())
+	  var height = this.$element.height();
+	  ;
+	  var offset = this.options.offset;
+	  ;
+	  var offsetTop = offset.top;
+	  ;
+	  var offsetBottom = offset.bottom;
+	  ;
+	  var scrollHeight = Math.max($(document).height(), $(document.body).height());
+	  ;
 
-    if (typeof offset != 'object')         offsetBottom = offsetTop = offset
-    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
-    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
+	  if (typeof offset != 'object')         offsetBottom = offsetTop = offset;
+	  ;
+	  if (typeof offsetTop == 'function')    offsetTop = offset.top(this.$element);
+	  ;
+	  if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element);
+	  ;
 
-    var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom)
+	  var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom);
+	  ;
 
     if (this.affixed != affix) {
-      if (this.unpin != null) this.$element.css('top', '')
+		if (this.unpin != null) this.$element.css('top', '');
+		;
 
-      var affixType = 'affix' + (affix ? '-' + affix : '')
-      var e         = $.Event(affixType + '.bs.affix')
+		var affixType = 'affix' + (affix ? '-' + affix : '');
+		;
+		var e = $.Event(affixType + '.bs.affix');
+		;
 
-      this.$element.trigger(e)
+		this.$element.trigger(e);
+		;
 
-      if (e.isDefaultPrevented()) return
+		if (e.isDefaultPrevented()) return;
+		;
 
-      this.affixed = affix
-      this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
+		this.affixed = affix;
+		;
+		this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null;
+		;
 
       this.$element
         .removeClass(Affix.RESET)
@@ -12663,7 +13389,8 @@ if (typeof jQuery === 'undefined') {
         top: scrollHeight - height - offsetBottom
       })
     }
-  }
+  };
+	;
 
 
   // AFFIX PLUGIN DEFINITION
@@ -12671,28 +13398,37 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.affix')
-      var options = typeof option == 'object' && option
+		var $this = $(this);
+		;
+		var data = $this.data('bs.affix');
+		;
+		var options = typeof option == 'object' && option;
+		;
 
-      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
+		if (!data) $this.data('bs.affix', (data = new Affix(this, options)));
+		;
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.affix
+	var old = $.fn.affix;
+	;
 
-  $.fn.affix             = Plugin
-  $.fn.affix.Constructor = Affix
+	$.fn.affix = Plugin;
+	;
+	$.fn.affix.Constructor = Affix;
+	;
 
 
   // AFFIX NO CONFLICT
   // =================
 
   $.fn.affix.noConflict = function () {
-    $.fn.affix = old
+	  $.fn.affix = old;
+	  ;
     return this
-  }
+  };
+	;
 
 
   // AFFIX DATA-API
@@ -12700,13 +13436,18 @@ if (typeof jQuery === 'undefined') {
 
   $(window).on('load', function () {
     $('[data-spy="affix"]').each(function () {
-      var $spy = $(this)
-      var data = $spy.data()
+		var $spy = $(this);
+		;
+		var data = $spy.data();
+		;
 
-      data.offset = data.offset || {}
+		data.offset = data.offset || {};
+		;
 
-      if (data.offsetBottom != null) data.offset.bottom = data.offsetBottom
-      if (data.offsetTop    != null) data.offset.top    = data.offsetTop
+		if (data.offsetBottom != null) data.offset.bottom = data.offsetBottom;
+		;
+		if (data.offsetTop != null) data.offset.top = data.offsetTop;
+		;
 
       Plugin.call($spy, data)
     })
@@ -18285,2708 +19026,6 @@ S2.define('jquery.select2',[
   return select2;
 }));
 
-/*!
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
- * @version 4.2.9
- *
- * File input styled for Bootstrap 3.0 that utilizes HTML5 File Input's advanced 
- * features including the FileReader API. 
- * 
- * The plugin drastically enhances the HTML file input to preview multiple files on the client before
- * upload. In addition it provides the ability to preview content of images, text, videos, audio, html, 
- * flash and other objects. It also offers the ability to upload and delete files using AJAX, and add 
- * files in batches (i.e. preview, append, or remove before upload).
- * 
- * Author: Kartik Visweswaran
- * Copyright: 2015, Kartik Visweswaran, Krajee.com
- * For more JQuery plugins visit http://plugins.krajee.com
- * For more Yii related demos visit http://demos.krajee.com
- */
-(function (factory) {
-    "use strict";
-    if (typeof define === 'function' && define.amd) { // jshint ignore:line
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory); // jshint ignore:line
-    } else { // noinspection JSUnresolvedVariable
-        if (typeof module === 'object' && module.exports) { // jshint ignore:line
-            // Node/CommonJS
-            // noinspection JSUnresolvedVariable
-            module.exports = factory(require('jquery')); // jshint ignore:line
-        } else {
-            // Browser globals
-            factory(window.jQuery);
-        }
-    }
-}(function ($) {
-    "use strict";
-
-    $.fn.fileinputLocales = {};
-
-    var isIE, isEdge, handler, previewCache, getNum, hasFileAPISupport, hasDragDropSupport, hasFileUploadSupport, addCss,
-        STYLE_SETTING, OBJECT_PARAMS, DEFAULT_PREVIEW, defaultFileActionSettings, tMain1, tMain2, tPreview, tIcon, tClose,
-        tCaption, tBtnDefault, tBtnLink, tBtnBrowse, tModal, tProgress, tFooter, tActions, tActionDelete, tActionUpload,
-        tZoom, tGeneric, tHtml, tImage, tText, tVideo, tAudio, tFlash, tObject, tOther, defaultLayoutTemplates,
-        defaultPreviewTemplates, defaultPreviewTypes, defaultPreviewSettings, defaultFileTypeSettings, isEmpty, isArray,
-        isSet, getElement, uniqId, htmlEncode, replaceTags, objUrl, FileInput;
-
-    isIE = function (ver) {
-        // check for IE versions < 11
-        if (navigator.appName !== 'Microsoft Internet Explorer') {
-            return false;
-        }
-        if (ver === 10) {
-            return new RegExp('msie\\s' + ver, 'i').test(navigator.userAgent);
-        }
-        var div = document.createElement("div"), status;
-        div.innerHTML = "<!--[if IE " + ver + "]> <i></i> <![endif]-->";
-        status = div.getElementsByTagName("i").length;
-        document.body.appendChild(div);
-        div.parentNode.removeChild(div);
-        return status;
-    };
-    isEdge = function () {
-        return new RegExp('Edge\/[0-9]+', 'i').test(navigator.userAgent);
-    };
-    handler = function ($el, event, callback, skipNS) {
-        var ev = skipNS ? event : event + '.fileinput';
-        $el.off(ev).on(ev, callback);
-    };
-    previewCache = {
-        data: {},
-        init: function (obj) {
-            var content = obj.initialPreview, id = obj.id;
-            if (content.length > 0 && !isArray(content)) {
-                content = content.split(obj.initialPreviewDelimiter);
-            }
-            previewCache.data[id] = {
-                content: content,
-                config: obj.initialPreviewConfig,
-                tags: obj.initialPreviewThumbTags,
-                delimiter: obj.initialPreviewDelimiter,
-                template: obj.previewGenericTemplate,
-                msg: function (n) {
-                    return obj.getMsgSelected(n);
-                },
-                initId: obj.previewInitId,
-                footer: obj.getLayoutTemplate('footer').replace(/\{progress}/g, obj.renderThumbProgress()),
-                isDelete: obj.initialPreviewShowDelete,
-                caption: obj.initialCaption,
-                actions: function (showUpload, showDelete, disabled, url, key) {
-                    return obj.renderFileActions(showUpload, showDelete, disabled, url, key);
-                }
-            };
-        },
-        fetch: function (id) {
-            return previewCache.data[id].content.filter(function (n) {
-                return n !== null;
-            });
-        },
-        count: function (id, all) {
-            return !!previewCache.data[id] && !!previewCache.data[id].content ?
-                (all ? previewCache.data[id].content.length : previewCache.fetch(id).length) : 0;
-        },
-        get: function (id, i, isDisabled) {
-            var ind = 'init_' + i, data = previewCache.data[id], config = data.config[i],
-                previewId = data.initId + '-' + ind, out, $tmp, frameClass = ' file-preview-initial';
-            /** @namespace config.frameClass */
-            /** @namespace config.frameAttr */
-            isDisabled = isDisabled === undefined ? true : isDisabled;
-            if (data.content[i] === null) {
-                return '';
-            }
-            if (!isEmpty(config) && !isEmpty(config.frameClass)) {
-                frameClass += ' ' + config.frameClass;
-            }
-            out = data.template
-                .replace(/\{previewId}/g, previewId)
-                .replace(/\{frameClass}/g, frameClass)
-                .replace(/\{fileindex}/g, ind)
-                .replace(/\{content}/g, data.content[i])
-                .replace(/\{footer}/g, previewCache.footer(id, i, isDisabled));
-            if (data.tags.length && data.tags[i]) {
-                out = replaceTags(out, data.tags[i]);
-            }
-            if (!isEmpty(config) && !isEmpty(config.frameAttr)) {
-                $tmp = $(document.createElement('div')).html(out);
-                $tmp.find('.file-preview-initial').attr(config.frameAttr);
-                out = $tmp.html();
-                $tmp.remove();
-            }
-            return out;
-        },
-        add: function (id, content, config, tags, append) {
-            var data = $.extend(true, {}, previewCache.data[id]), index;
-            if (!isArray(content)) {
-                content = content.split(data.delimiter);
-            }
-            if (append) {
-                index = data.content.push(content) - 1;
-                data.config[index] = config;
-                data.tags[index] = tags;
-            } else {
-                index = content.length;
-                data.content = content;
-                data.config = config;
-                data.tags = tags;
-            }
-            previewCache.data[id] = data;
-            return index;
-        },
-        set: function (id, content, config, tags, append) {
-            var data = $.extend(true, {}, previewCache.data[id]), i, chk;
-            if (!content || !content.length) {
-                return;
-            }
-            if (!isArray(content)) {
-                content = content.split(data.delimiter);
-            }
-            chk = content.filter(function (n) {
-                return n !== null;
-            });
-            if (!chk.length) {
-                return;
-            }
-            if (data.content === undefined) {
-                data.content = [];
-            }
-            if (data.config === undefined) {
-                data.config = [];
-            }
-            if (data.tags === undefined) {
-                data.tags = [];
-            }
-            if (append) {
-                for (i = 0; i < content.length; i++) {
-                    if (content[i]) {
-                        data.content.push(content[i]);
-                    }
-                }
-                for (i = 0; i < config.length; i++) {
-                    if (config[i]) {
-                        data.config.push(config[i]);
-                    }
-                }
-                for (i = 0; i < tags.length; i++) {
-                    if (tags[i]) {
-                        data.tags.push(tags[i]);
-                    }
-                }
-            } else {
-                data.content = content;
-                data.config = config;
-                data.tags = tags;
-            }
-            previewCache.data[id] = data;
-        },
-        unset: function (id, index) {
-            var chk = previewCache.count(id);
-            if (!chk) {
-                return;
-            }
-            if (chk === 1) {
-                previewCache.data[id].content = [];
-                previewCache.data[id].config = [];
-                return;
-            }
-            previewCache.data[id].content[index] = null;
-            previewCache.data[id].config[index] = null;
-        },
-        out: function (id) {
-            var html = '', data = previewCache.data[id], caption, len = previewCache.count(id, true);
-            if (len === 0) {
-                return {content: '', caption: ''};
-            }
-            for (var i = 0; i < len; i++) {
-                html += previewCache.get(id, i);
-            }
-            caption = data.msg(previewCache.count(id));
-            return {content: html, caption: caption};
-        },
-        footer: function (id, i, isDisabled) {
-            var data = previewCache.data[id];
-            isDisabled = isDisabled === undefined ? true : isDisabled;
-            if (data.config.length === 0 || isEmpty(data.config[i])) {
-                return '';
-            }
-            var config = data.config[i],
-                caption = isSet('caption', config) ? config.caption : '',
-                width = isSet('width', config) ? config.width : 'auto',
-                url = isSet('url', config) ? config.url : false,
-                key = isSet('key', config) ? config.key : null,
-                disabled = (url === false) && isDisabled,
-                actions = data.isDelete ? data.actions(false, true, disabled, url, key) : '',
-                footer = data.footer.replace(/\{actions}/g, actions);
-            return footer.replace(/\{caption}/g, caption)
-                .replace(/\{width}/g, width)
-                .replace(/\{indicator}/g, '')
-                .replace(/\{indicatorTitle}/g, '');
-        }
-    };
-    getNum = function (num, def) {
-        def = def || 0;
-        if (typeof num === "number") {
-            return num;
-        }
-        if (typeof num === "string") {
-            num = parseFloat(num);
-        }
-        return isNaN(num) ? def : num;
-    };
-    hasFileAPISupport = function () {
-        return window.File && window.FileReader;
-    };
-    hasDragDropSupport = function () {
-        var div = document.createElement('div');
-        /** @namespace div.draggable */
-        /** @namespace div.ondragstart */
-        /** @namespace div.ondrop */
-        return !isIE(9) && !isEdge() && // Fix for MS Edge drag & drop support bug
-            (div.draggable !== undefined || (div.ondragstart !== undefined && div.ondrop !== undefined));
-    };
-    hasFileUploadSupport = function () {
-        return hasFileAPISupport() && window.FormData;
-    };
-    addCss = function ($el, css) {
-        $el.removeClass(css).addClass(css);
-    };
-    STYLE_SETTING = 'style="width:{width};height:{height};"';
-    OBJECT_PARAMS = '      <param name="controller" value="true" />\n' +
-        '      <param name="allowFullScreen" value="true" />\n' +
-        '      <param name="allowScriptAccess" value="always" />\n' +
-        '      <param name="autoPlay" value="false" />\n' +
-        '      <param name="autoStart" value="false" />\n' +
-        '      <param name="quality" value="high" />\n';
-    DEFAULT_PREVIEW = '<div class="file-preview-other">\n' +
-        '   <span class="{previewFileIconClass}">{previewFileIcon}</span>\n' +
-        '</div>';
-    defaultFileActionSettings = {
-        removeIcon: '<i class="glyphicon glyphicon-trash text-danger"></i>',
-        removeClass: 'btn btn-xs btn-default',
-        removeTitle: 'Remove file',
-        uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
-        uploadClass: 'btn btn-xs btn-default',
-        uploadTitle: 'Upload file',
-        indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
-        indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign text-success"></i>',
-        indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
-        indicatorLoading: '<i class="glyphicon glyphicon-hand-up text-muted"></i>',
-        indicatorNewTitle: 'Not uploaded yet',
-        indicatorSuccessTitle: 'Uploaded',
-        indicatorErrorTitle: 'Upload Error',
-        indicatorLoadingTitle: 'Uploading ...'
-    };
-    tMain1 = '{preview}\n' +
-        '<div class="kv-upload-progress hide"></div>\n' +
-        '<div class="input-group {class}">\n' +
-        '   {caption}\n' +
-        '   <div class="input-group-btn">\n' +
-        '       {remove}\n' +
-        '       {cancel}\n' +
-        '       {upload}\n' +
-        '       {browse}\n' +
-        '   </div>\n' +
-        '</div>';
-    tMain2 = '{preview}\n<div class="kv-upload-progress hide"></div>\n{remove}\n{cancel}\n{upload}\n{browse}\n';
-    tPreview = '<div class="file-preview {class}">\n' +
-        '    {close}' +
-        '    <div class="{dropClass}">\n' +
-        '    <div class="file-preview-thumbnails">\n' +
-        '    </div>\n' +
-        '    <div class="clearfix"></div>' +
-        '    <div class="file-preview-status text-center text-success"></div>\n' +
-        '    <div class="kv-fileinput-error"></div>\n' +
-        '    </div>\n' +
-        '</div>';
-    tClose = '<div class="close fileinput-remove">&times;</div>\n';
-    tIcon = '<span class="glyphicon glyphicon-file kv-caption-icon"></span>';
-    tCaption = '<div tabindex="500" class="form-control file-caption {class}">\n' +
-        '   <div class="file-caption-name"></div>\n' +
-        '</div>\n';
-    //noinspection HtmlUnknownAttribute
-    tBtnDefault = '<button type="{type}" tabindex="500" title="{title}" class="{css}" {status}>{icon}{label}</button>';
-    tBtnLink = '<a href="{href}" tabindex="500" title="{title}" class="{css}" {status}>{icon}{label}</a>';
-    tBtnBrowse = '<div tabindex="500" class="{css}" {status}>{icon}{label}</div>';
-    tModal = '<div id="{id}" class="file-preview-detail-modal modal fade" tabindex="-1">\n' +
-        '  <div class="modal-dialog modal-lg">\n' +
-        '    <div class="modal-content">\n' +
-        '      <div class="modal-header">\n' +
-        '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n' +
-        '        <h3 class="modal-title">{heading} <small>{title}</small></h3>\n' +
-        '      </div>\n' +
-        '      <div class="modal-body">\n' +
-        '           <pre>{body}</pre>\n' +
-        '      </div>\n' +
-        '    </div>\n' +
-        '  </div>\n' +
-        '</div>';
-    tProgress = '<div class="progress">\n' +
-        '    <div class="{class}" role="progressbar"' +
-        ' aria-valuenow="{percent}" aria-valuemin="0" aria-valuemax="100" style="width:{percent}%;">\n' +
-        '        {percent}%\n' +
-        '     </div>\n' +
-        '</div>';
-    tFooter = '<div class="file-thumbnail-footer">\n' +
-        '    <div class="file-footer-caption" title="{caption}">{caption}</div>\n' +
-        '    {progress} {actions}\n' +
-        '</div>';
-    tActions = '<div class="file-actions">\n' +
-        '    <div class="file-footer-buttons">\n' +
-        '        {upload}{delete}{other}' +
-        '    </div>\n' +
-        '    <div class="file-upload-indicator" title="{indicatorTitle}">{indicator}</div>\n' +
-        '    <div class="clearfix"></div>\n' +
-        '</div>';
-    tActionDelete = '<button type="button" class="kv-file-remove {removeClass}" ' +
-        'title="{removeTitle}" {dataUrl}{dataKey}>{removeIcon}</button>\n';
-    tActionUpload = '<button type="button" class="kv-file-upload {uploadClass}" title="{uploadTitle}">' +
-        '   {uploadIcon}\n</button>\n';
-    tZoom = '<button type="button" class="btn btn-default btn-xs btn-block" title="{zoomTitle}: {caption}" onclick="{dialog}">\n' +
-        '   {zoomInd}\n' +
-        '</button>\n';
-    tGeneric = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}">\n' +
-        '   {content}\n' +
-        '   {footer}\n' +
-        '</div>\n';
-    tHtml = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}">\n' +
-        '    <object class="file-object" data="{data}" type="{type}" width="{width}" height="{height}">\n' +
-        '       ' + DEFAULT_PREVIEW + '\n' +
-        '    </object>\n' +
-        '   {footer}\n' +
-        '</div>';
-    tImage = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}">\n' +
-        '   <img src="{data}" class="file-preview-image" title="{caption}" alt="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   {footer}\n' +
-        '</div>\n';
-    tText = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}">\n' +
-        '   <pre class="file-preview-text" title="{caption}" ' + STYLE_SETTING + '>{data}</pre>\n' +
-        '   {zoom}\n' +
-        '   {footer}\n' +
-        '</div>';
-    tVideo = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
-        ' title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   <video width="{width}" height="{height}" controls>\n' +
-        '       <source src="{data}" type="{type}">\n' +
-        '       ' + DEFAULT_PREVIEW + '\n' +
-        '   </video>\n' +
-        '   {footer}\n' +
-        '</div>\n';
-    tAudio = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
-        ' title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   <audio controls>\n' +
-        '       <source src="' + '{data}' + '" type="{type}">\n' +
-        '       ' + DEFAULT_PREVIEW + '\n' +
-        '   </audio>\n' +
-        '   {footer}\n' +
-        '</div>';
-    tFlash = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
-        ' title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   <object class="file-object" type="application/x-shockwave-flash" width="{width}" height="{height}" data="{data}">\n' +
-        OBJECT_PARAMS + '       ' + DEFAULT_PREVIEW + '\n' +
-        '   </object>\n' +
-        '   {footer}\n' +
-        '</div>\n';
-    tObject = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
-        ' title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   <object class="file-object" data="{data}" type="{type}" width="{width}" height="{height}">\n' +
-        '       <param name="movie" value="{caption}" />\n' +
-        OBJECT_PARAMS + '         ' + DEFAULT_PREVIEW + '\n' +
-        '   </object>\n' +
-        '   {footer}\n' +
-        '</div>';
-    tOther = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
-        ' title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   <div class="file-preview-other-frame">\n' +
-        '   ' + DEFAULT_PREVIEW + '\n' +
-        '   </div>\n' +
-        '   <div class="file-preview-other-footer">{footer}</div>\n' +
-        '</div>';
-    defaultLayoutTemplates = {
-        main1: tMain1,
-        main2: tMain2,
-        preview: tPreview,
-        close: tClose,
-        zoom: tZoom,
-        icon: tIcon,
-        caption: tCaption,
-        modal: tModal,
-        progress: tProgress,
-        footer: tFooter,
-        actions: tActions,
-        actionDelete: tActionDelete,
-        actionUpload: tActionUpload,
-        btnDefault: tBtnDefault,
-        btnLink: tBtnLink,
-        btnBrowse: tBtnBrowse
-    };
-    defaultPreviewTemplates = {
-        generic: tGeneric,
-        html: tHtml,
-        image: tImage,
-        text: tText,
-        video: tVideo,
-        audio: tAudio,
-        flash: tFlash,
-        object: tObject,
-        other: tOther
-    };
-    defaultPreviewTypes = ['image', 'html', 'text', 'video', 'audio', 'flash', 'object'];
-    defaultPreviewSettings = {
-        image: {width: "auto", height: "160px"},
-        html: {width: "213px", height: "160px"},
-        text: {width: "160px", height: "136px"},
-        video: {width: "213px", height: "160px"},
-        audio: {width: "213px", height: "80px"},
-        flash: {width: "213px", height: "160px"},
-        object: {width: "160px", height: "160px"},
-        other: {width: "160px", height: "160px"}
-    };
-    defaultFileTypeSettings = {
-        image: function (vType, vName) {
-            return (vType !== undefined) ? vType.match('image.*') : vName.match(/\.(gif|png|jpe?g)$/i);
-        },
-        html: function (vType, vName) {
-            return (vType !== undefined) ? vType === 'text/html' : vName.match(/\.(htm|html)$/i);
-        },
-        text: function (vType, vName) {
-            return (vType !== undefined && vType.match('text.*')) || vName.match(
-                    /\.(txt|md|csv|nfo|ini|json|php|js|css)$/i);
-        },
-        video: function (vType, vName) {
-            return (vType !== undefined && vType.match(/\.video\/(ogg|mp4|webm|3gp)$/i)) || vName.match(
-                    /\.(og?|mp4|webm|3gp)$/i);
-        },
-        audio: function (vType, vName) {
-            return (vType !== undefined && vType.match(/\.audio\/(ogg|mp3|wav)$/i)) || vName.match(/\.(ogg|mp3|wav)$/i);
-        },
-        flash: function (vType, vName) {
-            return (vType !== undefined && vType === 'application/x-shockwave-flash') || vName.match(/\.(swf)$/i);
-        },
-        object: function () {
-            return true;
-        },
-        other: function () {
-            return true;
-        }
-    };
-    isEmpty = function (value, trim) {
-        return value === undefined || value === null || value.length === 0 || (trim && $.trim(value) === '');
-    };
-    isArray = function (a) {
-        return Array.isArray(a) || Object.prototype.toString.call(a) === '[object Array]';
-    };
-    isSet = function (needle, haystack) {
-        return (typeof haystack === 'object' && needle in haystack);
-    };
-    getElement = function (options, param, value) {
-        return (isEmpty(options) || isEmpty(options[param])) ? value : $(options[param]);
-    };
-    uniqId = function () {
-        return Math.round(new Date().getTime() + (Math.random() * 100));
-    };
-    htmlEncode = function (str) {
-        return str.replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&apos;');
-    };
-    replaceTags = function (str, tags) {
-        var out = str;
-        if (!tags) {
-            return out;
-        }
-        $.each(tags, function (key, value) {
-            if (typeof value === "function") {
-                value = value();
-            }
-            out = out.split(key).join(value);
-        });
-        return out;
-    };
-    //noinspection JSUnresolvedVariable
-    objUrl = window.URL || window.webkitURL;
-    FileInput = function (element, options) {
-        var self = this;
-        self.$element = $(element);
-        if (!self.validate()) {
-            return;
-        }
-        self.isPreviewable = hasFileAPISupport();
-        self.isIE9 = isIE(9);
-        self.isIE10 = isIE(10);
-        if (self.isPreviewable || self.isIE9) {
-            self.init(options);
-            self.listen();
-        } else {
-            self.$element.removeClass('file-loading');
-        }
-    };
-
-    FileInput.prototype = {
-        constructor: FileInput,
-        validate: function () {
-            var self = this, $exception;
-            if (self.$element.attr('type') === 'file') {
-                return true;
-            }
-            $exception = '<div class="help-block alert alert-warning">' +
-                '<h4>Invalid Input Type</h4>' +
-                'You must set an input <code>type = file</code> for <b>bootstrap-fileinput</b> plugin to initialize.' +
-                '</div>';
-            self.$element.after($exception);
-            return false;
-        },
-        init: function (options) {
-            var self = this, $el = self.$element, t;
-            $.each(options, function (key, value) {
-                switch (key) {
-                    case 'minFileCount':
-                    case 'maxFileCount':
-                    case 'maxFileSize':
-                        self[key] = getNum(value);
-                        break;
-                    default:
-                        self[key] = value;
-                        break;
-                }
-            });
-            self.fileInputCleared = false;
-            self.fileBatchCompleted = true;
-            if (!self.isPreviewable) {
-                self.showPreview = false;
-            }
-            self.uploadFileAttr = !isEmpty($el.attr('name')) ? $el.attr('name') : 'file_data';
-            self.reader = null;
-            self.formdata = {};
-            self.clearStack();
-            self.uploadCount = 0;
-            self.uploadStatus = {};
-            self.uploadLog = [];
-            self.uploadAsyncCount = 0;
-            self.loadedImages = [];
-            self.totalImagesCount = 0;
-            self.ajaxRequests = [];
-            self.isError = false;
-            self.ajaxAborted = false;
-            self.cancelling = false;
-            t = self.getLayoutTemplate('progress');
-            self.progressTemplate = t.replace('{class}', self.progressClass);
-            self.progressCompleteTemplate = t.replace('{class}', self.progressCompleteClass);
-            self.dropZoneEnabled = hasDragDropSupport() && self.dropZoneEnabled;
-            self.isDisabled = self.$element.attr('disabled') || self.$element.attr('readonly');
-            self.isUploadable = hasFileUploadSupport() && !isEmpty(self.uploadUrl);
-            self.slug = typeof options.slugCallback === "function" ? options.slugCallback : self.slugDefault;
-            self.mainTemplate = self.showCaption ? self.getLayoutTemplate('main1') : self.getLayoutTemplate('main2');
-            self.captionTemplate = self.getLayoutTemplate('caption');
-            self.previewGenericTemplate = self.getPreviewTemplate('generic');
-            if (self.resizeImage && (self.maxImageWidth || self.maxImageHeight)) {
-                self.imageCanvas = document.createElement('canvas');
-                self.imageCanvasContext = self.imageCanvas.getContext('2d');
-            }
-            if (isEmpty(self.$element.attr('id'))) {
-                self.$element.attr('id', uniqId());
-            }
-            if (self.$container === undefined) {
-                self.$container = self.createContainer();
-            } else {
-                self.refreshContainer();
-            }
-            self.$progress = self.$container.find('.kv-upload-progress');
-            self.$btnUpload = self.$container.find('.fileinput-upload');
-            self.$captionContainer = getElement(options, 'elCaptionContainer', self.$container.find('.file-caption'));
-            self.$caption = getElement(options, 'elCaptionText', self.$container.find('.file-caption-name'));
-            self.$previewContainer = getElement(options, 'elPreviewContainer', self.$container.find('.file-preview'));
-            self.$preview = getElement(options, 'elPreviewImage', self.$container.find('.file-preview-thumbnails'));
-            self.$previewStatus = getElement(options, 'elPreviewStatus', self.$container.find('.file-preview-status'));
-            self.$errorContainer = getElement(options, 'elErrorContainer',
-                self.$previewContainer.find('.kv-fileinput-error'));
-            if (!isEmpty(self.msgErrorClass)) {
-                addCss(self.$errorContainer, self.msgErrorClass);
-            }
-            self.$errorContainer.hide();
-            self.fileActionSettings = $.extend(defaultFileActionSettings, options.fileActionSettings);
-            self.previewInitId = "preview-" + uniqId();
-            self.id = self.$element.attr('id');
-            previewCache.init(self);
-            self.initPreview(true);
-            self.initPreviewDeletes();
-            self.options = options;
-            self.setFileDropZoneTitle();
-            self.$element.removeClass('file-loading');
-            if (self.$element.attr('disabled')) {
-                self.disable();
-            }
-        },
-        parseError: function (jqXHR, errorThrown, fileName) {
-            var self = this, errMsg = $.trim(errorThrown + ''),
-                dot = errMsg.slice(-1) === '.' ? '' : '.',
-                text = jqXHR.responseJSON !== undefined && jqXHR.responseJSON.error !== undefined ?
-                    jqXHR.responseJSON.error : jqXHR.responseText;
-            if (self.cancelling && self.msgUploadAborted) {
-                errMsg = self.msgUploadAborted;
-            }
-            if (self.showAjaxErrorDetails && text) {
-                text = $.trim(text.replace(/\n\s*\n/g, '\n'));
-                text = text.length > 0 ? '<pre>' + text + '</pre>' : '';
-                errMsg += dot + text;
-            } else {
-                errMsg += dot;
-            }
-            self.cancelling = false;
-            return fileName ? '<b>' + fileName + ': </b>' + errMsg : errMsg;
-        },
-        raise: function (event, params) {
-            var self = this, e = $.Event(event);
-            if (params !== undefined) {
-                self.$element.trigger(e, params);
-            } else {
-                self.$element.trigger(e);
-            }
-            if (e.isDefaultPrevented()) {
-                return false;
-            }
-            if (!e.result) {
-                return e.result;
-            }
-            switch (event) {
-                // ignore these events
-                case 'filebatchuploadcomplete':
-                case 'filebatchuploadsuccess':
-                case 'fileuploaded':
-                case 'fileclear':
-                case 'filecleared':
-                case 'filereset':
-                case 'fileerror':
-                case 'filefoldererror':
-                case 'fileuploaderror':
-                case 'filebatchuploaderror':
-                case 'filedeleteerror':
-                case 'filecustomerror':
-                case 'filesuccessremove':
-                    break;
-                // receive data response via `filecustomerror` event`
-                default:
-                    self.ajaxAborted = e.result;
-                    break;
-            }
-            return true;
-        },
-        getLayoutTemplate: function (t) {
-            var self = this,
-                template = isSet(t, self.layoutTemplates) ? self.layoutTemplates[t] : defaultLayoutTemplates[t];
-            if (isEmpty(self.customLayoutTags)) {
-                return template;
-            }
-            return replaceTags(template, self.customLayoutTags);
-        },
-        getPreviewTemplate: function (t) {
-            var self = this,
-                template = isSet(t, self.previewTemplates) ? self.previewTemplates[t] : defaultPreviewTemplates[t];
-            if (isEmpty(self.customPreviewTags)) {
-                return template;
-            }
-            return replaceTags(template, self.customPreviewTags);
-        },
-        parseFilePreviewIcon: function (content, fname) {
-            var self = this, ext, icn = self.previewFileIcon;
-            if (fname && fname.indexOf('.') > -1) {
-                ext = fname.split('.').pop();
-                if (self.previewFileIconSettings && self.previewFileIconSettings[ext]) {
-                    icn = self.previewFileIconSettings[ext];
-                }
-                if (self.previewFileExtSettings) {
-                    $.each(self.previewFileExtSettings, function (key, func) {
-                        if (self.previewFileIconSettings[key] && func(ext)) {
-                            icn = self.previewFileIconSettings[key];
-                        }
-                    });
-                }
-            }
-            if (content.indexOf('{previewFileIcon}') > -1) {
-                return content.replace(/\{previewFileIconClass}/g, self.previewFileIconClass).replace(
-                    /\{previewFileIcon}/g, icn);
-            }
-            return content;
-        },
-        getOutData: function (jqXHR, responseData, filesData) {
-            var self = this;
-            jqXHR = jqXHR || {};
-            responseData = responseData || {};
-            filesData = filesData || self.filestack.slice(0) || {};
-            return {
-                form: self.formdata,
-                files: filesData,
-                filenames: self.filenames,
-                extra: self.getExtraData(),
-                response: responseData,
-                reader: self.reader,
-                jqXHR: jqXHR
-            };
-        },
-        listen: function () {
-            var self = this, $el = self.$element, $cap = self.$captionContainer, $btnFile = self.$btnFile,
-                $form = $el.closest('form'), $cont = self.$container;
-            handler($el, 'change', $.proxy(self.change, self));
-            handler($btnFile, 'click', function () {
-                self.raise('filebrowse');
-                if (self.isError && !self.isUploadable) {
-                    self.clear();
-                }
-                $cap.focus();
-            });
-            handler($form, 'reset', $.proxy(self.reset, self));
-            handler($cont.find('.fileinput-remove:not([disabled])'), 'click', $.proxy(self.clear, self));
-            handler($cont.find('.fileinput-cancel'), 'click', $.proxy(self.cancel, self));
-            if (self.isUploadable && self.dropZoneEnabled && self.showPreview) {
-                self.initDragDrop();
-            }
-            if (!self.isUploadable) {
-                handler($form, 'submit', $.proxy(self.submitForm, self));
-            }
-            handler(self.$container.find('.fileinput-upload'), 'click', function (e) {
-                var $btn = $(this), $form, isEnabled = !$btn.hasClass('disabled') && isEmpty($btn.attr('disabled'));
-                if (!self.isUploadable) {
-                    if (isEnabled && $btn.attr('type') !== 'submit') {
-                        $form = $btn.closest('form');
-                        // downgrade to normal form submit if possible
-                        if ($form.length) {
-                            $form.trigger('submit');
-                        }
-                        e.preventDefault();
-                    }
-                    return;
-                }
-                e.preventDefault();
-                if (isEnabled) {
-                    self.upload();
-                }
-            });
-        },
-        submitForm: function () {
-            var self = this, $el = self.$element, files = $el.get(0).files;
-            if (files && self.minFileCount > 0 && self.getFileCount(files.length) < self.minFileCount) {
-                self.noFilesError({});
-                return false;
-            }
-            return !self.abort({});
-        },
-        abort: function (params) {
-            var self = this, data;
-            if (self.ajaxAborted && typeof self.ajaxAborted === "object" && self.ajaxAborted.message !== undefined) {
-                data = $.extend(self.getOutData(), params);
-                data.abortData = self.ajaxAborted.data || {};
-                data.abortMessage = self.ajaxAborted.message;
-                self.cancel();
-                self.setProgress(100);
-                self.showUploadError(self.ajaxAborted.message, data, 'filecustomerror');
-                return true;
-            }
-            return false;
-        },
-        noFilesError: function (params) {
-            var self = this, label = self.minFileCount > 1 ? self.filePlural : self.fileSingle,
-                msg = self.msgFilesTooLess.replace('{n}', self.minFileCount).replace('{files}', label),
-                $error = self.$errorContainer;
-            self.addError(msg);
-            self.isError = true;
-            self.updateFileDetails(0);
-            $error.fadeIn(800);
-            self.raise('fileerror', [params]);
-            self.clearFileInput();
-            addCss(self.$container, 'has-error');
-        },
-        setProgress: function (p, $el) {
-            var self = this, pct = Math.min(p, 100),
-                template = pct < 100 ? self.progressTemplate : self.progressCompleteTemplate;
-            $el = $el || self.$progress;
-            if (!isEmpty(template)) {
-                $el.html(template.replace(/\{percent}/g, pct));
-            }
-        },
-        lock: function () {
-            var self = this;
-            self.resetErrors();
-            self.disable();
-            if (self.showRemove) {
-                addCss(self.$container.find('.fileinput-remove'), 'hide');
-            }
-            if (self.showCancel) {
-                self.$container.find('.fileinput-cancel').removeClass('hide');
-            }
-            self.raise('filelock', [self.filestack, self.getExtraData()]);
-        },
-        unlock: function (reset) {
-            var self = this;
-            if (reset === undefined) {
-                reset = true;
-            }
-            self.enable();
-            if (self.showCancel) {
-                addCss(self.$container.find('.fileinput-cancel'), 'hide');
-            }
-            if (self.showRemove) {
-                self.$container.find('.fileinput-remove').removeClass('hide');
-            }
-            if (reset) {
-                self.resetFileStack();
-            }
-            self.raise('fileunlock', [self.filestack, self.getExtraData()]);
-        },
-        resetFileStack: function () {
-            var self = this, i = 0, newstack = [], newnames = [];
-            self.getThumbs().each(function () {
-                var $thumb = $(this), ind = $thumb.attr('data-fileindex'),
-                    file = self.filestack[ind];
-                if (ind === -1) {
-                    return;
-                }
-                if (file !== undefined) {
-                    newstack[i] = file;
-                    newnames[i] = self.getFileName(file);
-                    $thumb.attr({
-                        'id': self.previewInitId + '-' + i,
-                        'data-fileindex': i
-                    });
-                    i++;
-                } else {
-                    $thumb.attr({
-                        'id': 'uploaded-' + uniqId(),
-                        'data-fileindex': '-1'
-                    });
-                }
-            });
-            self.filestack = newstack;
-            self.filenames = newnames;
-        },
-        destroy: function () {
-            var self = this, $cont = self.$container;
-            $cont.find('.file-drop-zone').off();
-            self.$element.insertBefore($cont).off('.fileinput').removeData();
-            $cont.off().remove();
-        },
-        refresh: function (options) {
-            var self = this, $el = self.$element;
-            options = options ? $.extend(self.options, options) : self.options;
-            self.destroy();
-            $el.fileinput(options);
-            if ($el.val()) {
-                $el.trigger('change.fileinput');
-            }
-        },
-        initDragDrop: function () {
-            var self = this, $zone = self.$container.find('.file-drop-zone'),
-                allEvents = 'dragenter.fileinput dragover.fileinput drop.fileinput';
-            handler($zone, 'dragenter.fileinput dragover.fileinput', function (e) {
-                var hasFiles = $.inArray('Files', e.originalEvent.dataTransfer.types) > -1;
-                e.stopPropagation();
-                e.preventDefault();
-                if (self.isDisabled || !hasFiles) {
-                    e.originalEvent.dataTransfer.effectAllowed = 'none';
-                    e.originalEvent.dataTransfer.dropEffect = 'none';
-                    return;
-                }
-                addCss($(this), 'file-highlighted');
-            }, true);
-            handler($zone, 'dragleave', function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                if (self.isDisabled) {
-                    return;
-                }
-                $(this).removeClass('file-highlighted');
-            });
-            handler($zone, 'drop', function (e) {
-                e.preventDefault();
-                /** @namespace e.originalEvent.dataTransfer */
-                if (self.isDisabled || isEmpty(e.originalEvent.dataTransfer.files)) {
-                    return;
-                }
-                self.change(e, 'dragdrop');
-                $(this).removeClass('file-highlighted');
-            });
-            handler($(document), allEvents, function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-            }, true);
-        },
-        setFileDropZoneTitle: function () {
-            var self = this, $zone = self.$container.find('.file-drop-zone');
-            $zone.find('.' + self.dropZoneTitleClass).remove();
-            if (!self.isUploadable || !self.showPreview || $zone.length === 0 || self.getFileStack().length > 0 || !self.dropZoneEnabled) {
-                return;
-            }
-            if ($zone.find('.file-preview-frame').length === 0 && isEmpty(self.defaultPreviewContent)) {
-                $zone.prepend('<div class="' + self.dropZoneTitleClass + '">' + self.dropZoneTitle + '</div>');
-            }
-            self.$container.removeClass('file-input-new');
-            addCss(self.$container, 'file-input-ajax-new');
-        },
-        errorsExist: function () {
-            var self = this, $err;
-            if (self.$errorContainer.find('li').length) {
-                return true;
-            }
-            $err = $(document.createElement('div')).html(self.$errorContainer.html());
-            $err.find('span.kv-error-close').remove();
-            $err.find('ul').remove();
-            return $.trim($err.text()).length ? true : false;
-        },
-        getMsgSelected: function (n) {
-            var self = this, strFiles = n === 1 ? self.fileSingle : self.filePlural;
-            return self.msgSelected.replace('{n}', n).replace('{files}', strFiles);
-        },
-        renderThumbProgress: function () {
-            return '<div class="file-thumb-progress hide">' + this.progressTemplate.replace(/\{percent}/g,
-                    '0') + '</div>';
-        },
-        renderFileFooter: function (caption, width) {
-            var self = this, config = self.fileActionSettings, footer, out, template = self.getLayoutTemplate('footer');
-            if (self.isUploadable) {
-                footer = template.replace(/\{actions}/g, self.renderFileActions(true, true, false, false, false));
-                out = footer.replace(/\{caption}/g, caption)
-                    .replace(/\{width}/g, width)
-                    .replace(/\{progress}/g, self.renderThumbProgress())
-                    .replace(/\{indicator}/g, config.indicatorNew)
-                    .replace(/\{indicatorTitle}/g, config.indicatorNewTitle);
-            } else {
-                out = template.replace(/\{actions}/g, '')
-                    .replace(/\{caption}/g, caption)
-                    .replace(/\{progress}/g, '')
-                    .replace(/\{width}/g, width)
-                    .replace(/\{indicator}/g, '')
-                    .replace(/\{indicatorTitle}/g, '');
-            }
-            out = replaceTags(out, self.previewThumbTags);
-            return out;
-        },
-        renderFileActions: function (showUpload, showDelete, disabled, url, key) {
-            if (!showUpload && !showDelete) {
-                return '';
-            }
-            var self = this,
-                vUrl = url === false ? '' : ' data-url="' + url + '"',
-                vKey = key === false ? '' : ' data-key="' + key + '"',
-                btnDelete = self.getLayoutTemplate('actionDelete'),
-                btnUpload = '',
-                template = self.getLayoutTemplate('actions'),
-                otherButtons = self.otherActionButtons.replace(/\{dataKey}/g, vKey),
-                config = self.fileActionSettings,
-                removeClass = disabled ? config.removeClass + ' disabled' : config.removeClass;
-            btnDelete = btnDelete
-                .replace(/\{removeClass}/g, removeClass)
-                .replace(/\{removeIcon}/g, config.removeIcon)
-                .replace(/\{removeTitle}/g, config.removeTitle)
-                .replace(/\{dataUrl}/g, vUrl)
-                .replace(/\{dataKey}/g, vKey);
-            if (showUpload) {
-                btnUpload = self.getLayoutTemplate('actionUpload')
-                    .replace(/\{uploadClass}/g, config.uploadClass)
-                    .replace(/\{uploadIcon}/g, config.uploadIcon)
-                    .replace(/\{uploadTitle}/g, config.uploadTitle);
-            }
-            return template
-                .replace(/\{delete}/g, btnDelete)
-                .replace(/\{upload}/g, btnUpload)
-                .replace(/\{other}/g, otherButtons);
-        },
-        setThumbStatus: function ($thumb, status) {
-            var self = this;
-            if (!self.showPreview) {
-                return;
-            }
-            var icon = 'indicator' + status, msg = icon + 'Title',
-                css = 'file-preview-' + status.toLowerCase(),
-                $indicator = $thumb.find('.file-upload-indicator'),
-                config = self.fileActionSettings;
-            $thumb.removeClass('file-preview-success file-preview-error file-preview-loading');
-            if (status === 'Error') {
-                $thumb.find('.kv-file-upload').attr('disabled', true);
-            }
-            $indicator.html(config[icon]);
-            $indicator.attr('title', config[msg]);
-            $thumb.addClass(css);
-        },
-        clearPreview: function () {
-            var self = this, $thumbs = !self.showUploadedThumbs ? self.$preview.find('.file-preview-frame') :
-                self.$preview.find('.file-preview-frame:not(.file-preview-success)');
-            $thumbs.remove();
-            if (!self.$preview.find('.file-preview-frame').length || !self.showPreview) {
-                self.resetUpload();
-            }
-            self.validateDefaultPreview();
-        },
-        initPreview: function (isInit) {
-            var self = this, cap = self.initialCaption || '', out;
-            if (!previewCache.count(self.id)) {
-                self.clearPreview();
-                if (isInit) {
-                    self.setCaption(cap);
-                } else {
-                    self.initCaption();
-                }
-                return;
-            }
-            out = previewCache.out(self.id);
-            cap = isInit && self.initialCaption ? self.initialCaption : out.caption;
-            self.$preview.html(out.content);
-            self.setCaption(cap);
-            if (!isEmpty(out.content)) {
-                self.$container.removeClass('file-input-new');
-            }
-        },
-        initPreviewDeletes: function () {
-            var self = this, deleteExtraData = self.deleteExtraData || {},
-                resetProgress = function () {
-                    var hasFiles = self.isUploadable ? previewCache.count(self.id) : self.$element.get(0).files.length;
-                    if (self.$preview.find('.kv-file-remove').length === 0 && !hasFiles) {
-                        self.reset();
-                        self.initialCaption = '';
-                    }
-                };
-
-            self.$preview.find('.kv-file-remove').each(function () {
-                var $el = $(this), vUrl = $el.data('url') || self.deleteUrl, vKey = $el.data('key');
-                if (isEmpty(vUrl) || vKey === undefined) {
-                    return;
-                }
-                var $frame = $el.closest('.file-preview-frame'), cache = previewCache.data[self.id],
-                    settings, params, index = $frame.data('fileindex'), config, extraData;
-                index = parseInt(index.replace('init_', ''));
-                config = isEmpty(cache.config) && isEmpty(cache.config[index]) ? null : cache.config[index];
-                extraData = isEmpty(config) || isEmpty(config.extra) ? deleteExtraData : config.extra;
-                if (typeof extraData === "function") {
-                    extraData = extraData();
-                }
-                params = {id: $el.attr('id'), key: vKey, extra: extraData};
-                settings = $.extend({
-                    url: vUrl,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: $.extend({key: vKey}, extraData),
-                    beforeSend: function (jqXHR) {
-                        self.ajaxAborted = false;
-                        self.raise('filepredelete', [vKey, jqXHR, extraData]);
-                        if (self.ajaxAborted) {
-                            jqXHR.abort();
-                        } else {
-                            addCss($frame, 'file-uploading');
-                            addCss($el, 'disabled');
-                        }
-                    },
-                    success: function (data, textStatus, jqXHR) {
-                        var n, cap;
-                        if (isEmpty(data) || isEmpty(data.error)) {
-                            previewCache.unset(self.id, index);
-                            n = previewCache.count(self.id);
-                            cap = n > 0 ? self.getMsgSelected(n) : '';
-                            self.raise('filedeleted', [vKey, jqXHR, extraData]);
-                            self.setCaption(cap);
-                        } else {
-                            params.jqXHR = jqXHR;
-                            params.response = data;
-                            self.showError(data.error, params, 'filedeleteerror');
-                            $frame.removeClass('file-uploading');
-                            $el.removeClass('disabled');
-                            resetProgress();
-                            return;
-                        }
-                        $frame.removeClass('file-uploading').addClass('file-deleted');
-                        $frame.fadeOut('slow', function () {
-                            self.clearObjects($frame);
-                            $frame.remove();
-                            resetProgress();
-                            if (!n && self.getFileStack().length === 0) {
-                                self.setCaption('');
-                                self.reset();
-                            }
-                        });
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        var errMsg = self.parseError(jqXHR, errorThrown);
-                        params.jqXHR = jqXHR;
-                        params.response = {};
-                        self.showError(errMsg, params, 'filedeleteerror');
-                        $frame.removeClass('file-uploading');
-                        resetProgress();
-                    }
-                }, self.ajaxDeleteSettings);
-                handler($el, 'click', function () {
-                    if (!self.validateMinCount()) {
-                        return false;
-                    }
-                    $.ajax(settings);
-                });
-            });
-        },
-        clearObjects: function ($el) {
-            $el.find('video audio').each(function () {
-                this.pause();
-                $(this).remove();
-            });
-            $el.find('img object div').each(function () {
-                $(this).remove();
-            });
-        },
-        clearFileInput: function () {
-            var self = this, $el = self.$element, $srcFrm, $tmpFrm, $tmpEl;
-            if (isEmpty($el.val())) {
-                return;
-            }
-            // Fix for IE ver < 11, that does not clear file inputs
-            // Requires a sequence of steps to prevent IE crashing but
-            // still allow clearing of the file input.
-            if (self.isIE9 || self.isIE10) {
-                $srcFrm = $el.closest('form');
-                $tmpFrm = $(document.createElement('form'));
-                $tmpEl = $(document.createElement('div'));
-                $el.before($tmpEl);
-                if ($srcFrm.length) {
-                    $srcFrm.after($tmpFrm);
-                } else {
-                    $tmpEl.after($tmpFrm);
-                }
-                $tmpFrm.append($el).trigger('reset');
-                $tmpEl.before($el).remove();
-                $tmpFrm.remove();
-            } else { // normal input clear behavior for other sane browsers
-                $el.val('');
-            }
-            self.fileInputCleared = true;
-        },
-        resetUpload: function () {
-            var self = this;
-            self.uploadCache = {content: [], config: [], tags: [], append: true};
-            self.uploadCount = 0;
-            self.uploadStatus = {};
-            self.uploadLog = [];
-            self.uploadAsyncCount = 0;
-            self.loadedImages = [];
-            self.totalImagesCount = 0;
-            self.$btnUpload.removeAttr('disabled');
-            self.setProgress(0);
-            addCss(self.$progress, 'hide');
-            self.resetErrors(false);
-            self.ajaxAborted = false;
-            self.ajaxRequests = [];
-            self.resetCanvas();
-        },
-        resetCanvas: function () {
-            var self = this;
-            if (self.canvas && self.imageCanvasContext) {
-                self.imageCanvasContext.clearRect(0, 0, self.canvas.width, self.canvas.height);
-            }
-        },
-        cancel: function () {
-            var self = this, xhr = self.ajaxRequests, len = xhr.length, i;
-            if (len > 0) {
-                for (i = 0; i < len; i += 1) {
-                    self.cancelling = true;
-                    xhr[i].abort();
-                }
-            }
-            self.getThumbs().each(function () {
-                var $thumb = $(this), ind = $thumb.attr('data-fileindex');
-                $thumb.removeClass('file-uploading');
-                if (self.filestack[ind] !== undefined) {
-                    $thumb.find('.kv-file-upload').removeClass('disabled').removeAttr('disabled');
-                    $thumb.find('.kv-file-remove').removeClass('disabled').removeAttr('disabled');
-                }
-                self.unlock();
-            });
-        },
-        cleanMemory: function ($thumb) {
-            var data = $thumb.is('img') ? $thumb.attr('src') : $thumb.find('source').attr('src');
-            /** @namespace objUrl.revokeObjectURL */
-            objUrl.revokeObjectURL(data);
-        },
-        hasInitialPreview: function () {
-            var self = this;
-            return !self.overwriteInitial && previewCache.count(self.id);
-        },
-        clear: function () {
-            var self = this, cap;
-            self.$btnUpload.removeAttr('disabled');
-            self.getThumbs().find('video,audio,img').each(function () {
-                self.cleanMemory($(this));
-            });
-            self.resetUpload();
-            self.clearStack();
-            self.clearFileInput();
-            self.resetErrors(true);
-            self.raise('fileclear');
-            if (self.hasInitialPreview()) {
-                self.showFileIcon();
-                self.resetPreview();
-                self.initPreviewDeletes();
-                self.$container.removeClass('file-input-new');
-            } else {
-                self.getThumbs().each(function () {
-                    self.clearObjects($(this));
-                });
-                if (self.isUploadable) {
-                    previewCache.data[self.id] = {};
-                }
-                self.$preview.html('');
-                cap = (!self.overwriteInitial && self.initialCaption.length > 0) ? self.initialCaption : '';
-                self.setCaption(cap);
-                self.$caption.attr('title', '');
-                addCss(self.$container, 'file-input-new');
-                self.validateDefaultPreview();
-            }
-            if (self.$container.find('.file-preview-frame').length === 0) {
-                if (!self.initCaption()) {
-                    self.$captionContainer.find('.kv-caption-icon').hide();
-                }
-            }
-            self.hideFileIcon();
-            self.raise('filecleared');
-            self.$captionContainer.focus();
-            self.setFileDropZoneTitle();
-        },
-        resetPreview: function () {
-            var self = this, out, cap;
-            if (previewCache.count(self.id)) {
-                out = previewCache.out(self.id);
-                self.$preview.html(out.content);
-                cap = self.initialCaption ? self.initialCaption : out.caption;
-                self.setCaption(cap);
-            } else {
-                self.clearPreview();
-                self.initCaption();
-            }
-        },
-        clearDefaultPreview: function () {
-            var self = this;
-            self.$preview.find('.file-default-preview').remove();
-        },
-        validateDefaultPreview: function () {
-            var self = this;
-            if (!self.showPreview || isEmpty(self.defaultPreviewContent)) {
-                return;
-            }
-            self.$preview.html('<div class="file-default-preview">' + self.defaultPreviewContent + '</div>');
-            self.$container.removeClass('file-input-new');
-        },
-        resetPreviewThumbs: function (isAjax) {
-            var self = this, out;
-            if (isAjax) {
-                self.clearPreview();
-                self.clearStack();
-                return;
-            }
-            if (self.hasInitialPreview()) {
-                out = previewCache.out(self.id);
-                self.$preview.html(out.content);
-                self.setCaption(out.caption);
-                self.initPreviewDeletes();
-            } else {
-                self.clearPreview();
-            }
-        },
-        reset: function () {
-            var self = this;
-            self.resetPreview();
-            self.$container.find('.fileinput-filename').text('');
-            self.raise('filereset');
-            addCss(self.$container, 'file-input-new');
-            if (self.$preview.find('.file-preview-frame').length || self.isUploadable && self.dropZoneEnabled) {
-                self.$container.removeClass('file-input-new');
-            }
-            self.setFileDropZoneTitle();
-            self.clearStack();
-            self.formdata = {};
-        },
-        disable: function () {
-            var self = this;
-            self.isDisabled = true;
-            self.raise('filedisabled');
-            self.$element.attr('disabled', 'disabled');
-            self.$container.find(".kv-fileinput-caption").addClass("file-caption-disabled");
-            self.$container.find(".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").attr(
-                "disabled",
-                true);
-            self.initDragDrop();
-        },
-        enable: function () {
-            var self = this;
-            self.isDisabled = false;
-            self.raise('fileenabled');
-            self.$element.removeAttr('disabled');
-            self.$container.find(".kv-fileinput-caption").removeClass("file-caption-disabled");
-            self.$container.find(
-                ".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").removeAttr("disabled");
-            self.initDragDrop();
-        },
-        getThumbs: function (css) {
-            css = css || '';
-            return this.$preview.find('.file-preview-frame:not(.file-preview-initial)' + css);
-        },
-        getExtraData: function (previewId, index) {
-            var self = this, data = self.uploadExtraData;
-            if (typeof self.uploadExtraData === "function") {
-                data = self.uploadExtraData(previewId, index);
-            }
-            return data;
-        },
-        uploadExtra: function (previewId, index) {
-            var self = this, data = self.getExtraData(previewId, index);
-            if (data.length === 0) {
-                return;
-            }
-            $.each(data, function (key, value) {
-                self.formdata.append(key, value);
-            });
-        },
-        setAsyncUploadStatus: function (previewId, pct, total) {
-            var self = this, sum = 0;
-            self.setProgress(pct, $('#' + previewId).find('.file-thumb-progress'));
-            self.uploadStatus[previewId] = pct;
-            $.each(self.uploadStatus, function (key, value) {
-                sum += value;
-            });
-            self.setProgress(Math.ceil(sum / total));
-
-        },
-        initXhr: function (xhrobj, previewId, fileCount) {
-            var self = this;
-            if (xhrobj.upload) {
-                xhrobj.upload.addEventListener('progress', function (event) {
-                    var pct = 0, position = event.loaded || event.position, total = event.total;
-                    /** @namespace event.lengthComputable */
-                    if (event.lengthComputable) {
-                        pct = Math.ceil(position / total * 100);
-                    }
-                    if (previewId) {
-                        self.setAsyncUploadStatus(previewId, pct, fileCount);
-                    } else {
-                        self.setProgress(Math.ceil(pct));
-                    }
-                }, false);
-            }
-            return xhrobj;
-        },
-        ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
-            var self = this, settings;
-            self.raise('filepreajax', [previewId, index]);
-            self.uploadExtra(previewId, index);
-            settings = $.extend({
-                xhr: function () {
-                    var xhrobj = $.ajaxSettings.xhr();
-                    return self.initXhr(xhrobj, previewId, self.getFileStack().length);
-                },
-                url: self.uploadUrl,
-                type: 'POST',
-                dataType: 'json',
-                data: self.formdata,
-                cache: false,
-                processData: false,
-                contentType: false,
-                beforeSend: fnBefore,
-                success: fnSuccess,
-                complete: fnComplete,
-                error: fnError
-            }, self.ajaxSettings);
-            self.ajaxRequests.push($.ajax(settings));
-        },
-        initUploadSuccess: function (out, $thumb, allFiles) {
-            var self = this, append, data, index, $newThumb, content, config, tags, i;
-            if (!self.showPreview || typeof out !== 'object' || $.isEmptyObject(out)) {
-                return;
-            }
-            if (out.initialPreview !== undefined && out.initialPreview.length > 0) {
-                self.hasInitData = true;
-                content = out.initialPreview || [];
-                config = out.initialPreviewConfig || [];
-                tags = out.initialPreviewThumbTags || [];
-                append = out.append === undefined || out.append ? true : false;
-                self.overwriteInitial = false;
-                if ($thumb !== undefined) {
-                    if (!allFiles) {
-                        index = previewCache.add(self.id, content, config[0], tags[0], append);
-                        data = previewCache.get(self.id, index, false);
-                        $newThumb = $(data).hide();
-                        $thumb.after($newThumb).fadeOut('slow', function () {
-                            $newThumb.fadeIn('slow').css('display:inline-block');
-                            self.initPreviewDeletes();
-                            self.clearFileInput();
-                            $thumb.remove();
-                        });
-                    } else {
-                        i = $thumb.attr('data-fileindex');
-                        self.uploadCache.content[i] = content[0];
-                        self.uploadCache.config[i] = config[0];
-                        self.uploadCache.tags[i] = tags[0];
-                        self.uploadCache.append = append;
-                    }
-                } else {
-                    previewCache.set(self.id, content, config, tags, append);
-                    self.initPreview();
-                    self.initPreviewDeletes();
-                }
-            }
-        },
-        initSuccessThumbs: function () {
-            var self = this;
-            if (!self.showPreview) {
-                return;
-            }
-            self.getThumbs('.file-preview-success').each(function () {
-                var $thumb = $(this), $remove = $thumb.find('.kv-file-remove');
-                $remove.removeAttr('disabled');
-                handler($remove, 'click', function () {
-                    var out = self.raise('filesuccessremove', [$thumb.attr('id'), $thumb.data('fileindex')]);
-                    self.cleanMemory($thumb);
-                    if (out === false) {
-                        return;
-                    }
-                    $thumb.fadeOut('slow', function () {
-                        $thumb.remove();
-                        if (!self.$preview.find('.file-preview-frame').length) {
-                            self.reset();
-                        }
-                    });
-                });
-            });
-        },
-        checkAsyncComplete: function () {
-            var self = this, previewId, i;
-            for (i = 0; i < self.filestack.length; i++) {
-                if (self.filestack[i]) {
-                    previewId = self.previewInitId + "-" + i;
-                    if ($.inArray(previewId, self.uploadLog) === -1) {
-                        return false;
-                    }
-                }
-            }
-            return (self.uploadAsyncCount === self.uploadLog.length);
-        },
-        uploadSingle: function (i, files, allFiles) {
-            var self = this, total = self.getFileStack().length, formdata = new FormData(), outData,
-                previewId = self.previewInitId + "-" + i, $thumb, chkComplete, $btnUpload, $btnDelete,
-                hasPostData = self.filestack.length > 0 || !$.isEmptyObject(self.uploadExtraData),
-                fnBefore, fnSuccess, fnComplete, fnError, updateUploadLog, params = {id: previewId, index: i};
-            self.formdata = formdata;
-            if (self.showPreview) {
-                $thumb = $('#' + previewId + ':not(.file-preview-initial)');
-                $btnUpload = $thumb.find('.kv-file-upload');
-                $btnDelete = $thumb.find('.kv-file-remove');
-                $('#' + previewId).find('.file-thumb-progress').removeClass('hide');
-            }
-            if (total === 0 || !hasPostData || ($btnUpload && $btnUpload.hasClass('disabled')) || self.abort(params)) {
-                return;
-            }
-            updateUploadLog = function (i, previewId) {
-                self.updateStack(i, undefined);
-                self.uploadLog.push(previewId);
-                if (self.checkAsyncComplete()) {
-                    self.fileBatchCompleted = true;
-                }
-            };
-            chkComplete = function () {
-                if (!self.fileBatchCompleted) {
-                    return;
-                }
-                setTimeout(function () {
-                    if (self.showPreview) {
-                        previewCache.set(
-                            self.id,
-                            self.uploadCache.content,
-                            self.uploadCache.config,
-                            self.uploadCache.tags,
-                            self.uploadCache.append
-                        );
-                        if (self.hasInitData) {
-                            self.initPreview();
-                            self.initPreviewDeletes();
-                        }
-                    }
-                    self.unlock();
-                    self.clearFileInput();
-                    self.raise('filebatchuploadcomplete', [self.filestack, self.getExtraData()]);
-                    self.uploadCount = 0;
-                    self.uploadStatus = {};
-                    self.uploadLog = [];
-                    self.setProgress(100);
-                }, 100);
-            };
-            fnBefore = function (jqXHR) {
-                outData = self.getOutData(jqXHR);
-                self.fileBatchCompleted = false;
-                if (self.showPreview) {
-                    if (!$thumb.hasClass('file-preview-success')) {
-                        self.setThumbStatus($thumb, 'Loading');
-                        addCss($thumb, 'file-uploading');
-                    }
-                    $btnUpload.attr('disabled', true);
-                    $btnDelete.attr('disabled', true);
-                }
-                if (!allFiles) {
-                    self.lock();
-                }
-                self.raise('filepreupload', [outData, previewId, i]);
-                params = $.extend(params, outData);
-                if (self.abort(params)) {
-                    jqXHR.abort();
-                    self.setProgress(100);
-                }
-            };
-            fnSuccess = function (data, textStatus, jqXHR) {
-                outData = self.getOutData(jqXHR, data);
-                params = $.extend(params, outData);
-                setTimeout(function () {
-                    if (isEmpty(data) || isEmpty(data.error)) {
-                        if (self.showPreview) {
-                            self.setThumbStatus($thumb, 'Success');
-                            $btnUpload.hide();
-                            self.initUploadSuccess(data, $thumb, allFiles);
-                        }
-                        self.raise('fileuploaded', [outData, previewId, i]);
-                        if (!allFiles) {
-                            self.updateStack(i, undefined);
-                        } else {
-                            updateUploadLog(i, previewId);
-                        }
-                    } else {
-                        self.setThumbStatus($thumb, 'Error');
-                        self.showUploadError(data.error, params);
-                        if (allFiles) {
-                            updateUploadLog(i, previewId);
-                        }
-                    }
-                }, 100);
-            };
-            fnComplete = function () {
-                setTimeout(function () {
-                    if (self.showPreview) {
-                        $btnUpload.removeAttr('disabled');
-                        $btnDelete.removeAttr('disabled');
-                        $thumb.removeClass('file-uploading');
-                    }
-                    if (!allFiles) {
-                        self.unlock(false);
-                        self.clearFileInput();
-                    } else {
-                        chkComplete();
-                    }
-                    self.initSuccessThumbs();
-                }, 100);
-            };
-            fnError = function (jqXHR, textStatus, errorThrown) {
-                var errMsg = self.parseError(jqXHR, errorThrown, (allFiles ? files[i].name : null));
-                setTimeout(function () {
-                    if (allFiles) {
-                        updateUploadLog(i, previewId);
-                    }
-                    self.uploadStatus[previewId] = 100;
-                    self.setThumbStatus($thumb, 'Error');
-                    params = $.extend(params, self.getOutData(jqXHR));
-                    self.showUploadError(errMsg, params);
-                }, 100);
-            };
-            formdata.append(self.uploadFileAttr, files[i], self.filenames[i]);
-            formdata.append('file_id', i);
-            self.ajaxSubmit(fnBefore, fnSuccess, fnComplete, fnError, previewId, i);
-        },
-        uploadBatch: function () {
-            var self = this, files = self.filestack, total = files.length, params = {},
-                hasPostData = self.filestack.length > 0 || !$.isEmptyObject(self.uploadExtraData),
-                setAllUploaded, fnBefore, fnSuccess, fnComplete, fnError;
-            self.formdata = new FormData();
-            if (total === 0 || !hasPostData || self.abort(params)) {
-                return;
-            }
-            setAllUploaded = function () {
-                $.each(files, function (key) {
-                    self.updateStack(key, undefined);
-                });
-                self.clearFileInput();
-            };
-            fnBefore = function (jqXHR) {
-                self.lock();
-                var outData = self.getOutData(jqXHR);
-                if (self.showPreview) {
-                    self.getThumbs().each(function () {
-                        var $thumb = $(this), $btnUpload = $thumb.find('.kv-file-upload'),
-                            $btnDelete = $thumb.find('.kv-file-remove');
-                        if (!$thumb.hasClass('file-preview-success')) {
-                            self.setThumbStatus($thumb, 'Loading');
-                            addCss($thumb, 'file-uploading');
-                        }
-                        $btnUpload.attr('disabled', true);
-                        $btnDelete.attr('disabled', true);
-                    });
-                }
-                self.raise('filebatchpreupload', [outData]);
-                if (self.abort(outData)) {
-                    jqXHR.abort();
-                    self.setProgress(100);
-                }
-            };
-            fnSuccess = function (data, textStatus, jqXHR) {
-                /** @namespace data.errorkeys */
-                var outData = self.getOutData(jqXHR, data), $thumbs = self.getThumbs(), key = 0,
-                    keys = isEmpty(data) || isEmpty(data.errorkeys) ? [] : data.errorkeys;
-                if (isEmpty(data) || isEmpty(data.error)) {
-                    self.raise('filebatchuploadsuccess', [outData]);
-                    setAllUploaded();
-                    if (self.showPreview) {
-                        $thumbs.each(function () {
-                            var $thumb = $(this), $btnUpload = $thumb.find('.kv-file-upload');
-                            $thumb.find('.kv-file-upload').hide();
-                            self.setThumbStatus($thumb, 'Success');
-                            $thumb.removeClass('file-uploading');
-                            $btnUpload.removeAttr('disabled');
-                        });
-                        self.initUploadSuccess(data);
-                    } else {
-                        self.reset();
-                    }
-                } else {
-                    if (self.showPreview) {
-                        $thumbs.each(function () {
-                            var $thumb = $(this), $btnDelete = $thumb.find('.kv-file-remove'),
-                                $btnUpload = $thumb.find('.kv-file-upload');
-                            $thumb.removeClass('file-uploading');
-                            $btnUpload.removeAttr('disabled');
-                            $btnDelete.removeAttr('disabled');
-                            if (keys.length === 0) {
-                                self.setThumbStatus($thumb, 'Error');
-                                return;
-                            }
-                            if ($.inArray(key, keys) !== -1) {
-                                self.setThumbStatus($thumb, 'Error');
-                            } else {
-                                $thumb.find('.kv-file-upload').hide();
-                                self.setThumbStatus($thumb, 'Success');
-                                self.updateStack(key, undefined);
-                            }
-                            key++;
-                        });
-                        self.initUploadSuccess(data);
-                    }
-                    self.showUploadError(data.error, outData, 'filebatchuploaderror');
-                }
-            };
-            fnComplete = function () {
-                self.setProgress(100);
-                self.unlock();
-                self.initSuccessThumbs();
-                self.clearFileInput();
-                self.raise('filebatchuploadcomplete', [self.filestack, self.getExtraData()]);
-            };
-            fnError = function (jqXHR, textStatus, errorThrown) {
-                var outData = self.getOutData(jqXHR), errMsg = self.parseError(jqXHR, errorThrown);
-                self.showUploadError(errMsg, outData, 'filebatchuploaderror');
-                self.uploadFileCount = total - 1;
-                if (!self.showPreview) {
-                    return;
-                }
-                self.getThumbs().each(function () {
-                    var $thumb = $(this), key = $thumb.attr('data-fileindex');
-                    $thumb.removeClass('file-uploading');
-                    if (self.filestack[key] !== undefined) {
-                        self.setThumbStatus($thumb, 'Error');
-                    }
-                });
-                self.getThumbs().removeClass('file-uploading');
-                self.getThumbs(' .kv-file-upload').removeAttr('disabled');
-                self.getThumbs(' .kv-file-delete').removeAttr('disabled');
-            };
-            $.each(files, function (key, data) {
-                if (!isEmpty(files[key])) {
-                    self.formdata.append(self.uploadFileAttr, data, self.filenames[key]);
-                }
-            });
-            self.ajaxSubmit(fnBefore, fnSuccess, fnComplete, fnError);
-        },
-        uploadExtraOnly: function () {
-            var self = this, params = {}, fnBefore, fnSuccess, fnComplete, fnError;
-            self.formdata = new FormData();
-            if (self.abort(params)) {
-                return;
-            }
-            fnBefore = function (jqXHR) {
-                self.lock();
-                var outData = self.getOutData(jqXHR);
-                self.raise('filebatchpreupload', [outData]);
-                self.setProgress(50);
-                params.data = outData;
-                params.xhr = jqXHR;
-                if (self.abort(params)) {
-                    jqXHR.abort();
-                    self.setProgress(100);
-                }
-            };
-            fnSuccess = function (data, textStatus, jqXHR) {
-                var outData = self.getOutData(jqXHR, data);
-                if (isEmpty(data) || isEmpty(data.error)) {
-                    self.raise('filebatchuploadsuccess', [outData]);
-                    self.clearFileInput();
-                    self.initUploadSuccess(data);
-                } else {
-                    self.showUploadError(data.error, outData, 'filebatchuploaderror');
-                }
-            };
-            fnComplete = function () {
-                self.setProgress(100);
-                self.unlock();
-                self.clearFileInput();
-                self.raise('filebatchuploadcomplete', [self.filestack, self.getExtraData()]);
-            };
-            fnError = function (jqXHR, textStatus, errorThrown) {
-                var outData = self.getOutData(jqXHR), errMsg = self.parseError(jqXHR, errorThrown);
-                params.data = outData;
-                self.showUploadError(errMsg, outData, 'filebatchuploaderror');
-            };
-            self.ajaxSubmit(fnBefore, fnSuccess, fnComplete, fnError);
-        },
-        upload: function () {
-            var self = this, totLen = self.getFileStack().length, params = {},
-                i, outData, len, hasExtraData = !$.isEmptyObject(self.getExtraData());
-            if (self.minFileCount > 0 && self.getFileCount(totLen) < self.minFileCount) {
-                self.noFilesError(params);
-                return;
-            }
-            if (!self.isUploadable || self.isDisabled || (totLen === 0 && !hasExtraData)) {
-                return;
-            }
-            self.resetUpload();
-            self.$progress.removeClass('hide');
-            self.uploadCount = 0;
-            self.uploadStatus = {};
-            self.uploadLog = [];
-            self.lock();
-            self.setProgress(2);
-            if (totLen === 0 && hasExtraData) {
-                self.uploadExtraOnly();
-                return;
-            }
-            len = self.filestack.length;
-            self.hasInitData = false;
-            if (self.uploadAsync) {
-                outData = self.getOutData();
-                self.raise('filebatchpreupload', [outData]);
-                self.fileBatchCompleted = false;
-                self.uploadCache = {content: [], config: [], tags: [], append: true};
-                self.uploadAsyncCount = self.getFileStack().length;
-                for (i = 0; i < len; i++) {
-                    self.uploadCache.content[i] = null;
-                    self.uploadCache.config[i] = null;
-                    self.uploadCache.tags[i] = null;
-                }
-                for (i = 0; i < len; i++) {
-                    if (self.filestack[i] !== undefined) {
-                        self.uploadSingle(i, self.filestack, true);
-                    }
-                }
-                return;
-            }
-            self.uploadBatch();
-        },
-        initFileActions: function () {
-            var self = this;
-            if (!self.showPreview) {
-                return;
-            }
-            self.$preview.find('.kv-file-remove').each(function () {
-                var $el = $(this), $frame = $el.closest('.file-preview-frame'), hasError,
-                    id = $frame.attr('id'), ind = $frame.attr('data-fileindex'), n, cap, status;
-                handler($el, 'click', function () {
-                    status = self.raise('filepreremove', [id, ind]);
-                    if (status === false || !self.validateMinCount()) {
-                        return false;
-                    }
-                    hasError = $frame.hasClass('file-preview-error');
-                    self.cleanMemory($frame);
-                    $frame.fadeOut('slow', function () {
-                        self.updateStack(ind, undefined);
-                        self.clearObjects($frame);
-                        $frame.remove();
-                        if (id && hasError) {
-                            self.$errorContainer.find('li[data-file-id="' + id + '"]').fadeOut('fast', function () {
-                                $(this).remove();
-                                if (!self.errorsExist()) {
-                                    self.resetErrors();
-                                }
-                            });
-                        }
-                        var filestack = self.getFileStack(true), len = filestack.length, chk = previewCache.count(
-                            self.id),
-                            hasThumb = self.showPreview && self.$preview.find('.file-preview-frame').length;
-                        self.clearFileInput();
-                        if (len === 0 && chk === 0 && !hasThumb) {
-                            self.reset();
-                        } else {
-                            n = chk + len;
-                            cap = n > 1 ? self.getMsgSelected(n) : (filestack[0] ? self.getFileNames()[0] : '');
-                            self.setCaption(cap);
-                        }
-                        self.raise('fileremoved', [id, ind]);
-                    });
-                });
-            });
-            self.$preview.find('.kv-file-upload').each(function () {
-                var $el = $(this);
-                handler($el, 'click', function () {
-                    var $frame = $el.closest('.file-preview-frame'),
-                        ind = $frame.attr('data-fileindex');
-                    if (!$frame.hasClass('file-preview-error')) {
-                        self.uploadSingle(ind, self.filestack, false);
-                    }
-                });
-            });
-        },
-        hideFileIcon: function () {
-            if (this.overwriteInitial) {
-                this.$captionContainer.find('.kv-caption-icon').hide();
-            }
-        },
-        showFileIcon: function () {
-            this.$captionContainer.find('.kv-caption-icon').show();
-        },
-        addError: function (msg) {
-            var self = this, $error = self.$errorContainer;
-            if (msg && $error.length) {
-                $error.html(self.errorCloseButton + msg);
-                $error.find('.kv-error-close').off('click').on('click', function () {
-                    $error.fadeOut('slow');
-                });
-            }
-        },
-        resetErrors: function (fade) {
-            var self = this, $error = self.$errorContainer;
-            self.isError = false;
-            self.$container.removeClass('has-error');
-            $error.html('');
-            if (fade) {
-                $error.fadeOut('slow');
-            } else {
-                $error.hide();
-            }
-        },
-        showFolderError: function (folders) {
-            var self = this, $error = self.$errorContainer;
-            if (!folders) {
-                return;
-            }
-            self.addError(self.msgFoldersNotAllowed.replace(/\{n}/g, folders));
-            $error.fadeIn(800);
-            addCss(self.$container, 'has-error');
-            self.raise('filefoldererror', [folders]);
-        },
-        showUploadError: function (msg, params, event) {
-            var self = this, $error = self.$errorContainer, ev = event || 'fileuploaderror',
-                e = params && params.id ? '<li data-file-id="' + params.id + '">' + msg + '</li>' : '<li>' + msg + '</li>';
-            if ($error.find('ul').length === 0) {
-                self.addError('<ul>' + e + '</ul>');
-            } else {
-                $error.find('ul').append(e);
-            }
-            $error.fadeIn(800);
-            self.raise(ev, [params]);
-            self.$container.removeClass('file-input-new');
-            addCss(self.$container, 'has-error');
-            return true;
-        },
-        showError: function (msg, params, event) {
-            var self = this, $error = self.$errorContainer, ev = event || 'fileerror';
-            params = params || {};
-            params.reader = self.reader;
-            self.addError(msg);
-            $error.fadeIn(800);
-            self.raise(ev, [params]);
-            if (!self.isUploadable) {
-                self.clearFileInput();
-            }
-            self.$container.removeClass('file-input-new');
-            addCss(self.$container, 'has-error');
-            self.$btnUpload.attr('disabled', true);
-            return true;
-        },
-        errorHandler: function (evt, caption) {
-            var self = this, err = evt.target.error;
-            /** @namespace err.NOT_FOUND_ERR */
-            /** @namespace err.SECURITY_ERR */
-            /** @namespace err.NOT_READABLE_ERR */
-            if (err.code === err.NOT_FOUND_ERR) {
-                self.showError(self.msgFileNotFound.replace('{name}', caption));
-            } else if (err.code === err.SECURITY_ERR) {
-                self.showError(self.msgFileSecured.replace('{name}', caption));
-            } else if (err.code === err.NOT_READABLE_ERR) {
-                self.showError(self.msgFileNotReadable.replace('{name}', caption));
-            } else if (err.code === err.ABORT_ERR) {
-                self.showError(self.msgFilePreviewAborted.replace('{name}', caption));
-            } else {
-                self.showError(self.msgFilePreviewError.replace('{name}', caption));
-            }
-        },
-        parseFileType: function (file) {
-            var self = this, isValid, vType, cat, i;
-            for (i = 0; i < defaultPreviewTypes.length; i += 1) {
-                cat = defaultPreviewTypes[i];
-                isValid = isSet(cat, self.fileTypeSettings) ? self.fileTypeSettings[cat] : defaultFileTypeSettings[cat];
-                vType = isValid(file.type, file.name) ? cat : '';
-                if (!isEmpty(vType)) {
-                    return vType;
-                }
-            }
-            return 'other';
-        },
-        previewDefault: function (file, previewId, isDisabled) {
-            if (!this.showPreview) {
-                return;
-            }
-            var self = this, frameClass = '', fname = file ? file.name : '',
-                /** @namespace objUrl.createObjectURL */
-                data = objUrl.createObjectURL(file), ind = previewId.slice(previewId.lastIndexOf('-') + 1),
-                config = self.previewSettings.other || defaultPreviewSettings.other,
-                footer = self.renderFileFooter(file.name, config.width),
-                previewOtherTemplate = self.parseFilePreviewIcon(self.getPreviewTemplate('other'), fname);
-            if (isDisabled === true) {
-                if (!self.isUploadable) {
-                    footer += '<div class="file-other-error" title="' + self.fileActionSettings.indicatorErrorTitle +
-                        '">' + self.fileActionSettings.indicatorError + '</div>';
-                }
-            }
-            self.clearDefaultPreview();
-            self.$preview.append("\n" + previewOtherTemplate
-                    .replace(/\{previewId}/g, previewId)
-                    .replace(/\{frameClass}/g, frameClass)
-                    .replace(/\{fileindex}/g, ind)
-                    .replace(/\{caption}/g, self.slug(file.name))
-                    .replace(/\{width}/g, config.width)
-                    .replace(/\{height}/g, config.height)
-                    .replace(/\{type}/g, file.type)
-                    .replace(/\{data}/g, data)
-                    .replace(/\{footer}/g, footer));
-            if (isDisabled === true && self.isUploadable) {
-                self.setThumbStatus($('#' + previewId), 'Error');
-            }
-        },
-        previewFile: function (i, file, theFile, previewId, data) {
-            if (!this.showPreview) {
-                return;
-            }
-            var self = this, cat = self.parseFileType(file), fname = file ? file.name : '', caption = self.slug(fname),
-                content, strText, types = self.allowedPreviewTypes, mimes = self.allowedPreviewMimeTypes,
-                tmplt = self.getPreviewTemplate(cat), chkTypes = types && types.indexOf(cat) >= 0, id,
-                config = isSet(cat, self.previewSettings) ? self.previewSettings[cat] : defaultPreviewSettings[cat],
-                chkMimes = mimes && mimes.indexOf(file.type) !== -1,
-                footer = self.renderFileFooter(caption, config.width), modal = '',
-                ind = previewId.slice(previewId.lastIndexOf('-') + 1);
-            if (chkTypes || chkMimes) {
-                tmplt = self.parseFilePreviewIcon(tmplt, fname.split('.').pop());
-                if (cat === 'text') {
-                    strText = htmlEncode(theFile.target.result);
-                    id = 'text-' + uniqId();
-                    content = tmplt.replace(/\{zoom}/g, self.getLayoutTemplate('zoom'));
-                    modal = self.getLayoutTemplate('modal').replace('{id}', id)
-                        .replace(/\{title}/g, caption)
-                        .replace(/\{body}/g, strText).replace(/\{heading}/g, self.msgZoomModalHeading);
-                    content = content.replace(/\{previewId}/g, previewId).replace(/\{caption}/g, caption)
-                            .replace(/\{width}/g, config.width).replace(/\{height}/g, config.height)
-                            .replace(/\{frameClass}/g, '').replace(/\{zoomInd}/g, self.zoomIndicator)
-                            .replace(/\{footer}/g, footer).replace(/\{fileindex}/g, ind)
-                            .replace(/\{type}/g, file.type).replace(/\{zoomTitle}/g, self.msgZoomTitle)
-                            .replace(/\{dialog}/g, "$('#" + id + "').modal('show')")
-                            .replace(/\{data}/g, strText) + modal;
-                } else {
-                    content = tmplt.replace(/\{previewId}/g, previewId).replace(/\{caption}/g, caption)
-                        .replace(/\{frameClass}/g, '').replace(/\{type}/g, file.type).replace(/\{fileindex}/g, ind)
-                        .replace(/\{width}/g, config.width).replace(/\{height}/g, config.height)
-                        .replace(/\{footer}/g, footer).replace(/\{data}/g, data);
-                }
-                self.clearDefaultPreview();
-                self.$preview.append("\n" + content);
-                self.validateImage(i, previewId, caption, file.type);
-            } else {
-                self.previewDefault(file, previewId);
-            }
-        },
-        slugDefault: function (text) {
-            return isEmpty(text) ? '' : text.split(/(\\|\/)/g).pop().replace(/[^\w\u00C0-\u017F\-.\\\/ ]+/g, '');
-        },
-        readFiles: function (files) {
-            this.reader = new FileReader();
-            var self = this, $el = self.$element, $preview = self.$preview, reader = self.reader,
-                $container = self.$previewContainer, $status = self.$previewStatus, msgLoading = self.msgLoading,
-                msgProgress = self.msgProgress, previewInitId = self.previewInitId, numFiles = files.length,
-                settings = self.fileTypeSettings, ctr = self.filestack.length, readFile,
-                throwError = function (msg, file, previewId, index) {
-                    var p1 = $.extend(self.getOutData({}, {}, files), {id: previewId, index: index}),
-                        p2 = {id: previewId, index: index, file: file, files: files};
-                    self.previewDefault(file, previewId, true);
-                    if (self.isUploadable) {
-                        self.pushStack(undefined);
-                    }
-                    setTimeout(readFile(index + 1), 100);
-                    self.initFileActions();
-                    return self.isUploadable ? self.showUploadError(msg, p1) : self.showError(msg, p2);
-                };
-
-            self.loadedImages = [];
-            self.totalImagesCount = 0;
-
-            $.each(files, function (key, file) {
-                var cat = 'image',
-                    func = isSet(cat,
-                        self.fileTypeSettings) ? self.fileTypeSettings[cat] : defaultFileTypeSettings[cat];
-                if (func && func(file.type)) {
-                    self.totalImagesCount++;
-                }
-            });
-
-            readFile = function (i) {
-                if (isEmpty($el.attr('multiple'))) {
-                    numFiles = 1;
-                }
-                if (i >= numFiles) {
-                    if (self.isUploadable && self.filestack.length > 0) {
-                        self.raise('filebatchselected', [self.getFileStack()]);
-                    } else {
-                        self.raise('filebatchselected', [files]);
-                    }
-                    $container.removeClass('file-thumb-loading');
-                    $status.html('');
-                    return;
-                }
-                var node = ctr + i, previewId = previewInitId + "-" + node, isText, file = files[i],
-                    caption = self.slug(file.name), fileSize = (file.size || 0) / 1000, checkFile, fileExtExpr = '',
-                    previewData = objUrl.createObjectURL(file), fileCount = 0, j, msg, typ, chk,
-                    fileTypes = self.allowedFileTypes, strTypes = isEmpty(fileTypes) ? '' : fileTypes.join(', '),
-                    fileExt = self.allowedFileExtensions, strExt = isEmpty(fileExt) ? '' : fileExt.join(', ');
-                if (!isEmpty(fileExt)) {
-                    fileExtExpr = new RegExp('\\.(' + fileExt.join('|') + ')$', 'i');
-                }
-                fileSize = fileSize.toFixed(2);
-                if (self.maxFileSize > 0 && fileSize > self.maxFileSize) {
-                    msg = self.msgSizeTooLarge.replace('{name}', caption)
-                        .replace('{size}', fileSize)
-                        .replace('{maxSize}', self.maxFileSize);
-                    self.isError = throwError(msg, file, previewId, i);
-                    return;
-                }
-                if (!isEmpty(fileTypes) && isArray(fileTypes)) {
-                    for (j = 0; j < fileTypes.length; j += 1) {
-                        typ = fileTypes[j];
-                        checkFile = settings[typ];
-                        chk = (checkFile !== undefined && checkFile(file.type, caption));
-                        fileCount += isEmpty(chk) ? 0 : chk.length;
-                    }
-                    if (fileCount === 0) {
-                        msg = self.msgInvalidFileType.replace('{name}', caption).replace('{types}', strTypes);
-                        self.isError = throwError(msg, file, previewId, i);
-                        return;
-                    }
-                }
-                if (fileCount === 0 && !isEmpty(fileExt) && isArray(fileExt) && !isEmpty(fileExtExpr)) {
-                    chk = caption.match(fileExtExpr);
-                    fileCount += isEmpty(chk) ? 0 : chk.length;
-                    if (fileCount === 0) {
-                        msg = self.msgInvalidFileExtension.replace('{name}', caption).replace('{extensions}',
-                            strExt);
-                        self.isError = throwError(msg, file, previewId, i);
-                        return;
-                    }
-                }
-                if (!self.showPreview) {
-                    self.pushStack(file);
-                    setTimeout(readFile(i + 1), 100);
-                    self.raise('fileloaded', [file, previewId, i, reader]);
-                    return;
-                }
-                if ($preview.length > 0 && FileReader !== undefined) {
-                    $status.html(msgLoading.replace('{index}', i + 1).replace('{files}', numFiles));
-                    $container.addClass('file-thumb-loading');
-                    reader.onerror = function (evt) {
-                        self.errorHandler(evt, caption);
-                    };
-                    reader.onload = function (theFile) {
-                        self.previewFile(i, file, theFile, previewId, previewData);
-                        self.initFileActions();
-                    };
-                    reader.onloadend = function () {
-                        msg = msgProgress
-                            .replace('{index}', i + 1).replace('{files}', numFiles)
-                            .replace('{percent}', 50).replace('{name}', caption);
-                        setTimeout(function () {
-                            $status.html(msg);
-                            self.updateFileDetails(numFiles);
-                            readFile(i + 1);
-                        }, 100);
-                        self.raise('fileloaded', [file, previewId, i, reader]);
-                    };
-                    reader.onprogress = function (data) {
-                        if (data.lengthComputable) {
-                            var fact = (data.loaded / data.total) * 100, progress = Math.ceil(fact);
-                            msg = msgProgress.replace('{index}', i + 1).replace('{files}', numFiles)
-                                .replace('{percent}', progress).replace('{name}', caption);
-                            setTimeout(function () {
-                                $status.html(msg);
-                            }, 100);
-                        }
-                    };
-                    isText = isSet('text', settings) ? settings.text : defaultFileTypeSettings.text;
-                    if (isText(file.type, caption)) {
-                        reader.readAsText(file, self.textEncoding);
-                    } else {
-                        reader.readAsArrayBuffer(file);
-                    }
-                } else {
-                    self.previewDefault(file, previewId);
-                    setTimeout(function () {
-                        readFile(i + 1);
-                        self.updateFileDetails(numFiles);
-                    }, 100);
-                    self.raise('fileloaded', [file, previewId, i, reader]);
-                }
-                self.pushStack(file);
-            };
-
-            readFile(0);
-            self.updateFileDetails(numFiles, false);
-        },
-        updateFileDetails: function (numFiles) {
-            var self = this, $el = self.$element, fileStack = self.getFileStack(),
-                name = $el.val() || (fileStack.length && fileStack[0].name) || '', label = self.slug(name),
-                n = self.isUploadable ? fileStack.length : numFiles,
-                nFiles = previewCache.count(self.id) + n,
-                log = n > 1 ? self.getMsgSelected(nFiles) : label;
-            if (self.isError) {
-                self.$previewContainer.removeClass('file-thumb-loading');
-                self.$previewStatus.html('');
-                self.$captionContainer.find('.kv-caption-icon').hide();
-            } else {
-                self.showFileIcon();
-            }
-            self.setCaption(log, self.isError);
-            self.$container.removeClass('file-input-new file-input-ajax-new');
-            if (arguments.length === 1) {
-                self.raise('fileselect', [numFiles, label]);
-            }
-            if (previewCache.count(self.id)) {
-                self.initPreviewDeletes();
-            }
-        },
-        validateMinCount: function () {
-            var self = this, len = self.isUploadable ? self.getFileStack().length : self.$element.get(0).files.length;
-            if (self.validateInitialCount && self.minFileCount > 0 && self.getFileCount(len - 1) < self.minFileCount) {
-                self.noFilesError({});
-                return false;
-            }
-            return true;
-        },
-        getFileCount: function (fileCount) {
-            var self = this, addCount = 0;
-            if (self.validateInitialCount && !self.overwriteInitial) {
-                addCount = previewCache.count(self.id);
-                fileCount += addCount;
-            }
-            return fileCount;
-        },
-        change: function (e) {
-            var self = this, $el = self.$element;
-            if (!self.isUploadable && isEmpty($el.val()) && self.fileInputCleared) { // IE 11 fix
-                self.fileInputCleared = false;
-                return;
-            }
-            self.fileInputCleared = false;
-            var tfiles, msg, total, isDragDrop = arguments.length > 1,
-                files = isDragDrop ? e.originalEvent.dataTransfer.files : $el.get(0).files,
-                isSingleUpload = isEmpty($el.attr('multiple')), i = 0, f, n, folders = 0,
-                ctr = self.filestack.length, isAjaxUpload = self.isUploadable, len,
-                flagSingle = (isSingleUpload && ctr > 0),
-                throwError = function (mesg, file, previewId, index) {
-                    var p1 = $.extend(self.getOutData({}, {}, files), {id: previewId, index: index}),
-                        p2 = {id: previewId, index: index, file: file, files: files};
-                    return self.isUploadable ? self.showUploadError(mesg, p1) : self.showError(mesg, p2);
-                };
-            self.reader = null;
-            self.resetUpload();
-            self.hideFileIcon();
-            if (self.isUploadable) {
-                self.$container.find('.file-drop-zone .' + self.dropZoneTitleClass).remove();
-            }
-            if (isDragDrop) {
-                tfiles = [];
-                while (files[i]) {
-                    f = files[i];
-                    if (!f.type && f.size % 4096 === 0) {
-                        folders++;
-                    } else {
-                        tfiles.push(f);
-                    }
-                    i++;
-                }
-            } else {
-                if (e.target.files === undefined) {
-                    tfiles = e.target && e.target.value ? [
-                        {name: e.target.value.replace(/^.+\\/, '')}
-                    ] : [];
-                } else {
-                    tfiles = e.target.files;
-                }
-            }
-            if (isEmpty(tfiles) || tfiles.length === 0) {
-                if (!isAjaxUpload) {
-                    self.clear();
-                }
-                self.showFolderError(folders);
-                self.raise('fileselectnone');
-                return;
-            }
-            self.resetErrors();
-            len = tfiles.length;
-            total = self.isUploadable ? self.getFileStack().length + len : len;
-            total = self.getFileCount(total);
-            if (self.maxFileCount > 0 && total > self.maxFileCount) {
-                if (!self.autoReplace || len > self.maxFileCount) {
-                    n = (self.autoReplace && len > self.maxFileCount) ? len : total;
-                    msg = self.msgFilesTooMany.replace('{m}', self.maxFileCount).replace('{n}', n);
-                    self.isError = throwError(msg, null, null, null);
-                    self.$captionContainer.find('.kv-caption-icon').hide();
-                    self.setCaption('', true);
-                    self.$container.removeClass('file-input-new file-input-ajax-new');
-                    return;
-                }
-                if (total > self.maxFileCount) {
-                    self.resetPreviewThumbs(isAjaxUpload);
-                }
-            } else {
-                if (!isAjaxUpload || flagSingle) {
-                    self.resetPreviewThumbs(false);
-                    if (flagSingle) {
-                        self.clearStack();
-                    }
-                } else {
-                    if (isAjaxUpload && ctr === 0 && (!previewCache.count(self.id) || self.overwriteInitial)) {
-                        self.resetPreviewThumbs(true);
-                    }
-                }
-            }
-            if (self.isPreviewable) {
-                self.readFiles(tfiles);
-            } else {
-                self.updateFileDetails(1);
-            }
-            self.showFolderError(folders);
-        },
-        getFileName: function (file) {
-            return file && file.name ? this.slug(file.name) : undefined;
-        },
-        getFileNames: function (skipNull) {
-            var self = this;
-            return self.filenames.filter(function (n) {
-                return (skipNull ? n !== undefined : n !== undefined && n !== null);
-            });
-        },
-        getFileStack: function (skipNull) {
-            var self = this;
-            return self.filestack.filter(function (n) {
-                return (skipNull ? n !== undefined : n !== undefined && n !== null);
-            });
-        },
-        clearStack: function () {
-            var self = this;
-            self.filestack = [];
-            self.filenames = [];
-        },
-        updateStack: function (i, file) {
-            var self = this;
-            self.filestack[i] = file;
-            self.filenames[i] = self.getFileName(file);
-        },
-        pushStack: function (file) {
-            var self = this;
-            self.filestack.push(file);
-            self.filenames.push(self.getFileName(file));
-        },
-        checkDimensions: function (i, chk, $img, $thumb, fname, type, params) {
-            var self = this, msg, dim, tag = chk === 'Small' ? 'min' : 'max',
-                limit = self[tag + 'Image' + type], $imgEl, isValid;
-            if (isEmpty(limit) || !$img.length) {
-                return;
-            }
-            $imgEl = $img[0];
-            dim = (type === 'Width') ? $imgEl.naturalWidth || $imgEl.width : $imgEl.naturalHeight || $imgEl.height;
-            isValid = chk === 'Small' ? dim >= limit : dim <= limit;
-            if (isValid) {
-                return;
-            }
-            msg = self['msgImage' + type + chk].replace('{name}', fname).replace('{size}', limit);
-            self.showUploadError(msg, params);
-            self.setThumbStatus($thumb, 'Error');
-            self.updateStack(i, null);
-        },
-        validateImage: function (i, previewId, fname, ftype) {
-            var self = this, $preview = self.$preview, params, w1, w2,
-                $thumb = $preview.find("#" + previewId), $img = $thumb.find('img');
-            fname = fname || 'Untitled';
-            if (!$img.length) {
-                return;
-            }
-            handler($img, 'load', function () {
-                w1 = $thumb.width();
-                w2 = $preview.width();
-                if (w1 > w2) {
-                    $img.css('width', '100%');
-                    $thumb.css('width', '97%');
-                }
-                params = {ind: i, id: previewId};
-                self.checkDimensions(i, 'Small', $img, $thumb, fname, 'Width', params);
-                self.checkDimensions(i, 'Small', $img, $thumb, fname, 'Height', params);
-                if (!self.resizeImage) {
-                    self.checkDimensions(i, 'Large', $img, $thumb, fname, 'Width', params);
-                    self.checkDimensions(i, 'Large', $img, $thumb, fname, 'Height', params);
-                }
-                self.raise('fileimageloaded', [previewId]);
-                self.loadedImages.push({ind: i, img: $img, thumb: $thumb, pid: previewId, typ: ftype});
-                self.validateAllImages();
-                objUrl.revokeObjectURL($img.attr('src'));
-            });
-        },
-        validateAllImages: function () {
-            var self = this, i, config, $img, $thumb, pid, ind, params = {}, errFunc;
-            if (self.loadedImages.length !== self.totalImagesCount) {
-                return;
-            }
-            self.raise('fileimagesloaded');
-            if (!self.resizeImage) {
-                return;
-            }
-            errFunc = self.isUploadable ? self.showUploadError : self.showError;
-            for (i = 0; i < self.loadedImages.length; i++) {
-                config = self.loadedImages[i];
-                $img = config.img;
-                $thumb = config.thumb;
-                pid = config.pid;
-                ind = config.ind;
-                params = {id: pid, 'index': ind};
-                if (!self.getResizedImage($img[0], config.typ, pid, ind)) {
-                    errFunc(self.msgImageResizeError, params, 'fileimageresizeerror');
-                    self.setThumbStatus($thumb, 'Error');
-                    self.updateStack(ind, undefined);
-                }
-            }
-            self.raise('fileimagesresized');
-        },
-        getResizedImage: function (image, type, pid, ind) {
-            var self = this, width = image.naturalWidth, height = image.naturalHeight, ratio = 1,
-                maxWidth = self.maxImageWidth || width, maxHeight = self.maxImageHeight || height,
-                isValidImage = (width && height), chkWidth, chkHeight,
-                canvas = self.imageCanvas, context = self.imageCanvasContext;
-            if (!isValidImage) {
-                return false;
-            }
-            if (width === maxWidth && height === maxHeight) {
-                return true;
-            }
-            type = type || self.resizeDefaultImageType;
-            chkWidth = width > maxWidth;
-            chkHeight = height > maxHeight;
-            if (self.resizePreference === 'width') {
-                ratio = chkWidth ? maxWidth / width : (chkHeight ? maxHeight / height : 1);
-            } else {
-                ratio = chkHeight ? maxHeight / height : (chkWidth ? maxWidth / width : 1);
-            }
-            self.resetCanvas();
-            width *= ratio;
-            height *= ratio;
-            canvas.width = width;
-            canvas.height = height;
-            try {
-                context.drawImage(image, 0, 0, width, height);
-                canvas.toBlob(function (blob) {
-                    self.raise('fileimageresized', [pid, ind]);
-                    self.filestack[ind] = blob;
-                }, type, self.resizeQuality);
-                return true;
-            }
-            catch (err) {
-                return false;
-            }
-        },
-        initCaption: function () {
-            var self = this, cap = self.initialCaption || '';
-            if (self.overwriteInitial || isEmpty(cap)) {
-                self.$caption.html('');
-                return false;
-            }
-            self.setCaption(cap);
-            return true;
-        },
-        setCaption: function (content, isError) {
-            var self = this, title, out;
-            if (isError) {
-                title = $('<div>' + self.msgValidationError + '</div>').text();
-                out = '<span class="' + self.msgValidationErrorClass + '">' +
-                    self.msgValidationErrorIcon + title + '</span>';
-            } else {
-                if (isEmpty(content) || self.$caption.length === 0) {
-                    return;
-                }
-                title = $('<div>' + content + '</div>').text();
-                out = self.getLayoutTemplate('icon') + title;
-            }
-            self.$caption.html(out);
-            self.$caption.attr('title', title);
-            self.$captionContainer.find('.file-caption-ellipsis').attr('title', title);
-        },
-        initBrowse: function ($container) {
-            var self = this;
-            self.$btnFile = $container.find('.btn-file');
-            self.$btnFile.append(self.$element);
-        },
-        createContainer: function () {
-            var self = this,
-                $container = $(document.createElement("div"))
-                    .attr({"class": 'file-input file-input-new'})
-                    .html(self.renderMain());
-            self.$element.before($container);
-            self.initBrowse($container);
-            return $container;
-        },
-        refreshContainer: function () {
-            var self = this, $container = self.$container;
-            $container.before(self.$element);
-            $container.html(self.renderMain());
-            self.initBrowse($container);
-        },
-        renderMain: function () {
-            var self = this, dropCss = (self.isUploadable && self.dropZoneEnabled) ? ' file-drop-zone' : 'file-drop-disabled',
-                close = !self.showClose ? '' : self.getLayoutTemplate('close'),
-                preview = !self.showPreview ? '' : self.getLayoutTemplate('preview')
-                    .replace(/\{class}/g, self.previewClass)
-                    .replace(/\{dropClass}/g, dropCss),
-                css = self.isDisabled ? self.captionClass + ' file-caption-disabled' : self.captionClass,
-                caption = self.captionTemplate.replace(/\{class}/g, css + ' kv-fileinput-caption');
-            return self.mainTemplate.replace(/\{class}/g, self.mainClass)
-                .replace(/\{preview}/g, preview)
-                .replace(/\{close}/g, close)
-                .replace(/\{caption}/g, caption)
-                .replace(/\{upload}/g, self.renderButton('upload'))
-                .replace(/\{remove}/g, self.renderButton('remove'))
-                .replace(/\{cancel}/g, self.renderButton('cancel'))
-                .replace(/\{browse}/g, self.renderButton('browse'));
-        },
-        renderButton: function (type) {
-            var self = this, tmplt = self.getLayoutTemplate('btnDefault'), css = self[type + 'Class'],
-                title = self[type + 'Title'], icon = self[type + 'Icon'], label = self[type + 'Label'],
-                status = self.isDisabled ? ' disabled' : '', btnType = 'button';
-            switch (type) {
-                case 'remove':
-                    if (!self.showRemove) {
-                        return '';
-                    }
-                    break;
-                case 'cancel':
-                    if (!self.showCancel) {
-                        return '';
-                    }
-                    css += ' hide';
-                    break;
-                case 'upload':
-                    if (!self.showUpload) {
-                        return '';
-                    }
-                    if (self.isUploadable && !self.isDisabled) {
-                        tmplt = self.getLayoutTemplate('btnLink').replace('{href}', self.uploadUrl);
-                    } else {
-                        btnType = 'submit';
-                    }
-                    break;
-                case 'browse':
-                    tmplt = self.getLayoutTemplate('btnBrowse');
-                    break;
-                default:
-                    return '';
-            }
-            css += type === 'browse' ? ' btn-file' : ' fileinput-' + type + ' fileinput-' + type + '-button';
-            if (!isEmpty(label)) {
-                label = ' <span class="' + self.buttonLabelClass + '">' + label + '</span>';
-            }
-            return tmplt.replace('{type}', btnType)
-                .replace('{css}', css)
-                .replace('{title}', title)
-                .replace('{status}', status)
-                .replace('{icon}', icon)
-                .replace('{label}', label);
-        }
-    };
-
-    $.fn.fileinput = function (option) {
-        if (!hasFileAPISupport() && !isIE(9)) {
-            return;
-        }
-        var args = Array.apply(null, arguments), retvals = [];
-        args.shift();
-        this.each(function () {
-            var self = $(this), data = self.data('fileinput'), options = typeof option === 'object' && option,
-                lang = options.language || self.data('language') || 'en', config = $.fn.fileinput.defaults;
-
-            if (!data) {
-                if (lang !== 'en' && !isEmpty($.fn.fileinputLocales[lang])) {
-                    $.extend(config, $.fn.fileinputLocales[lang]);
-                }
-                data = new FileInput(this, $.extend(config, options, self.data()));
-                self.data('fileinput', data);
-            }
-
-            if (typeof option === 'string') {
-                retvals.push(data[option].apply(data, args));
-            }
-        });
-        switch (retvals.length) {
-            case 0:
-                return this;
-            case 1:
-                return retvals[0];
-            default:
-                return retvals;
-        }
-    };
-
-    $.fn.fileinput.defaults = {
-        language: 'en',
-        showCaption: true,
-        showPreview: true,
-        showRemove: true,
-        showUpload: true,
-        showCancel: true,
-        showClose: true,
-        showUploadedThumbs: true,
-        autoReplace: false,
-        mainClass: '',
-        previewClass: '',
-        captionClass: '',
-        mainTemplate: null,
-        initialCaption: '',
-        initialPreview: [],
-        initialPreviewDelimiter: '*$$*',
-        initialPreviewConfig: [],
-        initialPreviewThumbTags: [],
-        previewThumbTags: {},
-        initialPreviewShowDelete: true,
-        deleteUrl: '',
-        deleteExtraData: {},
-        overwriteInitial: true,
-        layoutTemplates: defaultLayoutTemplates,
-        previewTemplates: defaultPreviewTemplates,
-        allowedPreviewTypes: defaultPreviewTypes,
-        allowedPreviewMimeTypes: null,
-        allowedFileTypes: null,
-        allowedFileExtensions: null,
-        defaultPreviewContent: null,
-        customLayoutTags: {},
-        customPreviewTags: {},
-        previewSettings: defaultPreviewSettings,
-        fileTypeSettings: defaultFileTypeSettings,
-        previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
-        previewFileIconClass: 'file-icon-4x',
-        previewFileIconSettings: {},
-        previewFileExtSettings: {},
-        buttonLabelClass: 'hidden-xs',
-        browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
-        browseClass: 'btn btn-primary',
-        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
-        removeClass: 'btn btn-default',
-        cancelIcon: '<i class="glyphicon glyphicon-ban-circle"></i>',
-        cancelClass: 'btn btn-default',
-        uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
-        uploadClass: 'btn btn-default',
-        uploadUrl: null,
-        uploadAsync: true,
-        uploadExtraData: {},
-        minImageWidth: null,
-        minImageHeight: null,
-        maxImageWidth: null,
-        maxImageHeight: null,
-        resizeImage: false,
-        resizePreference: 'width',
-        resizeQuality: 0.92,
-        resizeDefaultImageType: 'image/jpeg',
-        maxFileSize: 0,
-        minFileCount: 0,
-        maxFileCount: 0,
-        validateInitialCount: false,
-        msgValidationErrorClass: 'text-danger',
-        msgValidationErrorIcon: '<i class="glyphicon glyphicon-exclamation-sign"></i> ',
-        msgErrorClass: 'file-error-message',
-        progressThumbClass: "progress-bar progress-bar-success progress-bar-striped active",
-        progressClass: "progress-bar progress-bar-success progress-bar-striped active",
-        progressCompleteClass: "progress-bar progress-bar-success",
-        previewFileType: 'image',
-        zoomIndicator: '<i class="glyphicon glyphicon-zoom-in"></i>',
-        elCaptionContainer: null,
-        elCaptionText: null,
-        elPreviewContainer: null,
-        elPreviewImage: null,
-        elPreviewStatus: null,
-        elErrorContainer: null,
-        errorCloseButton: '<span class="close kv-error-close">&times;</span>',
-        slugCallback: null,
-        dropZoneEnabled: true,
-        dropZoneTitleClass: 'file-drop-zone-title',
-        fileActionSettings: {},
-        otherActionButtons: '',
-        textEncoding: 'UTF-8',
-        ajaxSettings: {},
-        ajaxDeleteSettings: {},
-        showAjaxErrorDetails: true
-    };
-
-    $.fn.fileinputLocales.en = {
-        fileSingle: 'file',
-        filePlural: 'files',
-        browseLabel: 'Browse &hellip;',
-        removeLabel: 'Remove',
-        removeTitle: 'Clear selected files',
-        cancelLabel: 'Cancel',
-        cancelTitle: 'Abort ongoing upload',
-        uploadLabel: 'Upload',
-        uploadTitle: 'Upload selected files',
-        msgZoomTitle: 'View details',
-        msgZoomModalHeading: 'Detailed Preview',
-        msgSizeTooLarge: 'File "{name}" (<b>{size} KB</b>) exceeds maximum allowed upload size of <b>{maxSize} KB</b>.',
-        msgFilesTooLess: 'You must select at least <b>{n}</b> {files} to upload.',
-        msgFilesTooMany: 'Number of files selected for upload <b>({n})</b> exceeds maximum allowed limit of <b>{m}</b>.',
-        msgFileNotFound: 'File "{name}" not found!',
-        msgFileSecured: 'Security restrictions prevent reading the file "{name}".',
-        msgFileNotReadable: 'File "{name}" is not readable.',
-        msgFilePreviewAborted: 'File preview aborted for "{name}".',
-        msgFilePreviewError: 'An error occurred while reading the file "{name}".',
-        msgInvalidFileType: 'Invalid type for file "{name}". Only "{types}" files are supported.',
-        msgInvalidFileExtension: 'Invalid extension for file "{name}". Only "{extensions}" files are supported.',
-        msgUploadAborted: 'The file upload was aborted',
-        msgValidationError: 'File Upload Error',
-        msgLoading: 'Loading file {index} of {files} &hellip;',
-        msgProgress: 'Loading file {index} of {files} - {name} - {percent}% completed.',
-        msgSelected: '{n} {files} selected',
-        msgFoldersNotAllowed: 'Drag & drop files only! {n} folder(s) dropped were skipped.',
-        msgImageWidthSmall: 'Width of image file "{name}" must be at least {size} px.',
-        msgImageHeightSmall: 'Height of image file "{name}" must be at least {size} px.',
-        msgImageWidthLarge: 'Width of image file "{name}" cannot exceed {size} px.',
-        msgImageHeightLarge: 'Height of image file "{name}" cannot exceed {size} px.',
-        msgImageResizeError: 'Could not get the image dimensions to resize.',
-        msgImageResizeException: 'Error while resizing the image.<pre>{errors}</pre>',
-        dropZoneTitle: 'Drag & drop files here &hellip;'
-    };
-
-    $.extend($.fn.fileinput.defaults, $.fn.fileinputLocales.en);
-
-    $.fn.fileinput.Constructor = FileInput;
-
-    /**
-     * Convert automatically file inputs with class 'file'
-     * into a bootstrap fileinput control.
-     */
-    $(document).ready(function () {
-        var $input = $('input.file[type=file]');
-        if ($input.length) {
-            $input.fileinput();
-        }
-    });
-}));
 // 4.3.2 (2015-12-14)
 !function(e,t){"use strict";function n(e,t){for(var n,r=[],i=0;i<e.length;++i){if(n=s[e[i]]||o(e[i]),!n)throw"module definition dependecy not found: "+e[i];r.push(n)}t.apply(null,r)}function r(e,r,i){if("string"!=typeof e)throw"invalid module definition, module id must be defined and be a string";if(r===t)throw"invalid module definition, dependencies must be specified";if(i===t)throw"invalid module definition, definition function must be specified";n(r,function(){s[e]=i.apply(null,arguments)})}function i(e){return!!s[e]}function o(t){for(var n=e,r=t.split(/[.\/]/),i=0;i<r.length;++i){if(!n[r[i]])return;n=n[r[i]]}return n}function a(n){var r,i,o,a,l;for(r=0;r<n.length;r++){i=e,o=n[r],a=o.split(/[.\/]/);for(var c=0;c<a.length-1;++c)i[a[c]]===t&&(i[a[c]]={}),i=i[a[c]];i[a[a.length-1]]=s[o]}if(e.AMDLC_TESTS){l=e.privateModules||{};for(o in s)l[o]=s[o];for(r=0;r<n.length;r++)delete l[n[r]];e.privateModules=l}}var s={},l="tinymce/geom/Rect",c="tinymce/util/Promise",u="tinymce/util/Delay",d="tinymce/dom/EventUtils",f="tinymce/dom/Sizzle",h="tinymce/Env",p="tinymce/util/Arr",m="tinymce/util/Tools",g="tinymce/dom/DomQuery",v="tinymce/html/Styles",y="tinymce/dom/TreeWalker",b="tinymce/dom/Range",C="tinymce/html/Entities",x="tinymce/dom/StyleSheetLoader",w="tinymce/dom/DOMUtils",E="tinymce/dom/ScriptLoader",N="tinymce/AddOnManager",_="tinymce/dom/NodeType",S="tinymce/text/Zwsp",k="tinymce/caret/CaretContainer",T="tinymce/dom/RangeUtils",R="tinymce/NodeChange",A="tinymce/html/Node",B="tinymce/html/Schema",D="tinymce/html/SaxParser",M="tinymce/html/DomParser",L="tinymce/html/Writer",P="tinymce/html/Serializer",H="tinymce/dom/Serializer",O="tinymce/dom/TridentSelection",I="tinymce/util/VK",F="tinymce/dom/ControlSelection",z="tinymce/util/Fun",W="tinymce/caret/CaretCandidate",V="tinymce/geom/ClientRect",U="tinymce/text/ExtendingChar",$="tinymce/caret/CaretPosition",q="tinymce/caret/CaretBookmark",j="tinymce/dom/BookmarkManager",Y="tinymce/dom/Selection",X="tinymce/dom/ElementUtils",K="tinymce/fmt/Preview",G="tinymce/Formatter",J="tinymce/UndoManager",Q="tinymce/EnterKey",Z="tinymce/ForceBlocks",ee="tinymce/EditorCommands",te="tinymce/util/URI",ne="tinymce/util/Class",re="tinymce/util/EventDispatcher",ie="tinymce/data/Binding",oe="tinymce/util/Observable",ae="tinymce/data/ObservableObject",se="tinymce/ui/Selector",le="tinymce/ui/Collection",ce="tinymce/ui/DomUtils",ue="tinymce/ui/BoxUtils",de="tinymce/ui/ClassList",fe="tinymce/ui/ReflowQueue",he="tinymce/ui/Control",pe="tinymce/ui/Factory",me="tinymce/ui/KeyboardNavigation",ge="tinymce/ui/Container",ve="tinymce/ui/DragHelper",ye="tinymce/ui/Scrollable",be="tinymce/ui/Panel",Ce="tinymce/ui/Movable",xe="tinymce/ui/Resizable",we="tinymce/ui/FloatPanel",Ee="tinymce/ui/Window",Ne="tinymce/ui/MessageBox",_e="tinymce/WindowManager",Se="tinymce/ui/Tooltip",ke="tinymce/ui/Widget",Te="tinymce/ui/Progress",Re="tinymce/ui/Notification",Ae="tinymce/NotificationManager",Be="tinymce/dom/NodePath",De="tinymce/util/Quirks",Me="tinymce/EditorObservable",Le="tinymce/Mode",Pe="tinymce/Shortcuts",He="tinymce/file/Uploader",Oe="tinymce/file/Conversions",Ie="tinymce/file/ImageScanner",Fe="tinymce/file/BlobCache",ze="tinymce/EditorUpload",We="tinymce/caret/CaretUtils",Ve="tinymce/caret/CaretWalker",Ue="tinymce/caret/FakeCaret",$e="tinymce/dom/Dimensions",qe="tinymce/caret/LineWalker",je="tinymce/caret/LineUtils",Ye="tinymce/DragDropOverrides",Xe="tinymce/SelectionOverrides",Ke="tinymce/Editor",Ge="tinymce/util/I18n",Je="tinymce/FocusManager",Qe="tinymce/EditorManager",Ze="tinymce/LegacyInput",et="tinymce/util/XHR",tt="tinymce/util/JSON",nt="tinymce/util/JSONRequest",rt="tinymce/util/JSONP",it="tinymce/util/LocalStorage",ot="tinymce/Compat",at="tinymce/ui/Layout",st="tinymce/ui/AbsoluteLayout",lt="tinymce/ui/Button",ct="tinymce/ui/ButtonGroup",ut="tinymce/ui/Checkbox",dt="tinymce/ui/ComboBox",ft="tinymce/ui/ColorBox",ht="tinymce/ui/PanelButton",pt="tinymce/ui/ColorButton",mt="tinymce/util/Color",gt="tinymce/ui/ColorPicker",vt="tinymce/ui/Path",yt="tinymce/ui/ElementPath",bt="tinymce/ui/FormItem",Ct="tinymce/ui/Form",xt="tinymce/ui/FieldSet",wt="tinymce/ui/FilePicker",Et="tinymce/ui/FitLayout",Nt="tinymce/ui/FlexLayout",_t="tinymce/ui/FlowLayout",St="tinymce/ui/FormatControls",kt="tinymce/ui/GridLayout",Tt="tinymce/ui/Iframe",Rt="tinymce/ui/Label",At="tinymce/ui/Toolbar",Bt="tinymce/ui/MenuBar",Dt="tinymce/ui/MenuButton",Mt="tinymce/ui/MenuItem",Lt="tinymce/ui/Menu",Pt="tinymce/ui/ListBox",Ht="tinymce/ui/Radio",Ot="tinymce/ui/ResizeHandle",It="tinymce/ui/SelectBox",Ft="tinymce/ui/Slider",zt="tinymce/ui/Spacer",Wt="tinymce/ui/SplitButton",Vt="tinymce/ui/StackLayout",Ut="tinymce/ui/TabPanel",$t="tinymce/ui/TextBox",qt="tinymce/ui/Throbber";r(l,[],function(){function e(e,t,n){var r,i,a,s,l,u;return r=t.x,i=t.y,a=e.w,s=e.h,l=t.w,u=t.h,n=(n||"").split(""),"b"===n[0]&&(i+=u),"r"===n[1]&&(r+=l),"c"===n[0]&&(i+=c(u/2)),"c"===n[1]&&(r+=c(l/2)),"b"===n[3]&&(i-=s),"r"===n[4]&&(r-=a),"c"===n[3]&&(i-=c(s/2)),"c"===n[4]&&(r-=c(a/2)),o(r,i,a,s)}function t(t,n,r,i){var o,a;for(a=0;a<i.length;a++)if(o=e(t,n,i[a]),o.x>=r.x&&o.x+o.w<=r.w+r.x&&o.y>=r.y&&o.y+o.h<=r.h+r.y)return i[a];return null}function n(e,t,n){return o(e.x-t,e.y-n,e.w+2*t,e.h+2*n)}function r(e,t){var n,r,i,a;return n=l(e.x,t.x),r=l(e.y,t.y),i=s(e.x+e.w,t.x+t.w),a=s(e.y+e.h,t.y+t.h),0>i-n||0>a-r?null:o(n,r,i-n,a-r)}function i(e,t,n){var r,i,a,s,c,u,d,f,h,p;return c=e.x,u=e.y,d=e.x+e.w,f=e.y+e.h,h=t.x+t.w,p=t.y+t.h,r=l(0,t.x-c),i=l(0,t.y-u),a=l(0,d-h),s=l(0,f-p),c+=r,u+=i,n&&(d+=r,f+=i,c-=a,u-=s),d-=a,f-=s,o(c,u,d-c,f-u)}function o(e,t,n,r){return{x:e,y:t,w:n,h:r}}function a(e){return o(e.left,e.top,e.width,e.height)}var s=Math.min,l=Math.max,c=Math.round;return{inflate:n,relativePosition:e,findBestRelativePosition:t,intersect:r,clamp:i,create:o,fromClientRect:a}}),r(c,[],function(){function e(e,t){return function(){e.apply(t,arguments)}}function t(t){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof t)throw new TypeError("not a function");this._state=null,this._value=null,this._deferreds=[],s(t,e(r,this),e(i,this))}function n(e){var t=this;return null===this._state?void this._deferreds.push(e):void l(function(){var n=t._state?e.onFulfilled:e.onRejected;if(null===n)return void(t._state?e.resolve:e.reject)(t._value);var r;try{r=n(t._value)}catch(i){return void e.reject(i)}e.resolve(r)})}function r(t){try{if(t===this)throw new TypeError("A promise cannot be resolved with itself.");if(t&&("object"==typeof t||"function"==typeof t)){var n=t.then;if("function"==typeof n)return void s(e(n,t),e(r,this),e(i,this))}this._state=!0,this._value=t,o.call(this)}catch(a){i.call(this,a)}}function i(e){this._state=!1,this._value=e,o.call(this)}function o(){for(var e=0,t=this._deferreds.length;t>e;e++)n.call(this,this._deferreds[e]);this._deferreds=null}function a(e,t,n,r){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof t?t:null,this.resolve=n,this.reject=r}function s(e,t,n){var r=!1;try{e(function(e){r||(r=!0,t(e))},function(e){r||(r=!0,n(e))})}catch(i){if(r)return;r=!0,n(i)}}if(window.Promise)return window.Promise;var l=t.immediateFn||"function"==typeof setImmediate&&setImmediate||function(e){setTimeout(e,1)},c=Array.isArray||function(e){return"[object Array]"===Object.prototype.toString.call(e)};return t.prototype["catch"]=function(e){return this.then(null,e)},t.prototype.then=function(e,r){var i=this;return new t(function(t,o){n.call(i,new a(e,r,t,o))})},t.all=function(){var e=Array.prototype.slice.call(1===arguments.length&&c(arguments[0])?arguments[0]:arguments);return new t(function(t,n){function r(o,a){try{if(a&&("object"==typeof a||"function"==typeof a)){var s=a.then;if("function"==typeof s)return void s.call(a,function(e){r(o,e)},n)}e[o]=a,0===--i&&t(e)}catch(l){n(l)}}if(0===e.length)return t([]);for(var i=e.length,o=0;o<e.length;o++)r(o,e[o])})},t.resolve=function(e){return e&&"object"==typeof e&&e.constructor===t?e:new t(function(t){t(e)})},t.reject=function(e){return new t(function(t,n){n(e)})},t.race=function(e){return new t(function(t,n){for(var r=0,i=e.length;i>r;r++)e[r].then(t,n)})},t}),r(u,[c],function(e){function t(e,t){function n(e){window.setTimeout(e,0)}var r,i=window.requestAnimationFrame,o=["ms","moz","webkit"];for(r=0;r<o.length&&!i;r++)i=window[o[r]+"RequestAnimationFrame"];i||(i=n),i(e,t)}function n(e,t){return"number"!=typeof t&&(t=0),setTimeout(e,t)}function r(e,t){return"number"!=typeof t&&(t=0),setInterval(e,t)}function i(e){return clearTimeout(e)}function o(e){return clearInterval(e)}var a;return{requestAnimationFrame:function(n,r){return a?void a.then(n):void(a=new e(function(e){r||(r=document.body),t(e,r)}).then(n))},setTimeout:n,setInterval:r,setEditorTimeout:function(e,t,r){return n(function(){e.removed||t()},r)},setEditorInterval:function(e,t,n){var i;return i=r(function(){e.removed?clearInterval(i):t()},n)},clearInterval:o,clearTimeout:i}}),r(d,[u],function(e){function t(e,t,n,r){e.addEventListener?e.addEventListener(t,n,r||!1):e.attachEvent&&e.attachEvent("on"+t,n)}function n(e,t,n,r){e.removeEventListener?e.removeEventListener(t,n,r||!1):e.detachEvent&&e.detachEvent("on"+t,n)}function r(e,t){function n(){return!1}function r(){return!0}var i,o=t||{},a;for(i in e)l[i]||(o[i]=e[i]);if(o.target||(o.target=o.srcElement||document),e&&s.test(e.type)&&e.pageX===a&&e.clientX!==a){var c=o.target.ownerDocument||document,u=c.documentElement,d=c.body;o.pageX=e.clientX+(u&&u.scrollLeft||d&&d.scrollLeft||0)-(u&&u.clientLeft||d&&d.clientLeft||0),o.pageY=e.clientY+(u&&u.scrollTop||d&&d.scrollTop||0)-(u&&u.clientTop||d&&d.clientTop||0)}return o.preventDefault=function(){o.isDefaultPrevented=r,e&&(e.preventDefault?e.preventDefault():e.returnValue=!1)},o.stopPropagation=function(){o.isPropagationStopped=r,e&&(e.stopPropagation?e.stopPropagation():e.cancelBubble=!0)},o.stopImmediatePropagation=function(){o.isImmediatePropagationStopped=r,o.stopPropagation()},o.isDefaultPrevented||(o.isDefaultPrevented=n,o.isPropagationStopped=n,o.isImmediatePropagationStopped=n),"undefined"==typeof o.metaKey&&(o.metaKey=!1),o}function i(r,i,o){function a(){o.domLoaded||(o.domLoaded=!0,i(u))}function s(){("complete"===c.readyState||"interactive"===c.readyState&&c.body)&&(n(c,"readystatechange",s),a())}function l(){try{c.documentElement.doScroll("left")}catch(t){return void e.setTimeout(l)}a()}var c=r.document,u={type:"ready"};return o.domLoaded?void i(u):(c.addEventListener?"complete"===c.readyState?a():t(r,"DOMContentLoaded",a):(t(c,"readystatechange",s),c.documentElement.doScroll&&r.self===r.top&&l()),void t(r,"load",a))}function o(){function e(e,t){var n,r,i,o,a=s[t];if(n=a&&a[e.type])for(r=0,i=n.length;i>r;r++)if(o=n[r],o&&o.func.call(o.scope,e)===!1&&e.preventDefault(),e.isImmediatePropagationStopped())return}var o=this,s={},l,c,u,d,f;c=a+(+new Date).toString(32),d="onmouseenter"in document.documentElement,u="onfocusin"in document.documentElement,f={mouseenter:"mouseover",mouseleave:"mouseout"},l=1,o.domLoaded=!1,o.events=s,o.bind=function(n,a,h,p){function m(t){e(r(t||E.event),g)}var g,v,y,b,C,x,w,E=window;if(n&&3!==n.nodeType&&8!==n.nodeType){for(n[c]?g=n[c]:(g=l++,n[c]=g,s[g]={}),p=p||n,a=a.split(" "),y=a.length;y--;)b=a[y],x=m,C=w=!1,"DOMContentLoaded"===b&&(b="ready"),o.domLoaded&&"ready"===b&&"complete"==n.readyState?h.call(p,r({type:b})):(d||(C=f[b],C&&(x=function(t){var n,i;if(n=t.currentTarget,i=t.relatedTarget,i&&n.contains)i=n.contains(i);else for(;i&&i!==n;)i=i.parentNode;i||(t=r(t||E.event),t.type="mouseout"===t.type?"mouseleave":"mouseenter",t.target=n,e(t,g))})),u||"focusin"!==b&&"focusout"!==b||(w=!0,C="focusin"===b?"focus":"blur",x=function(t){t=r(t||E.event),t.type="focus"===t.type?"focusin":"focusout",e(t,g)}),v=s[g][b],v?"ready"===b&&o.domLoaded?h({type:b}):v.push({func:h,scope:p}):(s[g][b]=v=[{func:h,scope:p}],v.fakeName=C,v.capture=w,v.nativeHandler=x,"ready"===b?i(n,x,o):t(n,C||b,x,w)));return n=v=0,h}},o.unbind=function(e,t,r){var i,a,l,u,d,f;if(!e||3===e.nodeType||8===e.nodeType)return o;if(i=e[c]){if(f=s[i],t){for(t=t.split(" "),l=t.length;l--;)if(d=t[l],a=f[d]){if(r)for(u=a.length;u--;)if(a[u].func===r){var h=a.nativeHandler,p=a.fakeName,m=a.capture;a=a.slice(0,u).concat(a.slice(u+1)),a.nativeHandler=h,a.fakeName=p,a.capture=m,f[d]=a}r&&0!==a.length||(delete f[d],n(e,a.fakeName||d,a.nativeHandler,a.capture))}}else{for(d in f)a=f[d],n(e,a.fakeName||d,a.nativeHandler,a.capture);f={}}for(d in f)return o;delete s[i];try{delete e[c]}catch(g){e[c]=null}}return o},o.fire=function(t,n,i){var a;if(!t||3===t.nodeType||8===t.nodeType)return o;i=r(null,i),i.type=n,i.target=t;do a=t[c],a&&e(i,a),t=t.parentNode||t.ownerDocument||t.defaultView||t.parentWindow;while(t&&!i.isPropagationStopped());return o},o.clean=function(e){var t,n,r=o.unbind;if(!e||3===e.nodeType||8===e.nodeType)return o;if(e[c]&&r(e),e.getElementsByTagName||(e=e.document),e&&e.getElementsByTagName)for(r(e),n=e.getElementsByTagName("*"),t=n.length;t--;)e=n[t],e[c]&&r(e);return o},o.destroy=function(){s={}},o.cancel=function(e){return e&&(e.preventDefault(),e.stopImmediatePropagation()),!1}}var a="mce-data-",s=/^(?:mouse|contextmenu)|click/,l={keyLocation:1,layerX:1,layerY:1,returnValue:1,webkitMovementX:1,webkitMovementY:1};return o.Event=new o,o.Event.bind(window,"ready",function(){}),o}),r(f,[],function(){function e(e,t,n,r){var i,o,a,s,l,c,d,h,p,m;if((t?t.ownerDocument||t:z)!==D&&B(t),t=t||D,n=n||[],!e||"string"!=typeof e)return n;if(1!==(s=t.nodeType)&&9!==s)return[];if(L&&!r){if(i=ve.exec(e))if(a=i[1]){if(9===s){if(o=t.getElementById(a),!o||!o.parentNode)return n;if(o.id===a)return n.push(o),n}else if(t.ownerDocument&&(o=t.ownerDocument.getElementById(a))&&I(t,o)&&o.id===a)return n.push(o),n}else{if(i[2])return Z.apply(n,t.getElementsByTagName(e)),n;if((a=i[3])&&x.getElementsByClassName)return Z.apply(n,t.getElementsByClassName(a)),n}if(x.qsa&&(!P||!P.test(e))){if(h=d=F,p=t,m=9===s&&e,1===s&&"object"!==t.nodeName.toLowerCase()){for(c=_(e),(d=t.getAttribute("id"))?h=d.replace(be,"\\$&"):t.setAttribute("id",h),h="[id='"+h+"'] ",l=c.length;l--;)c[l]=h+f(c[l]);p=ye.test(e)&&u(t.parentNode)||t,m=c.join(",")}if(m)try{return Z.apply(n,p.querySelectorAll(m)),n}catch(g){}finally{d||t.removeAttribute("id")}}}return k(e.replace(se,"$1"),t,n,r)}function n(){function e(n,r){return t.push(n+" ")>w.cacheLength&&delete e[t.shift()],e[n+" "]=r}var t=[];return e}function r(e){return e[F]=!0,e}function i(e){var t=D.createElement("div");try{return!!e(t)}catch(n){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function o(e,t){for(var n=e.split("|"),r=e.length;r--;)w.attrHandle[n[r]]=t}function a(e,t){var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&(~t.sourceIndex||X)-(~e.sourceIndex||X);if(r)return r;if(n)for(;n=n.nextSibling;)if(n===t)return-1;return e?1:-1}function s(e){return function(t){var n=t.nodeName.toLowerCase();return"input"===n&&t.type===e}}function l(e){return function(t){var n=t.nodeName.toLowerCase();return("input"===n||"button"===n)&&t.type===e}}function c(e){return r(function(t){return t=+t,r(function(n,r){for(var i,o=e([],n.length,t),a=o.length;a--;)n[i=o[a]]&&(n[i]=!(r[i]=n[i]))})})}function u(e){return e&&typeof e.getElementsByTagName!==Y&&e}function d(){}function f(e){for(var t=0,n=e.length,r="";n>t;t++)r+=e[t].value;return r}function h(e,t,n){var r=t.dir,i=n&&"parentNode"===r,o=V++;return t.first?function(t,n,o){for(;t=t[r];)if(1===t.nodeType||i)return e(t,n,o)}:function(t,n,a){var s,l,c=[W,o];if(a){for(;t=t[r];)if((1===t.nodeType||i)&&e(t,n,a))return!0}else for(;t=t[r];)if(1===t.nodeType||i){if(l=t[F]||(t[F]={}),(s=l[r])&&s[0]===W&&s[1]===o)return c[2]=s[2];if(l[r]=c,c[2]=e(t,n,a))return!0}}}function p(e){return e.length>1?function(t,n,r){for(var i=e.length;i--;)if(!e[i](t,n,r))return!1;return!0}:e[0]}function m(t,n,r){for(var i=0,o=n.length;o>i;i++)e(t,n[i],r);return r}function g(e,t,n,r,i){for(var o,a=[],s=0,l=e.length,c=null!=t;l>s;s++)(o=e[s])&&(!n||n(o,r,i))&&(a.push(o),c&&t.push(s));return a}function v(e,t,n,i,o,a){return i&&!i[F]&&(i=v(i)),o&&!o[F]&&(o=v(o,a)),r(function(r,a,s,l){var c,u,d,f=[],h=[],p=a.length,v=r||m(t||"*",s.nodeType?[s]:s,[]),y=!e||!r&&t?v:g(v,f,e,s,l),b=n?o||(r?e:p||i)?[]:a:y;if(n&&n(y,b,s,l),i)for(c=g(b,h),i(c,[],s,l),u=c.length;u--;)(d=c[u])&&(b[h[u]]=!(y[h[u]]=d));if(r){if(o||e){if(o){for(c=[],u=b.length;u--;)(d=b[u])&&c.push(y[u]=d);o(null,b=[],c,l)}for(u=b.length;u--;)(d=b[u])&&(c=o?te.call(r,d):f[u])>-1&&(r[c]=!(a[c]=d))}}else b=g(b===a?b.splice(p,b.length):b),o?o(null,a,b,l):Z.apply(a,b)})}function y(e){for(var t,n,r,i=e.length,o=w.relative[e[0].type],a=o||w.relative[" "],s=o?1:0,l=h(function(e){return e===t},a,!0),c=h(function(e){return te.call(t,e)>-1},a,!0),u=[function(e,n,r){return!o&&(r||n!==T)||((t=n).nodeType?l(e,n,r):c(e,n,r))}];i>s;s++)if(n=w.relative[e[s].type])u=[h(p(u),n)];else{if(n=w.filter[e[s].type].apply(null,e[s].matches),n[F]){for(r=++s;i>r&&!w.relative[e[r].type];r++);return v(s>1&&p(u),s>1&&f(e.slice(0,s-1).concat({value:" "===e[s-2].type?"*":""})).replace(se,"$1"),n,r>s&&y(e.slice(s,r)),i>r&&y(e=e.slice(r)),i>r&&f(e))}u.push(n)}return p(u)}function b(t,n){var i=n.length>0,o=t.length>0,a=function(r,a,s,l,c){var u,d,f,h=0,p="0",m=r&&[],v=[],y=T,b=r||o&&w.find.TAG("*",c),C=W+=null==y?1:Math.random()||.1,x=b.length;for(c&&(T=a!==D&&a);p!==x&&null!=(u=b[p]);p++){if(o&&u){for(d=0;f=t[d++];)if(f(u,a,s)){l.push(u);break}c&&(W=C)}i&&((u=!f&&u)&&h--,r&&m.push(u))}if(h+=p,i&&p!==h){for(d=0;f=n[d++];)f(m,v,a,s);if(r){if(h>0)for(;p--;)m[p]||v[p]||(v[p]=J.call(l));v=g(v)}Z.apply(l,v),c&&!r&&v.length>0&&h+n.length>1&&e.uniqueSort(l)}return c&&(W=C,T=y),m};return i?r(a):a}var C,x,w,E,N,_,S,k,T,R,A,B,D,M,L,P,H,O,I,F="sizzle"+-new Date,z=window.document,W=0,V=0,U=n(),$=n(),q=n(),j=function(e,t){return e===t&&(A=!0),0},Y=typeof t,X=1<<31,K={}.hasOwnProperty,G=[],J=G.pop,Q=G.push,Z=G.push,ee=G.slice,te=G.indexOf||function(e){for(var t=0,n=this.length;n>t;t++)if(this[t]===e)return t;return-1},ne="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",re="[\\x20\\t\\r\\n\\f]",ie="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",oe="\\["+re+"*("+ie+")(?:"+re+"*([*^$|!~]?=)"+re+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+ie+"))|)"+re+"*\\]",ae=":("+ie+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+oe+")*)|.*)\\)|)",se=new RegExp("^"+re+"+|((?:^|[^\\\\])(?:\\\\.)*)"+re+"+$","g"),le=new RegExp("^"+re+"*,"+re+"*"),ce=new RegExp("^"+re+"*([>+~]|"+re+")"+re+"*"),ue=new RegExp("="+re+"*([^\\]'\"]*?)"+re+"*\\]","g"),de=new RegExp(ae),fe=new RegExp("^"+ie+"$"),he={ID:new RegExp("^#("+ie+")"),CLASS:new RegExp("^\\.("+ie+")"),TAG:new RegExp("^("+ie+"|[*])"),ATTR:new RegExp("^"+oe),PSEUDO:new RegExp("^"+ae),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+re+"*(even|odd|(([+-]|)(\\d*)n|)"+re+"*(?:([+-]|)"+re+"*(\\d+)|))"+re+"*\\)|)","i"),bool:new RegExp("^(?:"+ne+")$","i"),needsContext:new RegExp("^"+re+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+re+"*((?:-\\d)?\\d*)"+re+"*\\)|)(?=[^-]|$)","i")},pe=/^(?:input|select|textarea|button)$/i,me=/^h\d$/i,ge=/^[^{]+\{\s*\[native \w/,ve=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,ye=/[+~]/,be=/'|\\/g,Ce=new RegExp("\\\\([\\da-f]{1,6}"+re+"?|("+re+")|.)","ig"),xe=function(e,t,n){var r="0x"+t-65536;return r!==r||n?t:0>r?String.fromCharCode(r+65536):String.fromCharCode(r>>10|55296,1023&r|56320)};try{Z.apply(G=ee.call(z.childNodes),z.childNodes),G[z.childNodes.length].nodeType}catch(we){Z={apply:G.length?function(e,t){Q.apply(e,ee.call(t))}:function(e,t){for(var n=e.length,r=0;e[n++]=t[r++];);e.length=n-1}}}x=e.support={},N=e.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return t?"HTML"!==t.nodeName:!1},B=e.setDocument=function(e){var t,n=e?e.ownerDocument||e:z,r=n.defaultView;return n!==D&&9===n.nodeType&&n.documentElement?(D=n,M=n.documentElement,L=!N(n),r&&r!==r.top&&(r.addEventListener?r.addEventListener("unload",function(){B()},!1):r.attachEvent&&r.attachEvent("onunload",function(){B()})),x.attributes=i(function(e){return e.className="i",!e.getAttribute("className")}),x.getElementsByTagName=i(function(e){return e.appendChild(n.createComment("")),!e.getElementsByTagName("*").length}),x.getElementsByClassName=ge.test(n.getElementsByClassName),x.getById=i(function(e){return M.appendChild(e).id=F,!n.getElementsByName||!n.getElementsByName(F).length}),x.getById?(w.find.ID=function(e,t){if(typeof t.getElementById!==Y&&L){var n=t.getElementById(e);return n&&n.parentNode?[n]:[]}},w.filter.ID=function(e){var t=e.replace(Ce,xe);return function(e){return e.getAttribute("id")===t}}):(delete w.find.ID,w.filter.ID=function(e){var t=e.replace(Ce,xe);return function(e){var n=typeof e.getAttributeNode!==Y&&e.getAttributeNode("id");return n&&n.value===t}}),w.find.TAG=x.getElementsByTagName?function(e,t){return typeof t.getElementsByTagName!==Y?t.getElementsByTagName(e):void 0}:function(e,t){var n,r=[],i=0,o=t.getElementsByTagName(e);if("*"===e){for(;n=o[i++];)1===n.nodeType&&r.push(n);return r}return o},w.find.CLASS=x.getElementsByClassName&&function(e,t){return L?t.getElementsByClassName(e):void 0},H=[],P=[],(x.qsa=ge.test(n.querySelectorAll))&&(i(function(e){e.innerHTML="<select msallowcapture=''><option selected=''></option></select>",e.querySelectorAll("[msallowcapture^='']").length&&P.push("[*^$]="+re+"*(?:''|\"\")"),e.querySelectorAll("[selected]").length||P.push("\\["+re+"*(?:value|"+ne+")"),e.querySelectorAll(":checked").length||P.push(":checked")}),i(function(e){var t=n.createElement("input");t.setAttribute("type","hidden"),e.appendChild(t).setAttribute("name","D"),e.querySelectorAll("[name=d]").length&&P.push("name"+re+"*[*^$|!~]?="),e.querySelectorAll(":enabled").length||P.push(":enabled",":disabled"),e.querySelectorAll("*,:x"),P.push(",.*:")})),(x.matchesSelector=ge.test(O=M.matches||M.webkitMatchesSelector||M.mozMatchesSelector||M.oMatchesSelector||M.msMatchesSelector))&&i(function(e){x.disconnectedMatch=O.call(e,"div"),O.call(e,"[s!='']:x"),H.push("!=",ae)}),P=P.length&&new RegExp(P.join("|")),H=H.length&&new RegExp(H.join("|")),t=ge.test(M.compareDocumentPosition),I=t||ge.test(M.contains)?function(e,t){var n=9===e.nodeType?e.documentElement:e,r=t&&t.parentNode;return e===r||!(!r||1!==r.nodeType||!(n.contains?n.contains(r):e.compareDocumentPosition&&16&e.compareDocumentPosition(r)))}:function(e,t){if(t)for(;t=t.parentNode;)if(t===e)return!0;return!1},j=t?function(e,t){if(e===t)return A=!0,0;var r=!e.compareDocumentPosition-!t.compareDocumentPosition;return r?r:(r=(e.ownerDocument||e)===(t.ownerDocument||t)?e.compareDocumentPosition(t):1,1&r||!x.sortDetached&&t.compareDocumentPosition(e)===r?e===n||e.ownerDocument===z&&I(z,e)?-1:t===n||t.ownerDocument===z&&I(z,t)?1:R?te.call(R,e)-te.call(R,t):0:4&r?-1:1)}:function(e,t){if(e===t)return A=!0,0;var r,i=0,o=e.parentNode,s=t.parentNode,l=[e],c=[t];if(!o||!s)return e===n?-1:t===n?1:o?-1:s?1:R?te.call(R,e)-te.call(R,t):0;if(o===s)return a(e,t);for(r=e;r=r.parentNode;)l.unshift(r);for(r=t;r=r.parentNode;)c.unshift(r);for(;l[i]===c[i];)i++;return i?a(l[i],c[i]):l[i]===z?-1:c[i]===z?1:0},n):D},e.matches=function(t,n){return e(t,null,null,n)},e.matchesSelector=function(t,n){if((t.ownerDocument||t)!==D&&B(t),n=n.replace(ue,"='$1']"),x.matchesSelector&&L&&(!H||!H.test(n))&&(!P||!P.test(n)))try{var r=O.call(t,n);if(r||x.disconnectedMatch||t.document&&11!==t.document.nodeType)return r}catch(i){}return e(n,D,null,[t]).length>0},e.contains=function(e,t){return(e.ownerDocument||e)!==D&&B(e),I(e,t)},e.attr=function(e,n){(e.ownerDocument||e)!==D&&B(e);var r=w.attrHandle[n.toLowerCase()],i=r&&K.call(w.attrHandle,n.toLowerCase())?r(e,n,!L):t;return i!==t?i:x.attributes||!L?e.getAttribute(n):(i=e.getAttributeNode(n))&&i.specified?i.value:null},e.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},e.uniqueSort=function(e){var t,n=[],r=0,i=0;if(A=!x.detectDuplicates,R=!x.sortStable&&e.slice(0),e.sort(j),A){for(;t=e[i++];)t===e[i]&&(r=n.push(i));for(;r--;)e.splice(n[r],1)}return R=null,e},E=e.getText=function(e){var t,n="",r=0,i=e.nodeType;if(i){if(1===i||9===i||11===i){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=E(e)}else if(3===i||4===i)return e.nodeValue}else for(;t=e[r++];)n+=E(t);return n},w=e.selectors={cacheLength:50,createPseudo:r,match:he,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(Ce,xe),e[3]=(e[3]||e[4]||e[5]||"").replace(Ce,xe),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(t){return t[1]=t[1].toLowerCase(),"nth"===t[1].slice(0,3)?(t[3]||e.error(t[0]),t[4]=+(t[4]?t[5]+(t[6]||1):2*("even"===t[3]||"odd"===t[3])),t[5]=+(t[7]+t[8]||"odd"===t[3])):t[3]&&e.error(t[0]),t},PSEUDO:function(e){var t,n=!e[6]&&e[2];return he.CHILD.test(e[0])?null:(e[3]?e[2]=e[4]||e[5]||"":n&&de.test(n)&&(t=_(n,!0))&&(t=n.indexOf(")",n.length-t)-n.length)&&(e[0]=e[0].slice(0,t),e[2]=n.slice(0,t)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(Ce,xe).toLowerCase();return"*"===e?function(){return!0}:function(e){return e.nodeName&&e.nodeName.toLowerCase()===t}},CLASS:function(e){var t=U[e+" "];return t||(t=new RegExp("(^|"+re+")"+e+"("+re+"|$)"))&&U(e,function(e){return t.test("string"==typeof e.className&&e.className||typeof e.getAttribute!==Y&&e.getAttribute("class")||"")})},ATTR:function(t,n,r){return function(i){var o=e.attr(i,t);return null==o?"!="===n:n?(o+="","="===n?o===r:"!="===n?o!==r:"^="===n?r&&0===o.indexOf(r):"*="===n?r&&o.indexOf(r)>-1:"$="===n?r&&o.slice(-r.length)===r:"~="===n?(" "+o+" ").indexOf(r)>-1:"|="===n?o===r||o.slice(0,r.length+1)===r+"-":!1):!0}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),a="last"!==e.slice(-4),s="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,l){var c,u,d,f,h,p,m=o!==a?"nextSibling":"previousSibling",g=t.parentNode,v=s&&t.nodeName.toLowerCase(),y=!l&&!s;if(g){if(o){for(;m;){for(d=t;d=d[m];)if(s?d.nodeName.toLowerCase()===v:1===d.nodeType)return!1;p=m="only"===e&&!p&&"nextSibling"}return!0}if(p=[a?g.firstChild:g.lastChild],a&&y){for(u=g[F]||(g[F]={}),c=u[e]||[],h=c[0]===W&&c[1],f=c[0]===W&&c[2],d=h&&g.childNodes[h];d=++h&&d&&d[m]||(f=h=0)||p.pop();)if(1===d.nodeType&&++f&&d===t){u[e]=[W,h,f];break}}else if(y&&(c=(t[F]||(t[F]={}))[e])&&c[0]===W)f=c[1];else for(;(d=++h&&d&&d[m]||(f=h=0)||p.pop())&&((s?d.nodeName.toLowerCase()!==v:1!==d.nodeType)||!++f||(y&&((d[F]||(d[F]={}))[e]=[W,f]),d!==t)););return f-=i,f===r||f%r===0&&f/r>=0}}},PSEUDO:function(t,n){var i,o=w.pseudos[t]||w.setFilters[t.toLowerCase()]||e.error("unsupported pseudo: "+t);return o[F]?o(n):o.length>1?(i=[t,t,"",n],w.setFilters.hasOwnProperty(t.toLowerCase())?r(function(e,t){for(var r,i=o(e,n),a=i.length;a--;)r=te.call(e,i[a]),e[r]=!(t[r]=i[a])}):function(e){return o(e,0,i)}):o}},pseudos:{not:r(function(e){var t=[],n=[],i=S(e.replace(se,"$1"));return i[F]?r(function(e,t,n,r){for(var o,a=i(e,null,r,[]),s=e.length;s--;)(o=a[s])&&(e[s]=!(t[s]=o))}):function(e,r,o){return t[0]=e,i(t,null,o,n),!n.pop()}}),has:r(function(t){return function(n){return e(t,n).length>0}}),contains:r(function(e){return e=e.replace(Ce,xe),function(t){return(t.textContent||t.innerText||E(t)).indexOf(e)>-1}}),lang:r(function(t){return fe.test(t||"")||e.error("unsupported lang: "+t),t=t.replace(Ce,xe).toLowerCase(),function(e){var n;do if(n=L?e.lang:e.getAttribute("xml:lang")||e.getAttribute("lang"))return n=n.toLowerCase(),n===t||0===n.indexOf(t+"-");while((e=e.parentNode)&&1===e.nodeType);return!1}}),target:function(e){var t=window.location&&window.location.hash;return t&&t.slice(1)===e.id},root:function(e){return e===M},focus:function(e){return e===D.activeElement&&(!D.hasFocus||D.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:function(e){return e.disabled===!1},disabled:function(e){return e.disabled===!0},checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeType<6)return!1;return!0},parent:function(e){return!w.pseudos.empty(e)},header:function(e){return me.test(e.nodeName)},input:function(e){return pe.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||"text"===t.toLowerCase())},first:c(function(){return[0]}),last:c(function(e,t){return[t-1]}),eq:c(function(e,t,n){return[0>n?n+t:n]}),even:c(function(e,t){for(var n=0;t>n;n+=2)e.push(n);return e}),odd:c(function(e,t){for(var n=1;t>n;n+=2)e.push(n);return e}),lt:c(function(e,t,n){for(var r=0>n?n+t:n;--r>=0;)e.push(r);return e}),gt:c(function(e,t,n){for(var r=0>n?n+t:n;++r<t;)e.push(r);return e})}},w.pseudos.nth=w.pseudos.eq;for(C in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})w.pseudos[C]=s(C);for(C in{submit:!0,reset:!0})w.pseudos[C]=l(C);return d.prototype=w.filters=w.pseudos,w.setFilters=new d,_=e.tokenize=function(t,n){var r,i,o,a,s,l,c,u=$[t+" "];if(u)return n?0:u.slice(0);for(s=t,l=[],c=w.preFilter;s;){(!r||(i=le.exec(s)))&&(i&&(s=s.slice(i[0].length)||s),l.push(o=[])),r=!1,(i=ce.exec(s))&&(r=i.shift(),o.push({value:r,type:i[0].replace(se," ")}),s=s.slice(r.length));for(a in w.filter)!(i=he[a].exec(s))||c[a]&&!(i=c[a](i))||(r=i.shift(),o.push({value:r,type:a,matches:i}),s=s.slice(r.length));if(!r)break}return n?s.length:s?e.error(t):$(t,l).slice(0)},S=e.compile=function(e,t){var n,r=[],i=[],o=q[e+" "];if(!o){for(t||(t=_(e)),n=t.length;n--;)o=y(t[n]),o[F]?r.push(o):i.push(o);o=q(e,b(i,r)),o.selector=e}return o},k=e.select=function(e,t,n,r){var i,o,a,s,l,c="function"==typeof e&&e,d=!r&&_(e=c.selector||e);if(n=n||[],1===d.length){if(o=d[0]=d[0].slice(0),o.length>2&&"ID"===(a=o[0]).type&&x.getById&&9===t.nodeType&&L&&w.relative[o[1].type]){if(t=(w.find.ID(a.matches[0].replace(Ce,xe),t)||[])[0],!t)return n;c&&(t=t.parentNode),e=e.slice(o.shift().value.length)}for(i=he.needsContext.test(e)?0:o.length;i--&&(a=o[i],!w.relative[s=a.type]);)if((l=w.find[s])&&(r=l(a.matches[0].replace(Ce,xe),ye.test(o[0].type)&&u(t.parentNode)||t))){if(o.splice(i,1),e=r.length&&f(o),!e)return Z.apply(n,r),n;break}}return(c||S(e,d))(r,t,!L,n,ye.test(e)&&u(t.parentNode)||t),n},x.sortStable=F.split("").sort(j).join("")===F,x.detectDuplicates=!!A,B(),x.sortDetached=i(function(e){return 1&e.compareDocumentPosition(D.createElement("div"))}),i(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||o("type|href|height|width",function(e,t,n){return n?void 0:e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),x.attributes&&i(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||o("value",function(e,t,n){return n||"input"!==e.nodeName.toLowerCase()?void 0:e.defaultValue}),i(function(e){return null==e.getAttribute("disabled")})||o(ne,function(e,t,n){var r;return n?void 0:e[t]===!0?t.toLowerCase():(r=e.getAttributeNode(t))&&r.specified?r.value:null}),e}),r(h,[],function(){function e(e){return"matchMedia"in window?matchMedia(e).matches:!1}var t=navigator,n=t.userAgent,r,i,o,a,s,l,c,u,d,f,h,p;r=window.opera&&window.opera.buildNumber,d=/Android/.test(n),i=/WebKit/.test(n),o=!i&&!r&&/MSIE/gi.test(n)&&/Explorer/gi.test(t.appName),o=o&&/MSIE (\w+)\./.exec(n)[1],a=-1==n.indexOf("Trident/")||-1==n.indexOf("rv:")&&-1==t.appName.indexOf("Netscape")?!1:11,s=-1==n.indexOf("Edge/")||o||a?!1:12,o=o||a||s,l=!i&&!a&&/Gecko/.test(n),c=-1!=n.indexOf("Mac"),u=/(iPad|iPhone)/.test(n),f="FormData"in window&&"FileReader"in window&&"URL"in window&&!!URL.createObjectURL,
 h=e("only screen and (max-device-width: 480px)")&&(d||u),p=e("only screen and (min-width: 800px)")&&(d||u),s&&(i=!1);var m=!u||f||n.match(/AppleWebKit\/(\d*)/)[1]>=534;return{opera:r,webkit:i,ie:o,gecko:l,mac:c,iOS:u,android:d,contentEditable:m,transparentSrc:"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",caretAfter:8!=o,range:window.getSelection&&"Range"in window,documentMode:o&&!s?document.documentMode||7:10,fileApi:f,ceFalse:o===!1||o>8,desktop:!h&&!p}}),r(p,[],function(){function e(e){var t=e,n,r;if(!u(e))for(t=[],n=0,r=e.length;r>n;n++)t[n]=e[n];return t}function n(e,n,r){var i,o;if(!e)return 0;if(r=r||e,e.length!==t){for(i=0,o=e.length;o>i;i++)if(n.call(r,e[i],i,e)===!1)return 0}else for(i in e)if(e.hasOwnProperty(i)&&n.call(r,e[i],i,e)===!1)return 0;return 1}function r(e,t){var r=[];return n(e,function(n,i){r.push(t(n,i,e))}),r}function i(e,t){var r=[];return n(e,function(n,i){(!t||t(n,i,e))&&r.push(n)}),r}function o(e,t){var n,r;if(e)for(n=0,r=e.length;r>n;n++)if(e[n]===t)return n;return-1}function a(e,t,n,r){var i=0;for(arguments.length<3&&(n=e[0]);i<e.length;i++)n=t.call(r,n,e[i],i);return n}function s(e,t,n){var r,i;for(r=0,i=e.length;i>r;r++)if(t.call(n,e[r],r,e))return r;return-1}function l(e,n,r){var i=s(e,n,r);return-1!==i?e[i]:t}function c(e){return e[e.length-1]}var u=Array.isArray||function(e){return"[object Array]"===Object.prototype.toString.call(e)};return{isArray:u,toArray:e,each:n,map:r,filter:i,indexOf:o,reduce:a,findIndex:s,find:l,last:c}}),r(m,[h,p],function(e,n){function r(e){return null===e||e===t?"":(""+e).replace(h,"")}function i(e,r){return r?"array"==r&&n.isArray(e)?!0:typeof e==r:e!==t}function o(e,t,n){var r;for(e=e||[],t=t||",","string"==typeof e&&(e=e.split(t)),n=n||{},r=e.length;r--;)n[e[r]]={};return n}function a(e,t,n){var r=this,i,o,a,s,l,c=0;if(e=/^((static) )?([\w.]+)(:([\w.]+))?/.exec(e),a=e[3].match(/(^|\.)(\w+)$/i)[2],o=r.createNS(e[3].replace(/\.\w+$/,""),n),!o[a]){if("static"==e[2])return o[a]=t,void(this.onCreate&&this.onCreate(e[2],e[3],o[a]));t[a]||(t[a]=function(){},c=1),o[a]=t[a],r.extend(o[a].prototype,t),e[5]&&(i=r.resolve(e[5]).prototype,s=e[5].match(/\.(\w+)$/i)[1],l=o[a],c?o[a]=function(){return i[s].apply(this,arguments)}:o[a]=function(){return this.parent=i[s],l.apply(this,arguments)},o[a].prototype[a]=o[a],r.each(i,function(e,t){o[a].prototype[t]=i[t]}),r.each(t,function(e,t){i[t]?o[a].prototype[t]=function(){return this.parent=i[t],e.apply(this,arguments)}:t!=a&&(o[a].prototype[t]=e)})),r.each(t["static"],function(e,t){o[a][t]=e})}}function s(e,n){var r,i,o,a=arguments,s;for(r=1,i=a.length;i>r;r++){n=a[r];for(o in n)n.hasOwnProperty(o)&&(s=n[o],s!==t&&(e[o]=s))}return e}function l(e,t,r,i){i=i||this,e&&(r&&(e=e[r]),n.each(e,function(e,n){return t.call(i,e,n,r)===!1?!1:void l(e,t,r,i)}))}function c(e,t){var n,r;for(t=t||window,e=e.split("."),n=0;n<e.length;n++)r=e[n],t[r]||(t[r]={}),t=t[r];return t}function u(e,t){var n,r;for(t=t||window,e=e.split("."),n=0,r=e.length;r>n&&(t=t[e[n]],t);n++);return t}function d(e,t){return!e||i(e,"array")?e:n.map(e.split(t||","),r)}function f(t){var n=e.cacheSuffix;return n&&(t+=(-1===t.indexOf("?")?"?":"&")+n),t}var h=/^\s*|\s*$/g;return{trim:r,isArray:n.isArray,is:i,toArray:n.toArray,makeMap:o,each:n.each,map:n.map,grep:n.filter,inArray:n.indexOf,extend:s,create:a,walk:l,createNS:c,resolve:u,explode:d,_addCacheSuffix:f}}),r(g,[d,f,m,h],function(e,n,r,i){function o(e){return"undefined"!=typeof e}function a(e){return"string"==typeof e}function s(e){return e&&e==e.window}function l(e,t){var n,r,i;for(t=t||w,i=t.createElement("div"),n=t.createDocumentFragment(),i.innerHTML=e;r=i.firstChild;)n.appendChild(r);return n}function c(e,t,n,r){var i;if(a(t))t=l(t,v(e[0]));else if(t.length&&!t.nodeType){if(t=f.makeArray(t),r)for(i=t.length-1;i>=0;i--)c(e,t[i],n,r);else for(i=0;i<t.length;i++)c(e,t[i],n,r);return e}if(t.nodeType)for(i=e.length;i--;)n.call(e[i],t);return e}function u(e,t){return e&&t&&-1!==(" "+e.className+" ").indexOf(" "+t+" ")}function d(e,t,n){var r,i;return t=f(t)[0],e.each(function(){var e=this;n&&r==e.parentNode?i.appendChild(e):(r=e.parentNode,i=t.cloneNode(!1),e.parentNode.insertBefore(i,e),i.appendChild(e))}),e}function f(e,t){return new f.fn.init(e,t)}function h(e,t){var n;if(t.indexOf)return t.indexOf(e);for(n=t.length;n--;)if(t[n]===e)return n;return-1}function p(e){return null===e||e===k?"":(""+e).replace(P,"")}function m(e,t){var n,r,i,o,a;if(e)if(n=e.length,n===o){for(r in e)if(e.hasOwnProperty(r)&&(a=e[r],t.call(a,r,a)===!1))break}else for(i=0;n>i&&(a=e[i],t.call(a,i,a)!==!1);i++);return e}function g(e,t){var n=[];return m(e,function(e,r){t(r,e)&&n.push(r)}),n}function v(e){return e?9==e.nodeType?e:e.ownerDocument:w}function y(e,n,r){var i=[],o=e[n];for("string"!=typeof r&&r instanceof f&&(r=r[0]);o&&9!==o.nodeType;){if(r!==t){if(o===r)break;if("string"==typeof r&&f(o).is(r))break}1===o.nodeType&&i.push(o),o=o[n]}return i}function b(e,n,r,i){var o=[];for(i instanceof f&&(i=i[0]);e;e=e[n])if(!r||e.nodeType===r){if(i!==t){if(e===i)break;if("string"==typeof i&&f(e).is(i))break}o.push(e)}return o}function C(e,t,n){for(e=e[t];e;e=e[t])if(e.nodeType==n)return e;return null}function x(e,t,n){m(n,function(n,r){e[n]=e[n]||{},e[n][t]=r})}var w=document,E=Array.prototype.push,N=Array.prototype.slice,_=/^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,S=e.Event,k,T=r.makeMap("children,contents,next,prev"),R=r.makeMap("fillOpacity fontWeight lineHeight opacity orphans widows zIndex zoom"," "),A=r.makeMap("checked compact declare defer disabled ismap multiple nohref noshade nowrap readonly selected"," "),B={"for":"htmlFor","class":"className",readonly:"readOnly"},D={"float":"cssFloat"},M={},L={},P=/^\s*|\s*$/g;return f.fn=f.prototype={constructor:f,selector:"",context:null,length:0,init:function(e,t){var n=this,r,i;if(!e)return n;if(e.nodeType)return n.context=n[0]=e,n.length=1,n;if(t&&t.nodeType)n.context=t;else{if(t)return f(e).attr(t);n.context=t=document}if(a(e)){if(n.selector=e,r="<"===e.charAt(0)&&">"===e.charAt(e.length-1)&&e.length>=3?[null,e,null]:_.exec(e),!r)return f(t).find(e);if(r[1])for(i=l(e,v(t)).firstChild;i;)E.call(n,i),i=i.nextSibling;else{if(i=v(t).getElementById(r[2]),!i)return n;if(i.id!==r[2])return n.find(e);n.length=1,n[0]=i}}else this.add(e,!1);return n},toArray:function(){return r.toArray(this)},add:function(e,t){var n=this,r,i;if(a(e))return n.add(f(e));if(t!==!1)for(r=f.unique(n.toArray().concat(f.makeArray(e))),n.length=r.length,i=0;i<r.length;i++)n[i]=r[i];else E.apply(n,f.makeArray(e));return n},attr:function(e,t){var n=this,r;if("object"==typeof e)m(e,function(e,t){n.attr(e,t)});else{if(!o(t)){if(n[0]&&1===n[0].nodeType){if(r=M[e],r&&r.get)return r.get(n[0],e);if(A[e])return n.prop(e)?e:k;t=n[0].getAttribute(e,2),null===t&&(t=k)}return t}this.each(function(){var n;if(1===this.nodeType){if(n=M[e],n&&n.set)return void n.set(this,t);null===t?this.removeAttribute(e,2):this.setAttribute(e,t,2)}})}return n},removeAttr:function(e){return this.attr(e,null)},prop:function(e,t){var n=this;if(e=B[e]||e,"object"==typeof e)m(e,function(e,t){n.prop(e,t)});else{if(!o(t))return n[0]&&n[0].nodeType&&e in n[0]?n[0][e]:t;this.each(function(){1==this.nodeType&&(this[e]=t)})}return n},css:function(e,t){function n(e){return e.replace(/-(\D)/g,function(e,t){return t.toUpperCase()})}function r(e){return e.replace(/[A-Z]/g,function(e){return"-"+e})}var i=this,a,s;if("object"==typeof e)m(e,function(e,t){i.css(e,t)});else if(o(t))e=n(e),"number"!=typeof t||R[e]||(t+="px"),i.each(function(){var n=this.style;if(s=L[e],s&&s.set)return void s.set(this,t);try{this.style[D[e]||e]=t}catch(i){}(null===t||""===t)&&(n.removeProperty?n.removeProperty(r(e)):n.removeAttribute(e))});else{if(a=i[0],s=L[e],s&&s.get)return s.get(a);if(a.ownerDocument.defaultView)try{return a.ownerDocument.defaultView.getComputedStyle(a,null).getPropertyValue(r(e))}catch(l){return k}else if(a.currentStyle)return a.currentStyle[n(e)]}return i},remove:function(){for(var e=this,t,n=this.length;n--;)t=e[n],S.clean(t),t.parentNode&&t.parentNode.removeChild(t);return this},empty:function(){for(var e=this,t,n=this.length;n--;)for(t=e[n];t.firstChild;)t.removeChild(t.firstChild);return this},html:function(e){var t=this,n;if(o(e)){n=t.length;try{for(;n--;)t[n].innerHTML=e}catch(r){f(t[n]).empty().append(e)}return t}return t[0]?t[0].innerHTML:""},text:function(e){var t=this,n;if(o(e)){for(n=t.length;n--;)"innerText"in t[n]?t[n].innerText=e:t[0].textContent=e;return t}return t[0]?t[0].innerText||t[0].textContent:""},append:function(){return c(this,arguments,function(e){1===this.nodeType&&this.appendChild(e)})},prepend:function(){return c(this,arguments,function(e){1===this.nodeType&&this.insertBefore(e,this.firstChild)},!0)},before:function(){var e=this;return e[0]&&e[0].parentNode?c(e,arguments,function(e){this.parentNode.insertBefore(e,this)}):e},after:function(){var e=this;return e[0]&&e[0].parentNode?c(e,arguments,function(e){this.parentNode.insertBefore(e,this.nextSibling)},!0):e},appendTo:function(e){return f(e).append(this),this},prependTo:function(e){return f(e).prepend(this),this},replaceWith:function(e){return this.before(e).remove()},wrap:function(e){return d(this,e)},wrapAll:function(e){return d(this,e,!0)},wrapInner:function(e){return this.each(function(){f(this).contents().wrapAll(e)}),this},unwrap:function(){return this.parent().each(function(){f(this).replaceWith(this.childNodes)})},clone:function(){var e=[];return this.each(function(){e.push(this.cloneNode(!0))}),f(e)},addClass:function(e){return this.toggleClass(e,!0)},removeClass:function(e){return this.toggleClass(e,!1)},toggleClass:function(e,t){var n=this;return"string"!=typeof e?n:(-1!==e.indexOf(" ")?m(e.split(" "),function(){n.toggleClass(this,t)}):n.each(function(n,r){var i,o;o=u(r,e),o!==t&&(i=r.className,o?r.className=p((" "+i+" ").replace(" "+e+" "," ")):r.className+=i?" "+e:e)}),n)},hasClass:function(e){return u(this[0],e)},each:function(e){return m(this,e)},on:function(e,t){return this.each(function(){S.bind(this,e,t)})},off:function(e,t){return this.each(function(){S.unbind(this,e,t)})},trigger:function(e){return this.each(function(){"object"==typeof e?S.fire(this,e.type,e):S.fire(this,e)})},show:function(){return this.css("display","")},hide:function(){return this.css("display","none")},slice:function(){return new f(N.apply(this,arguments))},eq:function(e){return-1===e?this.slice(e):this.slice(e,+e+1)},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},find:function(e){var t,n,r=[];for(t=0,n=this.length;n>t;t++)f.find(e,this[t],r);return f(r)},filter:function(e){return f("function"==typeof e?g(this.toArray(),function(t,n){return e(n,t)}):f.filter(e,this.toArray()))},closest:function(e){var t=[];return e instanceof f&&(e=e[0]),this.each(function(n,r){for(;r;){if("string"==typeof e&&f(r).is(e)){t.push(r);break}if(r==e){t.push(r);break}r=r.parentNode}}),f(t)},offset:function(e){var t,n,r,i=0,o=0,a;return e?this.css(e):(t=this[0],t&&(n=t.ownerDocument,r=n.documentElement,t.getBoundingClientRect&&(a=t.getBoundingClientRect(),i=a.left+(r.scrollLeft||n.body.scrollLeft)-r.clientLeft,o=a.top+(r.scrollTop||n.body.scrollTop)-r.clientTop)),{left:i,top:o})},push:E,sort:[].sort,splice:[].splice},r.extend(f,{extend:r.extend,makeArray:function(e){return s(e)||e.nodeType?[e]:r.toArray(e)},inArray:h,isArray:r.isArray,each:m,trim:p,grep:g,find:n,expr:n.selectors,unique:n.uniqueSort,text:n.getText,contains:n.contains,filter:function(e,t,n){var r=t.length;for(n&&(e=":not("+e+")");r--;)1!=t[r].nodeType&&t.splice(r,1);return t=1===t.length?f.find.matchesSelector(t[0],e)?[t[0]]:[]:f.find.matches(e,t)}}),m({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return y(e,"parentNode")},next:function(e){return C(e,"nextSibling",1)},prev:function(e){return C(e,"previousSibling",1)},children:function(e){return b(e.firstChild,"nextSibling",1)},contents:function(e){return r.toArray(("iframe"===e.nodeName?e.contentDocument||e.contentWindow.document:e).childNodes)}},function(e,t){f.fn[e]=function(n){var r=this,i=[];return r.each(function(){var e=t.call(i,this,n,i);e&&(f.isArray(e)?i.push.apply(i,e):i.push(e))}),this.length>1&&(T[e]||(i=f.unique(i)),0===e.indexOf("parents")&&(i=i.reverse())),i=f(i),n?i.filter(n):i}}),m({parentsUntil:function(e,t){return y(e,"parentNode",t)},nextUntil:function(e,t){return b(e,"nextSibling",1,t).slice(1)},prevUntil:function(e,t){return b(e,"previousSibling",1,t).slice(1)}},function(e,t){f.fn[e]=function(n,r){var i=this,o=[];return i.each(function(){var e=t.call(o,this,n,o);e&&(f.isArray(e)?o.push.apply(o,e):o.push(e))}),this.length>1&&(o=f.unique(o),(0===e.indexOf("parents")||"prevUntil"===e)&&(o=o.reverse())),o=f(o),r?o.filter(r):o}}),f.fn.is=function(e){return!!e&&this.filter(e).length>0},f.fn.init.prototype=f.fn,f.overrideDefaults=function(e){function t(r,i){return n=n||e(),0===arguments.length&&(r=n.element),i||(i=n.context),new t.fn.init(r,i)}var n;return f.extend(t,this),t},i.ie&&i.ie<8&&(x(M,"get",{maxlength:function(e){var t=e.maxLength;return 2147483647===t?k:t},size:function(e){var t=e.size;return 20===t?k:t},"class":function(e){return e.className},style:function(e){var t=e.style.cssText;return 0===t.length?k:t}}),x(M,"set",{"class":function(e,t){e.className=t},style:function(e,t){e.style.cssText=t}})),i.ie&&i.ie<9&&(D["float"]="styleFloat",x(L,"set",{opacity:function(e,t){var n=e.style;null===t||""===t?n.removeAttribute("filter"):(n.zoom=1,n.filter="alpha(opacity="+100*t+")")}})),f.attrHooks=M,f.cssHooks=L,f}),r(v,[],function(){return function(e,t){function n(e,t,n,r){function i(e){return e=parseInt(e,10).toString(16),e.length>1?e:"0"+e}return"#"+i(t)+i(n)+i(r)}var r=/rgb\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*\)/gi,i=/(?:url(?:(?:\(\s*\"([^\"]+)\"\s*\))|(?:\(\s*\'([^\']+)\'\s*\))|(?:\(\s*([^)\s]+)\s*\))))|(?:\'([^\']+)\')|(?:\"([^\"]+)\")/gi,o=/\s*([^:]+):\s*([^;]+);?/g,a=/\s+$/,s,l,c={},u,d,f,h="\ufeff";for(e=e||{},t&&(d=t.getValidStyles(),f=t.getInvalidStyles()),u=("\\\" \\' \\; \\: ; : "+h).split(" "),l=0;l<u.length;l++)c[u[l]]=h+l,c[h+l]=u[l];return{toHex:function(e){return e.replace(r,n)},parse:function(t){function s(e,t,n){var r,i,o,a;if(r=m[e+"-top"+t],r&&(i=m[e+"-right"+t],i&&(o=m[e+"-bottom"+t],o&&(a=m[e+"-left"+t])))){var s=[r,i,o,a];for(l=s.length-1;l--&&s[l]===s[l+1];);l>-1&&n||(m[e+t]=-1==l?s[0]:s.join(" "),delete m[e+"-top"+t],delete m[e+"-right"+t],delete m[e+"-bottom"+t],delete m[e+"-left"+t])}}function u(e){var t=m[e],n;if(t){for(t=t.split(" "),n=t.length;n--;)if(t[n]!==t[0])return!1;return m[e]=t[0],!0}}function d(e,t,n,r){u(t)&&u(n)&&u(r)&&(m[e]=m[t]+" "+m[n]+" "+m[r],delete m[t],delete m[n],delete m[r])}function f(e){return b=!0,c[e]}function h(e,t){return b&&(e=e.replace(/\uFEFF[0-9]/g,function(e){return c[e]})),t||(e=e.replace(/\\([\'\";:])/g,"$1")),e}function p(t,n,r,i,o,a){if(o=o||a)return o=h(o),"'"+o.replace(/\'/g,"\\'")+"'";if(n=h(n||r||i),!e.allow_script_urls){var s=n.replace(/[\s\r\n]+/,"");if(/(java|vb)script:/i.test(s))return"";if(!e.allow_svg_data_urls&&/^data:image\/svg/i.test(s))return""}return C&&(n=C.call(x,n,"style")),"url('"+n.replace(/\'/g,"\\'")+"')"}var m={},g,v,y,b,C=e.url_converter,x=e.url_converter_scope||this;if(t){for(t=t.replace(/[\u0000-\u001F]/g,""),t=t.replace(/\\[\"\';:\uFEFF]/g,f).replace(/\"[^\"]+\"|\'[^\']+\'/g,function(e){return e.replace(/[;:]/g,f)});g=o.exec(t);){if(v=g[1].replace(a,"").toLowerCase(),y=g[2].replace(a,""),y=y.replace(/\\[0-9a-f]+/g,function(e){return String.fromCharCode(parseInt(e.substr(1),16))}),v&&y.length>0){if(!e.allow_script_urls&&("behavior"==v||/expression\s*\(|\/\*|\*\//.test(y)))continue;"font-weight"===v&&"700"===y?y="bold":("color"===v||"background-color"===v)&&(y=y.toLowerCase()),y=y.replace(r,n),y=y.replace(i,p),m[v]=b?h(y,!0):y}o.lastIndex=g.index+g[0].length}s("border","",!0),s("border","-width"),s("border","-color"),s("border","-style"),s("padding",""),s("margin",""),d("border","border-width","border-style","border-color"),"medium none"===m.border&&delete m.border,"none"===m["border-image"]&&delete m["border-image"]}return m},serialize:function(e,t){function n(t){var n,r,o,a;if(n=d[t])for(r=0,o=n.length;o>r;r++)t=n[r],a=e[t],a!==s&&a.length>0&&(i+=(i.length>0?" ":"")+t+": "+a+";")}function r(e,t){var n;return n=f["*"],n&&n[e]?!1:(n=f[t],n&&n[e]?!1:!0)}var i="",o,a;if(t&&d)n("*"),n(t);else for(o in e)a=e[o],a!==s&&a.length>0&&(!f||r(o,t))&&(i+=(i.length>0?" ":"")+o+": "+a+";");return i}}}}),r(y,[],function(){return function(e,t){function n(e,n,r,i){var o,a;if(e){if(!i&&e[n])return e[n];if(e!=t){if(o=e[r])return o;for(a=e.parentNode;a&&a!=t;a=a.parentNode)if(o=a[r])return o}}}var r=e;this.current=function(){return r},this.next=function(e){return r=n(r,"firstChild","nextSibling",e)},this.prev=function(e){return r=n(r,"lastChild","previousSibling",e)}}}),r(b,[m],function(e){function t(n){function r(){return P.createDocumentFragment()}function i(e,t){E(F,e,t)}function o(e,t){E(z,e,t)}function a(e){i(e.parentNode,j(e))}function s(e){i(e.parentNode,j(e)+1)}function l(e){o(e.parentNode,j(e))}function c(e){o(e.parentNode,j(e)+1)}function u(e){e?(L[U]=L[V],L[$]=L[W]):(L[V]=L[U],L[W]=L[$]),L.collapsed=F}function d(e){a(e),c(e)}function f(e){i(e,0),o(e,1===e.nodeType?e.childNodes.length:e.nodeValue.length)}function h(e,t){var n=L[V],r=L[W],i=L[U],o=L[$],a=t.startContainer,s=t.startOffset,l=t.endContainer,c=t.endOffset;return 0===e?w(n,r,a,s):1===e?w(i,o,a,s):2===e?w(i,o,l,c):3===e?w(n,r,l,c):void 0}function p(){N(I)}function m(){return N(H)}function g(){return N(O)}function v(e){var t=this[V],r=this[W],i,o;3!==t.nodeType&&4!==t.nodeType||!t.nodeValue?(t.childNodes.length>0&&(o=t.childNodes[r]),o?t.insertBefore(e,o):3==t.nodeType?n.insertAfter(e,t):t.appendChild(e)):r?r>=t.nodeValue.length?n.insertAfter(e,t):(i=t.splitText(r),t.parentNode.insertBefore(e,i)):t.parentNode.insertBefore(e,t)}function y(e){var t=L.extractContents();L.insertNode(e),e.appendChild(t),L.selectNode(e)}function b(){return q(new t(n),{startContainer:L[V],startOffset:L[W],endContainer:L[U],endOffset:L[$],collapsed:L.collapsed,commonAncestorContainer:L.commonAncestorContainer})}function C(e,t){var n;if(3==e.nodeType)return e;if(0>t)return e;for(n=e.firstChild;n&&t>0;)--t,n=n.nextSibling;return n?n:e}function x(){return L[V]==L[U]&&L[W]==L[$]}function w(e,t,r,i){var o,a,s,l,c,u;if(e==r)return t==i?0:i>t?-1:1;for(o=r;o&&o.parentNode!=e;)o=o.parentNode;if(o){for(a=0,s=e.firstChild;s!=o&&t>a;)a++,s=s.nextSibling;return a>=t?-1:1}for(o=e;o&&o.parentNode!=r;)o=o.parentNode;if(o){for(a=0,s=r.firstChild;s!=o&&i>a;)a++,s=s.nextSibling;return i>a?-1:1}for(l=n.findCommonAncestor(e,r),c=e;c&&c.parentNode!=l;)c=c.parentNode;for(c||(c=l),u=r;u&&u.parentNode!=l;)u=u.parentNode;if(u||(u=l),c==u)return 0;for(s=l.firstChild;s;){if(s==c)return-1;if(s==u)return 1;s=s.nextSibling}}function E(e,t,r){var i,o;for(e?(L[V]=t,L[W]=r):(L[U]=t,L[$]=r),i=L[U];i.parentNode;)i=i.parentNode;for(o=L[V];o.parentNode;)o=o.parentNode;o==i?w(L[V],L[W],L[U],L[$])>0&&L.collapse(e):L.collapse(e),L.collapsed=x(),L.commonAncestorContainer=n.findCommonAncestor(L[V],L[U])}function N(e){var t,n=0,r=0,i,o,a,s,l,c;if(L[V]==L[U])return _(e);for(t=L[U],i=t.parentNode;i;t=i,i=i.parentNode){if(i==L[V])return S(t,e);++n}for(t=L[V],i=t.parentNode;i;t=i,i=i.parentNode){if(i==L[U])return k(t,e);++r}for(o=r-n,a=L[V];o>0;)a=a.parentNode,o--;for(s=L[U];0>o;)s=s.parentNode,o++;for(l=a.parentNode,c=s.parentNode;l!=c;l=l.parentNode,c=c.parentNode)a=l,s=c;return T(a,s,e)}function _(e){var t,n,i,o,a,s,l,c,u;if(e!=I&&(t=r()),L[W]==L[$])return t;if(3==L[V].nodeType){if(n=L[V].nodeValue,i=n.substring(L[W],L[$]),e!=O&&(o=L[V],c=L[W],u=L[$]-L[W],0===c&&u>=o.nodeValue.length-1?o.parentNode.removeChild(o):o.deleteData(c,u),L.collapse(F)),e==I)return;return i.length>0&&t.appendChild(P.createTextNode(i)),t}for(o=C(L[V],L[W]),a=L[$]-L[W];o&&a>0;)s=o.nextSibling,l=D(o,e),t&&t.appendChild(l),--a,o=s;return e!=O&&L.collapse(F),t}function S(e,t){var n,i,o,a,s,l;if(t!=I&&(n=r()),i=R(e,t),n&&n.appendChild(i),o=j(e),a=o-L[W],0>=a)return t!=O&&(L.setEndBefore(e),L.collapse(z)),n;for(i=e.previousSibling;a>0;)s=i.previousSibling,l=D(i,t),n&&n.insertBefore(l,n.firstChild),--a,i=s;return t!=O&&(L.setEndBefore(e),L.collapse(z)),n}function k(e,t){var n,i,o,a,s,l;for(t!=I&&(n=r()),o=A(e,t),n&&n.appendChild(o),i=j(e),++i,a=L[$]-i,o=e.nextSibling;o&&a>0;)s=o.nextSibling,l=D(o,t),n&&n.appendChild(l),--a,o=s;return t!=O&&(L.setStartAfter(e),L.collapse(F)),n}function T(e,t,n){var i,o,a,s,l,c,u;for(n!=I&&(o=r()),i=A(e,n),o&&o.appendChild(i),a=j(e),s=j(t),++a,l=s-a,c=e.nextSibling;l>0;)u=c.nextSibling,i=D(c,n),o&&o.appendChild(i),c=u,--l;return i=R(t,n),o&&o.appendChild(i),n!=O&&(L.setStartAfter(e),L.collapse(F)),o}function R(e,t){var n=C(L[U],L[$]-1),r,i,o,a,s,l=n!=L[U];if(n==e)return B(n,l,z,t);for(r=n.parentNode,i=B(r,z,z,t);r;){for(;n;)o=n.previousSibling,a=B(n,l,z,t),t!=I&&i.insertBefore(a,i.firstChild),l=F,n=o;if(r==e)return i;n=r.previousSibling,r=r.parentNode,s=B(r,z,z,t),t!=I&&s.appendChild(i),i=s}}function A(e,t){var n=C(L[V],L[W]),r=n!=L[V],i,o,a,s,l;if(n==e)return B(n,r,F,t);for(i=n.parentNode,o=B(i,z,F,t);i;){for(;n;)a=n.nextSibling,s=B(n,r,F,t),t!=I&&o.appendChild(s),r=F,n=a;if(i==e)return o;n=i.nextSibling,i=i.parentNode,l=B(i,z,F,t),t!=I&&l.appendChild(o),o=l}}function B(e,t,r,i){var o,a,s,l,c;if(t)return D(e,i);if(3==e.nodeType){if(o=e.nodeValue,r?(l=L[W],a=o.substring(l),s=o.substring(0,l)):(l=L[$],a=o.substring(0,l),s=o.substring(l)),i!=O&&(e.nodeValue=s),i==I)return;return c=n.clone(e,z),c.nodeValue=a,c}if(i!=I)return n.clone(e,z)}function D(e,t){return t!=I?t==O?n.clone(e,F):e:void e.parentNode.removeChild(e)}function M(){return n.create("body",null,g()).outerText}var L=this,P=n.doc,H=0,O=1,I=2,F=!0,z=!1,W="startOffset",V="startContainer",U="endContainer",$="endOffset",q=e.extend,j=n.nodeIndex;return q(L,{startContainer:P,startOffset:0,endContainer:P,endOffset:0,collapsed:F,commonAncestorContainer:P,START_TO_START:0,START_TO_END:1,END_TO_END:2,END_TO_START:3,setStart:i,setEnd:o,setStartBefore:a,setStartAfter:s,setEndBefore:l,setEndAfter:c,collapse:u,selectNode:d,selectNodeContents:f,compareBoundaryPoints:h,deleteContents:p,extractContents:m,cloneContents:g,insertNode:v,surroundContents:y,cloneRange:b,toStringIE:M}),L}return t.prototype.toString=function(){return this.toStringIE()},t}),r(C,[m],function(e){function t(e){var t;return t=document.createElement("div"),t.innerHTML=e,t.textContent||t.innerText||e}function n(e,t){var n,r,i,a={};if(e){for(e=e.split(","),t=t||10,n=0;n<e.length;n+=2)r=String.fromCharCode(parseInt(e[n],t)),o[r]||(i="&"+e[n+1]+";",a[r]=i,a[i]=r);return a}}var r=e.makeMap,i,o,a,s=/[&<>\"\u0060\u007E-\uD7FF\uE000-\uFFEF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/g,l=/[<>&\u007E-\uD7FF\uE000-\uFFEF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/g,c=/[<>&\"\']/g,u=/&#([a-z0-9]+);?|&([a-z0-9]+);/gi,d={128:"\u20ac",130:"\u201a",131:"\u0192",132:"\u201e",133:"\u2026",134:"\u2020",135:"\u2021",136:"\u02c6",137:"\u2030",138:"\u0160",139:"\u2039",140:"\u0152",142:"\u017d",145:"\u2018",146:"\u2019",147:"\u201c",148:"\u201d",149:"\u2022",150:"\u2013",151:"\u2014",152:"\u02dc",153:"\u2122",154:"\u0161",155:"\u203a",156:"\u0153",158:"\u017e",159:"\u0178"};o={'"':"&quot;","'":"&#39;","<":"&lt;",">":"&gt;","&":"&amp;","`":"&#96;"},a={"&lt;":"<","&gt;":">","&amp;":"&","&quot;":'"',"&apos;":"'"},i=n("50,nbsp,51,iexcl,52,cent,53,pound,54,curren,55,yen,56,brvbar,57,sect,58,uml,59,copy,5a,ordf,5b,laquo,5c,not,5d,shy,5e,reg,5f,macr,5g,deg,5h,plusmn,5i,sup2,5j,sup3,5k,acute,5l,micro,5m,para,5n,middot,5o,cedil,5p,sup1,5q,ordm,5r,raquo,5s,frac14,5t,frac12,5u,frac34,5v,iquest,60,Agrave,61,Aacute,62,Acirc,63,Atilde,64,Auml,65,Aring,66,AElig,67,Ccedil,68,Egrave,69,Eacute,6a,Ecirc,6b,Euml,6c,Igrave,6d,Iacute,6e,Icirc,6f,Iuml,6g,ETH,6h,Ntilde,6i,Ograve,6j,Oacute,6k,Ocirc,6l,Otilde,6m,Ouml,6n,times,6o,Oslash,6p,Ugrave,6q,Uacute,6r,Ucirc,6s,Uuml,6t,Yacute,6u,THORN,6v,szlig,70,agrave,71,aacute,72,acirc,73,atilde,74,auml,75,aring,76,aelig,77,ccedil,78,egrave,79,eacute,7a,ecirc,7b,euml,7c,igrave,7d,iacute,7e,icirc,7f,iuml,7g,eth,7h,ntilde,7i,ograve,7j,oacute,7k,ocirc,7l,otilde,7m,ouml,7n,divide,7o,oslash,7p,ugrave,7q,uacute,7r,ucirc,7s,uuml,7t,yacute,7u,thorn,7v,yuml,ci,fnof,sh,Alpha,si,Beta,sj,Gamma,sk,Delta,sl,Epsilon,sm,Zeta,sn,Eta,so,Theta,sp,Iota,sq,Kappa,sr,Lambda,ss,Mu,st,Nu,su,Xi,sv,Omicron,t0,Pi,t1,Rho,t3,Sigma,t4,Tau,t5,Upsilon,t6,Phi,t7,Chi,t8,Psi,t9,Omega,th,alpha,ti,beta,tj,gamma,tk,delta,tl,epsilon,tm,zeta,tn,eta,to,theta,tp,iota,tq,kappa,tr,lambda,ts,mu,tt,nu,tu,xi,tv,omicron,u0,pi,u1,rho,u2,sigmaf,u3,sigma,u4,tau,u5,upsilon,u6,phi,u7,chi,u8,psi,u9,omega,uh,thetasym,ui,upsih,um,piv,812,bull,816,hellip,81i,prime,81j,Prime,81u,oline,824,frasl,88o,weierp,88h,image,88s,real,892,trade,89l,alefsym,8cg,larr,8ch,uarr,8ci,rarr,8cj,darr,8ck,harr,8dl,crarr,8eg,lArr,8eh,uArr,8ei,rArr,8ej,dArr,8ek,hArr,8g0,forall,8g2,part,8g3,exist,8g5,empty,8g7,nabla,8g8,isin,8g9,notin,8gb,ni,8gf,prod,8gh,sum,8gi,minus,8gn,lowast,8gq,radic,8gt,prop,8gu,infin,8h0,ang,8h7,and,8h8,or,8h9,cap,8ha,cup,8hb,int,8hk,there4,8hs,sim,8i5,cong,8i8,asymp,8j0,ne,8j1,equiv,8j4,le,8j5,ge,8k2,sub,8k3,sup,8k4,nsub,8k6,sube,8k7,supe,8kl,oplus,8kn,otimes,8l5,perp,8m5,sdot,8o8,lceil,8o9,rceil,8oa,lfloor,8ob,rfloor,8p9,lang,8pa,rang,9ea,loz,9j0,spades,9j3,clubs,9j5,hearts,9j6,diams,ai,OElig,aj,oelig,b0,Scaron,b1,scaron,bo,Yuml,m6,circ,ms,tilde,802,ensp,803,emsp,809,thinsp,80c,zwnj,80d,zwj,80e,lrm,80f,rlm,80j,ndash,80k,mdash,80o,lsquo,80p,rsquo,80q,sbquo,80s,ldquo,80t,rdquo,80u,bdquo,810,dagger,811,Dagger,81g,permil,81p,lsaquo,81q,rsaquo,85c,euro",32);var f={encodeRaw:function(e,t){return e.replace(t?s:l,function(e){return o[e]||e})},encodeAllRaw:function(e){return(""+e).replace(c,function(e){return o[e]||e})},encodeNumeric:function(e,t){return e.replace(t?s:l,function(e){return e.length>1?"&#"+(1024*(e.charCodeAt(0)-55296)+(e.charCodeAt(1)-56320)+65536)+";":o[e]||"&#"+e.charCodeAt(0)+";"})},encodeNamed:function(e,t,n){return n=n||i,e.replace(t?s:l,function(e){return o[e]||n[e]||e})},getEncodeFunc:function(e,t){function a(e,n){return e.replace(n?s:l,function(e){return o[e]||t[e]||"&#"+e.charCodeAt(0)+";"||e})}function c(e,n){return f.encodeNamed(e,n,t)}return t=n(t)||i,e=r(e.replace(/\+/g,",")),e.named&&e.numeric?a:e.named?t?c:f.encodeNamed:e.numeric?f.encodeNumeric:f.encodeRaw},decode:function(e){return e.replace(u,function(e,n){return n?(n="x"===n.charAt(0).toLowerCase()?parseInt(n.substr(1),16):parseInt(n,10),n>65535?(n-=65536,String.fromCharCode(55296+(n>>10),56320+(1023&n))):d[n]||String.fromCharCode(n)):a[e]||i[e]||t(e)})}};return f}),r(x,[m,u],function(e,t){return function(n,r){function i(e){n.getElementsByTagName("head")[0].appendChild(e)}function o(r,o,c){function u(){for(var e=b.passed,t=e.length;t--;)e[t]();b.status=2,b.passed=[],b.failed=[]}function d(){for(var e=b.failed,t=e.length;t--;)e[t]();b.status=3,b.passed=[],b.failed=[]}function f(){var e=navigator.userAgent.match(/WebKit\/(\d*)/);return!!(e&&e[1]<536)}function h(e,n){e()||((new Date).getTime()-y<l?t.setTimeout(n):d())}function p(){h(function(){for(var e=n.styleSheets,t,r=e.length,i;r--;)if(t=e[r],i=t.ownerNode?t.ownerNode:t.owningElement,i&&i.id===g.id)return u(),!0},p)}function m(){h(function(){try{var e=v.sheet.cssRules;return u(),!!e}catch(t){}},m)}var g,v,y,b;if(r=e._addCacheSuffix(r),s[r]?b=s[r]:(b={passed:[],failed:[]},s[r]=b),o&&b.passed.push(o),c&&b.failed.push(c),1!=b.status){if(2==b.status)return void u();if(3==b.status)return void d();if(b.status=1,g=n.createElement("link"),g.rel="stylesheet",g.type="text/css",g.id="u"+a++,g.async=!1,g.defer=!1,y=(new Date).getTime(),"onload"in g&&!f())g.onload=p,g.onerror=d;else{if(navigator.userAgent.indexOf("Firefox")>0)return v=n.createElement("style"),v.textContent='@import "'+r+'"',m(),void i(v);p()}i(g),g.href=r}}var a=0,s={},l;r=r||{},l=r.maxLoadTime||5e3,this.load=o}}),r(w,[f,g,v,d,y,b,C,h,m,x],function(e,n,r,i,o,a,s,l,c,u){function d(e,t){var n={},r=t.keep_values,i;return i={set:function(n,r,i){t.url_converter&&(r=t.url_converter.call(t.url_converter_scope||e,r,i,n[0])),n.attr("data-mce-"+i,r).attr(i,r)},get:function(e,t){return e.attr("data-mce-"+t)||e.attr(t)}},n={style:{set:function(e,t){return null!==t&&"object"==typeof t?void e.css(t):(r&&e.attr("data-mce-style",t),void e.attr("style",t))},get:function(t){var n=t.attr("data-mce-style")||t.attr("style");return n=e.serializeStyle(e.parseStyle(n),t[0].nodeName)}}},r&&(n.href=n.src=i),n}function f(e,t){var n=t.attr("style");n=e.serializeStyle(e.parseStyle(n),t[0].nodeName),n||(n=null),t.attr("data-mce-style",n)}function h(e,t){var n=0,r,i;if(e)for(r=e.nodeType,e=e.previousSibling;e;e=e.previousSibling)i=e.nodeType,(!t||3!=i||i!=r&&e.nodeValue.length)&&(n++,r=i);return n}function p(e,t){var o=this,a;o.doc=e,o.win=window,o.files={},o.counter=0,o.stdMode=!b||e.documentMode>=8,o.boxModel=!b||"CSS1Compat"==e.compatMode||o.stdMode,o.styleSheetLoader=new u(e),o.boundEvents=[],o.settings=t=t||{},o.schema=t.schema,o.styles=new r({url_converter:t.url_converter,url_converter_scope:t.url_converter_scope},t.schema),o.fixDoc(e),o.events=t.ownEvents?new i(t.proxy):i.Event,o.attrHooks=d(o,t),a=t.schema?t.schema.getBlockElements():{},o.$=n.overrideDefaults(function(){return{context:e,element:o.getRoot()}}),o.isBlock=function(e){if(!e)return!1;var t=e.nodeType;return t?!(1!==t||!a[e.nodeName]):!!a[e]}}var m=c.each,g=c.is,v=c.grep,y=c.trim,b=l.ie,C=/^([a-z0-9],?)+$/i,x=/^[ \t\r\n]*$/;return p.prototype={$$:function(e){return"string"==typeof e&&(e=this.get(e)),this.$(e)},root:null,fixDoc:function(e){var t=this.settings,n;if(b&&t.schema){"abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video".replace(/\w+/g,function(t){e.createElement(t)});for(n in t.schema.getCustomElements())e.createElement(n)}},clone:function(e,t){var n=this,r,i;return!b||1!==e.nodeType||t?e.cloneNode(t):(i=n.doc,t?r.firstChild:(r=i.createElement(e.nodeName),m(n.getAttribs(e),function(t){n.setAttrib(r,t.nodeName,n.getAttrib(e,t.nodeName))}),r))},getRoot:function(){var e=this;return e.settings.root_element||e.doc.body},getViewPort:function(e){var t,n;return e=e?e:this.win,t=e.document,n=this.boxModel?t.documentElement:t.body,{x:e.pageXOffset||n.scrollLeft,y:e.pageYOffset||n.scrollTop,w:e.innerWidth||n.clientWidth,h:e.innerHeight||n.clientHeight}},getRect:function(e){var t=this,n,r;return e=t.get(e),n=t.getPos(e),r=t.getSize(e),{x:n.x,y:n.y,w:r.w,h:r.h}},getSize:function(e){var t=this,n,r;return e=t.get(e),n=t.getStyle(e,"width"),r=t.getStyle(e,"height"),-1===n.indexOf("px")&&(n=0),-1===r.indexOf("px")&&(r=0),{w:parseInt(n,10)||e.offsetWidth||e.clientWidth,h:parseInt(r,10)||e.offsetHeight||e.clientHeight}},getParent:function(e,t,n){return this.getParents(e,t,n,!1)},getParents:function(e,n,r,i){var o=this,a,s=[];for(e=o.get(e),i=i===t,r=r||("BODY"!=o.getRoot().nodeName?o.getRoot().parentNode:null),g(n,"string")&&(a=n,n="*"===n?function(e){return 1==e.nodeType}:function(e){return o.is(e,a)});e&&e!=r&&e.nodeType&&9!==e.nodeType;){if(!n||n(e)){if(!i)return e;s.push(e)}e=e.parentNode}return i?s:null},get:function(e){var t;return e&&this.doc&&"string"==typeof e&&(t=e,e=this.doc.getElementById(e),e&&e.id!==t)?this.doc.getElementsByName(t)[1]:e},getNext:function(e,t){return this._findSib(e,t,"nextSibling")},getPrev:function(e,t){return this._findSib(e,t,"previousSibling")},select:function(t,n){var r=this;return e(t,r.get(n)||r.settings.root_element||r.doc,[])},is:function(n,r){var i;if(n.length===t){if("*"===r)return 1==n.nodeType;if(C.test(r)){for(r=r.toLowerCase().split(/,/),n=n.nodeName.toLowerCase(),i=r.length-1;i>=0;i--)if(r[i]==n)return!0;return!1}}if(n.nodeType&&1!=n.nodeType)return!1;var o=n.nodeType?[n]:n;return e(r,o[0].ownerDocument||o[0],null,o).length>0},add:function(e,t,n,r,i){var o=this;return this.run(e,function(e){var a;
