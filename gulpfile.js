@@ -19,7 +19,7 @@ var paths = {
     'select2': 'vendor/select2/dist',
     'jquery_ui':  'vendor/jquery-ui',
     'select2BootstrapTheme':  'vendor/select2BootstrapTheme/dist',
-    'kartikv': 'vendor/kartikv/bootstrap-fileinput'
+    'kartikv': 'vendor/kartik-v/bootstrap-fileinput'
 
 };
 
