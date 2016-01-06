@@ -9,7 +9,7 @@ gulp.task('bower', function() {
 var paths = {
     'jquery': 'vendor/jquery/dist',
     'bootstrap': 'vendor/bootstrap/dist',
-    'bootswatch': 'vendor/bootswatch/Cerulean',
+    'bootswatch': 'vendor/bootswatch/cerulean',
     'fontawesome': 'vendor/font-awesome',
     'dataTables': 'vendor/datatables/media',
     'dataTablesBootstrap3Plugin': 'vendor/datatables-bootstrap3-plugin/media',
@@ -18,7 +18,7 @@ var paths = {
     'datatablesResponsive': 'vendor/datatables-responsive',
     'select2': 'vendor/select2/dist',
     'jquery_ui':  'vendor/jquery-ui',
-    'select2BootstrapTheme':  'vendor/select2BootstrapTheme/dist',
+    'select2BootstrapTheme':  'vendor/select2-bootstrap-theme/dist',
     'kartikv': 'vendor/kartik-v/bootstrap-fileinput'
 
 };
