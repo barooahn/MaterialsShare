@@ -15,8 +15,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('material/{id}/edit_category', ['as' => 'material.edit_category', 'uses' => 'MaterialsController@editCategory']);
     Route::patch('material/{id}/edit_category', ['as' => 'material.update_category', 'uses' => 'MaterialsController@updateCategory']);
-    //Route::patch('material.edit_category', 'MaterialsController@updateCategory');
-    //Route::put('material.edit_category', 'MaterialsController@updateCategory');
 
     Route::get('material.create_title', 'MaterialsController@createTitle');
     Route::post('material.create_title', 'MaterialsController@storeTitle');
@@ -71,22 +69,29 @@ Route::get('material/{slug}', 'MaterialsController@show');
 
 Route::post('search', array('as' => 'search', 'uses' => 'MaterialsController@search'));
 
+Route::get('user/activate', 'Admin\UserController@activate');
+Route::get('user/verify/{code}', 'Admin\UserController@verify');
+
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'activated']], function () {
 
     # Admin Dashboard
     Route::get('dashboard', 'Admin\DashboardController@index');
 
     # Users
+
     Route::get('user/data', 'Admin\UserController@data');
     Route::get('user/{user}/show', 'Admin\UserController@show');
     Route::get('user/{user}/edit', 'Admin\UserController@edit');
     Route::get('user/{user}/delete', 'Admin\UserController@delete');
     Route::get('user/{user}/home', 'Admin\UserController@home');
+    Route::get('user/home', 'Admin\UserController@home');
     Route::resource('user', 'Admin\UserController');
 });
 
