@@ -147,6 +147,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         yajra\Datatables\DatatablesServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Ghanem\Rating\RatingServiceProvider::class,
@@ -204,6 +205,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Datatables' => yajra\Datatables\Datatables::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
     ],
