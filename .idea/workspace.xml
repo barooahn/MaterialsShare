@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50370ab1-aa98-46e3-bbcd-347b7bb6d1f1" name="Default" comment="More fixes">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/about.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/about.blade.php" />
+>>>>>>> 856eced04f705253ffdc20d75198e2f4cf2fb37e
     </list>
     <ignored path="materialsshare.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,16 +57,24 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="about.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/about.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.6764705">
+=======
+      <file leaf-file-name="about.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/about.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15625">
+>>>>>>> 856eced04f705253ffdc20d75198e2f4cf2fb37e
               <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,6 +85,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> 856eced04f705253ffdc20d75198e2f4cf2fb37e
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/material/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -184,7 +198,10 @@
         <option value="$PROJECT_DIR$/resources/views/material/edit_options.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MaterialsController.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/about.blade.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
+=======
+>>>>>>> 856eced04f705253ffdc20d75198e2f4cf2fb37e
       </list>
     </option>
   </component>
@@ -1040,12 +1057,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/about.blade.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-3.6764705">
+=======
+        <state vertical-scroll-proportion="0.15625">
+>>>>>>> 856eced04f705253ffdc20d75198e2f4cf2fb37e
           <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71875">
@@ -1054,6 +1076,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 856eced04f705253ffdc20d75198e2f4cf2fb37e
   </component>
   <component name="masterDetails">
     <states>

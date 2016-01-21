@@ -152,18 +152,11 @@ class UserController extends AdminController
         return redirect('home');
     }
 
-    public function accountIsActive($code)
-    {
-
+    public function accountIsActive($code) {
         $user = User::where('confirmation_code', '=', $code)->first();
-        if($user->confirmed = 1){
-            \Auth::login($user);
-            return true;
-        }
-        
         $user->confirmed = 1;
         $user->confirmation_code = '';
-        if ($user->save()) {
+        if($user->save()) {
             \Auth::login($user);
         }
         return true;
