@@ -160,7 +160,7 @@ class UserController extends AdminController
             \Auth::login($user);
             return true;
         }
-        
+
         $user->confirmed = 1;
         $user->confirmation_code = '';
         if ($user->save()) {
