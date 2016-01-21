@@ -17,12 +17,11 @@
             <hr>
         </div>
 
-
+        {!! Form::open(['route' => ['material/edit_options', $material['id']]]) !!}
         <div class="col-md-6">
-
             <h2 class="white_text">Edit fields:</h2>
 
-            {!! Form::open(['route' => ['material/edit_options', $material['id']]]) !!}
+
             @if($options_complete != null)
                 @foreach($options_complete as $option => $description)
 
