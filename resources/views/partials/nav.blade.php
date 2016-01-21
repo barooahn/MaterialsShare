@@ -21,7 +21,7 @@
                 </li>
                 @unless (Auth::guest())
                     <li class="{{ (Request::is('create') ? 'active' : '') }}">
-                        <a href="{{ URL::to('material/create') }}">New Material</a>
+                        <a href="{{ URL::to('options') }}">New Material</a>
                     </li>
                 @endunless
                 <li class="{{ (Request::is('about') ? 'active' : '') }}">

@@ -6,41 +6,42 @@
 {{-- Content --}}
 @section('content')
     <div class="row">
-        <div class="page-header">
+        <div class="page-header col-md-6 col-md-offset-3">
             <h2>{!! trans('site/user.login_to_account') !!}</h2>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row">
-            {!! Form::open(array('url' => URL::to('auth/login'), 'method' => 'post', 'files'=> true)) !!}
-            <div class="form-group  {{ $errors->has('email') ? 'has-error' : '' }}">
-                {!! Form::label('email', "E-Mail Address", array('class' => 'control-label')) !!}
-                <div class="controls">
-                    {!! Form::text('email', null, array('class' => 'form-control')) !!}
-                    <span class="help-block">{{ $errors->first('email', ':message') }}</span>
+            <div class="col-md-6 col-md-offset-3">
+                {!! Form::open(array('url' => URL::to('auth/login'), 'method' => 'post', 'files'=> true)) !!}
+                <div class="form-group  {{ $errors->has('email') ? 'has-error' : '' }}">
+                    {!! Form::label('email', "E-Mail Address", array('class' => 'control-label')) !!}
+                    <div class="controls">
+                        {!! Form::text('email', null, array('class' => 'form-control')) !!}
+                        <span class="help-block">{{ $errors->first('email', ':message') }}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group  {{ $errors->has('password') ? 'has-error' : '' }}">
-                {!! Form::label('password', "Password", array('class' => 'control-label')) !!}
-                <div class="controls">
-                    {!! Form::password('password', array('class' => 'form-control')) !!}
-                    <span class="help-block">{{ $errors->first('password', ':message') }}</span>
+                <div class="form-group  {{ $errors->has('password') ? 'has-error' : '' }}">
+                    {!! Form::label('password', "Password", array('class' => 'control-label')) !!}
+                    <div class="controls">
+                        {!! Form::password('password', array('class' => 'form-control')) !!}
+                        <span class="help-block">{{ $errors->first('password', ':message') }}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
+                <div class="form-group">
+
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" name="remember"> Remember Me
                         </label>
                     </div>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                </div>
+
+                <div class="form-group">
+
+                    <button type="submit" class="btn btn-primary form-control" style="margin-right: 15px;">
                         Login
                     </button>
 

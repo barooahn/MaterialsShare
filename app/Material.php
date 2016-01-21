@@ -36,7 +36,7 @@ class Material extends Model implements SluggableInterface, Ratingable {
 
 	protected $fillable = ['user_id', 'title', 'slug', 'target_language', 'objective',
 							'time_needed_prep', 'time_needed_class', 'materials', 'procedure_before', 'procedure_in',
-							'follow_up', 'variations', 'tips', 'notes'];
+							'follow_up', 'variations', 'tips', 'notes', 'book'];
 
 	protected $searchableColumns = [
 		'title' => 50,
@@ -128,6 +128,11 @@ class Material extends Model implements SluggableInterface, Ratingable {
 			'material_material_pupil_task','material_id', 'pupil_task_id');
 	}
 
+	public function book()
+	{
+		return $this->belongsTo('App\MaterialBook');
+	}
+
 	/**
 	 * Get the material's files.
 	 *
@@ -165,7 +170,7 @@ class Material extends Model implements SluggableInterface, Ratingable {
 
 				exec("cd $destinationPath && libreoffice --headless --convert-to pdf $filename");
 
-				$name = pathinfo($filename, PATHINFO_FILENAME);
+                $name = pathinfo($filename, PATHINFO_FILENAME);
 				$pdf = new Spatie\PdfToImage\Pdf($destinationPath . '/' . $name.'.pdf');
 				$pdf->saveImage($destinationPath .'/thumbs/' . $name . '.jpg');
 

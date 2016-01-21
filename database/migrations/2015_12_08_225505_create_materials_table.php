@@ -32,6 +32,9 @@ class CreateMaterialsTable extends Migration
 			$table->text('variations')->nullable();
 			$table->text('tips')->nullable();
 			$table->text('notes')->nullable();
+			$table->unsignedInteger('book_id')->nullable();
+			$table->foreign('book_id')->references('id')->on('material_books')->onDelete('set null');
+			$table->tinyInteger('page')->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});

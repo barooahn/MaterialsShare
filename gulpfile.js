@@ -7,19 +7,22 @@ gulp.task('bower', function() {
 });
 
 var paths = {
-    'jquery': 'vendor/jquery/dist',
-    'bootstrap': 'vendor/bootstrap/dist',
-    'bootswatch': 'vendor/bootswatch/cerulean',
-    'fontawesome': 'vendor/font-awesome',
-    'dataTables': 'vendor/datatables/media',
-    'dataTablesBootstrap3Plugin': 'vendor/datatables-bootstrap3-plugin/media',
-    'flag': 'vendor/flag-sprites/dist',
-    'metisMenu': 'vendor/metisMenu/dist',
-    'datatablesResponsive': 'vendor/datatables-responsive',
-    'select2': 'vendor/select2/dist',
-    'jquery_ui':  'vendor/jquery-ui',
-    'select2BootstrapTheme':  'vendor/select2-bootstrap-theme/dist',
-    'kartikv': 'vendor/kartik-v/bootstrap-fileinput'
+    'jquery': 'assets/bower/jquery/dist',
+    'bootstrap': 'assets/bower/bootstrap/dist',
+    'bootswatch': 'assets/bower/bootswatch/cerulean',
+    'fontawesome': 'assets/bower/font-awesome',
+    'dataTables': 'assets/bower/datatables/media',
+    'dataTablesBootstrap3Plugin': 'assets/bower/datatables-bootstrap3-plugin/media',
+    'flag': 'assets/bower/flag-sprites/dist',
+    'metisMenu': 'assets/bower/metisMenu/dist',
+    'datatablesResponsive': 'assets/bower/datatables-responsive',
+    'select2': 'assets/bower/select2/dist',
+    'jquery_ui':  'assets/bower/jquery-ui',
+    'select2BootstrapTheme':  'assets/bower/select2-bootstrap-theme/dist',
+    'kartikv': 'assets/bower/kartik-v/bootstrap-fileinput',
+    'toggle': 'assets/bower/bootstrap-toggle',
+
+
 
 };
 
@@ -44,7 +47,6 @@ elixir(function(mix) {
 
     // Merge Site CSSs.
     mix.styles([
-        'normalise.css',
         '../../' + paths.bootstrap + '/css/bootstrap.css',
         '../../' + paths.bootstrap + '/css/bootstrap-theme.css',
         '../../' + paths.fontawesome + '/css/font-awesome.css',
@@ -52,6 +54,7 @@ elixir(function(mix) {
         '../../' + paths.select2 + '/css/select2.css',
         '../../' + paths.select2BootstrapTheme + '/select2-bootstrap.css',
         '../../' + paths.kartikv + '/css/fileinput.css',
+        '../../' + paths.toggle + '/css/bootstrap2-toggle.min.css',
         'main.css',
         'star-rating.css',
     ], 'public/css/site.css');
@@ -62,6 +65,7 @@ elixir(function(mix) {
         '../../' + paths.bootstrap + '/js/bootstrap.js',
         '../../' + paths.select2 + '/js/select2.js',
         '../../' + paths.kartikv + '/js/fileinput.js',
+        '../../' + paths.toggle + '/js/bootstrap-toggle.min.js',
         'tinymce.min.js',
         'star-rating.js',
     ], 'public/js/site.js');

@@ -3,7 +3,7 @@ body, html {
 }
 
 .container {
-    padding-top:60px;
+    padding-top:20px;
 }
 .center_form {
     text-align: center;
@@ -11,6 +11,18 @@ body, html {
 
 .form_padding {
     padding-top: 20px;
+}
+
+.view_padding {
+    padding-top: 40px;
+}
+.padding_tb{
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+
+.float_right {
+    float:right;
 }
 
 #create, #edit{

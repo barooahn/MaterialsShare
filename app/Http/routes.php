@@ -13,32 +13,18 @@ Route::pattern('slug', '[0-9a-z-_]+');
 /***************    Auth  routes  **********************************/
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('options', 'MaterialsController@getOptions');
+    Route::post('options', 'MaterialsController@postOptions');
+
+    Route::get('material/edit_options/{id}', ['as' => 'material/edit_options', 'uses' => 'MaterialsController@getEditOptions']);
+    Route::post('material/edit_options/{id}', ['as' => 'material/edit_options', 'uses' => 'MaterialsController@postEditOptions']);
+
+
     Route::post('material/{id}/edit_category', ['as' => 'material.edit_category', 'uses' => 'MaterialsController@editCategory']);
     Route::patch('material/{id}/edit_category', ['as' => 'material.update_category', 'uses' => 'MaterialsController@updateCategory']);
 
-    Route::get('material.create_title', 'MaterialsController@createTitle');
-    Route::post('material.create_title', 'MaterialsController@storeTitle');
-    Route::post('material/{id}/edit_title', ['as' => 'material.edit_title', 'uses' => 'MaterialsController@editTitle']);
-    Route::patch('material/{id}/edit_title', ['as' => 'material.update_title', 'uses' => 'MaterialsController@updateTitle']);
-
-
-    Route::get('material.create_level', 'MaterialsController@createLevel');
-    Route::post('material.create_level', 'MaterialsController@storeLevel');
-    Route::post('material/{id}/edit_level', ['as' => 'material.edit_level', 'uses' => 'MaterialsController@editLevel']);
-    Route::patch('material/{id}/edit_level', ['as' => 'material.update_level', 'uses' => 'MaterialsController@updateLevel']);
-
-    Route::get('material.create_times', 'MaterialsController@createTimes');
-    Route::post('material.create_times', 'MaterialsController@storeTimes');
-    Route::post('material/{id}/edit_times', ['as' => 'material.edit_times', 'uses' => 'MaterialsController@editTimes']);
-    Route::patch('material/{id}/edit_times', ['as' => 'material.update_times', 'uses' => 'MaterialsController@updateTimes']);
-
     Route::post('material/{id}/edit_file', ['as' => 'material.edit_file', 'uses' => 'MaterialsController@editFile']);
     Route::patch('material/{id}/edit_file', ['as' => 'material.update_file', 'uses' => 'MaterialsController@updateFile']);
-
-    Route::get('material.create_optional', 'MaterialsController@createOptional');
-    Route::post('material.create_optional', 'MaterialsController@storeOptional');
-    Route::post('material/{id}/edit_optional', ['as' => 'material.edit_optional', 'uses' => 'MaterialsController@editOptional']);
-    Route::patch('material/{id}/edit_optional', ['as' => 'material.update_optional', 'uses' => 'MaterialsController@updateOptional']);
 
     Route::get('material.get_download/{path}/{filename}', ['as' => 'material.get_download', 'uses' => 'MaterialsController@getDownload']);
 

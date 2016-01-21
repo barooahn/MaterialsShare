@@ -18,7 +18,7 @@
 
 
             <div class="edit">
-                <a href="{{ route('material.edit', $material->id) }}"
+                <a href="{{ route('material/edit_options', $material->id) }}"
                    class="btn btn-warning user_button form-control">Edit</a>
             </div>
 

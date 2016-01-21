@@ -5,7 +5,7 @@
 {{-- Content --}}
 @section('content')
 
-    <div class="row">
+    <div class="row view_padding">
         <div class="col-md-7">
             <div class="heading">
                 <h1> {!! $material->title !!}</h1>
@@ -20,164 +20,246 @@
 
 
     <hr>
+    @if($material->files->count() >=1)
+        <div class="row">
+            <div class="col-md-12">
 
+                @if($material->files)
+                    <h2>Attached files</h2>
+
+                    @foreach($material->files as $file)
+
+                        <div>
+                            <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                        </div>
+
+                        @if(Auth::user())
+                            <div class="form-padding">
+
+                                <a class="btn btn-success btn-large form-control" href="{{ URL::route('material.get_download',
+                                array('path' => $file->file_path, 'filename' =>$file->filename, )) }}">Download</a>
+                            </div>
+                        @endif
+
+
+                        <hr>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    @endif
 
     <div class="row">
         <div class="col-md-6">
 
-            <div>
+            @if($material->objective)
+                <div>
 
-                <h3>Objective(s):</h3>
+                    <h3>Objective(s):</h3>
 
-                <h4>By the end of the activity pupils will be able to:</h4>
+                    <h4>By the end of the activity pupils will be able to:</h4>
 
-                {!! $material->objective !!}
+                    {!! $material->objective !!}
 
-            </div>
+                </div>
+            @endif
 
-            <div>
+            @if($material->target_language)
+                <div>
 
-                <h3>Target Language:</h3>
+                    <h3>Target Language:</h3>
 
-                {!! $material->target_language !!}
+                    {!! $material->target_language !!}
 
-            </div>
+                </div>
+            @endif
 
-            <div>
+            @if($material->time_needed_prep)
+                <div>
 
-                <h3>Time needed:</h3>
+                    <h3>Time needed for preparation:</h3>
 
-                <p><strong>Preperation</strong> {!! $material->time_needed_prep !!} minutes</p>
+                    {!! $material->time_needed_prep !!} minutes
 
-                <p><strong>In Class </strong>{!! $material->time_needed_class !!} minutes</p>
+                </div>
+            @endif
 
-            </div>
+            @if( $material->time_needed_class)
+                <div>
+                    <h3>Time needed in class:</h3>
 
-            <div>
+                    {!! $material->time_needed_class !!} minutes
 
-                <h3>Level:</h3>
+                </div>
+            @endif
 
-                @foreach($material->levels as $level)
+            @if($material->levels)
+                <div>
+
+                    <h3>Level:</h3>
+
+                    @foreach($material->levels as $level)
+
+                        <div>
+                            {!! $level->level !!}
+                        </div>
+
+                    @endforeach
+
+                </div>
+            @endif
+
+            @if($material->languageFocuses)
+                <div>
+
+                    <h3>Language Focus:</h3>
+
+                    @foreach($material->languageFocuses as $focus)
+
+                        <div>
+                            {!! $focus->language_focus!!}
+                        </div>
+
+                    @endforeach
+
+                </div>
+            @endif
+
+            @if($material->activityUses)
+                <div>
+
+                    <h3>Activity Use:</h3>
+
+                    @foreach($material->activityUses as $activity)
+
+                        <div>
+                            {!! $activity->activity_use!!}
+                        </div>
+
+                    @endforeach
+
+                </div>
+            @endif
+
+            @if($material->pupilTasks)
+                <div>
+
+                    <h3>Pupil Task:</h3>
+
+                    @foreach($material->pupilTasks as $task)
+
+                        <div>
+                            {!! $task->pupil_task!!}
+                        </div>
+
+                    @endforeach
+
+                </div>
+            @endif
+            @if($material->book)
+                <div>
+
+                    <h3>Book:</h3>
+
 
                     <div>
-                        {!! $level->level !!}
+                        {!! $material->book->book!!}
                     </div>
 
-                @endforeach
 
-            </div>
+                </div>
+            @endif
+            @if($material->page)
+                <div>
 
-            <div>
+                    <h3>Page:</h3>
 
-                <h3>Language Focus:</h3>
+                    {!! $material->page!!}
 
-                @foreach($material->languageFocuses as $focus)
 
-                    <div>
-                        {!! $focus->language_focus!!}
-                    </div>
-
-                @endforeach
-
-            </div>
-
-            <div>
-
-                <h3>Activity Use:</h3>
-
-                @foreach($material->activityUses as $activity)
-
-                    <div>
-                        {!! $activity->activity_use!!}
-                    </div>
-
-                @endforeach
-
-            </div>
-
-            <div>
-
-                <h3>Pupil Task:</h3>
-
-                @foreach($material->pupilTasks as $task)
-
-                    <div>
-                        {!! $task->pupil_task!!}
-                    </div>
-
-                @endforeach
-
-            </div>
+                </div>
+            @endif
 
         </div>
 
         <div class="col-md-6">
 
             <h3>Category:</h3>
+            @if($material->categories)
+                @foreach($material->categories as $category)
 
-            @foreach($material->categories as $category)
+                    <div>
+                        {!! $category->category !!}
+                    </div>
 
+                @endforeach
+            @endif
+
+            @if($material->materials)
                 <div>
-                    {!! $category->category !!}
+
+                    <h3>Materials:</h3>
+
+                    {!! $material->materials !!}
+
+                </div>
+            @endif
+
+
+            @if($material->procedure_before)
+                <div>
+                    <h3>Procedure before class:</h3>
+
+                    {!! $material->procedure_before !!}
                 </div>
 
-            @endforeach
+            @endif
 
-            <div>
 
-                <h3>Materials:</h3>
+            @if($material->procedure_in)
+                <div>
+                    <h3>Procedure in class:</h3>
 
-                {!! $material->materials !!}
+                    {!! $material->procedure_in !!}
 
-            </div>
 
-            <div>
+                </div>
+            @endif
 
-                <h3>Procedure:</h3>
-
-                <h4>Before class:</h4>
-
-                {!! $material->procedure_before !!}
-
-                <h4>In class:</h4>
-
-                {!! $material->procedure_in !!}
-
-            </div>
 
             @if($material->follow_up)
-            <div>
+                <div>
 
-                <h3>Follow Up:</h3>
+                    <h3>Follow Up:</h3>
 
-                {!! $material->follow_up !!}
+                    {!! $material->follow_up !!}
 
 
-            </div>
+                </div>
             @endif
 
 
 
             @if($material->variations)
-            <div>
+                <div>
 
-                <h3>Variations:</h3>
+                    <h3>Variations:</h3>
 
-                {!! $material->variations!!}
+                    {!! $material->variations!!}
 
 
-            </div>
+                </div>
             @endif
 
             @if($material->tips)
-            <div>
+                <div>
 
-                <h3>Tips:</h3>
+                    <h3>Tips:</h3>
 
-                {!! $material->tips!!}
+                    {!! $material->tips!!}
 
 
-            </div>
+                </div>
             @endif
 
             @if($material->notes)
@@ -191,53 +273,28 @@
                 </div>
             @endif
 
+
         </div>
 
     </div>
 
     <hr>
 
-    @if($material->files->count() >=1)
 
 
 
-        <div class="row">
+    <div class="row">
 
-            <div class="col-md-6">
-
-                <h2>Attached files</h2>
-
-                @foreach($material->files as $file)
-
-                    <div>
-                        <img class="material_image" src="{{ asset($file->thumb_path)  }}">
-                    </div>
-
-                    @if(Auth::user())
-                            <div class="form-padding">
-
-                                <a class="btn btn-success btn-large form-control" href="{{ URL::route('material.get_download',
-                                array('path' => $file->file_path, 'filename' =>$file->filename, )) }}">Download</a>
-                            </div>
-                    @endif
-
-
-                    <hr>
-                @endforeach
-
-            </div>
-
-            <div class="col-md-6">
-
-                <h2>Comments</h2>
-
-                @include('partials.disqus')
-
-            </div>
-
+        <div class="col-md-12">
+            <h2>Comments</h2>
+            @include('partials.disqus')
         </div>
 
-    @endif
+    </div>
+
+
+
+
 
 
 
