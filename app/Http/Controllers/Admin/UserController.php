@@ -154,6 +154,7 @@ class UserController extends AdminController
 
     public function accountIsActive($code) {
         $user = User::where('confirmation_code', '=', $code)->first();
+
         $user->confirmed = 1;
         $user->confirmation_code = '';
         if($user->save()) {
