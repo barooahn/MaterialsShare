@@ -156,6 +156,11 @@ class UserController extends AdminController
     {
 
         $user = User::where('confirmation_code', '=', $code)->first();
+        if($user->confirmed = 1){
+            \Auth::login($user);
+            return true;
+        }
+        
         $user->confirmed = 1;
         $user->confirmation_code = '';
         if ($user->save()) {

@@ -4,7 +4,6 @@
     <div class="row">
         <div class="page-header">
             <h2>About Page</h2>
-            {{phpinfo()}}
         </div>
     </div>
 @endsection
