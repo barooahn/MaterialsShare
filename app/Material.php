@@ -168,7 +168,7 @@ class Material extends Model implements SluggableInterface, Ratingable {
 			case 'PPTX':
 
 
-				exec("cd $destinationPath && libreoffice --headless --convert-to pdf $filename");
+				exec("export HOME=/tmp && cd $destinationPath && libreoffice --headless --convert-to pdf $filename");
 
                 $name = pathinfo($filename, PATHINFO_FILENAME);
 				$pdf = new Spatie\PdfToImage\Pdf($destinationPath . '/' . $name.'.pdf');
