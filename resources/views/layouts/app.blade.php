@@ -15,13 +15,13 @@
               content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
     @show
 
-		<link href="{{ asset('css/site.css') }}" rel="stylesheet">
-        <script src="{{ asset('js/site.js') }}"></script>
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link href="{{ asset('css/site.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/site.js') }}"></script>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
 
     @yield('styles')
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -29,6 +29,7 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="{!! asset('assets/site/ico/favicon.ico')  !!} ">
+
 </head>
 <body>
 
@@ -44,24 +45,24 @@
 
 
 <div class="container">
-{{--    @if(Session::has('success'))
-        <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4>{!! Session::get('success') !!}</h4>
-        </div>
-    @endif
-
-    @if ($errors-> any())
-            <div class="alert alert-danger alert-dismissible" role="alert">
+    {{--    @if(Session::has('success'))
+            <div class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4>{!! Session::get('success') !!}</h4>
+            </div>
+        @endif
 
-                <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif--}}
+        @if ($errors-> any())
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif--}}
 
     @include('partials.notifications')
 
@@ -71,14 +72,15 @@
 
 @unless (Request::is('home') ? 'active' : '')
 
-    @include('partials.footer')
+@include('partials.footer')
 
 @endif
 
-<!-- Scripts -->
+        <!-- Scripts -->
 @yield('scripts')
 
-
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56a36cca3e6619f4" async="async"></script>
 
 </body>
 </html>

@@ -9,6 +9,9 @@
         <div class="col-md-7">
             <div class="heading">
                 <h1> {!! $material->title !!}</h1>
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_sharing_toolbox"></div>
             </div>
         </div>
 
@@ -288,6 +291,8 @@
         <div class="col-md-12">
             <h2>Comments</h2>
             @include('partials.disqus')
+            <div class="spot-im-frame-inpage" data-post-id="POST_ID_GOES_HERE"></div>
+
         </div>
 
     </div>
