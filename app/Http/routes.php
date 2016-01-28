@@ -47,8 +47,13 @@ Route::group(['middleware' => 'auth'], function () {
 /***************    Site routes  **********************************/
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
-Route::get('about', 'PagesController@about');
-Route::get('contact', 'PagesController@contact');
+Route::get('start_here', 'PagesController@startHere');
+Route::get('author', 'PagesController@author');
+Route::get('why', 'PagesController@why');
+Route::get('services', 'PagesController@services');
+Route::get('help_you', 'PagesController@helpYou');
+Route::get('content', 'PagesController@content');
+
 
 Route::get('materials', 'MaterialsController@index');
 Route::get('material/{slug}', 'MaterialsController@show');

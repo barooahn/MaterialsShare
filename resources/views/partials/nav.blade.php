@@ -13,9 +13,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="{{ (Request::is('home') ? 'active' : '') }}">
-                    <a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> Home</a>
-                </li>
+
                 <li class="{{ (Request::is('materials') ? 'active' : '') }}">
                     <a href="{{ URL::to('materials') }}">Materials</a>
                 </li>
@@ -24,8 +22,8 @@
                         <a href="{{ URL::to('options') }}">New Material</a>
                     </li>
                 @endunless
-                <li class="{{ (Request::is('about') ? 'active' : '') }}">
-                    <a href="{{ URL::to('about') }}">About</a>
+                <li class="{{ (Request::is('start_here') ? 'active' : '') }}">
+                    <a href="{{ URL::to('start_here') }}">Start Here</a>
                 </li>
                 <li class="{{ (Request::is('contact') ? 'active' : '') }}">
                     <a href="{{ URL::to('contact') }}">Contact</a>
@@ -69,15 +67,12 @@
                                 <li role="presentation" class="divider"></li>
                             @endif
                             <li>
-                                <a href="{{ URL::to('auth/logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
-                            </li>
-
-                            <li>
                                 <a href="{{ URL::to('admin/user/home') }}"><i
                                             class="fa fa-sign-out"></i> My materials</a>
                             </li>
-
-
+                            <li>
+                                <a href="{{ URL::to('auth/logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                            </li>
                         </ul>
                     </li>
                 @endif

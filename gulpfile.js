@@ -66,6 +66,7 @@ elixir(function(mix) {
         '../../' + paths.select2 + '/js/select2.js',
         '../../' + paths.kartikv + '/js/fileinput.js',
         '../../' + paths.toggle + '/js/bootstrap-toggle.min.js',
+        'dropdown-toggle.js',
         'tinymce.min.js',
         'star-rating.js',
     ], 'public/js/site.js');
