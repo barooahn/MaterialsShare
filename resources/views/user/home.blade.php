@@ -18,7 +18,45 @@
                 @foreach($materials as $item)
                     <h3>{{ $item->title }}</h3>
 
-                    <p>{!! $item->objective !!}</p>
+                    @if($item->objective)
+                        <div>
+
+                            <h3>Objective:</h3>
+
+                            {!! $item->objective !!}
+
+                        </div>
+                    @endif
+
+                    @if($item->levels->count()>1)
+                        <div>
+
+                            <h3>Level:</h3>
+
+                            @foreach($item->levels as $level)
+
+                                <div>
+                                    {!! $level->level !!}
+                                </div>
+
+                            @endforeach
+
+                        </div>
+                    @endif
+
+                    @if($item->book)
+                        <div>
+
+                            <h3>Book:</h3>
+
+
+                            <div>
+                                {!! $item->book->book!!}
+                            </div>
+
+
+                        </div>
+                    @endif
 
                     <div>
                         <a class="btn btn-success form-control" href="{{ URL::to('material/'.$item->slug) }}">Read more</a>

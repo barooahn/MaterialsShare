@@ -52,7 +52,7 @@ class Material extends Model implements SluggableInterface, Ratingable {
 		'pupilTasks.pupil_task' => 10,
 	];
 
-	public static $paginate = 5;
+	public static $paginate = 8;
 
 
 	/**

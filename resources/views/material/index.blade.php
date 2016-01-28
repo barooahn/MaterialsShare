@@ -16,21 +16,45 @@
                 <div class="col-md-4">
                     <h2>{{ $item->title }}</h2>
 
-                    <p><strong>Objective:</strong></p>
+                    @if($item->objective)
+                        <div>
 
-                    <p>{!! $item->objective !!}</p>
+                            <h3>Objective:</h3>
 
-                    <p><strong>Target language:</strong></p>
+                            {!! $item->objective !!}
 
-                    <p>{{ $item->target_language}}</p>
+                        </div>
+                    @endif
+
+                    @if($item->levels->count()>1)
+                        <div>
+
+                            <h3>Level:</h3>
+
+                            @foreach($item->levels as $level)
+
+                                <div>
+                                    {!! $level->level !!}
+                                </div>
+
+                            @endforeach
+
+                        </div>
+                    @endif
+
+                    @if($item->book)
+                        <div>
+
+                            <h3>Book:</h3>
 
 
-                    <div class="form_padding">
-                        <a class="btn btn-success user_button form-control" href="{{ URL::to('material/'.$item->slug) }}">Go to
-                            Material</a>
-                    </div>
+                            <div>
+                                {!! $item->book->book!!}
+                            </div>
 
-                    <hr>
+
+                        </div>
+                    @endif
 
                     @if(Auth::User())
                         @if(Auth::User()->id != $item->user_id )
@@ -66,6 +90,13 @@
                         @endif
 
                     @endforeach
+
+
+                    <div class="form_padding">
+                        <a class="btn btn-success user_button form-control"
+                           href="{{ URL::to('material/'.$item->slug) }}">Go to
+                            Material</a>
+                    </div>
 
                 </div>
 

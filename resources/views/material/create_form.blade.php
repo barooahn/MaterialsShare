@@ -145,4 +145,16 @@
     <script>
         $(".file_input").fileinput({'showPreview': false, showUpload: false});
     </script>
+
+    <script>
+        $(".prep_slider").slider();
+        $( ".prep_slider" ).change(function() {
+            $(".prep_time").text($(this).val());
+        });
+
+        $(".class_slider").slider();
+        $(".class_slider").change(function() {
+            $(".class_time").text($(this).val());
+        });
+    </script>
 @stop

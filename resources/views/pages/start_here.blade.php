@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') About :: @parent @stop
+@section('title') Start Here :: @parent @stop
 @section('content')
     <div class="row">
         <div class="col-md-12">

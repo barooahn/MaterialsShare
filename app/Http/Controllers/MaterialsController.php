@@ -46,6 +46,9 @@ class MaterialsController extends Controller
 
         $material = Material::findBySlugOrIdOrFail($slug);
         $stars = $this->showStars($material->id);
+        if (!Auth::user()) {
+            Session::flash('warning', 'You are not logged in.  Login to download, edit and save materials');
+        }
         return view('material.view', compact('material', 'stars'));
     }
 
@@ -58,75 +61,75 @@ class MaterialsController extends Controller
     public function getEditOptions($id)
     {
         $material = Material::findBySlugOrIdOrFail($id);
-        $options_empty =[];
-        $options_complete=[];
+        $options_empty = [];
+        $options_complete = [];
 
         $levels = $material->levels()->get();
         $option = Options::where('option', '=', 'level')->first();
-        if($levels->count()){
+        if ($levels->count()) {
             $options_complete['level'] = $option->description;
-        }else {
+        } else {
             $options_empty['level'] = $option->description;
         }
 
         $language_focuses = $material->languageFocuses()->get();
         $option = Options::where('option', '=', 'language_focus')->first();
-        if($language_focuses->count()){
+        if ($language_focuses->count()) {
             $options_complete['language_focus'] = $option->description;
-        }else {
+        } else {
             $options_empty['language_focus'] = $option->description;
         }
 
         $files = $material->files()->get();
         $option = Options::where('option', '=', 'files')->first();
-        if($files->count()){
+        if ($files->count()) {
             $options_complete['files'] = $option->description;
-        }else {
+        } else {
             $options_empty['files'] = $option->description;
         }
 
         $activity_uses = $material->activityUses()->get();
         $option = Options::where('option', '=', 'activity_use')->first();
-        if($activity_uses->count()){
+        if ($activity_uses->count()) {
             $options_complete['activity_use'] = $option->description;
-        }else {
+        } else {
             $options_empty['activity_use'] = $option->description;
         }
 
         $pupil_tasks = $material->pupilTasks()->get();
         $option = Options::where('option', '=', 'pupil_task')->first();
-        if($pupil_tasks->count()){
+        if ($pupil_tasks->count()) {
             $options_complete['pupil_task'] = $option->description;
-        }else {
+        } else {
             $options_empty['pupil_task'] = $option->description;
         }
 
         $categories = $material->categories()->get();
         $option = Options::where('option', '=', 'category')->first();
-        if($categories->count()){
+        if ($categories->count()) {
             $options_complete['category'] = $option->description;
-        }else {
+        } else {
             $options_empty['category'] = $option->description;
         }
 
         $books = $material->book()->get();
         $option = Options::where('option', '=', 'book')->first();
 
-        if($books->count()){
+        if ($books->count()) {
             $options_complete['book'] = $option->description;
-        }else {
+        } else {
             $options_empty['book'] = $option->description;
         }
 
         $material = $material->getAttributes();
-        foreach ($material as $key => $value){
+        foreach ($material as $key => $value) {
             $option = Options::where('option', '=', $key)->first();
             if ($value == null) {
-                if($option) {
+                if ($option) {
                     $options_empty[$option->option] = $option->description;
                 }
-            }else{
-                if($option) {
+            } else {
+                if ($option) {
                     $options_complete[$option->option] = $option->description;
                 }
             }
@@ -135,6 +138,7 @@ class MaterialsController extends Controller
         return view('material.edit_options',
             compact('material', 'options_empty', 'options_complete'));
     }
+
     // Material edit page
     public function postEditOptions($id, Request $request)
     {
@@ -536,16 +540,22 @@ class MaterialsController extends Controller
         $filename = $file->filename;
         $path = public_path() . '/' . $file->file_path;
         if (!$file->delete($path . $filename)) {
-            Session::flash('success', 'ERROR deleted the File!');
+            Session::flash('error', 'ERROR deleting the file, please try again!');
         } else {
             $file->delete();
-            Session::flash('success', 'Successfully deleted the File!');
+            Session::flash('success', 'Successfully deleted the file!');
         }
         return view('material.edit_file', compact('material'));
     }
 
     public function destroy(Material $material)
     {
+        if (isset($material->files)) {
+            dd('here');
+            foreach ($material->files as $file) {
+                MaterialsController::destroyFile($file);
+            }
+        }
 
         $material->delete();
 

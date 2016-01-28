@@ -1,6 +1,6 @@
 @extends('layouts.app')
 {{-- Web site Title --}}
-@section('title') {!!  $material->title !!} :: @parent @stop
+@section('title') {{  $material->title }} :: @parent @stop
 
 {{-- Content --}}
 @section('content')
@@ -8,7 +8,7 @@
     <div class="row view_padding">
         <div class="col-md-7">
             <div class="heading">
-                <h1> {!! $material->title !!}</h1>
+                <h1> {{ $material->title }}</h1>
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_sharing_toolbox"></div>
@@ -23,31 +23,28 @@
 
 
     <hr>
-    @if($material->files->count() >=1)
+    @if(count($material->files))
         <div class="row">
             <div class="col-md-12">
 
-                @if($material->files)
-                    <h2>Attached files</h2>
 
-                    @foreach($material->files as $file)
+                <h2>Attached files</h2>
 
-                        <div>
-                            <img class="material_image" src="{{ asset($file->thumb_path)  }}">
-                        </div>
+                @foreach($material->files as $file)
+                    <div>
+                        <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                    </div>
 
-                        @if(Auth::user())
-                            <div class="form-padding">
+                    @if(Auth::user())
+                        <div class="form-padding">
 
-                                <a class="btn btn-success btn-large form-control" href="{{ URL::route('material.get_download',
+                            <a class="btn btn-success btn-large form-control" href="{{ URL::route('material.get_download',
                                 array('path' => $file->file_path, 'filename' =>$file->filename, )) }}">Download</a>
-                            </div>
-                        @endif
+                        </div>
+                    @endif
+                    <hr>
+                @endforeach
 
-
-                        <hr>
-                    @endforeach
-                @endif
             </div>
         </div>
     @endif
@@ -72,7 +69,7 @@
 
                     <h3>Target Language:</h3>
 
-                    {!! $material->target_language !!}
+                    {{ $material->target_language }}
 
                 </div>
             @endif
@@ -82,7 +79,7 @@
 
                     <h3>Time needed for preparation:</h3>
 
-                    {!! $material->time_needed_prep !!} minutes
+                    {{ $material->time_needed_prep }} minutes
 
                 </div>
             @endif
@@ -91,12 +88,12 @@
                 <div>
                     <h3>Time needed in class:</h3>
 
-                    {!! $material->time_needed_class !!} minutes
+                    {{ $material->time_needed_class }} minutes
 
                 </div>
             @endif
 
-            @if($material->levels)
+            @if(count($material->levels))
                 <div>
 
                     <h3>Level:</h3>
@@ -104,7 +101,7 @@
                     @foreach($material->levels as $level)
 
                         <div>
-                            {!! $level->level !!}
+                            {{ $level->level }}
                         </div>
 
                     @endforeach
@@ -112,7 +109,7 @@
                 </div>
             @endif
 
-            @if($material->languageFocuses)
+            @if(count($material->languageFocuses))
                 <div>
 
                     <h3>Language Focus:</h3>
@@ -120,7 +117,7 @@
                     @foreach($material->languageFocuses as $focus)
 
                         <div>
-                            {!! $focus->language_focus!!}
+                            {{ $focus->language_focus}}
                         </div>
 
                     @endforeach
@@ -128,7 +125,7 @@
                 </div>
             @endif
 
-            @if($material->activityUses)
+            @if(count($material->activityUses))
                 <div>
 
                     <h3>Activity Use:</h3>
@@ -136,7 +133,7 @@
                     @foreach($material->activityUses as $activity)
 
                         <div>
-                            {!! $activity->activity_use!!}
+                            {{ $activity->activity_use}}
                         </div>
 
                     @endforeach
@@ -144,7 +141,7 @@
                 </div>
             @endif
 
-            @if($material->pupilTasks)
+            @if(count($material->pupilTasks))
                 <div>
 
                     <h3>Pupil Task:</h3>
@@ -152,7 +149,7 @@
                     @foreach($material->pupilTasks as $task)
 
                         <div>
-                            {!! $task->pupil_task!!}
+                            {{ $task->pupil_task }}
                         </div>
 
                     @endforeach
@@ -166,7 +163,7 @@
 
 
                     <div>
-                        {!! $material->book->book!!}
+                        {{ $material->book->book }}
                     </div>
 
 
@@ -177,7 +174,7 @@
 
                     <h3>Page:</h3>
 
-                    {!! $material->page!!}
+                    {{ $material->page }}
 
 
                 </div>
@@ -187,12 +184,12 @@
 
         <div class="col-md-6">
 
-            <h3>Category:</h3>
-            @if($material->categories)
+            <h3>Which learning institute:</h3>
+            @if(count($material->categories))
                 @foreach($material->categories as $category)
 
                     <div>
-                        {!! $category->category !!}
+                        {{ $category->category }}
                     </div>
 
                 @endforeach
@@ -203,7 +200,7 @@
 
                     <h3>Materials:</h3>
 
-                    {!! $material->materials !!}
+                    {{ $material->materials }}
 
                 </div>
             @endif
