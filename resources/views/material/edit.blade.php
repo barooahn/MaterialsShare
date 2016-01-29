@@ -11,7 +11,7 @@
 
     <div class="row center_form white_text">
         <div class="col-md-6 col-md-offset-3">
-            <h1 class="white_text">Edit material</h1>
+            <h1 class="white_text">Edit material - {{$material->title}}</h1>
 
             <hr>
 
@@ -22,13 +22,12 @@
                 'files' => true
             ]) !!}
 
-            <div>
-                {!! Form::label('title', 'Give your material a title:', array('class' => 'white_text')) !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'files' => true, $material->id]) !!}
 
-            </div>
 
             @foreach($options as $option=>$value)
+                @if($option == 'title')
+                    @include('material.options.title')
+                @endif
                 @if($option == 'files')
                     @include('material.options.files_edit')
                 @endif
@@ -166,5 +165,19 @@
         $(".class_slider").change(function() {
             $(".class_time").text($(this).val());
         });
+    </script>
+
+    <script type="text/javascript">
+
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) {
+                return false;
+            }
+        }
+
+        document.onkeypress = stopRKey;
+
     </script>
 @stop

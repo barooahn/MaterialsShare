@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\MaterialRequest;
 use App\Material;
 use App\MaterialActivityUse;
+use App\MaterialBook;
 use App\MaterialCategory;
 use App\MaterialFile;
 use App\MaterialLanguageFocus;
 use App\MaterialLevel;
 use App\MaterialPupilTask;
-use App\MaterialBook;
 use App\Options;
 use Conner\Likeable\LikeableTrait;
 use Ghanem\Rating\Models\Rating;
@@ -156,24 +157,8 @@ class MaterialsController extends Controller
                 'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
     }
 
-    public function store(Request $request)
+    public function store(MaterialRequest $request)
     {
-        $this->validate($request, [
-            'category_list' => '',
-            'title' => 'required|unique:materials|max:255',
-            'objective' => 'required',
-            'target_language' => 'max:200',
-            'time_needed_prep' => 'numeric|max:200',
-            'time_needed_class' => 'numeric|max:200',
-            'materials' => '',
-            'procedure_before' => '',
-            'procedure_in' => '',
-            'level' => 'max:55',
-            'language_focus' => 'max:55',
-            'activity_use' => 'max:55',
-            'pupil_task' => 'max:55',
-        ]);
-
         // make new material
         $material = Material::create();
         $material->user_id = Auth::user()->id;
@@ -346,24 +331,8 @@ class MaterialsController extends Controller
         return redirect()->action('MaterialsController@show', [$material->slug]);
     }
 
-    public function update(Request $request, Material $material)
+    public function update(MaterialRequest $request, Material $material)
     {
-        $this->validate($request, [
-            'category_list' => '',
-            'title' => 'required|max:255',
-            'objective' => '',
-            'target_language' => 'max:200',
-            'time_needed_prep' => 'numeric|max:200',
-            'time_needed_class' => 'numeric|max:200',
-            'materials' => '',
-            'procedure_before' => '',
-            'procedure_in' => '',
-            'level' => 'max:55',
-            'language_focus' => 'max:55',
-            'activity_use' => 'max:55',
-            'pupil_task' => 'max:55',
-        ]);
-
         // Update material
 
         if (isset($request->title)) {
@@ -532,22 +501,6 @@ class MaterialsController extends Controller
         return redirect()->action('MaterialsController@show', [$material->slug]);
     }
 
-    public function destroyFile($file)
-    {
-
-        $file = MaterialFile::findorfail($file);
-        $material = Material::findBySlugOrIdOrFail($file->material_id);
-        $filename = $file->filename;
-        $path = public_path() . '/' . $file->file_path;
-        if (!$file->delete($path . $filename)) {
-            Session::flash('error', 'ERROR deleting the file, please try again!');
-        } else {
-            $file->delete();
-            Session::flash('success', 'Successfully deleted the file!');
-        }
-        return view('material.edit_file', compact('material'));
-    }
-
     public function destroy(Material $material)
     {
         if (isset($material->files)) {
@@ -562,6 +515,22 @@ class MaterialsController extends Controller
         Session::flash('success', $material->slug . ' successfully deleted!');
 
         return redirect()->route('material.index');
+    }
+
+    public function destroyFile($file)
+    {
+
+        $file = MaterialFile::findorfail($file);
+        $material = Material::findBySlugOrIdOrFail($file->material_id);
+        $filename = $file->filename;
+        $path = public_path() . '/' . $file->file_path;
+        if (!$file->delete($path . $filename)) {
+            Session::flash('error', 'ERROR deleting the file, please try again!');
+        } else {
+            $file->delete();
+            Session::flash('success', 'Successfully deleted the file!');
+        }
+        return view('material.edit_file', compact('material'));
     }
 
     public function addLike(Request $request)

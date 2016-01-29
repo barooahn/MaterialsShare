@@ -185,7 +185,7 @@
         <div class="col-md-6">
 
             <h3>Which learning institute:</h3>
-            @if(count($material->categories))
+            @if(count($material->categories)>1 )
                 @foreach($material->categories as $category)
 
                     <div>
