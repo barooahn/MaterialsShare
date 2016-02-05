@@ -33,7 +33,7 @@
 <body id=@yield('body-id')>
 @include('partials.nav')
 
-<div class="container">
+<div class="container container_edit">
 
     @include('partials.notifications')
 

@@ -2,7 +2,7 @@
 
     <h1>Materials Share</h1>
 
-    <h2>Save, share and feedback on your teaching aids</h2>
+    <h2>Save, share and get feedback on your teaching aids</h2>
 
     <div class="hero_extra">
 

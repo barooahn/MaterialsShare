@@ -3,6 +3,10 @@ body, html {
 }
 
 .container {
+    padding-top: 70px;
+}
+
+.container .container_edit {
     padding-top: 20px;
 }
 
@@ -12,10 +16,6 @@ body, html {
 
 .form_padding {
     padding-top: 20px;
-}
-
-.view_padding {
-    padding-top: 40px;
 }
 
 .padding_tb {
