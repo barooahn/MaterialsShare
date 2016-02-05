@@ -9,7 +9,7 @@ gulp.task('bower', function() {
 var paths = {
     'jquery': 'assets/bower/jquery/dist',
     'bootstrap': 'assets/bower/bootstrap/dist',
-    'bootswatch': 'assets/bower/bootswatch/cerulean',
+    'bootswatch': 'assets/bower/bootswatch/journal',
     'fontawesome': 'assets/bower/font-awesome',
     'dataTables': 'assets/bower/datatables/media',
     'dataTablesBootstrap3Plugin': 'assets/bower/datatables-bootstrap3-plugin/media',

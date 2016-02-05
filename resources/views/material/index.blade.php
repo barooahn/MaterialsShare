@@ -84,7 +84,7 @@
                     @foreach($item->files as $key => $file)
 
                         @if($key ==0)
-                            <div>
+                            <div class="form_padding">
                                 <img class="material_image" src="{{ asset($file->thumb_path)  }}">
                             </div>
                         @endif

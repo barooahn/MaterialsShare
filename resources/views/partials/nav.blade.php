@@ -31,7 +31,6 @@
                 <li>
                     {!! Form::open([
                         'class' => 'navbar-form',
-
                         'route' => ['search']
                     ]) !!}
 
