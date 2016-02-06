@@ -1,5 +1,5 @@
 <div class="form_padding">
-    {!! Form::label('time_needed_prep', 'Time Needed For Preparation:', array('class' => 'white_text')) !!}
+    {!! Form::label('time_needed_prep', 'Time Needed For Preparation:') !!}
 
     <div>
         <input class="prep_slider" type="text" name="time_needed_prep" data-slider-min="5"

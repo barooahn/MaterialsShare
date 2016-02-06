@@ -184,8 +184,9 @@
 
         <div class="col-md-6">
 
-            <h3>Which learning institute:</h3>
-            @if(count($material->categories)>1 )
+
+            @if(count($material->categories))
+                <h3>Which learning institute:</h3>
                 @foreach($material->categories as $category)
 
                     <div>
@@ -280,9 +281,6 @@
 
     <hr>
 
-
-
-
     <div class="row">
 
         <div class="col-md-12">
@@ -294,12 +292,6 @@
 
     </div>
 
-
-
-
-
-
-
 @stop
 @include('partials.social')
 
@@ -310,6 +302,14 @@
                     'size': 'sm'
 
                 });
+    </script>
+
+    <script>
+        $(function () {
+            $('.confirm').click(function () {
+                return window.confirm("Are you sure you want to delete this material?  This can not be undone! ");
+            });
+        });
     </script>
 
 

@@ -48,7 +48,6 @@ class MaterialRequest extends Request
             $rules['category_list'] = 'required';
         }
 
-
         return $rules;
     }
 }

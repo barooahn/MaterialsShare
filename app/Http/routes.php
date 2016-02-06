@@ -4,11 +4,25 @@
 Route::model('material', 'App\Material');
 Route::model('materialscategory', 'App\MaterialsCategory');
 Route::model('language', 'App\Language');
-Route::model('photoalbum', 'App\PhotoAlbum');
-Route::model('photo', 'App\Photo');
 Route::model('user', 'App\User');
 Route::pattern('id', '[0-9]+');
 Route::pattern('slug', '[0-9a-z-_]+');
+
+/***************    Site routes  **********************************/
+Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
+Route::get('start_here', 'PagesController@startHere');
+Route::get('why', 'PagesController@why');
+Route::get('services', 'PagesController@services');
+Route::get('content', 'PagesController@content');
+Route::get('contact', 'PagesController@contact');
+
+
+Route::get('materials', 'MaterialsController@index');
+Route::get('material/{slug}', 'MaterialsController@show');
+
+Route::post('search', array('as' => 'search', 'uses' => 'MaterialsController@search'));
+
 
 /***************    Auth  routes  **********************************/
 Route::group(['middleware' => 'auth'], function () {
@@ -34,32 +48,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('category', 'MaterialCategoryController',
         ['except' => ['show']]);
     Route::resource('material', 'MaterialsController',
-        ['except' => ['show']]);
+        ['except' => ['show, index']]);
 
     Route::get('addLike', ['as' => 'addLike', 'uses' => 'MaterialsController@addLike']);
 
     Route::post('addStars', array('as' => 'addStars', 'uses' => 'MaterialsController@addStars'));
 
-    Route::post('togglePrivate', array('as' => 'togglePrivate', 'uses' => 'MaterialsController@togglePrivate'));
+    Route::post('togglePrivate/{id}', array('as' => 'togglePrivate', 'uses' => 'MaterialsController@togglePrivate'));
+    Route::get('destroy/{id}', array('as' => 'destroy', 'uses' => 'MaterialsController@destroy'));
 
 });
-
-/***************    Site routes  **********************************/
-Route::get('/', 'HomeController@index');
-Route::get('home', 'HomeController@index');
-Route::get('start_here', 'PagesController@startHere');
-Route::get('why', 'PagesController@why');
-Route::get('services', 'PagesController@services');
-Route::get('content', 'PagesController@content');
-
-
-Route::get('materials', 'MaterialsController@index');
-Route::get('material/{slug}', 'MaterialsController@show');
-
-Route::post('search', array('as' => 'search', 'uses' => 'MaterialsController@search'));
-
-Route::get('user/activate', 'Admin\UserController@activate');
-Route::get('user/verify/{code}', 'Admin\UserController@verify');
 
 
 
@@ -68,6 +66,8 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('user/activate', 'Admin\UserController@activate');
+Route::get('user/verify/{code}', 'Admin\UserController@verify');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'activated']], function () {
 
     # Admin Dashboard

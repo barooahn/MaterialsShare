@@ -3,7 +3,7 @@
 @section('title') Create Material @stop
 
 @section('body-id')
-    "create"
+    "test"
 @endsection
 
 {{-- Content --}}
@@ -11,10 +11,10 @@
 
     <div class="row center_form">
         <div class="col-md-6 col-md-offset-3">
-            <h1 class="white_text"> Create a new material</h1>
+            <h1> Create a new material</h1>
 
             <hr>
-            <h4 class="white_text">Choose a category or create a new one</h4>
+            <h4>Choose a category or create a new one</h4>
 
             {!! Form::open(['action' => 'MaterialsController@store']) !!}
 

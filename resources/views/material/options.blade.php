@@ -3,15 +3,15 @@
 @section('title')Create Material @stop
 
 @section('body-id')
-    "create"
+    "test"
 @endsection
 
 {{-- Content --}}
 @section('content')
 
-    <div class="row white_text">
+    <div>
         <div class="col-md-12 center_form">
-            <h1 class="white_text"> Create a new material</h1>
+            <h1> Create a new material</h1>
 
             <p>Below are the minimum requirements to publish your material</p>
             <hr>

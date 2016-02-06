@@ -3,7 +3,7 @@
 @section('title') Create Material @stop
 
 @section('body-id')
-    "create"
+    "test"
 @endsection
 
 {{-- Content --}}
@@ -11,7 +11,7 @@
 
     <div class="row center_form">
         <div class="col-md-6 col-md-offset-3">
-            <h1 class="white_text"> Create a new material</h1>
+            <h1> Create a new material</h1>
 
             <hr>
 
@@ -19,7 +19,7 @@
             {!! Form::open(['action' => 'MaterialsController@store', 'files' => true]) !!}
 
             <div>
-                {!! Form::label('title', 'Give your material a title:', array('class' => 'white_text')) !!}
+                {!! Form::label('title', 'Give your material a title:') !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'files' => true]) !!}
 
             </div>

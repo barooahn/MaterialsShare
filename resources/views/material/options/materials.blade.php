@@ -1,4 +1,4 @@
 <div class="form_padding">
-    {!! Form::label('materials', 'Materials needed:', array('class' => 'white_text')) !!}
+    {!! Form::label('materials', 'Materials needed:') !!}
     {!! Form::text('materials', null, ['class' => 'form-control']) !!}
 </div>

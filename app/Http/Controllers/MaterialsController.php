@@ -29,8 +29,8 @@ class MaterialsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
-        $this->middleware('activated', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
+        $this->middleware('activated', ['except' => ['index', 'show', 'search']]);
     }
 
     public function index()
@@ -243,8 +243,8 @@ class MaterialsController extends Controller
                 $material_category->users()->attach($request->input('id'));
 
                 // add category to materials pivot table category / material
-                $material_category->materials()->attach($material->id);
-                //$material->categories()->attach($material_category->id);
+                //$material_category->materials()->attach($material->id);
+                $material->categories()->attach($material_category->id);
             }
         }
         if (isset($request->level)) {
@@ -501,12 +501,12 @@ class MaterialsController extends Controller
         return redirect()->action('MaterialsController@show', [$material->slug]);
     }
 
-    public function destroy(Material $material)
+    public function destroy(Material $material, $id)
     {
-        if (isset($material->files)) {
-            dd('here');
+        $material = Material::findOrFail($id);
+        if (count($material->files) > 0) {
             foreach ($material->files as $file) {
-                MaterialsController::destroyFile($file);
+                MaterialsController::destroyFile($file->id);
             }
         }
 
@@ -517,10 +517,10 @@ class MaterialsController extends Controller
         return redirect()->route('material.index');
     }
 
-    public function destroyFile($file)
+    public function destroyFile($id)
     {
 
-        $file = MaterialFile::findorfail($file);
+        $file = MaterialFile::findorfail($id);
         $material = Material::findBySlugOrIdOrFail($file->material_id);
         $filename = $file->filename;
         $path = public_path() . '/' . $file->file_path;
@@ -531,6 +531,7 @@ class MaterialsController extends Controller
             Session::flash('success', 'Successfully deleted the file!');
         }
         return view('material.edit_file', compact('material'));
+        // @to do - flash options to cookie return to edit_options with options
     }
 
     public function addLike(Request $request)

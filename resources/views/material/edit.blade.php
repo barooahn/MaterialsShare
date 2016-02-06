@@ -3,15 +3,15 @@
 @section('title')Edit Material @stop
 
 @section('body-id')
-    "edit"
+    "test"
 @endsection
 
 {{-- Content --}}
 @section('content')
 
-    <div class="row center_form white_text">
+    <div class="row center_form">
         <div class="col-md-6 col-md-offset-3">
-            <h1 class="white_text">Edit material - {{$material->title}}</h1>
+            <h1>Edit material - {{$material->title}}</h1>
 
             <hr>
 

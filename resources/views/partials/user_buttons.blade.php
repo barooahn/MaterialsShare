@@ -4,46 +4,33 @@
         @include('partials.rate')
 
 
-        @if(Auth::user()->id == $material->user_id)
-
-            <div class="delete">
-                {!! Form::open([
-                    'method' => 'DELETE',
-                    'route' => ['material.destroy', $material->id]
-                ]) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger user_button form-control']) !!}
-                {!! Form::close() !!}
-
-            </div>
+        <div class="btn-group btn-group-justified">
 
 
-            <div class="edit">
-                <a href="{{ route('material/edit_options', $material->id) }}"
-                   class="btn btn-warning user_button form-control">Edit</a>
-            </div>
+            @if(Auth::user()->id == $material->user_id)
 
 
+                @include('partials.buttons.delete')
 
-            @include('partials.private')
+                @include('partials.buttons.edit')
+
+                @include('partials.buttons.private')
+
+            @elseif($material->liked())
 
 
-
-        @elseif($material->liked())
-
-            <div>
-                <a class="btn btn-info user_button form-control"
+                <a class="btn btn-danger user_button form-control"
                    href="{{ URL::route('addLike', array('material' => $material)) }}">Remove</a>
 
-            </div>
 
-        @else
-            <div>
+            @else
+
                 <a class="btn btn-success user_button form-control"
                    href="{{ URL::route('addLike', array('material' => $material)) }}">Save</a>
 
 
-            </div>
-        @endif
+            @endif
+        </div>
 
 
 

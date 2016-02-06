@@ -32,7 +32,7 @@
 
 <body id=@yield('body-id')>
 
-<div class="container">
+<div class="container container_edit">
 
     @include('partials.notifications')
 

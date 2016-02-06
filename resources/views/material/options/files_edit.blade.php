@@ -13,7 +13,7 @@
         @endforeach
     @endif
     <div class="controls white_text">
-        {!! Form::label('files', 'Choose files to upload below:', array('class' => 'white_text')) !!}
+        {!! Form::label('files', 'Choose files to upload below:') !!}
 
         {!! Form::file('images[]', array('multiple'=>true, 'class' => 'file_input')) !!}
         <p class="errors">{!!$errors->first('images')!!}</p>

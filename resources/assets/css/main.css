@@ -1,4 +1,4 @@
-body, html {
+html {
     height: 100%;
 }
 
@@ -6,8 +6,8 @@ body, html {
     padding-top: 70px;
 }
 
-.container .container_edit {
-    padding-top: 20px;
+.container_edit {
+    padding-top: 0 !important;
 }
 
 .center_form {
@@ -52,48 +52,32 @@ body, html {
 }
 
 /* Hero  */
-.hero-unit {
-    background-image: url('../img/large_hero.jpg');
-    background-size: cover;
-    background-color: #EEEEEE;
-    height: 100%;
-    margin-top: 50px;
+
+.header {
+    margin-top: 65px;
 }
 
-.hero-unit h1 {
-    color: #FFFFFF;
-    font-size: 60px;
+.header h1 {
+    /*color: #FFFFFF;*/
+    font-size: 86px;
     letter-spacing: -1px;
     line-height: 1;
-    margin-bottom: 22px;
-    padding-top: 10%;
+    padding-top: 30px;
     text-align: center;
-    font-family: "eraserregular", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
+
 }
 
-.hero-unit h2 {
+.header h2 {
     font-size: 25px;
-    color: #FFFFFF;
-    padding-left: 20px;
     text-align: center;
-    font-family: "eraserregular", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
+
 }
 
-.hero-unit div {
-    position: relative;
-    color: #fff;
-    top: 23%;
-    left: 50%;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
+.hero-unit {
 
-.fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
+    background-color: #EEEEEE;
+
+    margin-top: 50px;
 }
 
 .material_image {
@@ -101,42 +85,29 @@ body, html {
 }
 
 .hero_extra {
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 380px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: none;
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
 }
 
+.spacer {
+    width: 305px;
+    margin: auto;
+}
 .selling_points {
     color: white;
     list-style-type: none;
     padding: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .selling_points li {
     text-align: justify;
-    font-size: 1.4em;
-
+    font-size: 1.8em;
 }
 
 .green {
     color: green;
 }
-
-@font-face {
-    font-family: 'eraserregular';
-    src: url('../fonts/eraserregular-webfont.eot');
-    src: url('../fonts/eraserregular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/eraserregular-webfont.woff2') format('woff2'),
-    url('../fonts/eraserregular-webfont.woff') format('woff'),
-    url('../fonts/eraserregular-webfont.ttf') format('truetype'),
-    url('../fonts/eraserregular-webfont.svg#eraserregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* End of hero*/
 
 .user_buttons {
@@ -151,7 +122,7 @@ body, html {
 }
 
 .heading {
-    padding-top: 20px;
+    padding-top: 0px;
 
 }
 

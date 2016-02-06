@@ -1,7 +1,7 @@
 <div class="control-group">
 
-    <div class="controls white_text">
-        {!! Form::label('files', 'Choose files to upload below:', array('class' => 'white_text')) !!}
+    <div class="controls">
+        {!! Form::label('files', 'Choose files to upload below:') !!}
 
         {!! Form::file('images[]', array('multiple'=>true, 'class' => 'file_input')) !!}
         <p class="errors">{!!$errors->first('images')!!}</p>

@@ -1,21 +1,29 @@
-<div class="hero-unit">
+<div class="header">
 
     <h1>Materials Share</h1>
 
     <h2>Save, share and get feedback on your teaching aids</h2>
 
+</div>
+<div class="hero-unit">
+
+
     <div class="hero_extra">
+        <div class="spacer">
 
-        <ul class="selling_points">
-            <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Save all your materials</li>
-            <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Share with other teachers</li>
-            <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Find materials for lessons</li>
-            <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Access anywhere with Internet</li>
-        </ul>
+            <ul class="selling_points">
+                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Save materials</li>
+                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Share materials</li>
+                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Find new materials</li>
+                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Access anywhere</li>
+            </ul>
 
-        <a class="btn btn-primary btn-large form-control"
-           href="{{ URL::to('start_here') }}">Learn more</a>
+
+        </div>
+
     </div>
 
+    <a class="btn btn-success btn-large form-control"
+       href="{{ URL::to('start_here') }}">Learn more</a>
 
 </div>
