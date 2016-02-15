@@ -2,11 +2,13 @@
     @if($material->files->count())
         @foreach($material->files as $file)
             <div class="form_padding">
-                <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                <img class="material_image"
+                     src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                     title="{{$file->filename}}">
 
                 <div class="form_padding">
                     <a class="btn btn-danger btn-large form-control "
-                       href="{{ URL::route('material.destroy_file', array('file' => $file)) }}">Delete</a>
+                       href="{{ URL::route('remove_file', array('file' => $file)) }}">Delete</a>
                 </div>
             </div>
             <hr>
@@ -15,7 +17,7 @@
     <div class="controls white_text">
         {!! Form::label('files', 'Choose files to upload below:') !!}
 
-        {!! Form::file('images[]', array('multiple'=>true, 'class' => 'file_input')) !!}
+        {!! Form::file('upload_files[]', array('multiple'=>true, 'class' => 'file_input')) !!}
         <p class="errors">{!!$errors->first('images')!!}</p>
         @if(Session::has('error'))
             <p class="errors">{!! Session::get('error') !!}</p>

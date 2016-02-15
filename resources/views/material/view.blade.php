@@ -32,14 +32,16 @@
 
                 @foreach($material->files as $file)
                     <div>
-                        <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                        <img class="material_image"
+                             src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                             title="{{$file->filename}}">
                     </div>
 
                     @if(Auth::user())
                         <div class="form-padding">
 
                             <a class="btn btn-success btn-large form-control" href="{{ URL::route('material.get_download',
-                                array('path' => $file->file_path, 'filename' =>$file->filename, )) }}">Download</a>
+                                array('file' => $file)) }}">Download</a>
                         </div>
                     @endif
                     <hr>
@@ -50,7 +52,20 @@
     @endif
 
     <div class="row">
+        <div class="col-md-12">
+
+            <div class="heading">
+                <h1> {{ $material->title }}</h1>
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_sharing_toolbox"></div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
+
 
             @if($material->objective)
                 <div>

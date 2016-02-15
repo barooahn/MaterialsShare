@@ -23,6 +23,9 @@ Route::get('material/{slug}', 'MaterialsController@show');
 
 Route::post('search', array('as' => 'search', 'uses' => 'MaterialsController@search'));
 
+Route::get('images/{filename}', function ($filename) {
+    return Image::make(storage_path() . '/app/thumbs/' . $filename)->response();
+});
 
 /***************    Auth  routes  **********************************/
 Route::group(['middleware' => 'auth'], function () {
@@ -40,9 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('material/{id}/edit_file', ['as' => 'material.edit_file', 'uses' => 'MaterialsController@editFile']);
     Route::patch('material/{id}/edit_file', ['as' => 'material.update_file', 'uses' => 'MaterialsController@updateFile']);
 
-    Route::get('material.get_download/{path}/{filename}', ['as' => 'material.get_download', 'uses' => 'MaterialsController@getDownload']);
+    Route::get('material.get_download/{file}', ['as' => 'material.get_download', 'uses' => 'MaterialsController@getDownload']);
 
-    Route::get('material.destroy_file/{file}', ['as' => 'material.destroy_file', 'uses' => 'MaterialsController@destroyFile']);
+    Route::get('remove_file/{file}', ['as' => 'remove_file', 'uses' => 'MaterialFileController@removeFile']);
 
 
     Route::resource('category', 'MaterialCategoryController',
@@ -54,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('addStars', array('as' => 'addStars', 'uses' => 'MaterialsController@addStars'));
 
-    Route::post('togglePrivate/{id}', array('as' => 'togglePrivate', 'uses' => 'MaterialsController@togglePrivate'));
+    Route::get('togglePrivate/{id}', array('as' => 'togglePrivate', 'uses' => 'MaterialsController@togglePrivate'));
     Route::get('destroy/{id}', array('as' => 'destroy', 'uses' => 'MaterialsController@destroy'));
 
 });

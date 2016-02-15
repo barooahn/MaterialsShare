@@ -21,7 +21,6 @@ use Response;
 use Session;
 use Validator;
 
-
 class MaterialsController extends Controller
 {
 
@@ -189,44 +188,12 @@ class MaterialsController extends Controller
             $material->procedure_in = ucfirst($request->procedure_in);
         }
 
-        // getting all of the post data
-        if (isset($request->images)) {
-            $files = $request->images;
-            // Making counting of uploaded images
-            $file_count = count($files);
-            // start count how many uploaded
-            $uploadcount = 0;
-            foreach ($files as $file) {
-                $this->validate($request, [
-                    'file' => 'mimes:png,gif,jpeg,txt,pdf,doc,docx,xls,xlsx,mp4,mov,ogg,qt,ppt,pptx,wmv
-                    |max:60000|unique:material_files'
-                ]);
-                $destinationPath = 'uploads';
-                $filename = $material->slug . str_replace(' ', '_', $file->getClientOriginalName());
-                $file->move($destinationPath, $filename);
-                $uploadcount++;
+        // store files
 
-                //add picture for file and get path
-                $thumbPath = Material::getExtensionType($file, $destinationPath, $filename);
+        if (isset($request->upload_files)) {
 
-                //add file path and thumb path to material_files database
+            MaterialFile::store($request->upload_files, $material);
 
-                $material_file = MaterialFile::firstOrCreate([
-                    'file_path' => $destinationPath,
-                    'filename' => $material->updated_at . $filename,
-                    'thumb_path' => $thumbPath
-                ]);
-
-                //add to material file table
-                $material->files()->save($material_file);
-
-            }
-            if ($uploadcount == $file_count) {
-                Session::flash('success', 'Upload(s) successful!');
-            } else {
-                Session::flash('error', 'Upload(s) unsuccessful!  Please try again.');
-                return Redirect::to('material.options');
-            }
         }
 
         if (isset($request->category_list)) {
@@ -361,44 +328,10 @@ class MaterialsController extends Controller
             $material->procedure_in = ucfirst($request->procedure_in);
         }
 
-        // getting all of the post data
-        if ($request->images) {
+        if (isset($request->upload_files)) {
 
-            $files = $request->images;
-            // Making counting of uploaded images
-            $file_count = count($files);
-            // start count how many uploaded
-            $uploadcount = 0;
-            foreach ($files as $file) {
-                $this->validate($request, [
-                    'file' => 'mimes:png,gif,jpeg,txt,pdf,doc,docx,xls,xlsx,mp4,mov,ogg,qt,ppt,pptx,wmv
-                    |max:60000|unique:material_files'
-                ]);
-                $destinationPath = 'uploads';
-                $filename = $material->slug . str_replace(' ', '_', $file->getClientOriginalName());
-                $file->move($destinationPath, $filename);
-                $uploadcount++;
+            MaterialFile::store($request->upload_files, $material);
 
-                //add pictuer for file and get path
-                $thumbPath = Material::getExtensionType($file, $destinationPath, $filename);
-
-                //add file path and thumb path to material_files database
-
-                $material_file = MaterialFile::firstOrCreate([
-                    'file_path' => $destinationPath,
-                    'filename' => $material->updated_at . $filename,
-                    'thumb_path' => $thumbPath
-                ]);
-
-                //add to material file table
-                $material->files()->save($material_file);
-
-            }
-            if ($uploadcount == $file_count) {
-                Session::flash('success', 'Upload(s) successfully');
-            } else {
-                return Redirect::to('material.edit')->withInput();
-            }
         }
 
         if (isset($request->category_list)) {
@@ -506,7 +439,10 @@ class MaterialsController extends Controller
         $material = Material::findOrFail($id);
         if (count($material->files) > 0) {
             foreach ($material->files as $file) {
-                MaterialsController::destroyFile($file->id);
+
+                MaterialFileController::destroyFile($file->filename);
+                $thumb = 'thumbs/' . pathinfo($file->filename, PATHINFO_FILENAME) . '.jpg';
+                MaterialFileController::destroyFile($thumb);
             }
         }
 
@@ -515,23 +451,6 @@ class MaterialsController extends Controller
         Session::flash('success', $material->slug . ' successfully deleted!');
 
         return redirect()->route('material.index');
-    }
-
-    public function destroyFile($id)
-    {
-
-        $file = MaterialFile::findorfail($id);
-        $material = Material::findBySlugOrIdOrFail($file->material_id);
-        $filename = $file->filename;
-        $path = public_path() . '/' . $file->file_path;
-        if (!$file->delete($path . $filename)) {
-            Session::flash('error', 'ERROR deleting the file, please try again!');
-        } else {
-            $file->delete();
-            Session::flash('success', 'Successfully deleted the file!');
-        }
-        return view('material.edit_file', compact('material'));
-        // @to do - flash options to cookie return to edit_options with options
     }
 
     public function addLike(Request $request)
@@ -553,11 +472,9 @@ class MaterialsController extends Controller
         return $this->categories->lists('category')->toArray();
     }
 
-    public function getDownload($path, $filename)
+    public function getDownload($file)
     {
-
-        $download = public_path() . '/' . $path . '/' . $filename;
-        return Response::download($download);
+        return MaterialFile::download($file);
     }
 
     public function addStars(Request $request)

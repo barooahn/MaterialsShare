@@ -42,10 +42,37 @@ class MaterialRequest extends Request
             'variations' => 'sometimes|required',
             'tips' => 'sometimes|required',
             'notes' => 'sometimes|required',
+//            'upload_files' => 'each:max:60000|mimes:png,gif,jpg,jpeg,txt,pdf,doc,docx,mp4,mov,ogg,qt,ppt,pptx,wmv'
         ];
 
-        if (null !== ($this->input('category_list'))) {
-            $rules['category_list'] = 'required';
+        $numEmails = count($this->get('upload_files'));
+        foreach (range(0, $numEmails) as $index) {
+            $rules['upload_files.' . $index] = 'sometimes|required|max:60000|mimes:png,gif,jpg,jpeg,txt,pdf,doc,docx,mp4,mov,ogg,qt,ppt,pptx,wmv';
+        }
+
+        $numEmails = count($this->get('category_list'));
+        foreach (range(0, $numEmails) as $index) {
+            $rules['category_list.' . $index] = 'sometimes|required|max:55';
+        }
+
+        $numEmails = count($this->get('level'));
+        foreach (range(0, $numEmails) as $index) {
+            $rules['level.' . $index] = 'sometimes|required|max:55';
+        }
+
+        $numEmails = count($this->get('languageFocuses'));
+        foreach (range(0, $numEmails) as $index) {
+            $rules['languageFocuses.' . $index] = 'sometimes|required|max:55';
+        }
+
+        $numEmails = count($this->get('activityUses'));
+        foreach (range(0, $numEmails) as $index) {
+            $rules['activityUses.' . $index] = 'sometimes|required|max:55';
+        }
+
+        $numEmails = count($this->get('pupilTasks'));
+        foreach (range(0, $numEmails) as $index) {
+            $rules['pupilTasks.' . $index] = 'sometimes|required|max:55';
         }
 
         return $rules;

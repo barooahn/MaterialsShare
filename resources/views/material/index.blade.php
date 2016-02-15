@@ -26,7 +26,7 @@
                         </div>
                     @endif
 
-                    @if($item->levels->count()>1)
+                    @if(count($item->levels))
                         <div>
 
                             <h3>Level:</h3>
@@ -85,7 +85,9 @@
 
                         @if($key ==0)
                             <div class="form_padding">
-                                <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                                <img class="material_image"
+                                     src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                                     title="{{$file->filename}}">
                             </div>
                         @endif
 

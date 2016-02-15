@@ -83,7 +83,9 @@
 
                         @if($key ==0)
                             <div>
-                                <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                                <img class="material_image"
+                                     src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                                     title="{{$file->filename}}">
                             </div>
                         @endif
 

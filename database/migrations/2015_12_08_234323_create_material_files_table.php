@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateMaterialFilesTable extends Migration
 {
@@ -15,9 +15,9 @@ class CreateMaterialFilesTable extends Migration
         Schema::create('material_files', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('file_path');
             $table->string('filename');
-            $table->string('thumb_path');
+            $table->string('mime');
+            $table->string('original_filename');
             $table->unsignedInteger('material_id')->nullable();
             $table->foreign('material_id')
                 ->references('id')->on('materials')
