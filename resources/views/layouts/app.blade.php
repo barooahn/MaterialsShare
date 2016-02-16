@@ -33,36 +33,10 @@
 </head>
 <body>
 
-@if (Request::is('home') ? 'active' : '')
     @include('partials.nav')
-    @include('partials.hero')
-
-@else
-
-    @include('partials.nav')
-
-@endif
 
 
 <div class="container">
-    {{--    @if(Session::has('success'))
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4>{!! Session::get('success') !!}</h4>
-            </div>
-        @endif
-
-        @if ($errors-> any())
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                    <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif--}}
 
     @include('partials.notifications')
 

@@ -5,14 +5,17 @@
 {{-- Content --}}
 @section('content')
 
+
     <div class="row view_padding">
         <div class="col-md-7">
-            <div class="heading">
-                <h1> {{ $material->title }}</h1>
+            @if(count($material->files))
+                <div class="heading">
+                    <h1> {{ $material->title }}</h1>
 
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_sharing_toolbox"></div>
-            </div>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                </div>
+            @endif
         </div>
 
 

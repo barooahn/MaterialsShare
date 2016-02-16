@@ -46,6 +46,7 @@ class MaterialsController extends Controller
 
         $material = Material::findBySlugOrIdOrFail($slug);
         $stars = $this->showStars($material->id);
+
         if (!Auth::user()) {
             Session::flash('warning', 'You are not logged in.  Login to download, edit and save materials');
         }
@@ -63,6 +64,7 @@ class MaterialsController extends Controller
         $material = Material::findBySlugOrIdOrFail($id);
         $options_empty = [];
         $options_complete = [];
+        $options = Options::all();
 
         $levels = $material->levels()->get();
         $option = Options::where('option', '=', 'level')->first();
@@ -136,7 +138,7 @@ class MaterialsController extends Controller
         }
 
         return view('material.edit_options',
-            compact('material', 'options_empty', 'options_complete'));
+            compact('material', 'options_empty', 'options_complete', 'options'));
     }
 
     // Material edit page
@@ -532,8 +534,8 @@ class MaterialsController extends Controller
 
     protected function getOptions()
     {
-
-        return view('material.options');
+        $options = Options::all();
+        return view('material.options', compact('options'));
     }
 
     protected function postOptions(Request $request)

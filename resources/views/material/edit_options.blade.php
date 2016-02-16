@@ -26,9 +26,13 @@
                 @foreach($options_complete as $option => $description)
 
                     <div>
+
                         {!!  Form::checkbox($option, 1, null, ['data-toggle' => 'toggle', 'data-onstyle'=> 'success']) !!}
 
-                        {!! Form::label($option, $description) !!}
+                        {!! Form::label($option, ucwords(str_replace('_', ' ', $option))) !!}
+                        <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
+                           title="{{$description}}"></i>
+
                     </div>
                 @endforeach
             @endif
@@ -44,7 +48,10 @@
                     <div>
                         {!!  Form::checkbox($option, 1, null, ['data-toggle' => 'toggle', 'data-onstyle'=> 'success']) !!}
 
-                        {!! Form::label($option, $description) !!}
+                        {!! Form::label($option, ucwords(str_replace('_', ' ', $option))) !!}
+                        <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
+                           title="{{$description}}"></i>
+
                     </div>
                 @endforeach
             @else
@@ -64,3 +71,13 @@
 
 @stop
 
+@section('scripts')
+    <script>
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+    </script>
+
+@stop

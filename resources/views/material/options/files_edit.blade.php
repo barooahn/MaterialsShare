@@ -18,7 +18,7 @@
         {!! Form::label('files', 'Choose files to upload below:') !!}
 
         {!! Form::file('upload_files[]', array('multiple'=>true, 'class' => 'file_input')) !!}
-        <p class="errors">{!!$errors->first('images')!!}</p>
+        <p class="errors">{!!$errors->first('upload_files')!!}</p>
         @if(Session::has('error'))
             <p class="errors">{!! Session::get('error') !!}</p>
         @endif

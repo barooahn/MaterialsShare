@@ -64,6 +64,7 @@ elixir(function(mix) {
     // Merge Site scripts.
     mix.scripts([
         '../../' + paths.jquery + '/jquery.js',
+        '../../' + paths.jquery_ui + '/ui/jquery.ui.core.js',
         '../../' + paths.bootstrap + '/js/bootstrap.js',
         '../../' + paths.select2 + '/js/select2.js',
         '../../' + paths.kartikv + '/js/fileinput.js',
