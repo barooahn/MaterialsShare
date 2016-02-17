@@ -46,7 +46,7 @@ class MaterialRequest extends Request
 
         $numEmails = count($this->get('upload_files'));
         foreach (range(0, $numEmails) as $index) {
-            $rules['upload_files.' . $index] = 'sometimes|required|max:60000|mimes:png,gif,jpg,jpeg,txt,pdf,doc,docx,mp4,mov,ogg,qt,ppt,pptx,wmv';
+            $rules['upload_files.' . $index] = 'sometimes|required|max:60000|mimes:png,gif,jpg,jpeg,txt,pdf,doc,docx,mp4,avi,mov,ogg,qt,ppt,pptx,wmv,mp3,mpga';
         }
 
         $numEmails = count($this->request->get('category_list'));

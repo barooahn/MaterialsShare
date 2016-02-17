@@ -21738,7 +21738,7 @@ html {
 }
 
 .container_edit {
-  padding-top: 0 !important;
+  padding-top: 20px !important;
 }
 
 .center_form {
@@ -21927,6 +21927,21 @@ html {
 /*/!* Landscape phones and down *!/*/
 
 /*@media (max-width: 480px) { ... }*/
+
+/* tooltip */
+
+div.tooltip-inner {
+  text-align: center;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  margin-bottom: 6px;
+  background-color: #505050;
+  font-size: 14px;
+  max-width: 350px;
+  /* If max-width does not work, try using width instead */
+  width: 350px;
+}
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2013 - 2015
  * @version 3.5.6

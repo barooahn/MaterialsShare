@@ -70,10 +70,10 @@ class MaterialFile extends Model
                 $name = pathinfo($filename, PATHINFO_FILENAME);
                 $pdf = new Spatie\PdfToImage\Pdf(storage_path('app/' . $filename));
 
-                $path = $name . '.jpg';
-                $pdf->saveImage($path);
+                $old_path = storage_path() . '/app/'.$name . '.jpg';
+                $pdf->saveImage($old_path);
 
-                $old_path = $name . '.jpg';
+                MaterialFile::resize($name . '.jpg');
                 $new_path = storage_path() . '/app/thumbs/' . $name . '.jpg';
                 if (File::move($old_path, $new_path)) {
                     $pathToPicture = '/thumbs';
@@ -102,11 +102,10 @@ class MaterialFile extends Model
                 $name = pathinfo($filename, PATHINFO_FILENAME);
                 $pdf = new Spatie\PdfToImage\Pdf(storage_path('app/' . $name . '.pdf'));
 
-
-                $path = $name . '.jpg';
-                $pdf->saveImage($path);
-
                 $old_path = $name . '.jpg';
+                $pdf->saveImage($old_path);
+
+                MaterialFile::resize($old_path);
                 $new_path = storage_path() . '/app/thumbs/' . $name . '.jpg';
                 if (File::move($old_path, $new_path)) {
                     $pathToPicture = '/thumbs';
@@ -125,23 +124,31 @@ class MaterialFile extends Model
             case 'PNG':
             case 'bmp':
 
-                $file = Storage::get($filename);
-
-                $img = Image::make($file)->encode('png', 75);
-                if (Storage::put('thumbs/' . $filename, $img)) {
-
+                MaterialFile::resize($filename);
+                $new_path = storage_path() . '/app/thumbs/' . $filename;
+                if (File::move($filename, $new_path)) {
                     $pathToPicture = '/thumbs';
                     break;
                 } else {
                     $pathToPicture = "failed to copy $file...\n";
                     break;
                 }
+                break;
 
             case 'mp3':
             case 'MP3':
 
-                $pathToPicture = 'img/audio.png';
+            $name = pathinfo($filename, PATHINFO_FILENAME);
+            $old_path = 'img/audio.png';
+             $new_path = storage_path() . '/app/thumbs/' . $name . '.jpg';
+            if (File::move($old_path, $new_path)) {
+                $pathToPicture = '/thumbs';
                 break;
+            } else {
+                $pathToPicture = "failed to copy $file...\n";
+                break;
+            }
+            break;
 
             case 'WMV':
             case 'wmv':
@@ -154,6 +161,7 @@ class MaterialFile extends Model
                 $name = pathinfo($filename, PATHINFO_FILENAME);
                 exec("ffmpeg -i $filename -ss 1 -vframes 1 $name.jpg");
                 $old_path = $name . '.jpg';
+                MaterialFile::resize($old_path);
                 $new_path = storage_path() . '/app/thumbs/' . $name . '.jpg';
                 if (File::move($old_path, $new_path)) {
                     $pathToPicture = '/thumbs';
@@ -200,6 +208,18 @@ class MaterialFile extends Model
     public function materials()
     {
         return $this->belongsTo('App\Material');
+    }
+
+    public static function resize($image_path)
+    {
+
+        $file = Storage::get($image_path);
+
+        Image::make($file)->encode('jpg', 75)->resize(800, null, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        })->save($image_path);;
+
     }
 
 }

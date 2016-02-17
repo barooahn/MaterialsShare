@@ -84,7 +84,6 @@
 
             @if($material->target_language)
                 <div>
-
                     <h3>Target Language:</h3>
 
                     {{ $material->target_language }}
@@ -94,7 +93,6 @@
 
             @if($material->time_needed_prep)
                 <div>
-
                     <h3>Time needed for preparation:</h3>
 
                     {{ $material->time_needed_prep }} minutes

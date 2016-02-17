@@ -23,18 +23,20 @@
 
 
             @if($options_complete != null)
-                @foreach($options_complete as $option => $description)
+                <div class="btn-group-vertical" data-toggle="buttons">
+                    @foreach($options_complete as $option => $description)
 
-                    <div>
+                        <label class="btn btn-primary {{$option}}">
+                            {!!  Form::checkbox($option, 1, null, ['data-onstyle'=> 'success']) !!}
+                            {{ucwords(str_replace('_', ' ', $option))}}
 
-                        {!!  Form::checkbox($option, 1, null, ['data-toggle' => 'toggle', 'data-onstyle'=> 'success']) !!}
+                            <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
+                               title="{{$description}}"></i>
 
-                        {!! Form::label($option, ucwords(str_replace('_', ' ', $option))) !!}
-                        <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
-                           title="{{$description}}"></i>
+                        </label>
+                    @endforeach
 
-                    </div>
-                @endforeach
+                </div>
             @endif
 
         </div>
@@ -43,17 +45,20 @@
             @if($options_empty != null)
 
                 <h2>Add fields:</h2>
-                @foreach($options_empty as $option => $description)
+                <div class="btn-group-vertical" data-toggle="buttons">
+                    @foreach($options_empty as $option => $description)
 
-                    <div>
-                        {!!  Form::checkbox($option, 1, null, ['data-toggle' => 'toggle', 'data-onstyle'=> 'success']) !!}
+                        <label class="btn btn-primary {{$option}}">
+                            {!!  Form::checkbox($option, 1, null, ['data-onstyle'=> 'success']) !!}
+                            {{ucwords(str_replace('_', ' ', $option))}}
 
-                        {!! Form::label($option, ucwords(str_replace('_', ' ', $option))) !!}
-                        <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
-                           title="{{$description}}"></i>
+                            <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
+                               title="{{$description}}"></i>
 
-                    </div>
-                @endforeach
+                        </label>
+                    @endforeach
+
+                </div>
             @else
                 <h2>All fields completed!</h2>
             @endif

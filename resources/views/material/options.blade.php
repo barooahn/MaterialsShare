@@ -20,37 +20,41 @@
         {!! Form::open(['action' => 'MaterialsController@postOptions']) !!}
         <div class="col-md-6">
 
-            <div>
+            <div class="btn-group-vertical" data-toggle="buttons">
 
-                @for($i=0; $i<10; $i++)
+                @for($i=1; $i < 11; $i++)
 
-                    <div class= {{$options[$i]->option}}>
-                        {!!  Form::checkbox($options[$i]->option, 1, null, ['data-toggle' => 'toggle', 'data-onstyle'=> 'success']) !!}
 
-                        {!! Form::label($options[$i]->option, ucwords(str_replace('_', ' ', $options[$i]->option))) !!}
-                        <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
-                           title="{{$options[$i]->description}}"></i>
+                <label class="btn btn-primary {{$options[$i]->option}}">
+                    {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success',
+                    ]) !!} {{ucwords(str_replace('_', ' ', $options[$i]->option))}}
 
-                    </div>
+
+                    <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
+                       title="{{$options[$i]->description}}"></i>
+
+                </label>
 
                 @endfor
 
             </div>
         </div>
-
         <div class="col-md-6">
 
-            <div>
-                @for($i=10; $i<20; $i++)
+            <div class="btn-group-vertical" data-toggle="buttons">
 
-                    <div>
-                        {!!  Form::checkbox($options[$i]->option, 1, null, ['data-toggle' => 'toggle', 'data-onstyle'=> 'success']) !!}
+                @for($i=11; $i < count($options); $i++)
 
-                        {!! Form::label($options[$i]->option, ucwords(str_replace('_', ' ', $options[$i]->option))) !!}
+
+                    <label class="btn btn-primary {{$options[$i]->option}}">
+                        {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success',
+                        ]) !!} {{ucwords(str_replace('_', ' ', $options[$i]->option))}}
+
+
 
                         <i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="right"
                            title="{{$options[$i]->description}}"></i>
-                    </div>
+                    </label>
 
                 @endfor
 
@@ -60,7 +64,7 @@
 
     </div>
 
-    <div class="padding_tb col-md-12">
+    <div id="format" class="padding_tb col-md-12">
         {!! Form::submit('Create your material', ['class' => 'btn btn-success form-control']) !!}
         {!! Form::close() !!}
     </div>
