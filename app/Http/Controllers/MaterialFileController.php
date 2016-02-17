@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Material;
-use App\MaterialFile;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
+use App\MaterialFile;
 use Storage;
 
 class MaterialFileController extends Controller
@@ -28,8 +23,9 @@ class MaterialFileController extends Controller
     public static function destroyFile($file)
     {
 
-        Storage::delete($file);
-
+        if (Storage::has($file)) {
+            Storage::delete($file);
+        }
 
         // @to do - flash options to cookie return to edit_options with options
     }
