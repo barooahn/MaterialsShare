@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Response;
 use Session;
 use Validator;
+use Storage;
 
 class MaterialsController extends Controller
 {
@@ -442,9 +443,14 @@ class MaterialsController extends Controller
         if (count($material->files) > 0) {
             foreach ($material->files as $file) {
 
-                MaterialFileController::destroyFile($file->filename);
+                if (Storage::has($file->filename)) {
+                    MaterialFileController::destroyFile($file->filename);
+                }
+
                 $thumb = 'thumbs/' . pathinfo($file->filename, PATHINFO_FILENAME) . '.jpg';
-                MaterialFileController::destroyFile($thumb);
+                if (Storage::has($thumb)) {
+                    MaterialFileController::destroyFile($thumb);
+                }
             }
         }
 

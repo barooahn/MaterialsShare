@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('addStars', array('as' => 'addStars', 'uses' => 'MaterialsController@addStars'));
 
     Route::get('togglePrivate/{id}', array('as' => 'togglePrivate', 'uses' => 'MaterialsController@togglePrivate'));
+    Route::post('togglePrivate/{id}', array('as' => 'togglePrivate', 'uses' => 'MaterialsController@togglePrivate'));
     Route::get('destroy/{id}', array('as' => 'destroy', 'uses' => 'MaterialsController@destroy'));
 
 });
