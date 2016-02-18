@@ -199,7 +199,7 @@ div.tooltip-inner {
     margin-bottom: 6px;
     background-color: #505050;
     font-size: 14px;
-    max-width: 350px;
+    max-width: 200px;
     /* If max-width does not work, try using width instead */
-    width: 350px;
+    width: 200px;
 }

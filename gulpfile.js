@@ -22,6 +22,7 @@ var paths = {
     'kartikv': 'assets/bower/kartik-v/bootstrap-fileinput',
     'toggle': 'assets/bower/bootstrap-toggle',
     'slider': 'assets/bower/seiyria-bootstrap-slider/dist',
+    'dropzone': 'assets/bower/dropzone-4.3.0/dist',
 
 
 
@@ -57,6 +58,7 @@ elixir(function(mix) {
         '../../' + paths.kartikv + '/css/fileinput.css',
         '../../' + paths.toggle + '/css/bootstrap2-toggle.min.css',
         '../../' + paths.slider + '/css/bootstrap-slider.css',
+        '../../' + paths.dropzone + '/dropzone.css',
         'main.css',
         'star-rating.css',
     ], 'public/css/site.css');
@@ -70,6 +72,7 @@ elixir(function(mix) {
         '../../' + paths.kartikv + '/js/fileinput.js',
         '../../' + paths.toggle + '/js/bootstrap-toggle.min.js',
         '../../' + paths.slider + '/bootstrap-slider.js',
+        '../../' + paths.dropzone + '/dropzone.js',
         'dropdown-toggle.js',
         'tinymce.min.js',
         'star-rating.js',

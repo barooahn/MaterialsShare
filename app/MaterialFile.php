@@ -27,42 +27,45 @@ class MaterialFile extends Model
         // start count how many uploaded
         $uploadcount = 0;
 
-        foreach ($files as $file) {
-            if (!empty($file)) {
-                $filename = $material->slug . '_' . str_replace(' ', '_', $file->getClientOriginalName());
+        if (!empty($files)) {
+            foreach ($files as $file_path) {
+                if (!empty($file_path)) {
 
-                Storage::put($filename, file_get_contents($file));
+                    $type = File::type($file_path);
+                    $mime = File::mimeType($file_path);
+                    $extension = File::extension($file_path);
+                    $filename = $material->slug . '_' . str_replace(' ', '_', File::name($file_path)) . '.' . $extension;
 
-                //add file path and thumb path to material_files database
+                    File::move($file_path, storage_path() . '/app/' . $filename);
+                    //add file path and thumb path to material_files database
 
-                $material_file = MaterialFile::firstOrCreate([
-                    'original_filename' => $file->getClientOriginalName(),
-                    'filename' => $filename,
-                    'mime' => $file->getClientMimeType(),
-                ]);
+                    $material_file = MaterialFile::firstOrCreate([
+                        'original_filename' => File::name($file_path),
+                        'filename' => $filename,
+                        'mime' => $mime
+                    ]);
 
-                //add to material file table
-                $material->files()->save($material_file);
-                $uploadcount++;
+                    //add to material file table
+                    $material->files()->save($material_file);
+                    $uploadcount++;
 
-                //create thumb
+                    //create thumb
 
-                MaterialFile::getExtensionType($file, $filename);
+                    MaterialFile::makeThumb($extension, $filename);
+                }
+
             }
 
-        }
-
-        if ($uploadcount == $file_count) {
-            Session::flash('success', 'Upload(s) successfully');
-        } else {
-            return Redirect::to('material.edit')->withInput();
+            if ($uploadcount == $file_count) {
+                Session::flash('success', 'Upload(s) successfully');
+            } else {
+                return Redirect::to('material.edit')->withInput();
+            }
         }
     }
 
-    public static function getExtensionType($file, $filename)
+    public static function makeThumb($extension, $filename)
     {
-        $extension = $file->getClientOriginalExtension();
-
         switch ($extension) {
             case 'pdf':
             case 'PDF':
@@ -79,7 +82,7 @@ class MaterialFile extends Model
                     $pathToPicture = '/thumbs';
                     break;
                 } else {
-                    $pathToPicture = "failed to copy $file...\n";
+                    $pathToPicture = "failed to copy $filename...\n";
                     break;
                 }
                 break;
@@ -113,7 +116,7 @@ class MaterialFile extends Model
                     MaterialFileController::destroyFile($pdf);
                     break;
                 } else {
-                    $pathToPicture = "failed to copy $file...\n";
+                    $pathToPicture = "failed to copy $filename...\n";
                     break;
                 }
                 break;
@@ -130,7 +133,7 @@ class MaterialFile extends Model
                     $pathToPicture = '/thumbs';
                     break;
                 } else {
-                    $pathToPicture = "failed to copy $file...\n";
+                    $pathToPicture = "failed to copy $filename...\n";
                     break;
                 }
                 break;
@@ -145,7 +148,7 @@ class MaterialFile extends Model
                 $pathToPicture = '/thumbs';
                 break;
             } else {
-                $pathToPicture = "failed to copy $file...\n";
+                $pathToPicture = "failed to copy $filename...\n";
                 break;
             }
             break;
@@ -167,7 +170,7 @@ class MaterialFile extends Model
                     $pathToPicture = '/thumbs';
                     break;
                 } else {
-                    $pathToPicture = "failed to copy $file...\n";
+                    $pathToPicture = "failed to copy $filename...\n";
                     break;
                 }
                 break;
@@ -178,6 +181,18 @@ class MaterialFile extends Model
         }
 
         return $pathToPicture;
+    }
+
+    public static function resize($image_path)
+    {
+
+        $file = Storage::get($image_path);
+
+        Image::make($file)->encode('jpg', 75)->resize(800, null, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        })->save($image_path);;
+
     }
 
     public static function download($file_id)
@@ -208,18 +223,6 @@ class MaterialFile extends Model
     public function materials()
     {
         return $this->belongsTo('App\Material');
-    }
-
-    public static function resize($image_path)
-    {
-
-        $file = Storage::get($image_path);
-
-        Image::make($file)->encode('jpg', 75)->resize(800, null, function ($constraint) {
-            $constraint->aspectRatio();
-            $constraint->upsize();
-        })->save($image_path);;
-
     }
 
 }

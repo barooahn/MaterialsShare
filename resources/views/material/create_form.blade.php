@@ -15,19 +15,21 @@
 
             <hr>
 
+            @if($options['files'] !=null)
+
+                @include('material.options.file_uploads', ['previous' => "null"])
+            @endif
 
             {!! Form::open(['action' => 'MaterialsController@store', 'files' => true]) !!}
 
             <div>
                 {!! Form::label('title', 'Give your material a title:') !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'files' => true]) !!}
+                {!! Form::text('title', null, ['class' => 'form-control']) !!}
 
             </div>
 
             @foreach($options as $option=>$value)
-                @if($option == 'files')
-                    @include('material.options.files', ['previous' => "null"])
-                @endif
+
                 @if($option == 'category')
                     @include('material.options.category', ['previous' => "null"])
                 @endif
@@ -83,7 +85,7 @@
             @endforeach
             <div class="form-group">
 
-                {!! Form::submit('continue', ['class' => 'btn btn-primary btn-large form-control']) !!}
+                {!! Form::submit('continue', ['class' => 'btn btn-default btn-large form-control', 'id' => 'saveButton']) !!}
 
             </div>
 
@@ -148,12 +150,12 @@
 
     <script>
         $(".prep_slider").slider();
-        $( ".prep_slider" ).change(function() {
+        $(".prep_slider").change(function () {
             $(".prep_time").text($(this).val());
         });
 
         $(".class_slider").slider();
-        $(".class_slider").change(function() {
+        $(".class_slider").change(function () {
             $(".class_time").text($(this).val());
         });
     </script>
@@ -171,4 +173,71 @@
         document.onkeypress = stopRKey;
 
     </script>
+
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var photo_counter = 0;
+        Dropzone.options.realDropzone = {
+
+            uploadMultiple: false,
+            parallelUploads: 100,
+            maxFilesize: 55,
+            previewsContainer: '#dropzonePreview',
+            previewTemplate: document.querySelector('#preview-template').innerHTML,
+            addRemoveLinks: true,
+            dictRemoveFile: 'Remove',
+            dictFileTooBig: 'Image is bigger than 8MB',
+
+            // The setting up of the dropzone
+            init: function () {
+
+                this.on("removedfile", function (file) {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'upload/delete',
+                        data: {id: file.name},
+                        dataType: 'html',
+                        success: function (data) {
+                            var rep = JSON.parse(data);
+                            if (rep.code == 200) {
+                                photo_counter--;
+                                $("#photoCounter").text("(" + photo_counter + ")");
+                            }
+
+                        }
+                    });
+
+                });
+            },
+            error: function (file, response) {
+                if ($.type(response) === "string")
+                    var message = response; //dropzone sends it's own error messages in string
+                else
+                    var message = response.message;
+                file.previewElement.classList.add("dz-error");
+                _ref = file.previewElement.querySelectorAll("[data-dz-errormessage]");
+                _results = [];
+                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                    node = _ref[_i];
+                    _results.push(node.textContent = message);
+                }
+                return _results;
+            },
+            success: function (file, done) {
+                photo_counter++;
+                $("#photoCounter").text("(" + photo_counter + ")");
+            }
+        }
+
+    </script>
+
+
+
 @stop
