@@ -191,11 +191,18 @@ class MaterialsController extends Controller
         }
 
         // store files
+        $dir = Auth::user()->username;
+        $path = public_path() . '/users/' . $dir;
 
-        if (isset($request->upload_files)) {
+        $empty = (count(glob("$path/*")) === 0) ? true : false;
 
-            MaterialFile::store($request->upload_files, $material);
+        if (!$empty) {
+            $files = [];
+            foreach (glob("$path/*") as $filename) {
+                array_push($files, $filename);
+            }
 
+            MaterialFile::store($files, $material);
         }
 
         if (isset($request->category_list)) {

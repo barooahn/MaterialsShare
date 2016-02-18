@@ -63,6 +63,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('upload', ['as' => 'upload-post', 'uses' => 'MaterialFileController@postUpload']);
+    Route::post('upload/delete', ['as' => 'upload-remove', 'uses' => 'MaterialFileController@deleteUpload']);
+
+});
 
 
 Route::controllers([
