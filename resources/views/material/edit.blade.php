@@ -195,11 +195,12 @@
             uploadMultiple: false,
             parallelUploads: 100,
             maxFilesize: 55,
+            acceptedFiles: 'image/*,application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv',
             previewsContainer: '#dropzonePreview',
             previewTemplate: document.querySelector('#preview-template').innerHTML,
             addRemoveLinks: true,
             dictRemoveFile: 'Remove',
-            dictFileTooBig: 'Image is bigger than 8MB',
+            dictFileTooBig: 'Image is bigger than 60MB',
 
             // The setting up of the dropzone
             init: function () {
