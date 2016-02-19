@@ -337,10 +337,19 @@ class MaterialsController extends Controller
             $material->procedure_in = ucfirst($request->procedure_in);
         }
 
-        if (isset($request->upload_files)) {
+        // store files
+        $dir = Auth::user()->username;
+        $path = public_path() . '/users/' . $dir;
 
-            MaterialFile::store($request->upload_files, $material);
+        $empty = (count(glob("$path/*")) === 0) ? true : false;
 
+        if (!$empty) {
+            $files = [];
+            foreach (glob("$path/*") as $filename) {
+                array_push($files, $filename);
+            }
+
+            MaterialFile::store($files, $material);
         }
 
         if (isset($request->category_list)) {

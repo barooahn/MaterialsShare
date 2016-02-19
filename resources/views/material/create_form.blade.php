@@ -15,7 +15,7 @@
 
             <hr>
 
-            @if($options['files'] !=null)
+            @if(array_key_exists('files', $options))
 
                 @include('material.options.file_uploads', ['previous' => "null"])
             @endif
