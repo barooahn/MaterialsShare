@@ -20,13 +20,13 @@
         {!! Form::open(['action' => 'MaterialsController@postOptions']) !!}
         <div class="col-md-6">
 
-            <div class="btn-group-vertical" data-toggle="buttons">
+            <div class="btn-group-vertical checkbox_option" data-toggle="buttons">
 
                 @for($i=1; $i < 11; $i++)
 
 
                 <label class="btn btn-primary {{$options[$i]->option}}">
-                    {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success',
+                    {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success'
                     ]) !!} {{ucwords(str_replace('_', ' ', $options[$i]->option))}}
 
 
@@ -41,13 +41,13 @@
         </div>
         <div class="col-md-6">
 
-            <div class="btn-group-vertical" data-toggle="buttons">
+            <div class="btn-group-vertical checkbox_option" data-toggle="buttons">
 
                 @for($i=11; $i < count($options); $i++)
 
 
-                    <label class="btn btn-primary {{$options[$i]->option}}">
-                        {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success',
+                    <label class="btn btn-primary  {{$options[$i]->option}}">
+                        {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success'
                         ]) !!} {{ucwords(str_replace('_', ' ', $options[$i]->option))}}
 
 

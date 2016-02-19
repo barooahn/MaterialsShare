@@ -92,7 +92,7 @@
             @endforeach
             <div class="form-group">
 
-                {!! Form::submit('continue', ['class' => 'btn btn-primary btn-large form-control']) !!}
+                {!! Form::submit('continue', ['class' => 'btn btn-success btn-large form-control']) !!}
 
             </div>
 

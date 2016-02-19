@@ -23,7 +23,7 @@
 
 
             @if($options_complete != null)
-                <div class="btn-group-vertical" data-toggle="buttons">
+                <div class="btn-group-vertical checkbox_option" data-toggle="buttons">
                     @foreach($options_complete as $option => $description)
 
                         <label class="btn btn-primary {{$option}}">
@@ -45,7 +45,7 @@
             @if($options_empty != null)
 
                 <h2>Add fields:</h2>
-                <div class="btn-group-vertical" data-toggle="buttons">
+                <div class="btn-group-vertical checkbox_option" data-toggle="buttons">
                     @foreach($options_empty as $option => $description)
 
                         <label class="btn btn-primary {{$option}}">
@@ -67,7 +67,7 @@
 
         <div class="padding_tb col-md-12">
 
-            {!! Form::submit('continue', ['class' => 'btn btn-primary btn-large form-control']) !!}
+            {!! Form::submit('continue', ['class' => 'btn btn-success btn-large form-control']) !!}
 
         </div>
         {!! Form::close() !!}

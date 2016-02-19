@@ -85,7 +85,7 @@
             @endforeach
             <div class="form-group">
 
-                {!! Form::submit('continue', ['class' => 'btn btn-default btn-large form-control', 'id' => 'saveButton']) !!}
+                {!! Form::submit('continue', ['class' => 'btn btn-success btn-large form-control', 'id' => 'saveButton']) !!}
 
             </div>
 
