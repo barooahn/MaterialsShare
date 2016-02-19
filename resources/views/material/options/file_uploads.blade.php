@@ -1,38 +1,36 @@
-<div class="row">
-    <div class="col-md-offset-1 col-md-10">
-        <div class="jumbotron how-to-create">
+<div>
+    <h1>Add files here</h1>
 
-            <h3>Images <span id="photoCounter"></span></h3>
-            <br/>
+    <hr>
 
-            {!! Form::open(['url' => route('upload-post'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
+    <h3>Files uploaded: <span id="photoCounter"></span></h3>
+    <br/>
 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    {!! Form::open(['url' => route('upload-post'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
 
-            <div class="dz-message">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-            </div>
+    <div class="dz-message">
 
-            <div class="fallback">
-                <input name="file" type="file" multiple/>
-            </div>
-
-            <div class="dropzone-previews" id="dropzonePreview"></div>
-
-            <h4 style="text-align: center;color:#428bca;">Drop images in this area <span
-                        class="glyphicon glyphicon-hand-down"></span></h4>
-
-            {!! Form::close() !!}
-
-        </div>
-        <div class="jumbotron how-to-create">
-            <ul>
-                <li>Images are uploaded as soon as you drop them</li>
-                <li>Maximum allowed size of image is 8MB</li>
-            </ul>
-
-        </div>
     </div>
+
+    <div class="fallback">
+        <input name="file" type="file" multiple/>
+    </div>
+
+    <div class="dropzone-previews" id="dropzonePreview"></div>
+
+    <h4 style="text-align: center;">Drop files in this area or click here <span
+                class="glyphicon glyphicon-hand-down"></span></h4>
+
+    {!! Form::close() !!}
+
+
+    <p>Images are uploaded as soon as you drop them</p>
+
+    <p>Maximum allowed size of image is 60MB</p>
+
+
 </div>
 
 <!-- Dropzone Preview Template -->
