@@ -59,20 +59,14 @@
                     @if(Auth::User())
                         @if(Auth::User()->id != $item->user_id )
                             @if($item->liked())
-
-                                <div>
-                                    <a class="btn btn-danger user_button form-control"
-                                       href="{{ route('addLike', $item->id) }}">Remove from My Materials</a>
-
-                                </div>
+                                <a class="btn btn-danger user_button form-control"
+                                   href="{{ route('addLike', $item->id) }}">Remove from My Materials</a>
 
                             @else
-                                <div>
-                                    <a class="btn btn-success user_button form-control"
-                                       href="{{ route('addLike', $item->id) }}">Save to My Materials</a>
 
-
-                                </div>
+                                <a class="btn btn-success user_button form-control"
+                                   href="{{ route('addLike', $item->id) }}">Save to My Materials</a>
+                                
                             @endif
                         @endif
                     @endif
