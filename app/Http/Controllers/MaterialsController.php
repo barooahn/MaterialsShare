@@ -472,10 +472,10 @@ class MaterialsController extends Controller
         return redirect()->back();
     }
 
-    public function addLike(Request $request)
+    public function addLike($id)
     {
 
-        $material = Material::findOrFail($request->material);
+        $material = Material::findOrFail($id);
 
         if ($material->liked()) {
             $material->unlike();

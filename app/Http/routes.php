@@ -55,7 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('material', 'MaterialsController',
         ['except' => ['show, index']]);
 
-    Route::get('addLike', ['as' => 'addLike', 'uses' => 'MaterialsController@addLike']);
+    Route::get('addLike/{id}', ['as' => 'addLike', 'uses' => 'MaterialsController@addLike']);
+    Route::post('addLike/{id}', ['as' => 'addLike', 'uses' => 'MaterialsController@addLike']);
 
     Route::post('addStars', array('as' => 'addStars', 'uses' => 'MaterialsController@addStars'));
 
