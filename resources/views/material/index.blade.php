@@ -61,15 +61,15 @@
                             @if($item->liked())
 
                                 <div>
-                                    <a class="btn btn-warning user_button form-control"
-                                       href="{{ URL::route('addLike', array('material' => $item)) }}">Remove</a>
+                                    <a class="btn btn-danger user_button form-control"
+                                       href="{{ route('addLike', $material->id) }}">Remove</a>
 
                                 </div>
 
                             @else
                                 <div>
                                     <a class="btn btn-success user_button form-control"
-                                       href="{{ URL::route('addLike', array('material' => $item)) }}">Save</a>
+                                       href="{{ route('addLike', $material->id) }}">Save</a>
 
 
                                 </div>
