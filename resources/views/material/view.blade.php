@@ -36,7 +36,7 @@
                 @foreach($material->files as $file)
                     <div>
                         <img class="material_image"
-                             src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                             src="{{url('/images/'.pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
                              title="{{$file->filename}}">
                     </div>
 

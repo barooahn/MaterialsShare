@@ -56,20 +56,28 @@
                         </div>
                     @endif
 
-                    @if(Auth::User())
-                        @if(Auth::User()->id != $item->user_id )
-                            @if($item->liked())
-                                <a class="btn btn-danger user_button form-control"
-                                   href="{{ route('addLike', $item->id) }}">Remove from My Materials</a>
+                    <div class="btn-group-vertical material_image padding_tb " role="group">
+                        @if(Auth::User())
+                            @if(Auth::User()->id != $item->user_id )
+                                @if($item->liked())
 
-                            @else
+                                    <a class="btn btn-danger"
+                                       href="{{ route('addLike', $item->id) }}">Remove from My Materials</a>
 
-                                <a class="btn btn-success user_button form-control"
-                                   href="{{ route('addLike', $item->id) }}">Save to My Materials</a>
-                                
+                                @else
+
+                                    <a class="btn btn-success"
+                                       href="{{ route('addLike', $item->id) }}">Save to My Materials</a>
+
+                                @endif
                             @endif
                         @endif
-                    @endif
+
+
+                        <a class="btn btn-success user_button form-control"
+                           href="{{ URL::to('material/'.$item->slug) }}">Go to material</a>
+
+                    </div>
 
                 </div>
 
@@ -87,12 +95,6 @@
 
                     @endforeach
 
-
-                    <div class="form_padding">
-                        <a class="btn btn-success user_button form-control"
-                           href="{{ URL::to('material/'.$item->slug) }}">Go to
-                            Material</a>
-                    </div>
 
                 </div>
 
