@@ -125,19 +125,15 @@
                         @if(Auth::User()->id != $item->user_id )
                             @if($item->liked())
 
-                                <div>
-                                    <a class="btn btn-warning form-control"
-                                       href="{{ URL::route('addLike', array('material' => $item)) }}">Remove</a>
-
-                                </div>
+                                <a class="btn btn-danger user_button form-control"
+                                   href="{{ route('addLike', $item->id) }}">Remove from My Materials</a>
 
                             @else
-                                <div>
-                                    <a class="btn btn-success form-control"
-                                       href="{{ URL::route('addLike', array('material' => $item)) }}">Save</a>
+
+                                <a class="btn btn-success user_button form-control"
+                                   href="{{ route('addLike', $item->id) }}">Save to My Materials</a>
 
 
-                                </div>
                             @endif
                         @endif
                     @endif
@@ -146,7 +142,9 @@
 
                         @if($key ==0)
                             <div>
-                                <img class="material_image" src="{{ asset($file->thumb_path)  }}">
+                                <img class="material_image"
+                                     src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                                     title="{{$file->filename}}">
                             </div>
                         @endif
 

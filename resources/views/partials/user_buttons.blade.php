@@ -20,12 +20,12 @@
 
 
                 <a class="btn btn-danger user_button form-control"
-                   href="{{ route('addLike', $material->id) }}">Remove</a>
+                   href="{{ route('addLike', $material->id) }}">Remove from My Materials</a>
 
             @else
 
                 <a class="btn btn-success user_button form-control"
-                   href="{{ route('addLike', $material->id) }}">Save</a>
+                   href="{{ route('addLike', $material->id) }}">Save to My Materials</a>
 
 
             @endif
