@@ -12,7 +12,7 @@
             @if (Auth::user())
                 <h2>Feedback</h2>
                 <div class="center_form">
-                    {!! Form::open(['action' => 'MaterialsController@store']) !!}
+                    {!! Form::open(['action' => 'MaterialsController@feedback']) !!}
                     <div class="form-group">
                         {!! Form::hidden('user', Auth::user()->name) !!}
                     </div>
@@ -35,16 +35,21 @@
                     <hr>
                 </div>
 
-                @else
+            @else
                 <div class="alert alert-info alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     Login to leave a comment.
                 </div>
             @endif
 
             <h1> {!! Html::mailto('mailto:barooahn@gmail.com', 'Email Materials Share') !!}</h1>
+
             <h3>barooahn@gmail.com</h3>
 
         </div>
+    </div>
+@stop
 
-@endsection
+
+

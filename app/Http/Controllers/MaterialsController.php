@@ -17,6 +17,7 @@ use Conner\Likeable\LikeableTrait;
 use Ghanem\Rating\Models\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Response;
 use Session;
 use Validator;
@@ -539,6 +540,25 @@ class MaterialsController extends Controller
 
         return view('material.index', compact('materials'));
 
+    }
+
+    public function feedback(Request $request)
+    {
+
+        Mail::queue('emails.feedback', [
+            'topic' => $request->get('topic'),
+            'feedback' => $request->get('feedback'),
+            'username' => Auth::user()->name,
+            'email' => Auth::user()->email,
+        ], function ($message) {
+            $message->from(Auth::user()->email, "Materials Share");
+            $message->subject("Materials Share - feedback");
+            $message->to('barooahn@gmail.com');
+        });
+
+        Session::flash('success', "Your feed back has been sent thanks.
+                If you require a response please give us up to 48 hours to reply.");
+        return \Redirect::route('contact');
     }
 
     protected function getModelValueAttribute($name)

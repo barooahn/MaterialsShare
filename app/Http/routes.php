@@ -15,7 +15,7 @@ Route::get('start_here', 'PagesController@startHere');
 Route::get('why', 'PagesController@why');
 Route::get('services', 'PagesController@services');
 Route::get('content', 'PagesController@content');
-Route::get('contact', 'PagesController@contact');
+Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 
 
 Route::get('materials', 'MaterialsController@index');
@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('options', 'MaterialsController@getOptions');
     Route::post('options', 'MaterialsController@postOptions');
+
+    Route::post('feedback', 'MaterialsController@feedback');
 
     Route::get('material/edit_options/{id}', ['as' => 'material/edit_options', 'uses' => 'MaterialsController@getEditOptions']);
     Route::post('material/edit_options/{id}', ['as' => 'material/edit_options', 'uses' => 'MaterialsController@postEditOptions']);
