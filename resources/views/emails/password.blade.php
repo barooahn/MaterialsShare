@@ -1,6 +1,7 @@
-@extends('app')
+@extends('layouts.create')
 @section('content')
 	<h2>Password Reset</h2>
+
 
 	<div>
 		To reset your password, complete this form: {{ url('password/reset',

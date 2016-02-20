@@ -11,10 +11,10 @@
 
         <div class="col-md-6">
 
-            <h1>Materials you have created</h1>
+            <h1 class="center_form">Materials you have created</h1>
 
             <hr>
-            @if($materials)
+            @if(!$materials->isEmpty())
                 @foreach($materials as $item)
                     <h3>{{ $item->title }}</h3>
 
@@ -59,7 +59,8 @@
                     @endif
 
                     <div>
-                        <a class="btn btn-success form-control" href="{{ URL::to('material/'.$item->slug) }}">Read more</a>
+                        <a class="btn btn-success form-control" href="{{ URL::to('material/'.$item->slug) }}">Read
+                            more</a>
                     </div>
 
                     <div>
@@ -91,7 +92,11 @@
 
                     @endforeach
                     <hr>
-                    @endforeach
+                @endforeach
+
+            @else
+
+                <div class="well well-lg">This is where materials you have <strong> created</strong> can be found</div>
 
             @endif
 
@@ -99,10 +104,12 @@
 
         <div class="col-md-6">
 
-            <h1>Materials you have saved</h1>
+            <h1 class="center_form">Materials you have saved</h1>
 
             <hr>
-            @if($liked)
+
+
+            @if(!$liked->isEmpty())
                 @foreach($liked as $item)
 
                     <h3>{{ $item->title }}</h3>
@@ -110,7 +117,8 @@
                     <p>{!! $item->objective !!}</p>
 
                     <div>
-                        <a class="btn btn-success form-control" href="{{ URL::to('material/'.$item->slug) }}">Read more</a>
+                        <a class="btn btn-success form-control" href="{{ URL::to('material/'.$item->slug) }}">Read
+                            more</a>
                     </div>
 
                     @if(Auth::User())
@@ -146,6 +154,10 @@
                     <hr>
 
                 @endforeach
+
+            @else
+
+                <div class="well well-lg">This is where materials you have <strong> saved</strong> can be found</div>
 
             @endif
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait ResetsPasswords
@@ -35,6 +36,7 @@ trait ResetsPasswords
         $response = Password::sendResetLink($request->only('email'), function (Message $message) {
             $message->subject($this->getEmailSubject());
         });
+        Session::flash('info', 'Check your email for password reset link to continue.');
 
         switch ($response) {
             case Password::RESET_LINK_SENT:
@@ -112,7 +114,7 @@ trait ResetsPasswords
      */
     protected function resetPassword($user, $password)
     {
-        $user->password = bcrypt($password);
+        $user->password = $password;
 
         $user->save();
 

@@ -468,7 +468,7 @@ class MaterialsController extends Controller
 
         Session::flash('success', $material->slug . ' successfully deleted!');
 
-        return redirect()->route('material.index');
+        return redirect()->back();
     }
 
     public function addLike(Request $request)

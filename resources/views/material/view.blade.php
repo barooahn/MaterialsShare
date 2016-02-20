@@ -54,6 +54,8 @@
         </div>
     @endif
 
+    <div class="page-break"></div>
+
     <div class="row">
         <div class="col-md-12">
 
@@ -299,7 +301,7 @@
 
     <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-12 comments">
             <h2>Comments</h2>
             @include('partials.disqus')
             <div class="spot-im-frame-inpage" data-post-id="POST_ID_GOES_HERE"></div>
