@@ -5,12 +5,12 @@
             <hr>
             <div class="form_padding">
                 <img class="material_image"
-                     src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                     src="{{URL('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
                      title="{{$file->filename}}">
 
                 <div class="form_padding">
                     <a class="btn btn-danger btn-large form-control "
-                       href="{{ url::route('remove_file', array('file' => $file)) }}">Delete</a>
+                       href="{{ URL::route('remove_file', array('file' => $file)) }}">Delete</a>
                 </div>
             </div>
             <hr>
