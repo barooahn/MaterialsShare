@@ -62,14 +62,14 @@
 
                                 <div>
                                     <a class="btn btn-danger user_button form-control"
-                                       href="{{ route('addLike', $material->id) }}">Remove</a>
+                                       href="{{ route('addLike', $item->id) }}">Remove</a>
 
                                 </div>
 
                             @else
                                 <div>
                                     <a class="btn btn-success user_button form-control"
-                                       href="{{ route('addLike', $material->id) }}">Save</a>
+                                       href="{{ route('addLike', $item->id) }}">Save</a>
 
 
                                 </div>
