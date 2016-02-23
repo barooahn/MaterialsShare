@@ -22286,11 +22286,6 @@ html {
   padding-top: 20px;
 }
 
-.bottom {
-  position: relative;
-  bottom: 0px;
-}
-
 .padding_tb {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -22331,6 +22326,22 @@ html {
 
 .checkbox_option {
   width: 175px;
+}
+
+/* index page filter */
+
+.filter {
+  width: 300px;
+  display: inline;
+}
+
+.select2-container .select2-search__field {
+  width: 100% !important;
+}
+
+.container .content {
+  display: none;
+  padding: 5px;
 }
 
 /* Hero  */

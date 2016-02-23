@@ -6,10 +6,14 @@
 
 @section('content')
 
-
-
     @if($materials)
+
+
+
+        @include('partials.filter')
+
         @foreach($materials as $item)
+
             <hr>
             <div class="row">
 
@@ -143,5 +147,71 @@
                     'size': 'sm'
 
                 });
+    </script>
+
+    <script>
+        $('#category').select2({
+            placeholder: 'Click for options',
+           
+            theme: "bootstrap"
+        });
+        $('#level').select2({
+            placeholder: 'Click for options',
+           
+            theme: "bootstrap"
+        });
+
+        $('#book').select2({
+            placeholder: 'Click for options',
+            allowClear: true,
+            theme: "bootstrap"
+        });
+
+        $('#language_focus').select2({
+            placeholder: 'Click for options',
+           
+            theme: "bootstrap"
+        });
+
+        $('#activity_use').select2({
+            placeholder: 'Click for options',
+           
+            theme: "bootstrap"
+        });
+
+        $('#pupil_task').select2({
+            placeholder: 'Click for options',
+           
+            theme: "bootstrap"
+        });
+    </script>
+
+    <script>
+        $(".prep_slider").slider({});
+        $(".prep_slider").change(function () {
+            $(".prep_time").text($(this).val());
+        });
+
+        $(".class_slider").slider({});
+        $(".class_slider").change(function () {
+            $(".class_time").text($(this).val());
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(
+                function(){
+                    $('.btn.btn-info.expand.form-control ').click(
+                            function(){
+                                if(!$(".content").hasClass('opened')) {
+                                    $(".content").slideDown(1000).addClass('opened');
+                                } else {
+                                    $(".content").slideUp(1000).removeClass('opened');
+                                }
+                            }
+                    );
+                }
+        );
     </script>
 @stop

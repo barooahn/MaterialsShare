@@ -14,8 +14,10 @@ use App\MaterialLevel;
 use App\MaterialPupilTask;
 use App\Options;
 use Conner\Likeable\LikeableTrait;
+use DB;
 use Ghanem\Rating\Models\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Response;
@@ -33,13 +35,27 @@ class MaterialsController extends Controller
         $this->middleware('activated', ['except' => ['index', 'show', 'search']]);
     }
 
-    public function index()
+    public function index($materials = null)
     {
-        $materials = Material::where('private', 0)
-            ->orderBy('updated_at', 'desc')
-            ->paginate(Material::$paginate);
+        if ($materials == null) {
 
-        return view('material.index', compact('materials'));
+            $materials = Material::where('private', 0)
+                ->orderBy('updated_at', 'desc')
+                ->paginate(Material::$paginate);
+        }
+
+        $categories = MaterialCategory::lists('category', 'category');
+        $levels = MaterialLevel::lists('level', 'level');
+        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
+        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
+        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
+        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
+
+
+        return view('material.index',
+            compact('materials', 'categories', 'levels',
+                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
+
     }
 
     public function show($slug)
@@ -177,9 +193,13 @@ class MaterialsController extends Controller
         }
         if (isset($request->time_needed_prep)) {
             $material->time_needed_prep = $request->time_needed_prep;
+        } else {
+            $material->time_needed_prep = 0;
         }
         if (isset($request->time_needed_class)) {
             $material->time_needed_class = $request->time_needed_class;
+        } else {
+            $material->time_needed_class = 0;
         }
         if (isset($request->materials)) {
             $material->materials = ucfirst($request->materials);
@@ -325,7 +345,7 @@ class MaterialsController extends Controller
         if (isset($request->time_needed_prep)) {
             $material->time_needed_prep = $request->time_needed_prep;
         }
-        if (isset($material->time_needed_class)) {
+        if (isset($request->time_needed_class)) {
             $material->time_needed_class = $request->time_needed_class;
         }
         if (isset($request->materials)) {
@@ -538,7 +558,16 @@ class MaterialsController extends Controller
         $materials = Material::where('private', 0)->search($request->material_search)
             ->paginate(Material::$paginate);
 
-        return view('material.index', compact('materials'));
+        $categories = MaterialCategory::lists('category', 'category');
+        $levels = MaterialLevel::lists('level', 'level');
+        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
+        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
+        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
+        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
+
+        return view('material.index',
+            compact('materials', 'options', 'categories', 'levels',
+                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
 
     }
 
@@ -612,6 +641,98 @@ class MaterialsController extends Controller
         }
         return view('material.create_form',
             compact('options', 'categories', 'levels',
+                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
+    }
+
+    public function postFilter(Request $request)
+    {
+
+        $query = Material::with('categories', 'levels', 'languageFocuses', 'activityUses',
+            'pupilTasks', 'book'); //names of eager
+
+
+        if ($request->book)
+            $query = $query->whereHas('book', function ($bookQuery) use ($request) {
+                $bookQuery->where('book', $request->book);
+            });
+
+
+        if ($request->level) {
+            for ($i = 0; $i < count($request->level); $i++) {
+                $query = $query->whereHas('levels', function ($levelQuery) use ($request, $i) {
+                    $levelQuery->where('level', $request->level[$i]);
+                });
+            }
+        }
+
+        if ($request->category_list) {
+            for ($i = 0; $i < count($request->category_list); $i++) {
+                $query = $query->whereHas('categories', function ($categoryQuery) use ($request, $i) {
+                    $categoryQuery->where('category', $request->category_list[$i]);
+                });
+            }
+        }
+
+        if ($request->language_focus) {
+            for ($i = 0; $i < count($request->language_focus); $i++) {
+                $query = $query->whereHas('languageFocuses', function ($focusQuery) use ($request, $i) {
+                    $focusQuery->where('language_focus', $request->language_focus[$i]);
+                });
+            }
+        }
+
+        if ($request->activity_use) {
+            for ($i = 0; $i < count($request->activity_use); $i++) {
+                $query = $query->whereHas('activityUses', function ($activityQuery) use ($request, $i) {
+                    $activityQuery->where('activity_use', $request->activity_use[$i]);
+                });
+            }
+        }
+
+        if ($request->pupil_task) {
+            for ($i = 0; $i < count($request->pupil_task); $i++) {
+                $query = $query->whereHas('pupilTasks', function ($pupilQuery) use ($request, $i) {
+                    $pupilQuery->where('pupil_task', $request->pupil_task[$i]);
+                });
+            }
+        }
+
+        if ($request->time_needed_class) {
+            $class = explode(',', $request->time_needed_class);
+
+            $query = $query->whereBetween('time_needed_class', $class);
+        }
+
+        if ($request->time_needed_prep) {
+            $prep = explode(',', $request->time_needed_prep);
+
+            $query = $query->whereBetween('time_needed_prep', $prep);
+        }
+
+
+        $materials = $query->get();// make the query and load the data
+
+        $materials->forPage(count($materials), Material::$paginate);
+        $page = 1;
+        $perPage = 15;
+        $pagination = new LengthAwarePaginator(
+            $materials->forPage($page, $perPage),
+            $materials->count(),
+            $perPage,
+            $page
+        );
+        $materials = $pagination;
+
+
+        $categories = MaterialCategory::lists('category', 'category');
+        $levels = MaterialLevel::lists('level', 'level');
+        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
+        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
+        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
+        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
+
+        return view('material.index',
+            compact('materials', 'categories', 'levels',
                 'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
     }
 

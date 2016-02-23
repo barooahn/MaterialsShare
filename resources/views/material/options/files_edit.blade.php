@@ -3,7 +3,7 @@
         @foreach($material->files as $file)
             <h1>Delete files here</h1>
             <hr>
-            <div class="form_padding">
+            <div class="form-group">
                 <img class="material_image"
                      src="{{URL('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
                      title="{{$file->filename}}">

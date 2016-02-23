@@ -60,4 +60,9 @@ class MaterialCategory extends Model
 		return $this->belongsTo('App\Language');
 	}
 
+	public function scopeCategories($query, $category)
+	{
+		return $query->where('category', $category);
+	}
+
 }

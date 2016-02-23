@@ -142,29 +142,16 @@
         });
     </script>
 
-
-    <script>
-        tinymce.init({
-            selector: '.form-wysyg',
-            menubar: false,
-            statusbar: false
-        });
-    </script>
-
-    <script>
-        $(".file_input").fileinput({'showPreview': false, showUpload: false});
-    </script>
-
     <script>
         $(".prep_slider").slider();
         $(".prep_slider").change(function () {
             $(".prep_time").text($(this).val());
         });
 
-        $(".class_slider").slider();
-        $(".class_slider").change(function () {
-            $(".class_time").text($(this).val());
-        });
+    $(".class_slider").slider();
+    $(".class_slider").change(function () {
+    $(".class_time").text($(this).val());
+    });
     </script>
 
     <script type="text/javascript">
@@ -180,6 +167,20 @@
         document.onkeypress = stopRKey;
 
     </script>
+
+    <script>
+    tinymce.init({
+    selector: '.form-wysyg',
+    menubar: false,
+    statusbar: false
+    });
+    </script>
+
+    <script>
+    $(".file_input").fileinput({'showPreview': false, showUpload: false});
+    </script>
+
+
 
 
     <script>

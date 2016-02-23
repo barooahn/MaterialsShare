@@ -136,6 +136,10 @@ class Material extends Model implements SluggableInterface, Ratingable
         return $this->hasMany('App\MaterialFile');
     }
 
+    public function scopeBook($query, $book)
+    {
+        return $query->where('book', $book);
+    }
 
 
 }

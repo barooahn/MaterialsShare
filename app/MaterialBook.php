@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class MaterialBook extends Model
 {
+
+    protected $table = 'material_books';
+
     protected $fillable = ['book', 'slug'];
 
     protected $sluggable = [
@@ -21,4 +24,5 @@ class MaterialBook extends Model
     {
         return $this->hasMany('App\Material');
     }
+
 }

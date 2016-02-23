@@ -1,4 +1,4 @@
-<div class="form-padding">
+<div class="form-group">
     {!! Form::label('book', 'Text Book:') !!}
     {!! Form::select('book[]', $books, $previous, ['id' => 'book', 'class' => 'form-control', 'multiple']) !!}
 
