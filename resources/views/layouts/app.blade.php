@@ -13,11 +13,11 @@
         <meta name="author" content="Nicholas R Barooah"/>
     @show @section('meta_description')
         <meta name="description"
-              content="ELT TEFL teaching materials and resources - create save share teaching aids"/>
+              content="ELT Tefl teaching materials resources, create, save, share teaching aids"/>
     @show
 
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/site.js') }}"></script>
+    {{--<script src="{{ asset('js/site.js') }}"></script>--}}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
 
