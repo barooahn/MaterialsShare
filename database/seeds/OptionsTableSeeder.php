@@ -21,7 +21,7 @@ class OptionsTableSeeder extends Seeder
         ]);
         DB::table('options')->insert([
             'option' => 'objective',
-            'description' => 'What is the objective of this material?',
+            'description' => 'Objective of this material',
         ]);
         DB::table('options')->insert([
             'option' => 'level',
@@ -29,47 +29,27 @@ class OptionsTableSeeder extends Seeder
         ]);
         DB::table('options')->insert([
             'option' => 'time_needed_prep',
-            'description' => 'How much time is needed for preparation? (mins)',
+            'description' => 'Time is needed for preparation (minutes)',
         ]);
         DB::table('options')->insert([
             'option' => 'time_needed_class',
-            'description' => 'How much time is needed in class? (mins)',
+            'description' => 'Time is needed in class (minutes)',
         ]);
         DB::table('options')->insert([
             'option' => 'language_focus',
-            'description' => 'What is the language focus of the material?',
+            'description' => 'Language focus of the material',
         ]);
         DB::table('options')->insert([
             'option' => 'activity_use',
-            'description' => 'What type of activity will the material be used for?',
+            'description' => 'Activity the material be used for',
         ]);
         DB::table('options')->insert([
             'option' => 'pupil_task',
             'description' => 'What tasks will the pupils do?',
         ]);
         DB::table('options')->insert([
-            'option' => 'materials',
-            'description' => 'What materials are needed?',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'follow_up',
-            'description' => 'Are there any follow up activities',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'variations',
-            'description' => 'Are there different ways to use the material?',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'tips',
-            'description' => 'Tips:',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'notes',
-            'description' => 'notes',
-        ]);
-        DB::table('options')->insert([
             'option' => 'category',
-            'description' => 'What educational institute is the material for?',
+            'description' => 'Educational institute',
         ]);
         DB::table('options')->insert([
             'option' => 'target_language',
@@ -77,7 +57,7 @@ class OptionsTableSeeder extends Seeder
         ]);
         DB::table('options')->insert([
             'option' => 'procedure_in',
-            'description' => 'Describe the procedure in the classroom',
+            'description' => 'Describe the classroom procedure ',
         ]);
         DB::table('options')->insert([
             'option' => 'procedure_before',
@@ -85,11 +65,31 @@ class OptionsTableSeeder extends Seeder
         ]);
         DB::table('options')->insert([
             'option' => 'book',
-            'description' => 'What book is the material based upon?',
+            'description' => 'Textbook the material is based upon?',
         ]);
         DB::table('options')->insert([
             'option' => 'page',
             'description' => 'What page of the book?',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'materials',
+            'description' => 'Additional materials needed',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'follow_up',
+            'description' => 'Are there follow up activities?',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'variations',
+            'description' => 'Different ways to use the material',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'tips',
+            'description' => 'Tips for using the material',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'notes',
+            'description' => 'Notes about the material',
         ]);
     }
 }

@@ -22266,8 +22266,16 @@ html {
   height: 100%;
 }
 
+/* create pages */
+
+.homelogo {
+  color: #0a0a0a;
+  position: absolute;
+  z-index: 1000;
+}
+
 .container {
-  padding-top: 70px;
+  padding-top: 65px;
 }
 
 .container_edit {
@@ -22333,6 +22341,17 @@ html {
 .filter {
   width: 300px;
   display: inline;
+}
+
+/* Start page anchor padding*/
+
+.start_padding::before {
+  content: "";
+  display: block;
+  height: 50px;
+  /* fixed header height*/
+  margin: -50px 0 0;
+  /* negative fixed header height */
 }
 
 .select2-container .select2-search__field {

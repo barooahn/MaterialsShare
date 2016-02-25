@@ -13,7 +13,6 @@
         <div class="col-md-12 center_form">
             <h1> Create a new material</h1>
 
-            <p>Below are the minimum requirements to publish your material</p>
             <hr>
         </div>
 

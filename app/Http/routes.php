@@ -31,6 +31,12 @@ Route::get('images/{filename}', function ($filename) {
     return Image::make(storage_path() . '/app/thumbs/' . $filename)->response();
 });
 
+Route::get('imagesIndex/{filename}', function ($filename) {
+    $img = Image::make(storage_path() . '/app/thumbs/' . $filename);
+    $img->fit(360, 240);
+    return $img->response();
+});
+
 /***************    Auth  routes  **********************************/
 Route::group(['middleware' => 'auth'], function () {
 

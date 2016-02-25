@@ -13,6 +13,8 @@ class MaterialPupilTask extends Model
         'build_from' => 'pupil_task',
         'save_to'    => 'slug',
     ];
+
+    protected $touches = ['materials'];
     /**
      * Get the pupil task's materials.
      *

@@ -11,7 +11,10 @@
         @include('partials.start_nav')
 
         <div class="col-md-9">
-            <p>content</p>
+            <ul>
+                <li></li>
+
+            </ul>
         </div>
     </div>
 @endsection

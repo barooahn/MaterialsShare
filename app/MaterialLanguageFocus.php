@@ -15,6 +15,7 @@ class MaterialLanguageFocus extends Model
         'save_to'    => 'slug',
     ];
 
+    protected $touches = ['materials'];
     /**
      * Get the language focuses' materials.
      *

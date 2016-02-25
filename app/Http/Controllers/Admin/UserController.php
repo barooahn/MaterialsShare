@@ -126,7 +126,7 @@ class UserController extends AdminController
 
     public function home(){
 
-        $materials = Auth::User()->material;
+        $materials = Auth::User()->material->sortByDesc('updated_at');
         $liked = Material::whereLiked(Auth::User()->id)
             ->with('likeCounter') // highly suggested to allow eager load
             ->get();

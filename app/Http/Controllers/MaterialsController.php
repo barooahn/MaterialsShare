@@ -180,6 +180,7 @@ class MaterialsController extends Controller
         // make new material
         $material = Material::create();
         $material->user_id = Auth::user()->id;
+        $material->private = 0;
 
         if (isset($request->title)) {
             $material->title = ucfirst($request->title);
@@ -325,7 +326,7 @@ class MaterialsController extends Controller
         }
         $material->update();
 
-        return redirect()->action('MaterialsController@show', [$material->slug]);
+        return redirect()->action('Admin\UserController@home');
     }
 
     public function update(MaterialRequest $request, Material $material)
@@ -470,7 +471,7 @@ class MaterialsController extends Controller
         }
         $material->update();
 
-        return redirect()->action('MaterialsController@show', [$material->slug]);
+        return redirect()->action('Admin\UserController@home');
     }
 
     public function destroy(Material $material, $id)

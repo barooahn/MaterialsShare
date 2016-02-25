@@ -13,6 +13,7 @@ class MaterialLevel extends Model
         'save_to'    => 'slug',
     ];
 
+    protected $touches = ['materials'];
     /**
      * Get the level's materials.
      *

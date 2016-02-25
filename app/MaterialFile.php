@@ -18,6 +18,7 @@ class MaterialFile extends Model
 {
     //
     protected $fillable = ['mime', 'filename', 'original_filename'];
+    protected $touches = ['materials'];
 
     public static function store($files, $material)
     {

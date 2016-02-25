@@ -2,8 +2,16 @@ html {
     height: 100%;
 }
 
+/* create pages */
+
+.homelogo {
+    color: #0a0a0a;
+    position: absolute;
+    z-index: 1000;
+}
+
 .container {
-    padding-top: 70px;
+    padding-top: 65px;
 }
 
 .container_edit {
@@ -62,19 +70,28 @@ html {
 /* index page filter */
 
 .filter {
-    width:300px;
+    width: 300px;
     display: inline;
 
 }
 
-.select2-container .select2-search__field{
+/* Start page anchor padding*/
+.start_padding::before {
+    content:"";
+    display:block;
+    height:50px; /* fixed header height*/
+    margin:-50px 0 0; /* negative fixed header height */
+}
+.select2-container .select2-search__field {
 
     width: 100% !important;
 }
+
 .container .content {
     display: none;
-    padding : 5px;
+    padding: 5px;
 }
+
 /* Hero  */
 
 .header {
@@ -117,6 +134,7 @@ html {
     width: 305px;
     margin: auto;
 }
+
 .selling_points {
     color: white;
     list-style-type: none;
@@ -132,6 +150,7 @@ html {
 .green {
     color: green;
 }
+
 /* End of hero*/
 
 .user_buttons {
@@ -195,8 +214,6 @@ html {
         display: block !important;
     }
 }
-
-
 
 /* tooltip */
 div.tooltip-inner {

@@ -19,6 +19,8 @@ class MaterialCategory extends Model
 
 	protected $fillable = ['category', 'slug'];
 
+	protected $touches = ['materials'];
+
 
 	/**
 	 * Get the categories' materials.

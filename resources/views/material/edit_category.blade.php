@@ -1,4 +1,4 @@
-@extends('layouts.edit')
+@extends('layouts.create')
 {{-- Web site Title --}}
 @section('title') {!!  $material->title !!} :: @parent @stop
 

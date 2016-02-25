@@ -7,12 +7,13 @@
 
     <title>@section('title') Materials Share @show</title>
     @section('meta_keywords')
-        <meta name="keywords" content="your, awesome, keywords, here"/>
+        <meta name="keywords"
+              content="ELT, TESOL, Resources, English teaching, Materials, Teaching aids, share teaching materials, share teaching aids, TEFL resources"/>
     @show @section('meta_author')
         <meta name="author" content="Nicholas R Barooah"/>
     @show @section('meta_description')
         <meta name="description"
-              content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
+              content="ELT TEFL teaching materials and resources - create save share teaching aids"/>
     @show
 
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
@@ -33,7 +34,7 @@
 </head>
 <body>
 
-    @include('partials.nav')
+@include('partials.nav')
 
 
 <div class="container">
@@ -54,7 +55,8 @@
 @yield('scripts')
 
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56a36cca3e6619f4" async="async"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56a36cca3e6619f4"
+        async="async"></script>
 
 </body>
 </html>

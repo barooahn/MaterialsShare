@@ -100,36 +100,36 @@
 @section('scripts')
     <script>
         $('#category').select2({
-            placeholder: 'Choose a category',
+            placeholder: 'Choose or Type',
             tags: true,
             theme: "bootstrap"
         });
         $('#level').select2({
-            placeholder: 'Choose one or more level(s)',
+            placeholder: 'Choose or Type',
             tags: true,
             theme: "bootstrap"
         });
 
         $('#book').select2({
-            placeholder: 'What text book is this material used with?',
+            placeholder: 'Choose or Type',
             tags: true,
             theme: "bootstrap"
         });
 
         $('#language_focus').select2({
-            placeholder: 'Choose one or more language focus(es)',
+            placeholder: 'Choose or Type',
             tags: true,
             theme: "bootstrap"
         });
 
         $('#activity_use').select2({
-            placeholder: 'Choose one or more activity use(es)',
+            placeholder: 'Choose or Type',
             tags: true,
             theme: "bootstrap"
         });
 
         $('#pupil_task').select2({
-            placeholder: 'Choose one or more pupil task(s)',
+            placeholder: 'Choose or Type',
             tags: true,
             theme: "bootstrap"
         });

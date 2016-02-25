@@ -1,9 +1,9 @@
-<div>
-    <h1>Add files here</h1>
+<div class="jumbotron">
+    <h3>Add files here</h3>
 
     <hr>
 
-    <h3>Files uploaded: <span id="photoCounter"></span></h3>
+    <h5>Files uploaded: <span id="photoCounter"></span></h5>
     <br/>
 
     {!! Form::open(['url' => route('upload-post'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
@@ -26,9 +26,9 @@
     {!! Form::close() !!}
 
 
-    <p>Images are uploaded as soon as you drop them</p>
+    <h5>Images are uploaded as soon as you drop them</h5>
 
-    <p>Maximum allowed size of image is 60MB</p>
+    <h5>Maximum allowed size of image is 60MB</h5>
 
 
 </div>

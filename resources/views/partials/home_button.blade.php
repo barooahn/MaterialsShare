@@ -1,0 +1,1 @@
+<a class="navbar-brand homelogo" href="{{ URL::to('home') }}"><i class="fa fa-home"></i>  Materials Share</a>

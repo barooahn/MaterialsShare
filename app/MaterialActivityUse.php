@@ -13,6 +13,8 @@ class MaterialActivityUse extends Model
         'build_from' => 'activity_use',
         'save_to'    => 'slug',
     ];
+
+    protected $touches = ['materials'];
     /**
      * Get the activity use's material.
      *

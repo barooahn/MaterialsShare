@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Storage;
+use Session;
 
 class MaterialFileController extends Controller
 {
@@ -22,6 +23,7 @@ class MaterialFileController extends Controller
         $thumb = 'thumbs/' . pathinfo($file->filename, PATHINFO_FILENAME) . '.jpg';
         MaterialFileController::destroyFile($thumb);
         $file->delete($id);
+        Session::flash('warning', 'You have successfully deleted'. $file->filename);
 
         return redirect()->back()->with('material', 'material');
     }
