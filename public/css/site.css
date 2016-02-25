@@ -22278,10 +22278,6 @@ html {
   padding-top: 65px;
 }
 
-.container_edit {
-  padding-top: 20px !important;
-}
-
 .page-break {
   display: none;
 }
@@ -22301,31 +22297,6 @@ html {
 
 .float_right {
   float: right;
-}
-
-#create,
-#edit {
-  background: #38839E;
-}
-
-#create_level,
-#edit_level {
-  background: #38839E;
-}
-
-#create_title,
-#edit_title {
-  background: #754C77;
-}
-
-#create_times,
-#edit_times {
-  background: #67A066;
-}
-
-#create_optional,
-#edit_optional {
-  background: #BD5A2A;
 }
 
 .white_text {
@@ -22348,9 +22319,9 @@ html {
 .start_padding::before {
   content: "";
   display: block;
-  height: 50px;
+  height: 80px;
   /* fixed header height*/
-  margin: -50px 0 0;
+  margin: -80px 0 0;
   /* negative fixed header height */
 }
 

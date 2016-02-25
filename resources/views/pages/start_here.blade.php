@@ -17,50 +17,50 @@
             <ul>
 
                 <li>
-                    <a href="#menubar">Menu bar</a>
+                    <h3><a href="#menubar">Menu bar</a></h3>
 
                 </li>
                 <li>
-                    <a href="#materials">Materials</a>
+                    <h3><a href="#materials">Materials</a></h3>
                 </li>
                 <li>
-                    <a href="#viewmaterial">View a Material</a>
+                    <h3><a href="#viewmaterial">View a Material</a></h3>
                 </li>
                 <li>
-                    <a href="#search">Search</a>
+                    <h3><a href="#search">Search</a></h3>
                 </li>
                 <li>
-                    <a href="#filter">Filter</a>
+                    <h3><a href="#filter">Filter</a></h3>
                 </li>
                 <li>
-                    <a href="#register">Register</a>
+                    <h3><a href="#register">Register</a></h3>
                 </li>
                 <li>
-                    <a href="#login">Login/Logout</a>
+                    <h3><a href="#login">Login/Logout</a></h3>
                 </li>
                 <li>
-                    <a href="#privatepublic">Private Public Materials</a>
+                    <h3><a href="#privatepublic">Private Public Materials</a></h3>
                 </li>
                 <li>
-                    <a href="#ratematerial">Rate Material</a>
+                    <h3><a href="#ratematerial">Rate Material</a></h3>
                 </li>
                 <li>
-                    <a href="#savematerial">Save Material</a>
+                    <h3><a href="#savematerial">Save Material</a></h3>
                 </li>
                 <li>
-                    <a href="#downloadmaterial">Download Material</a>
+                    <h3><a href="#downloadmaterial">Download Material</a></h3>
                 </li>
                 <li>
-                    <a href="#mymaterials">My Materials</a>
+                    <h3><a href="#mymaterials">My Materials</a></h3>
                 </li>
                 <li>
-                    <a href="#creatematerial">Create Material</a>
+                    <h3><a href="#creatematerial">Create Material</a></h3>
                 </li>
                 <li>
-                    <a href="#editmaterial">Edit Material</a>
+                    <h3><a href="#editmaterial">Edit Material</a></h3>
                 </li>
                 <li>
-                    <a href="#printmaterial">Print Material</a>
+                    <h3><a href="#printmaterial">Print Material</a></h3>
                 </li>
             </ul>
 
