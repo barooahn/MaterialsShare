@@ -22385,7 +22385,7 @@ html {
 
 .hero-unit {
   background-color: #EEEEEE;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .material_image {
@@ -22398,7 +22398,7 @@ html {
 }
 
 .spacer {
-  width: 305px;
+  width: 370px;
   margin: auto;
 }
 
@@ -22411,11 +22411,11 @@ html {
 
 .selling_points li {
   text-align: justify;
-  font-size: 1.8em;
+  font-size: 1.3em;
 }
 
 .green {
-  color: green;
+  color: #22B24C;
 }
 
 /* End of hero*/

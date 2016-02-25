@@ -7,15 +7,19 @@
 </div>
 <div class="hero-unit">
 
+    <a class="btn btn-success btn-large form-control"
+       href="{{ URL::to('start_here') }}">Learn more</a>
 
     <div class="hero_extra">
         <div class="spacer">
 
             <ul class="selling_points">
-                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Save materials</li>
-                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Share materials</li>
-                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Find new materials</li>
-                <li><span class="glyphicon glyphicon-ok green" aria-hidden="true"></span> Access anywhere</li>
+                <li><em>Save materials </em> <i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><em> Share resources </em> <i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><em> Find new teaching aids </em><i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><em> Access anywhere</em> <i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><em> Never lose another material again </em><i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><em> TEFL, ESL, English teachers</em> <i class="fa fa-check-square-o green fa-lg"></i></li>
             </ul>
 
 
@@ -23,7 +27,5 @@
 
     </div>
 
-    <a class="btn btn-success btn-large form-control"
-       href="{{ URL::to('start_here') }}">Learn more</a>
 
 </div>
