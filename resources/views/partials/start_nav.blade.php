@@ -6,7 +6,5 @@
             <a href="{{ URL::to('why') }}">Why are we doing this?</a></li>
         <li role="presentation" class="{{ (Request::is('services') ? 'active' : '') }}">
             <a href="{{ URL::to('services') }}">Values and services</a></li>
-        <li role="presentation" class="{{ (Request::is('content') ? 'active' : '') }}">
-                <a href="{{ URL::to('content') }}">Examples of our content</a></li>
     </ul>
 </div>

@@ -17,7 +17,7 @@
     @show
 
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
-    {{--<script src="{{ asset('js/site.js') }}"></script>--}}
+    <script src="{{ asset('js/site.js') }}"></script>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
 
