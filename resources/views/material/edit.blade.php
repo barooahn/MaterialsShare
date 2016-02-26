@@ -23,9 +23,7 @@
                 'route' => ['material.update', $material->id],
                 'files' => true
             ]) !!}
-
-
-
+            
 
             @foreach($options as $option=>$value)
                 @if($option == 'title')

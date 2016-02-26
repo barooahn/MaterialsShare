@@ -20,20 +20,16 @@ class OptionsTableSeeder extends Seeder
             'description' => 'Add files to your material',
         ]);
         DB::table('options')->insert([
+            'option' => 'category',
+            'description' => 'Educational institute',
+        ]);
+        DB::table('options')->insert([
             'option' => 'objective',
             'description' => 'Objective of this material',
         ]);
         DB::table('options')->insert([
             'option' => 'level',
             'description' => 'What level is this material for?',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'time_needed_prep',
-            'description' => 'Time is needed for preparation (minutes)',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'time_needed_class',
-            'description' => 'Time is needed in class (minutes)',
         ]);
         DB::table('options')->insert([
             'option' => 'language_focus',
@@ -48,20 +44,28 @@ class OptionsTableSeeder extends Seeder
             'description' => 'What tasks will the pupils do?',
         ]);
         DB::table('options')->insert([
-            'option' => 'category',
-            'description' => 'Educational institute',
-        ]);
-        DB::table('options')->insert([
             'option' => 'target_language',
             'description' => 'What is the target language?',
         ]);
         DB::table('options')->insert([
-            'option' => 'procedure_in',
-            'description' => 'Describe the classroom procedure ',
+            'option' => 'materials',
+            'description' => 'Additional materials needed',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'time_needed_prep',
+            'description' => 'Time is needed for preparation (minutes)',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'time_needed_class',
+            'description' => 'Time is needed in class (minutes)',
         ]);
         DB::table('options')->insert([
             'option' => 'procedure_before',
             'description' => 'Describe preparation procedure',
+        ]);
+        DB::table('options')->insert([
+            'option' => 'procedure_in',
+            'description' => 'Describe the classroom procedure ',
         ]);
         DB::table('options')->insert([
             'option' => 'book',
@@ -70,10 +74,6 @@ class OptionsTableSeeder extends Seeder
         DB::table('options')->insert([
             'option' => 'page',
             'description' => 'What page of the book?',
-        ]);
-        DB::table('options')->insert([
-            'option' => 'materials',
-            'description' => 'Additional materials needed',
         ]);
         DB::table('options')->insert([
             'option' => 'follow_up',

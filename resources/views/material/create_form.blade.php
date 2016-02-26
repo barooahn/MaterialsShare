@@ -54,12 +54,6 @@
                 @if($option == 'materials')
                     @include('material.options.materials')
                 @endif
-                @if($option == 'follow_up')
-                    @include('material.options.follow_up')
-                @endif
-                @if($option == 'notes')
-                    @include('material.options.notes')
-                @endif
                 @if($option == 'procedure_before')
                     @include('material.options.procedure_before')
                 @endif
@@ -69,17 +63,23 @@
                 @if($option == 'target_language')
                     @include('material.options.target_language')
                 @endif
+                @if($option == 'time_needed_prep')
+                    @include('material.options.time_needed_prep')
+                @endif
                 @if($option == 'time_needed_class')
                     @include('material.options.time_needed_class')
                 @endif
-                @if($option == 'time_needed_prep')
-                    @include('material.options.time_needed_prep')
+                @if($option == 'variations')
+                    @include('material.options.variations')
+                @endif
+                @if($option == 'follow_up')
+                    @include('material.options.follow_up')
                 @endif
                 @if($option == 'tips')
                     @include('material.options.tips')
                 @endif
-                @if($option == 'variations')
-                    @include('material.options.variations')
+                @if($option == 'notes')
+                    @include('material.options.notes')
                 @endif
 
             @endforeach
