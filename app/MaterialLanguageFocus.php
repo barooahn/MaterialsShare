@@ -23,6 +23,7 @@ class MaterialLanguageFocus extends Model
      */
     public function materials()
     {
-        return $this->belongsToMany('App\Material');
+        return $this->belongsToMany('App\Material',
+            'material_material_language_focus', 'focus_id', 'material_id');
     }
 }

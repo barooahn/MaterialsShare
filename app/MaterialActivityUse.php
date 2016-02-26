@@ -22,6 +22,7 @@ class MaterialActivityUse extends Model
      */
     public function materials()
     {
-        return $this->belongsToMany('App\Material');
+        return $this->belongsToMany('App\Material',
+            'material_material_activity_use', 'activity_use_id', 'material_id');
     }
 }

@@ -22,6 +22,7 @@ class MaterialPupilTask extends Model
      */
     public function materials()
     {
-        return $this->belongsToMany('App\Material');
+        return $this->belongsToMany('App\Material',
+            'material_material_pupil_task', 'pupil_task_id', 'material_id');
     }
 }

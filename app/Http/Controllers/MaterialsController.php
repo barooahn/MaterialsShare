@@ -266,7 +266,6 @@ class MaterialsController extends Controller
                     'slug' => str_slug($lf, '-')
                 ]);
 
-
                 // add language focus to materials pivot
                 $material->languageFocuses()->attach($material_language_focus->id);
             }
