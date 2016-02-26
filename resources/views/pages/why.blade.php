@@ -8,6 +8,7 @@
             </div>
         </div>
 
+        <a href="#" class="scrollToTop"><i class="fa fa-arrow-up fa-2x"></i></a>
         @include('partials.start_nav')
 
         <div class="col-md-9">
@@ -71,3 +72,30 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+
+//Check to see if the window is top if not then display button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 400) {
+                    $('.scrollToTop').fadeIn().css('z-index', 20000);
+
+                } else {
+                    $('.scrollToTop').fadeOut();
+                }
+            });
+
+//Click event to scroll to top
+            $('.scrollToTop').click(function () {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+
+        });
+
+    </script>
+
+
+@stop

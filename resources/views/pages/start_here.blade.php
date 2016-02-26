@@ -6,6 +6,7 @@
             <div class="page-header">
                 <h2 class="center_form">How to use Materials Share</h2>
             </div>
+            <a href="#" class="scrollToTop"><i class="fa fa-arrow-up fa-2x"></i></a>
         </div>
 
 
@@ -13,9 +14,13 @@
 
 
         <div class="col-md-9">
-           <h3>Index</h3>
+            <h3>Index</h3>
             <ul>
 
+                <li>
+                    <h3><a href="#quickstart">Quick Start</a></h3>
+
+                </li>
                 <li>
                     <h3><a href="#menubar">Menu bar</a></h3>
 
@@ -65,8 +70,28 @@
             </ul>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="menubar">Menu bar</a>
+            <h3>
+                <a class="start_padding" name="quickstart">Quick Start</a>
+            </h3>
+
+            <p>The first thing to do to have full access to the site is <a href="#register">Register</a>.</p>
+
+            <p>After registering and verifying your email address you should be logged in, if not <a
+                        href="#login">Login</a>.
+            </p>
+
+            <p>Now you can browse <a href="#materials">Materials</a>, <a href="#downloadmaterial">Download Materials</a>,
+                <a href="#ratematerial">Rate Materials</a> and <a href="#savematerial">Save Materials</a></p>
+
+            <p>If you want to find materials quickly you can <a href="#search">Search</a> or <a href="#filter">Filter</a></p>
+
+            <p>Remember to click on the title or image of the material you are interested in to get a detailed view - <a href="#viewmaterial">View a Material</a> </p>
+            <p>You can also <a href="#creatematerial">Create Materials</a> and <a href="#editmaterial">Edit your Materials</a></p>
+
+            <p>This should get you going.  If you want more details check the index above</p>
+            <hr>
+            <h3>
+                <a class="start_padding" name="menubar">Menu bar</a>
 
             </h3>
 
@@ -74,7 +99,7 @@
                 begin with. On mobile you have to hit the icon in the top right hand corner with three bars on it to
                 open the menu. See the pictures for both desktop and mobile menu bars.</p>
 
-            
+
             <p>The menu is like a navigation panel. It allows you to see different areas of Materials Share. You are
                 now in the Start Here area. Have a look at the other areas you can visit. We will take a look at
                 each in more detail further down the page.</p>
@@ -83,8 +108,8 @@
 
             <hr>
 
-           <h3>
-               <a class="start_padding" name="materials">Materials</a>
+            <h3>
+                <a class="start_padding" name="materials">Materials</a>
             </h3>
 
             <p>The materials page is where you view all materials created and currently shared</p>
@@ -95,8 +120,8 @@
                 the full details. </p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="viewmaterial">View a Material</a>
+            <h3>
+                <a class="start_padding" name="viewmaterial">View a Material</a>
             </h3>
 
             <p>By clicking Materials button on the menu bar you will get a list of all the materials currently available
@@ -116,8 +141,8 @@
                 leave comments about the material.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="search">Search</a>
+            <h3>
+                <a class="start_padding" name="search">Search</a>
             </h3>
 
             <p>As the collection of materials increases it will become more difficult to just browse to files you are
@@ -129,8 +154,8 @@
                 to the search query will be displayed.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="filter">Filter</a>
+            <h3>
+                <a class="start_padding" name="filter">Filter</a>
             </h3>
 
             <p>Filer is similar to search in that it reduces the number of materials into something more meaningful.
@@ -142,8 +167,8 @@
                 Choose your criteria and hit the "start filter" button to see your selection.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="register">Register</a>
+            <h3>
+                <a class="start_padding" name="register">Register</a>
             </h3>
 
             <p>Registering is free and gives you many benefits. Registered users can: upload, edit and download
@@ -157,8 +182,8 @@
                 Materials" page. You are now logged in.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="login">Login/Logout</a>
+            <h3>
+                <a class="start_padding" name="login">Login/Logout</a>
             </h3>
 
             <p>To login or logout simply click on the appropriate button in the menu bar. Login will require that you
@@ -166,8 +191,8 @@
                 be taken to your "My Materials" page.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="privatepublic">Private / Public Materials</a>
+            <h3>
+                <a class="start_padding" name="privatepublic">Private / Public Materials</a>
             </h3>
 
             <p>All materials can be made public or private. Materials public or private status can only be changed by
@@ -177,8 +202,8 @@
                 private.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="ratematerial">Rate Material</a>
+            <h3>
+                <a class="start_padding" name="ratematerial">Rate Material</a>
             </h3>
 
             <p>If you are logged in you are able to give a rating of 0-5 (including half) hearts. To do so go the the
@@ -188,8 +213,8 @@
                 once. After your vote the hearts display the average value of the votes, not your vote.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="savematerial">Save Material</a>
+            <h3>
+                <a class="start_padding" name="savematerial">Save Material</a>
             </h3>
 
             <P>Materials can be saved to your "My Materials" page from the "Materials" page or from the detailed view of
@@ -198,8 +223,8 @@
                 page. </P>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="downloadmaterial">Download Material</a>
+            <h3>
+                <a class="start_padding" name="downloadmaterial">Download Material</a>
             </h3>
 
             <P>If you are logged in you may download materials. To do this go to the detailed view of a material (click
@@ -209,8 +234,8 @@
                 downloaded are at original file size not reduced as you see on the preview.</P>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="mymaterials">My Materials</a>
+            <h3>
+                <a class="start_padding" name="mymaterials">My Materials</a>
             </h3>
 
             <p>My Materials is your home page. It is where all the materials you have created are stored. It can only be
@@ -219,8 +244,8 @@
 
             <hr>
 
-           <h3>
-               <a class="start_padding" name="creatematerial">Create Material</a>
+            <h3>
+                <a class="start_padding" name="creatematerial">Create Material</a>
             </h3>
 
             <p>To create a material you must be logged in. Creating a material is a two stage process. The first stage
@@ -247,8 +272,8 @@
                 created material.</p>
 
             <hr>
-           <h3>
-               <a class="start_padding" name="editmaterial">Edit Material</a>
+            <h3>
+                <a class="start_padding" name="editmaterial">Edit Material</a>
             </h3>
 
             <p>To edit a material you will need to be logged in. You will need to be in the detailed view of the
@@ -267,8 +292,8 @@
                 you will see the edited material.</p>
             <hr>
 
-           <h3>
-               <a class="start_padding" name="printmaterial">Print Material</a>
+            <h3>
+                <a class="start_padding" name="printmaterial">Print Material</a>
             </h3>
 
             <p>If you wish to print any material you can press the "CTRL" + "p" on your keyboard. This will open the
@@ -281,3 +306,30 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+
+//Check to see if the window is top if not then display button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 400) {
+                    $('.scrollToTop').fadeIn().css('z-index', 20000);
+
+                } else {
+                    $('.scrollToTop').fadeOut();
+                }
+            });
+
+//Click event to scroll to top
+            $('.scrollToTop').click(function () {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+
+        });
+
+    </script>
+
+
+@stop
