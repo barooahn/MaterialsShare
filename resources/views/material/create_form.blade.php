@@ -191,7 +191,7 @@
             previewsContainer: '#dropzonePreview',
             previewTemplate: document.querySelector('#preview-template').innerHTML,
             addRemoveLinks: true,
-            acceptedFiles: 'image/*,application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv, .ppt, .pptx',
+            acceptedFiles: 'image/*,application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv, .ppt, .pptx, .mov',
             dictRemoveFile: 'Remove',
             dictFileTooBig: 'Image is bigger than 60MB',
 

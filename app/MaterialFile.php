@@ -160,6 +160,8 @@ class MaterialFile extends Model
             case 'MP4':
             case 'avi':
             case 'AVI':
+            case 'mov':
+            case 'MOV':
                 $path = storage_path() . '/app/';
                 chdir($path);
                 $name = pathinfo($filename, PATHINFO_FILENAME);

@@ -23,7 +23,7 @@
                 'route' => ['material.update', $material->id],
                 'files' => true
             ]) !!}
-            
+
 
             @foreach($options as $option=>$value)
                 @if($option == 'title')
@@ -194,7 +194,7 @@
             uploadMultiple: false,
             parallelUploads: 100,
             maxFilesize: 55,
-            acceptedFiles: 'image/*,application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv, .ppt, .pptx',
+            acceptedFiles: 'image/*,application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv, .ppt, .pptx, .mov',
             previewsContainer: '#dropzonePreview',
             previewTemplate: document.querySelector('#preview-template').innerHTML,
             addRemoveLinks: true,
