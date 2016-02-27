@@ -217,8 +217,9 @@
                     files_added++;
                 });
 
-                this.on("removedfile", function (file) {
 
+                this.on("removedfile", function (file) {
+                    files_added--;
                     $.ajax({
                         type: 'POST',
                         url: 'upload/delete',
@@ -248,6 +249,7 @@
                     node = _ref[_i];
                     _results.push(node.textContent = message);
                 }
+                files_added--;
                 return _results;
             },
             success: function (file, done) {
