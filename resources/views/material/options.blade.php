@@ -12,7 +12,8 @@
     <div>
         <div class="col-md-12 center_form">
             <h1> Create a new material</h1>
-
+            <p>Select which fields you wish to create by clicking/taping on them</p>
+            <p>Note: click or hover on <i class="fa fa-info-circle fa-lg"></i> for extra information</p>
             <hr>
         </div>
 

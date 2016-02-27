@@ -13,7 +13,8 @@
         <div class="col-md-12 center_form">
             <h1> Edit or add the following fields</h1>
 
-            <p>Below are the minimum requirements to publish your material</p>
+            <p>Select which fields you wish to edit by clicking/taping on them</p>
+            <p>Note: click or hover on <i class="fa fa-info-circle fa-lg"></i> for extra information</p>
             <hr>
         </div>
 

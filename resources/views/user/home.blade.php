@@ -17,77 +17,76 @@
             <hr>
             @if(!$materials->isEmpty())
                 @foreach($materials as $item)
-                    <h3>{{ $item->title }}</h3>
 
-                    @if($item->objective)
-                        <div>
 
-                            <h3>Objective:</h3>
+                    <h2><a href="{{ URL::to('material/'.$item->slug) }}">{{ $item->title }}</a></h2>
 
-                            {!! $item->objective !!}
+                    <div class="padding_b">
+                        @if($item->objective)
+                            <div>
 
-                        </div>
-                    @endif
+                                <h5>Objective:</h5>
 
-                    @if($item->levels->count()>1)
-                        <div>
+                                {!! $item->objective !!}
 
-                            <h3>Level:</h3>
+                            </div>
+                        @endif
 
-                            @foreach($item->levels as $level)
+                        @if(count($item->levels))
+                            <div>
+
+                                <h5>Level:</h5>
+
+                                @foreach($item->levels as $level)
+
+                                    <div>
+                                        {!! $level->level !!}
+                                    </div>
+
+                                @endforeach
+
+                            </div>
+                        @endif
+
+                        @if($item->book)
+                            <div>
+
+                                <h5>Book:</h5>
+
 
                                 <div>
-                                    {!! $level->level !!}
+                                    {!! $item->book->book!!}
                                 </div>
 
-                            @endforeach
 
-                        </div>
-                    @endif
-
-                    @if($item->book)
-                        <div>
-
-                            <h3>Book:</h3>
-
-
-                            <div>
-                                {!! $item->book->book!!}
                             </div>
-
-
-                        </div>
-                    @endif
-
-                    <div>
-                        <a class="btn btn-success form-control" href="{{ URL::to('material/'.$item->slug) }}">Read
-                            more</a>
-                    </div>
-
-                    <div>
-                        {!! Form::open([
-                           'route' => ['togglePrivate', $item->id]
-                       ]) !!}
-
-                        @if($item->private == 0)
-                            {!! Form::submit('Make private', ['class' => 'btn btn-info user_button form-control']) !!}
-
-                        @else
-                            {!! Form::submit('Make public', ['class' => 'btn btn-success user_button form-control']) !!}
-
                         @endif
-                        {!! Form::hidden('id', $item->id) !!}
-                        {!! Form::close() !!}
 
                     </div>
+
+                    {!! Form::open([
+                       'route' => ['togglePrivate', $item->id]
+                   ]) !!}
+
+                    @if($item->private == 0)
+                        {!! Form::submit('Make private', ['class' => 'btn btn-info user_button form-control']) !!}
+
+                    @else
+                        {!! Form::submit('Make public', ['class' => 'btn btn-success user_button form-control']) !!}
+
+                    @endif
+                    {!! Form::hidden('id', $item->id) !!}
+                    {!! Form::close() !!}
+
+
 
                     @foreach($item->files as $key => $file)
 
                         @if($key ==0)
-                            <div>
-                                <img class="material_image"
-                                     src="{{url('/images/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
-                                     title="{{$file->filename}}">
+                            <div class="form_padding">
+                                <a href="{{ URL::to('material/'.$item->slug) }}"><img class="material_image"
+                                                                                      src="{{url('/imagesIndex/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
+                                                                                      title="{{$file->filename}}"></a>
                             </div>
                         @endif
 

@@ -65,11 +65,11 @@ class OptionsTableSeeder extends Seeder
         ]);
         DB::table('options')->insert([
             'option' => 'procedure_in',
-            'description' => 'Describe the classroom procedure ',
+            'description' => 'Describe the classroom procedure',
         ]);
         DB::table('options')->insert([
             'option' => 'book',
-            'description' => 'Textbook the material is based upon?',
+            'description' => 'Textbook the material is based upon',
         ]);
         DB::table('options')->insert([
             'option' => 'page',
