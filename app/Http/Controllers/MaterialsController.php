@@ -183,7 +183,7 @@ class MaterialsController extends Controller
         $material->private = 0;
 
         if (isset($request->title)) {
-            $material->title = ucfirst(strtolower($request->title));
+            $material->title = ucwords($request->title);
             $material->slug = str_slug($request->title, '-');
         }
         if (isset($request->objective)) {
@@ -333,7 +333,7 @@ class MaterialsController extends Controller
         // Update material
 
         if (isset($request->title)) {
-            $material->title = ucfirst($request->title);
+            $material->title = ucwords($request->title);
             $material->slug = str_slug($request->title, '-');
         }
         if (isset($request->objective)) {
