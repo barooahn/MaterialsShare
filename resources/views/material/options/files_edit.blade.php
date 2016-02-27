@@ -13,6 +13,7 @@
                        href="{{ URL::route('remove_file', array('file' => $file)) }}">Delete</a>
                 </div>
             </div>
+            <hr>
         @endforeach
 
     </div>

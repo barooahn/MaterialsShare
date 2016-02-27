@@ -146,10 +146,10 @@
             $(".prep_time").text($(this).val());
         });
 
-    $(".class_slider").slider();
-    $(".class_slider").change(function () {
-    $(".class_time").text($(this).val());
-    });
+        $(".class_slider").slider();
+        $(".class_slider").change(function () {
+            $(".class_time").text($(this).val());
+        });
     </script>
 
     <script type="text/javascript">
@@ -167,15 +167,15 @@
     </script>
 
     <script>
-    tinymce.init({
-    selector: '.form-wysyg',
-    menubar: false,
-    statusbar: false
-    });
+        tinymce.init({
+            selector: '.form-wysyg',
+            menubar: false,
+            statusbar: false
+        });
     </script>
 
     <script>
-    $(".file_input").fileinput({'showPreview': false, showUpload: false});
+        $(".file_input").fileinput({'showPreview': false, showUpload: false});
     </script>
 
 
@@ -194,7 +194,7 @@
             uploadMultiple: false,
             parallelUploads: 100,
             maxFilesize: 55,
-            acceptedFiles: 'image/*,application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv, .ppt, .pptx, .mov',
+            acceptedFiles: 'application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint, video/mp4, video/x-msvideo, .avi, .wmv, .ppt, .pptx, .mov, .jpg, jpeg',
             previewsContainer: '#dropzonePreview',
             previewTemplate: document.querySelector('#preview-template').innerHTML,
             addRemoveLinks: true,

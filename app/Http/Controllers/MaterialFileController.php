@@ -52,7 +52,10 @@ class MaterialFileController extends Controller
         if (!is_dir(public_path() . $path)) {
             mkdir(public_path() . $path);
         }
-        $filename = str_replace(' ', '_', $file['file']->getClientOriginalName());
+
+        $name = MaterialFileController::sanitize( pathinfo($file['file']->getClientOriginalName(), PATHINFO_FILENAME));
+        $extension = strtolower($file['file']->getClientOriginalExtension());
+        $filename = $name.'.'.$extension;
         $file['file']->move(public_path() . $path . '/', $filename);
 
         $response = $filename;
@@ -77,6 +80,20 @@ class MaterialFileController extends Controller
         $response = $deleted ? 'deleted' : 'Error can\'t delete';
 
         return $response;
+    }
+
+    function sanitize($string, $force_lowercase = true, $anal = false) {
+        $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+            "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+            "â€”", "â€“", ",", "<", ".", ">", "/", "?");
+        $clean = trim(str_replace($strip, "", strip_tags($string)));
+        $clean = preg_replace('/\s+/', "-", $clean);
+        $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean ;
+        return ($force_lowercase) ?
+            (function_exists('mb_strtolower')) ?
+                mb_strtolower($clean, 'UTF-8') :
+                strtolower($clean) :
+            $clean;
     }
 
 
