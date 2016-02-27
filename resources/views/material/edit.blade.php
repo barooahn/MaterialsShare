@@ -195,6 +195,7 @@
         });
 
         var photo_counter = 0;
+        var files_added = 0;
         Dropzone.options.realDropzone = {
 
             uploadMultiple: false,
@@ -213,6 +214,7 @@
                 this.on("addedfile", function(file) {
                     $("#saveButton").hide();
                     $(".button_disabled").show();
+                    files_added++;
                 });
 
                 this.on("removedfile", function (file) {
@@ -251,8 +253,10 @@
             success: function (file, done) {
                 photo_counter++;
                 $("#photoCounter").text("(" + photo_counter + ")");
-                $("#saveButton").show();
-                $(".button_disabled").hide();
+                if (files_added == photo_counter) {
+                    $("#saveButton").show();
+                    $(".button_disabled").hide();
+                }
             }
         }
 
