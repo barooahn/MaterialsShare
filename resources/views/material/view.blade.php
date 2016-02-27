@@ -75,9 +75,9 @@
             @if($material->objective)
                 <div>
 
-                    <h3>Objective(s):</h3>
+                    <h4>Objective(s):</h4>
 
-                    <h4>By the end of the activity pupils will be able to:</h4>
+                    <h5>By the end of the activity pupils will be able to:</h5>
 
                     {!! $material->objective !!}
 
@@ -86,7 +86,7 @@
 
             @if($material->target_language)
                 <div>
-                    <h3>Target Language:</h3>
+                    <h4>Target Language:</h4>
 
                     {{ $material->target_language }}
 
@@ -95,7 +95,7 @@
 
             @if($material->time_needed_prep)
                 <div>
-                    <h3>Time needed for preparation:</h3>
+                    <h4>Time needed for preparation:</h4>
 
                     {{ $material->time_needed_prep }} minutes
 
@@ -104,7 +104,7 @@
 
             @if( $material->time_needed_class)
                 <div>
-                    <h3>Time needed in class:</h3>
+                    <h4>Time needed in class:</h4>
 
                     {{ $material->time_needed_class }} minutes
 
@@ -114,7 +114,7 @@
             @if(count($material->levels))
                 <div>
 
-                    <h3>Level:</h3>
+                    <h4>Level:</h4>
 
                     @foreach($material->levels as $level)
 
@@ -130,7 +130,7 @@
             @if(count($material->languageFocuses))
                 <div>
 
-                    <h3>Language Focus:</h3>
+                    <h4>Language Focus:</h4>
 
                     @foreach($material->languageFocuses as $focus)
 
@@ -146,7 +146,7 @@
             @if(count($material->activityUses))
                 <div>
 
-                    <h3>Activity Use:</h3>
+                    <h4>Activity Use:</h4>
 
                     @foreach($material->activityUses as $activity)
 
@@ -162,7 +162,7 @@
             @if(count($material->pupilTasks))
                 <div>
 
-                    <h3>Pupil Task:</h3>
+                    <h4>Pupil Task:</h4>
 
                     @foreach($material->pupilTasks as $task)
 
@@ -177,7 +177,7 @@
             @if($material->book)
                 <div>
 
-                    <h3>Book:</h3>
+                    <h4>Book:</h4>
 
 
                     <div>
@@ -190,7 +190,7 @@
             @if($material->page)
                 <div>
 
-                    <h3>Page:</h3>
+                    <h4>Page:</h4>
 
                     {{ $material->page }}
 
@@ -204,7 +204,7 @@
 
 
             @if(count($material->categories))
-                <h3>Which learning institute:</h3>
+                <h4>Which learning institute:</h4>
                 @foreach($material->categories as $category)
 
                     <div>
@@ -217,7 +217,7 @@
             @if($material->materials)
                 <div>
 
-                    <h3>Materials:</h3>
+                    <h4>Materials:</h4>
 
                     {{ $material->materials }}
 
@@ -227,7 +227,7 @@
 
             @if($material->procedure_before)
                 <div>
-                    <h3>Procedure before class:</h3>
+                    <h4>Procedure before class:</h4>
 
                     {!! $material->procedure_before !!}
                 </div>
@@ -237,7 +237,7 @@
 
             @if($material->procedure_in)
                 <div>
-                    <h3>Procedure in class:</h3>
+                    <h4>Procedure in class:</h4>
 
                     {!! $material->procedure_in !!}
 
@@ -249,7 +249,7 @@
             @if($material->follow_up)
                 <div>
 
-                    <h3>Follow Up:</h3>
+                    <h4>Follow Up:</h4>
 
                     {!! $material->follow_up !!}
 
@@ -262,7 +262,7 @@
             @if($material->variations)
                 <div>
 
-                    <h3>Variations:</h3>
+                    <h4>Variations:</h4>
 
                     {!! $material->variations!!}
 
@@ -273,7 +273,7 @@
             @if($material->tips)
                 <div>
 
-                    <h3>Tips:</h3>
+                    <h4>Tips:</h4>
 
                     {!! $material->tips!!}
 
@@ -284,7 +284,7 @@
             @if($material->notes)
                 <div>
 
-                    <h3>Notes:</h3>
+                    <h4>Notes:</h4>
 
                     {!! $material->notes!!}
 

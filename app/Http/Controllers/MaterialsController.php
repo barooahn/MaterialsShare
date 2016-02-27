@@ -183,14 +183,14 @@ class MaterialsController extends Controller
         $material->private = 0;
 
         if (isset($request->title)) {
-            $material->title = ucfirst($request->title);
+            $material->title = ucfirst(strtolower($request->title));
             $material->slug = str_slug($request->title, '-');
         }
         if (isset($request->objective)) {
-            $material->objective = ucfirst($request->objective);
+            $material->objective = ucfirst(strtolower($request->objective));
         }
         if (isset($request->target_language)) {
-            $material->target_language = ucfirst($request->target_language);
+            $material->target_language = ucfirst(strtolower($request->target_language));
         }
         if (isset($request->time_needed_prep)) {
             $material->time_needed_prep = $request->time_needed_prep;
@@ -203,7 +203,7 @@ class MaterialsController extends Controller
             $material->time_needed_class = 0;
         }
         if (isset($request->materials)) {
-            $material->materials = ucfirst($request->materials);
+            $material->materials = ucfirst(strtolower($request->materials));
         }
         if (isset($request->procedure_before)) {
             $material->procedure_before = ucfirst($request->procedure_before);
@@ -337,10 +337,10 @@ class MaterialsController extends Controller
             $material->slug = str_slug($request->title, '-');
         }
         if (isset($request->objective)) {
-            $material->objective = ucfirst($request->objective);
+            $material->objective = ucfirst(strtolower($request->objective));
         }
         if (isset($request->target_language)) {
-            $material->target_language = ucfirst($request->target_language);
+            $material->target_language = ucfirst(strtolower($request->target_language));
         }
         if (isset($request->time_needed_prep)) {
             $material->time_needed_prep = $request->time_needed_prep;
@@ -349,7 +349,7 @@ class MaterialsController extends Controller
             $material->time_needed_class = $request->time_needed_class;
         }
         if (isset($request->materials)) {
-            $material->materials = ucfirst($request->materials);
+            $material->materials = ucfirst(strtolower($request->materials));
         }
         if (isset($request->procedure_before)) {
             $material->procedure_before = ucfirst($request->procedure_before);
