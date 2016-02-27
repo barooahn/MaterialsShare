@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Mail;
 use Response;
 use Session;
 use Validator;
+use Illuminate\Pagination\Paginator;
 
 class MaterialsController extends Controller
 {
@@ -711,20 +712,8 @@ class MaterialsController extends Controller
         }
 
 
-        $materials = $query->get();// make the query and load the data
-
-        $materials->forPage(count($materials), Material::$paginate);
-        $page = 1;
-        $perPage = 15;
-        $pagination = new LengthAwarePaginator(
-            $materials->forPage($page, $perPage),
-            $materials->count(),
-            $perPage,
-            $page
-        );
-        $materials = $pagination;
-
-
+        $materials = $query->paginate(Material::$paginate);// make the query and load the data
+        
         $categories = MaterialCategory::lists('category', 'category');
         $levels = MaterialLevel::lists('level', 'level');
         $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
