@@ -711,9 +711,8 @@ class MaterialsController extends Controller
             $query = $query->whereBetween('time_needed_prep', $prep);
         }
 
-
         $materials = $query->paginate(Material::$paginate);// make the query and load the data
-        
+
         $categories = MaterialCategory::lists('category', 'category');
         $levels = MaterialLevel::lists('level', 'level');
         $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');

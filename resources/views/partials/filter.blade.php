@@ -9,7 +9,7 @@
             {!! Form::open(['action' => 'MaterialsController@postFilter']) !!}
 
             @foreach($materials as $item)
-            {!! Form::hidden('materials[]', $item->id) !!}
+                {!! Form::hidden('materials[]', $item->id) !!}
             @endforeach
             <div class="col-md-3">
                 <div class="form-group">
@@ -58,7 +58,9 @@
                     <div>
                         <input class="class_slider" type="text" name="time_needed_class" data-slider-min="0"
                                data-slider-max="90" data-slider-step="5" data-slider-value="[0,90]">
+                              <span>Minutes: <span class="class_time"></span></span>
                     </div>
+
 
                 </div>
                 <div class="form-group">
@@ -67,6 +69,7 @@
                     <div>
                         <input class="prep_slider" type="text" name="time_needed_prep" data-slider-min="0"
                                data-slider-max="90" data-slider-step="5" data-slider-value="[0,90]">
+                           <span>Minutes: <span class="prep_time"></span></span>
                     </div>
 
                 </div>
