@@ -90,12 +90,18 @@
             @endforeach
             <div class="form-group">
 
-                {!! Form::submit('continue', ['class' => 'btn btn-success btn-large form-control']) !!}
+                {!! Form::submit('continue', ['class' => 'btn btn-success btn-large form-control', 'id' => 'saveButton']) !!}
 
             </div>
 
 
             {!! Form::close() !!}
+
+            <div class="alert alert-success alert-dismissible button_disabled" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                Continue button disabled until uploads complete.
+            </div>
 
         </div>
     </div>
@@ -204,6 +210,11 @@
             // The setting up of the dropzone
             init: function () {
 
+                this.on("addedfile", function(file) {
+                    $("#saveButton").hide();
+                    $(".button_disabled").show();
+                });
+
                 this.on("removedfile", function (file) {
 
                     $.ajax({
@@ -240,6 +251,8 @@
             success: function (file, done) {
                 photo_counter++;
                 $("#photoCounter").text("(" + photo_counter + ")");
+                $("#saveButton").show();
+                $(".button_disabled").hide();
             }
         }
 

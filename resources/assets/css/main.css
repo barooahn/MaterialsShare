@@ -46,6 +46,10 @@ html {
 .checkbox_option {
     width: 175px;
 }
+/*  create form edit form warning button */
+.button_disabled {
+    display: none;
+}
 
 /* index page filter */
 
