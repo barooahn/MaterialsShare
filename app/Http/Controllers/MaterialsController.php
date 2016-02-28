@@ -32,8 +32,8 @@ class MaterialsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
-        $this->middleware('activated', ['except' => ['index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search', 'postFilter']]);
+        $this->middleware('activated', ['except' => ['index', 'show', 'search', 'postFilter']]);
     }
 
     public function index($materials = null)
@@ -184,14 +184,14 @@ class MaterialsController extends Controller
         $material->private = 0;
 
         if (isset($request->title)) {
-            $material->title = ucwords($request->title);
+            $material->title = trim(ucwords($request->title));
             $material->slug = str_slug($request->title, '-');
         }
         if (isset($request->objective)) {
-            $material->objective = ucfirst(strtolower($request->objective));
+            $material->objective = trim(ucfirst(strtolower($request->objective)));
         }
         if (isset($request->target_language)) {
-            $material->target_language = ucfirst(strtolower($request->target_language));
+            $material->target_language = trim(ucfirst(strtolower($request->target_language)));
         }
         if (isset($request->time_needed_prep)) {
             $material->time_needed_prep = $request->time_needed_prep;
@@ -204,13 +204,13 @@ class MaterialsController extends Controller
             $material->time_needed_class = 0;
         }
         if (isset($request->materials)) {
-            $material->materials = ucfirst(strtolower($request->materials));
+            $material->materials = trim(ucfirst(strtolower($request->materials)));
         }
         if (isset($request->procedure_before)) {
-            $material->procedure_before = ucfirst($request->procedure_before);
+            $material->procedure_before = trim(ucfirst($request->procedure_before));
         }
         if (isset($request->procedure_in)) {
-            $material->procedure_in = ucfirst($request->procedure_in);
+            $material->procedure_in = trim(ucfirst($request->procedure_in));
         }
 
         // store files
@@ -308,21 +308,21 @@ class MaterialsController extends Controller
         }
 
         if (isset($request->page)) {
-            $material->page = $request->page;
+            $material->page = trim($request->page);
         }
 
         if (isset($request->follow_up)) {
             //update material
-            $material->follow_up = ucfirst($request->follow_up);
+            $material->follow_up = trim(ucfirst($request->follow_up));
         }
         if (isset($request->variations)) {
-            $material->variations = ucfirst($request->variations);
+            $material->variations = trim(ucfirst($request->variations));
         }
         if (isset($request->tips)) {
-            $material->tips = ucfirst($request->tips);
+            $material->tips = trim(ucfirst($request->tips));
         }
         if (isset($request->notes)) {
-            $material->notes = ucfirst($request->notes);
+            $material->notes = trim(ucfirst($request->notes));
         }
         $material->update();
 
