@@ -30,6 +30,7 @@
                 </li>
                 <li>
                     {!! Form::open([
+                        'method' => 'GET',
                         'class' => 'navbar-form',
                         'route' => ['search']
                     ]) !!}

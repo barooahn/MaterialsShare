@@ -6,10 +6,10 @@
         <div class="content">
 
 
-            {!! Form::open(['action' => 'MaterialsController@postFilter']) !!}
+            {!! Form::open(['method' => 'GET', 'route' => 'filter']) !!}
 
             @foreach($materials as $item)
-                {!! Form::hidden('materials[]', $item->id) !!}
+                {{--{!! Form::hidden('materials[]', $item->id) !!}--}}
             @endforeach
             <div class="col-md-3">
                 <div class="form-group">

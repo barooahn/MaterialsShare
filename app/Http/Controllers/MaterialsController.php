@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Mail;
 use Response;
 use Session;
 use Validator;
-use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 class MaterialsController extends Controller
 {
@@ -555,24 +555,6 @@ class MaterialsController extends Controller
         return redirect()->back();
     }
 
-    public function search(Request $request)
-    {
-        $materials = Material::where('private', 0)->search($request->material_search)
-            ->paginate(Material::$paginate);
-
-        $categories = MaterialCategory::lists('category', 'category');
-        $levels = MaterialLevel::lists('level', 'level');
-        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
-        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
-        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
-        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
-
-        return view('material.index',
-            compact('materials', 'options', 'categories', 'levels',
-                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
-
-    }
-
     public function feedback(Request $request)
     {
 
@@ -646,18 +628,58 @@ class MaterialsController extends Controller
                 'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
     }
 
-    public function postFilter(Request $request)
+    public function search(Request $request)
     {
+        $url = $request->url();
+        $query = $request->query();
+        $page = $request->has('page') ? $request->get('page') : 1;
 
+        $filtered = Material::where('private', 0)->search($request->material_search)->get();
+        $materials = MaterialsController::makeLengthAware($filtered, $url, $query, $page);
+
+        $categories = MaterialCategory::lists('category', 'category');
+        $levels = MaterialLevel::lists('level', 'level');
+        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
+        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
+        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
+        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
+
+        return view('material.search',
+            compact('materials', 'options', 'categories', 'levels',
+                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
+
+    }
+    public function postFilter(Request $request){
+
+        $url = $request->url();
+        $query = $request->query();
+        $page = $request->has('page') ? $request->get('page') : 1;
+
+        $filtered = MaterialsController::getFilter($request);
+        $materials = MaterialsController::makeLengthAware($filtered, $url, $query, $page);
+
+        $categories = MaterialCategory::lists('category', 'category');
+        $levels = MaterialLevel::lists('level', 'level');
+        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
+        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
+        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
+        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
+
+        return view('material.search',
+            compact('materials', 'categories', 'levels',
+                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
+    }
+
+    public function getFilter($request)
+    {
         $query = Material::with('categories', 'levels', 'languageFocuses', 'activityUses',
             'pupilTasks', 'book'); //names of eager
 
 
-        if ($request->book)
+        if (trim($request->book)!=='')
             $query = $query->whereHas('book', function ($bookQuery) use ($request) {
                 $bookQuery->where('book', $request->book);
             });
-
 
         if ($request->level) {
             for ($i = 0; $i < count($request->level); $i++) {
@@ -701,28 +723,28 @@ class MaterialsController extends Controller
 
         if ($request->time_needed_class) {
             $class = explode(',', $request->time_needed_class);
-
             $query = $query->whereBetween('time_needed_class', $class);
         }
 
         if ($request->time_needed_prep) {
             $prep = explode(',', $request->time_needed_prep);
-
             $query = $query->whereBetween('time_needed_prep', $prep);
         }
 
-        $materials = $query->paginate(Material::$paginate);// make the query and load the data
+        return $query->get();// make the query and load the data
 
-        $categories = MaterialCategory::lists('category', 'category');
-        $levels = MaterialLevel::lists('level', 'level');
-        $language_focuses = MaterialLanguageFocus::lists('language_focus', 'language_focus');
-        $activity_uses = MaterialActivityUse::lists('activity_use', 'activity_use');
-        $pupil_tasks = MaterialPupilTask::lists('pupil_task', 'pupil_task');
-        $books = ['' => ''] + MaterialBook::lists('book', 'book')->all();
-
-        return view('material.index',
-            compact('materials', 'categories', 'levels',
-                'language_focuses', 'activity_uses', 'pupil_tasks', 'books'));
     }
 
+    public static function makeLengthAware($collection, $url, $query, $page)
+    {
+
+        //Define how many items we want to be visible in each page
+        $perPage = Material::$paginate;
+
+        //Create our paginator and pass it to the view
+        return $paginatedSearchResults = new LengthAwarePaginator(
+            $collection->forPage($page, $perPage), $collection->count(), $perPage, $page
+            ,['path'  => $url,'query' => $query,
+        ]);
+    }
 }

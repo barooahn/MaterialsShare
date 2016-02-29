@@ -21,11 +21,10 @@ Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::get('materials', 'MaterialsController@index');
 Route::get('material/{slug}', 'MaterialsController@show');
 
-Route::post('search', array('as' => 'search', 'uses' => 'MaterialsController@search'));
-Route::post('filter', array('as' => 'filter', 'uses' => 'MaterialsController@postFilter'));
+Route::get('search', array('as' => 'search', 'uses' => 'MaterialsController@search'));
+
 Route::get('filter', array('as' => 'filter', 'uses' => 'MaterialsController@postFilter'));
-Route::patch('filter', array('as' => 'filter', 'uses' => 'MaterialsController@postFilter'));
-Route::get('materials', 'MaterialsController@index');
+
 Route::get('images/{filename}', function ($filename) {
     return Image::make(storage_path() . '/app/thumbs/' . $filename)->response();
 });
