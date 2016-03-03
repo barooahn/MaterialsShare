@@ -18,7 +18,7 @@
                 <li><em> Share resources </em> <i class="fa fa-check-square-o green fa-lg"></i></li>
                 <li><em> Find new teaching aids </em><i class="fa fa-check-square-o green fa-lg"></i></li>
                 <li><em> Access anywhere</em> <i class="fa fa-check-square-o green fa-lg"></i></li>
-                <li><em> Never lose another material again </em><i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><em> Never lose materials again </em><i class="fa fa-check-square-o green fa-lg"></i></li>
                 <li><em> TEFL, ESL, English teachers</em> <i class="fa fa-check-square-o green fa-lg"></i></li>
             </ul>
 
