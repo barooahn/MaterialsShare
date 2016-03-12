@@ -76,6 +76,7 @@ elixir(function(mix) {
         'dropdown-toggle.js',
         'tinymce.min.js',
         'star-rating.js',
+        'google-analitics.js',
     ], 'public/js/site.js');
 
     // Merge Admin CSSs.
