@@ -1,0 +1,15 @@
+@extends('layouts.app')
+@section('title') About :: @parent @stop
+@section('content')
+    <div class="row">
+        <div class="page-header">
+            <h2>About Page</h2>
+		{{getcwd()}}
+		{{chdir('uploads')}}
+		<?php exec("libreoffice --invisible  --convert-to pdf pict.docx exec("ping -c 1 $domain_bad 2>&1", $output, $return_var);", $output, $code")?>
+{{$output}}
+{{$code}}
+		{{getcwd()}}
+        </div>
+    </div>
+@endsection

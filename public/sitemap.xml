@@ -1,433 +1,637 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>http://materialsshare.co.uk/</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/home</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/start_here</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/contact</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/auth/login</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/auth/register</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/yummy-yummy</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/a-garden-of-friendship</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/indoor-outdoor-activities</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/i-love-my-family</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/get-to-know-our-planets</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/where-is-my-home</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/mini-dinosaur-learning-cards</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/talking-about-your-hobbies</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=2</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=3</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=4</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=5</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=6</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=7</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=8</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=9</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=10</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=11</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/why</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/services</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/password/email</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/finger-family-puppet</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/magnetic-letters</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/animal-puppets</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/more-occupations</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/pupil-made-cuecards</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/phonic-igh-oa</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/individual-mini-whiteboards</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/step-on-numbers</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/materials?page=1</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/picture-cards-game</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/what-is</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/bookshop-activity</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/my-happy-days</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/2-hukmas-scrapbook</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/phoneme-bullseye</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/alphabet-shapes</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/phonics-dice</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/matching-board-game</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/please-answer-me</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/the-senses</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/phonics-competition</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/pass-the-pot</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/opposite-adjectives</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/solve-and-talk</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/occupations</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/dressing-up</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/my-school</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/show-the-colour-word</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/greetings-and-requests</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/giant-move-your-body-board-game</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/teaching-the-3rd-person-s</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/the-thirsty-crow</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/board-game</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/classroom-items</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/initial-sounds</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/puppet-speak</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/memorable-vocabulary-revising-parts-of-the-body</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/jungle-shadows</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/picture-dominoes</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/musical-hoop-sounds</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/decoding-storybooks</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/actionary-game</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/super-giant-vocabulary-and-spelling</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/wonderful-collage</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/match-up-write-down</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/iteration</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/animals</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/yummy-and-yuk</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/senses-song-activity</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/phonics-dice-s-a-t-p-sounds</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/word-slider</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/puppet-theatre</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/mini-books</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/jolly-phonics</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/find-your-match</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/colour-coding</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/food</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/smart-sneaky-snake</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/family-tree</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/a-trip-to-town</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/capital-letters</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/stop-look-listen</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/memory-race</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/hot-potato</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/my-house</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/spelling-bags</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/alphabet-roulette</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/fun-with-phonics</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/shapes-and-body-parts</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/food-and-drink-categories</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/word-snake</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/what-do-you-like-to-eat</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/musical-jar</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/wh-questions-board-game</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/running-comprehension-jenny-the-banker</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/send-a-message-to-a-friend</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/picture-crossword</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://materialsshare.co.uk/material/word-shakers</loc>
-  <changefreq>weekly</changefreq>
-</url>
+<!-- Sitemap File Generated by https://freesitemapgenerator.com/ at Tue, 10 Jan 2017 10:10:42 +0100 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<url>
+		<loc>http://materialsshare.co.uk/</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.00</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/home</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.99</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.99</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/start_here</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.99</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/contact</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.99</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/auth/login</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.99</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/auth/register</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.99</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=2</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.60</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=3</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.59</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=4</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.59</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=5</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.58</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=6</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.58</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=7</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.58</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=8</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.58</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=9</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.58</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=10</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.58</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=11</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.57</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/materials?page=1</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.48</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/a-garden-of-friendship</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.32</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/indoor-outdoor-activities</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.32</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/i-love-my-family</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.31</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/get-to-know-our-planets</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.31</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/where-is-my-home</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.31</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/mini-dinosaur-learning-cards</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.31</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/talking-about-your-hobbies</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.31</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/finger-family-puppet</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.31</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/why</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.28</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/services</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.28</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/password/email</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.24</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/please-answer-me</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/my-school</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/the-senses</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/initial-sounds</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/show-the-colour-word</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/phonics-competition</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/super-giant-vocabulary-and-spelling</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/puppet-speak</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/greetings-and-requests</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/pass-the-pot</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/word-slider</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/wonderful-collage</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/memorable-vocabulary-revising-parts-of-the-body</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/giant-move-your-body-board-game</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/opposite-adjectives</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/family-tree</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/puppet-theatre</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/match-up-write-down</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/jungle-shadows</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/teaching-the-3rd-person-s</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/solve-and-talk</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/alphabet-roulette</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/a-trip-to-town</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/mini-books</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/iteration</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/picture-dominoes</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/the-thirsty-crow</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/occupations</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/running-comprehension-jenny-the-banker</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/fun-with-phonics</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/capital-letters</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/jolly-phonics</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/animals</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/musical-hoop-sounds</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/board-game</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/dressing-up</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/send-a-message-to-a-friend</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/shapes-and-body-parts</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/stop-look-listen</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/find-your-match</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/yummy-and-yuk</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/decoding-storybooks</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/classroom-items</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/picture-crossword</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/food-and-drink-categories</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/memory-race</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/colour-coding</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/senses-song-activity</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/actionary-game</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/word-shakers</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/word-snake</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/hot-potato</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/food</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/phonics-dice-s-a-t-p-sounds</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/what-do-you-like-to-eat</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/my-house</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/smart-sneaky-snake</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/musical-jar</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/spelling-bags</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/wh-questions-board-game</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.14</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/magnetic-letters</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/animal-puppets</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/what-is</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/more-occupations</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/bookshop-activity</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/pupil-made-cuecards</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/my-happy-days</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/phonic-igh-oa</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/2-hukmas-scrapbook</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/individual-mini-whiteboards</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/phoneme-bullseye</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/step-on-numbers</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/alphabet-shapes</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/picture-cards-game</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/phonics-dice</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
+	<url>
+		<loc>http://materialsshare.co.uk/material/matching-board-game</loc>
+		<lastmod>2017-01-10T10:10:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.11</priority>
+	</url>
 </urlset>
