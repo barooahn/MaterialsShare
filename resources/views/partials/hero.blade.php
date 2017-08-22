@@ -7,10 +7,11 @@
 
             <h2>Save, share and get feedback on your teaching aids</h2>
             <ul class="selling_points">
-                <li><i class="fa fa-check-square-o green fa-lg"></i>   Save materials</li>
-                <li><i class="fa fa-check-square-o green fa-lg"></i>   Share resources</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Save materials to the cloud</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Share resources with other teachers</li>
                 <li><i class="fa fa-check-square-o green fa-lg"></i>   Find new teaching aids</li>
-                <li><i class="fa fa-check-square-o green fa-lg"></i>   Access anywhere</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Access anywhere with internet</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Access on any device</li>
                 <li><i class="fa fa-check-square-o green fa-lg"></i>   Never lose materials again</li>
                 <li><i class="fa fa-check-square-o green fa-lg"></i>   TEFL, ESL, English teachers</li>
             </ul>

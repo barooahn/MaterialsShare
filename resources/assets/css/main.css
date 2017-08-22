@@ -6,6 +6,7 @@ html {
 
 body {
     font-family: 'Open Sans', sans-serif;
+    min-height: 100%;
 }
 
 /*Nav*/
@@ -22,6 +23,14 @@ body {
 
 .splash {
     padding-top:50px;
+    background-image: url("/img/background.jpg");
+    /* Full height */
+    min-height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .splash h1 {
@@ -185,7 +194,7 @@ body {
 .selling_points {
     list-style-type: none;
     padding: 20px;
-    width: 325px;
+    width: 385px;
     margin: 0 auto;
 }
 
@@ -363,6 +372,10 @@ div.tooltip-inner {
 
     body {
         font-size: 14px;
+    }
+
+    .splash {
+        background-image: none;
     }
 
     .selling_points {
