@@ -8,7 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ URL::to('home') }}">Materials Share</a>
+            <a class="navbar-brand" href="{{ URL::to('home') }}"><span><img class="img-responsive" src="/img/logo.png" alt="Materials Share - Share teaching material and resources - Logo"></span></a>
+
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -21,8 +21,13 @@ body {
     background-color:white;
 }
 
-/*Splash page - hero.blade.php*/
+.navbar-brand {
+    width: 140px;
+    margin: 0;
+    padding: 5px;
+}
 
+/*Splash page - hero.blade.php*/
 .splash {
     background-image: url("/img/background.jpg");
     min-height: 100vh;
@@ -34,8 +39,8 @@ body {
 }
 
 .title {
-    font-size: 60px;
-    text-align: center;
+    width: 400px;
+    margin: 50px auto;
 }
 
 .splash h1 {

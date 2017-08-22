@@ -5,7 +5,7 @@
 
             <div class="col-md-12">
                 <div class="title">
-                    <span>Materials Share</span>
+                    <img class="img-responsive" src="/img/logo.png">
                 </div>
                 <h1>Save, share and get feedback on your teaching aids</h1>
 
