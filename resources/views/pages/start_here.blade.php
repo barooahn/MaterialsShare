@@ -9,65 +9,64 @@
             <a href="#" class="scrollToTop"><i class="fa fa-arrow-up fa-2x"></i></a>
         </div>
 
-
-        @include('partials.start_nav')
-
-
-        <div class="col-md-9">
+        <div class="col-md-3">
             <h3>Index</h3>
             <ul>
 
                 <li>
-                    <h3><a href="#quickstart">Quick Start</a></h3>
+                    <p><a href="#quickstart">Quick Start</a></p>
 
                 </li>
                 <li>
-                    <h3><a href="#menubar">Menu bar</a></h3>
+                    <p><a href="#menubar">Menu bar</a></p>
 
                 </li>
                 <li>
-                    <h3><a href="#materials">Materials</a></h3>
+                    <p><a href="#materials">Materials</a></p>
                 </li>
                 <li>
-                    <h3><a href="#viewmaterial">View a Material</a></h3>
+                    <p><a href="#viewmaterial">View a Material</a></p>
                 </li>
                 <li>
-                    <h3><a href="#search">Search</a></h3>
+                    <p><a href="#search">Search</a></p>
                 </li>
                 <li>
-                    <h3><a href="#filter">Filter</a></h3>
+                    <p><a href="#filter">Filter</a></p>
                 </li>
                 <li>
-                    <h3><a href="#register">Register</a></h3>
+                    <p><a href="#register">Register</a></p>
                 </li>
                 <li>
-                    <h3><a href="#login">Login/Logout</a></h3>
+                    <p><a href="#login">Login/Logout</a></p>
                 </li>
                 <li>
-                    <h3><a href="#privatepublic">Private Public Materials</a></h3>
+                    <p><a href="#privatepublic">Private Public Materials</a></p>
                 </li>
                 <li>
-                    <h3><a href="#ratematerial">Rate Material</a></h3>
+                    <p><a href="#ratematerial">Rate Material</a></p>
                 </li>
                 <li>
-                    <h3><a href="#savematerial">Save Material</a></h3>
+                    <p><a href="#savematerial">Save Material</a></p>
                 </li>
                 <li>
-                    <h3><a href="#downloadmaterial">Download Material</a></h3>
+                    <p><a href="#downloadmaterial">Download Material</a></p>
                 </li>
                 <li>
-                    <h3><a href="#mymaterials">My Materials</a></h3>
+                    <p><a href="#mymaterials">My Materials</a></p>
                 </li>
                 <li>
-                    <h3><a href="#creatematerial">Create Material</a></h3>
+                    <p><a href="#creatematerial">Create Material</a></p>
                 </li>
                 <li>
-                    <h3><a href="#editmaterial">Edit Material</a></h3>
+                    <p><a href="#editmaterial">Edit Material</a></p>
                 </li>
                 <li>
-                    <h3><a href="#printmaterial">Print Material</a></h3>
+                    <p><a href="#printmaterial">Print Material</a></p>
                 </li>
             </ul>
+
+        </div>
+        <div class="col-md-9">
 
             <hr>
             <h3>

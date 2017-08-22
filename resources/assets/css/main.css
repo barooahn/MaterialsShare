@@ -9,6 +9,19 @@ body {
     min-height: 100%;
 }
 
+
+h1, .h1 {
+    font-size: 36px;
+}
+
+h2, .h2 {
+    font-size: 30px;
+}
+
+h3, .h3 {
+    font-size: 23px;
+}
+
 /*Nav*/
 
 .navbar {
@@ -27,14 +40,12 @@ body {
     padding: 5px;
 }
 
-/*Splash page - hero.blade.php*/
+/*Splash page - splash.blade.php*/
 .splash {
-    background-image: url("/img/background.jpg");
     min-height: 100vh;
 
     /* Center and scale the image nicely */
-    background-position: right;
-    background-repeat: no-repeat;
+    background: url("/img/background.jpg") no-repeat right;
     background-size: contain;
 }
 
@@ -48,6 +59,19 @@ body {
     text-align: center;
 }
 
+.selling_points {
+    list-style-type: none;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.selling_points li {
+    text-align: justify;
+    font-size: 1.3em;
+    line-height: 2.2;
+}
+
 .save-work {
     text-align: center;
     margin: 25px auto;
@@ -57,6 +81,7 @@ body {
     text-align: center;
     width:80%;
     margin: 0 auto;
+    padding-top: 30px;
 }
 
 .search-button {
@@ -74,6 +99,16 @@ body {
 
 .save-work-button {
     width:80%;
+}
+
+
+
+/*services*/
+
+.services p {
+    font-size: 19px;
+    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* create pages */
@@ -130,94 +165,17 @@ body {
 .filter {
     width: 300px;
     display: inline;
-
-}
-
-/* Start page anchor padding*/
-.start_padding::before {
-    content:"";
-    display:block;
-    height:80px; /* fixed header height*/
-    margin:-80px 0 0; /* negative fixed header height */
-}
-
-
-.select2-container .select2-search__field {
-
-    width: 100% !important;
-}
-
-.container .content {
-    display: none;
-    padding: 5px;
-}
-
-/* Hero  */
-
-.header {
-    margin-top: 65px;
-}
-
-.header h1 {
-    /*color: #FFFFFF;*/
-    font-size: 86px;
-    letter-spacing: -1px;
-    line-height: 1;
-    padding-top: 30px;
-    text-align: center;
-
-}
-
-.header h2 {
-    font-size: 25px;
-    text-align: center;
-
-}
-
-.hero-unit {
-
-    background-color: #EEEEEE;
-
-    margin-top: 25px;
-}
-
-.material_image {
-    width: 100%;
-}
-
-.hero_extra {
-    background-color: rgba(0, 0, 0, 1);
-    width: 100%;
-}
-
-.spacer {
-    width: 370px;
-    margin: auto;
-}
-
-.selling_points {
-    list-style-type: none;
-    padding: 20px;
-    width: 400px;
-    margin: 0 auto;
-}
-
-.selling_points li {
-    text-align: justify;
-    font-size: 1.3em;
 }
 
 .green {
     color: #22B24C;
 }
 
-/* End of hero*/
-
 .user_buttons {
-    display: inline-block;
-    padding: 5px;
-    float: right;
-    width: 100%;
+display: inline-block;
+padding: 5px;
+float: right;
+width: 100%;
 }
 
 .user_button {
@@ -225,7 +183,7 @@ body {
 }
 
 .heading {
-    padding-top: 0px;
+    padding-top: 0;
 
 }
 
@@ -278,9 +236,9 @@ body {
 /* tooltip */
 div.tooltip-inner {
     text-align: center;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
     margin-bottom: 6px;
     background-color: #505050;
     font-size: 14px;
@@ -372,6 +330,12 @@ div.tooltip-inner {
 }
 
 
+/*help*/
+
+.start_padding {
+    padding-top: 70px;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
 
     body {
@@ -392,9 +356,12 @@ div.tooltip-inner {
     }
 
     .splash h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
+    .search {
+        padding-top: 0;
+    }
 
     .save-work {
         margin: 12px auto;
@@ -403,6 +370,7 @@ div.tooltip-inner {
     .selling_points li {
         text-align: justify;
         font-size: 1.0em;
+        line-height: 1.8em;
     }
 
 }
@@ -412,10 +380,9 @@ div.tooltip-inner {
         font-size: 23px;
     }
 
-
     .selling_points li {
         text-align: justify;
-        font-size: 1.2em;
+        font-size: 1.8em;
     }
 
 }

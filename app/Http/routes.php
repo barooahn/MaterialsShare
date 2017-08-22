@@ -13,7 +13,6 @@ Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('start_here', 'PagesController@startHere');
 Route::get('why', 'PagesController@why');
-Route::get('services', 'PagesController@services');
 Route::get('content', 'PagesController@content');
 Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 
