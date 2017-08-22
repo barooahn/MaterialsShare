@@ -3,11 +3,18 @@
 
         <div class="row">
 
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-12">
                 <div class="title">
                     <span>Materials Share</span>
                 </div>
                 <h1>Save, share and get feedback on your teaching aids</h1>
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+
                 <ul class="selling_points">
                     <li><i class="fa fa-check-square-o green fa-lg"></i> Save materials to the cloud</li>
                     <li><i class="fa fa-check-square-o green fa-lg"></i> Share resources with other teachers</li>
@@ -18,7 +25,7 @@
                     <li><i class="fa fa-check-square-o green fa-lg"></i> TEFL, ESL, English teachers</li>
                 </ul>
             </div>
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6">
                 <div class="save-work">
                     <a class="btn btn-success btn-lg save-work-button"
                        href="{{ URL::to('options') }}">Save your work</a>

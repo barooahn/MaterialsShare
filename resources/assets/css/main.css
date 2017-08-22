@@ -13,6 +13,8 @@ body {
 
 .navbar {
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .navbar-fixed-top .container-fluid{
@@ -23,7 +25,6 @@ body {
 
 .splash {
     background-image: url("/img/background.jpg");
-    /* Full height */
     min-height: 100vh;
 
     /* Center and scale the image nicely */
@@ -386,7 +387,7 @@ div.tooltip-inner {
     }
 
     .splash h1 {
-        font-size: 25px;
+        font-size: 24px;
     }
 
 
