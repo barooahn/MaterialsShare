@@ -1,4 +1,4 @@
-<div class="splash">
+<div class="container splash">
 
     <div class="row">
 
