@@ -65,7 +65,6 @@ body {
 .splash .search-button {
     margin-top: 10px;
     width:100%;
-
 }
 
 .save-work-button {
@@ -194,7 +193,7 @@ body {
 .selling_points {
     list-style-type: none;
     padding: 20px;
-    width: 385px;
+    width: 400px;
     margin: 0 auto;
 }
 
