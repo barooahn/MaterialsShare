@@ -8,6 +8,8 @@
     <div class="row">
         <div class="page-header col-md-6 col-md-offset-3">
             <h2>{!! trans('site/user.login_to_account') !!}</h2>
+
+            New user? <a href="{{ URL::to('auth/register') }}">Register</a>
         </div>
     </div>
 

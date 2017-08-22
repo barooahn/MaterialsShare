@@ -1,5 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
 html {
     height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*Nav*/
+
+.navbar {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-fixed-top .container-fluid{
+    background-color:white;
+}
+
+/*Splash page - hero.blade.php*/
+
+.splash {
+    padding-top:50px;
+}
+
+.splash h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.splash h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.save-work {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.search {
+    text-align: center;
+    width:80%;
+    margin: 0 auto;
+}
+
+.search-button {
+    padding-top: 10px;
+}
+
+.search-box {
+    width:100%;
+}
+
+.splash .search-button {
+    margin-top: 10px;
+    width:100%;
+
+}
+
+.save-work-button {
+    width:80%;
 }
 
 /* create pages */
@@ -122,10 +183,10 @@ html {
 }
 
 .selling_points {
-    color: white;
     list-style-type: none;
     padding: 20px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 325px;
+    margin: 0 auto;
 }
 
 .selling_points li {
@@ -295,4 +356,36 @@ div.tooltip-inner {
 }
 .scrollToTop:hover{
     text-decoration:none;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .selling_points {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .splash h1 {
+        display: none;
+    }
+
+    .splash h2 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .save-work {
+        margin: 12px auto;
+    }
+
+    .selling_points li {
+        text-align: justify;
+        font-size: 1.0em;
+    }
+
 }

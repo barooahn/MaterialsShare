@@ -23,7 +23,7 @@
                     </li>
                 @endunless
                 <li class="{{ (Request::is('start_here') ? 'active' : '') }}">
-                    <a href="{{ URL::to('start_here') }}">Start Here</a>
+                    <a href="{{ URL::to('start_here') }}">Help</a>
                 </li>
                 <li class="{{ (Request::is('contact') ? 'active' : '') }}">
                     <a href="{{ URL::to('contact') }}">Contact</a>

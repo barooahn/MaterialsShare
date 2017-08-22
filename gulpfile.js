@@ -24,8 +24,6 @@ var paths = {
     'slider': 'assets/bower/seiyria-bootstrap-slider/dist',
     'dropzone': 'assets/bower/dropzone-4.3.0/dist',
 
-
-
 };
 
 elixir.config.sourcemaps = false;
@@ -72,8 +70,8 @@ elixir(function(mix) {
         '../../' + paths.kartikv + '/js/fileinput.js',
         '../../' + paths.toggle + '/js/bootstrap-toggle.min.js',
         '../../' + paths.slider + '/bootstrap-slider.js',
-        '../../' + paths.dropzone + '/dropzone.js',
         'dropdown-toggle.js',
+        'dropzone.js',
         'tinymce.min.js',
         'star-rating.js',
         'google-analitics.js',
@@ -105,6 +103,7 @@ elixir(function(mix) {
         '../../' + paths.metisMenu + '/metisMenu.js',
         '../../' + paths.select2 + '/js/select2.js',
         'bootstrap-dataTables-paging.js',
+        'dropzone.js',
         'dataTables.bootstrap.js',
         'datatables.fnReloadAjax.js',
         'sb-admin-2.js'

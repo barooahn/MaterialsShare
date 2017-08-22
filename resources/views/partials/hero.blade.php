@@ -1,31 +1,40 @@
-<div class="header">
+<div class="splash">
 
-    <h1>Materials Share</h1>
+    <div class="row">
 
-    <h2>Save, share and get feedback on your teaching aids</h2>
+        <div class="col-md-12">
+            <h1>Materials Share</h1>
 
-</div>
-<div class="hero-unit">
-
-    <a class="btn btn-success btn-large form-control"
-       href="{{ URL::to('start_here') }}">Learn more</a>
-
-    <div class="hero_extra">
-        <div class="spacer">
-
+            <h2>Save, share and get feedback on your teaching aids</h2>
             <ul class="selling_points">
-                <li><em>Save materials </em> <i class="fa fa-check-square-o green fa-lg"></i></li>
-                <li><em> Share resources </em> <i class="fa fa-check-square-o green fa-lg"></i></li>
-                <li><em> Find new teaching aids </em><i class="fa fa-check-square-o green fa-lg"></i></li>
-                <li><em> Access anywhere</em> <i class="fa fa-check-square-o green fa-lg"></i></li>
-                <li><em> Never lose materials again </em><i class="fa fa-check-square-o green fa-lg"></i></li>
-                <li><em> TEFL, ESL, English teachers</em> <i class="fa fa-check-square-o green fa-lg"></i></li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Save materials</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Share resources</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Find new teaching aids</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Access anywhere</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   Never lose materials again</li>
+                <li><i class="fa fa-check-square-o green fa-lg"></i>   TEFL, ESL, English teachers</li>
             </ul>
-
-
         </div>
+        <div class="col-md-6 col-md-offset-3">
+            <div class="save-work">
+                <a class="btn btn-success btn-lg save-work-button"
+                   href="{{ URL::to('options') }}">Save your work</a>
+            </div>
+            <div class="search">
 
+                {!! Form::open([
+                       'method' => 'GET',
+                       'class' => 'splash-search',
+                       'route' => ['search']
+                   ]) !!}
+
+                    {!! Form::text('Title, Level, Objective etc.', null, ['class' => 'form-control search-box', 'placeholder' => 'Title, level, objective etc.']) !!}
+
+                    <button class="btn btn-success btn-lg search-button" type="submit" value="submit">Search</button>
+                {!! Form::close() !!}
+
+            </div>
+        </div>
     </div>
-
 
 </div>

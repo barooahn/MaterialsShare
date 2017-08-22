@@ -20,15 +20,15 @@
 
     <div class="dropzone-previews" id="dropzonePreview"></div>
 
-    <h4 style="text-align: center;">Drop files in this area or click here <span
+    <h4 style="text-align: center;">Drop files in this area or click below <span
                 class="glyphicon glyphicon-hand-down"></span></h4>
 
     {!! Form::close() !!}
 
 
-    <h5>Images are uploaded as soon as you drop them</h5>
+    <h5>Images are uploaded as soon as you drop them here</h5>
 
-    <h5>Maximum allowed size of image is 60MB</h5>
+    <h5>Total file size allowed is 60MB</h5>
 
 
 </div>
