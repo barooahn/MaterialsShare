@@ -22,7 +22,6 @@ body {
 /*Splash page - hero.blade.php*/
 
 .splash {
-    padding-top:50px;
     background-image: url("/img/background.jpg");
     /* Full height */
     min-height: 100vh;
@@ -33,13 +32,13 @@ body {
     background-size: contain;
 }
 
-.splash h1 {
+.title {
     font-size: 60px;
     text-align: center;
 }
 
-.splash h2 {
-    font-size: 30px;
+.splash h1 {
+    font-size: 36px;
     text-align: center;
 }
 
@@ -382,14 +381,14 @@ div.tooltip-inner {
         padding-bottom: 0;
     }
 
-    .splash h1 {
+    .title {
         display: none;
     }
 
-    .splash h2 {
-        font-size: 16px;
-        text-align: center;
+    .splash h1 {
+        font-size: 25px;
     }
+
 
     .save-work {
         margin: 12px auto;
@@ -398,6 +397,19 @@ div.tooltip-inner {
     .selling_points li {
         text-align: justify;
         font-size: 1.0em;
+    }
+
+}
+
+@media screen and (min-width: 988px) and (max-width: 1024px) {
+    .splash h1 {
+        font-size: 23px;
+    }
+
+
+    .selling_points li {
+        text-align: justify;
+        font-size: 1.2em;
     }
 
 }
