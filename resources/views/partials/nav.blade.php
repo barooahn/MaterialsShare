@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ URL::to('home') }}"><span><img class="img-responsive" src="/img/logo.png" alt="Materials Share - Share teaching material and resources - Logo"></span></a>
+            <a class="navbar-brand" href="{{ URL::to('home') }}" title="Materials Share Home page"><span><img class="img-responsive" src="/img/logo.png" alt="Materials Share - Share teaching material and resources - Logo"></span></a>
 
         </div>
 
@@ -16,18 +16,18 @@
             <ul class="nav navbar-nav">
 
                 <li class="{{ (Request::is('materials') ? 'active' : '') }}">
-                    <a href="{{ URL::to('materials') }}">Materials</a>
+                    <a href="{{ URL::to('materials') }}" title="Browse Materials">Materials</a>
                 </li>
                 @unless (Auth::guest())
                     <li class="{{ (Request::is('create') ? 'active' : '') }}">
-                        <a href="{{ URL::to('options') }}">New Material</a>
+                        <a href="{{ URL::to('options') }}" title="Create a new resource">New Material</a>
                     </li>
                 @endunless
-                <li class="{{ (Request::is('start_here') ? 'active' : '') }}">
-                    <a href="{{ URL::to('start_here') }}">Help</a>
+                <li class="{{ (Request::is('help') ? 'active' : '') }}">
+                    <a href="{{ URL::to('help') }}" title="Get help using materials share">Help</a>
                 </li>
                 <li class="{{ (Request::is('contact') ? 'active' : '') }}">
-                    <a href="{{ URL::to('contact') }}">Contact</a>
+                    <a href="{{ URL::to('contact') }}" title="Contact Materials Share">Contact</a>
                 </li>
                 <li>
                     {!! Form::open([
@@ -48,17 +48,17 @@
             <ul class="nav navbar-nav navbar-right">
 
                 @if (Auth::guest())
-                    <li class="{{ (Request::is('auth/login') ? 'active' : '') }}"><a href="{{ URL::to('auth/login') }}"><i
+                    <li class="{{ (Request::is('auth/login') ? 'active' : '') }}"><a href="{{ URL::to('auth/login') }}" title="Login to Materials Share"><i
                                     class="fa fa-sign-in"></i> Login</a></li>
-                    <li class="{{ (Request::is('auth/register') ? 'active' : '') }}"><a
+                    <li class="{{ (Request::is('auth/register') ? 'active' : '') }}" title="Register at Materials Share"><a
                                 href="{{ URL::to('auth/register') }}">Register</a></li>
                 @else
                     <li>
-                        <a href="{{ URL::to('admin/user/home') }}"><i
+                        <a href="{{ URL::to('admin/user/home') }}" title="Your Home page at Materials Share"><i
                                     class="fa fa-sign-out"></i> My materials</a>
                     </li>
                     <li>
-                        <a href="{{ URL::to('auth/logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                        <a href="{{ URL::to('auth/logout') }}"><i class="fa fa-sign-out" title="Sign out of Materials Share"></i> Logout</a>
                     </li>
 
                 @endif

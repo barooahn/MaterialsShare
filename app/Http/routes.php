@@ -11,7 +11,7 @@ Route::pattern('slug', '[0-9a-z-_]+');
 /***************    Site routes  **********************************/
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
-Route::get('start_here', 'PagesController@startHere');
+Route::get('help', 'PagesController@help');
 Route::get('why', 'PagesController@why');
 Route::get('content', 'PagesController@content');
 Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);

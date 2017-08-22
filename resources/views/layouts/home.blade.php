@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@section('title') Materials Share @show</title>
+    <title>Materials Share: Share Save Teaching Resources</title>
     @section('meta_keywords')
         <meta name="keywords"
               content="ELT, TESOL, Resources, English teaching, Materials, Teaching aids, share teaching materials, share teaching aids, TEFL resources"/>
@@ -13,9 +13,14 @@
         <meta name="author" content="Nicholas R Barooah"/>
     @show @section('meta_description')
         <meta name="description"
-              content="ELT TEFL teaching materials and resources - create save share teaching aids"/>
+              content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe and forever.  Never lose another resource again."/>
     @show
+    <meta property="og:title" content="Materials Share: Share Save Teaching Resources">
+    <meta property="og:url" content="http://materialsshare.com">
+    <meta property="og:description" content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe and forever.  Never lose another resource again.">
 
+    <meta name="twitter:title" content="Materials Share: Share Save Teaching Resources">
+    <meta name="twitter:description" content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe and forever.  Never lose another resource again.">
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
 
 

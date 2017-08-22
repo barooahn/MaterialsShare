@@ -12,9 +12,9 @@ class PagesController extends Controller {
         return view('pages.welcome');
     }
 
-    public function startHere()
+    public function help()
     {
-        return view('pages.start_here');
+        return view('pages.help');
     }
     public function author()
     {

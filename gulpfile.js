@@ -22,8 +22,7 @@ var paths = {
     'kartikv': 'assets/bower/kartik-v/bootstrap-fileinput',
     'toggle': 'assets/bower/bootstrap-toggle',
     'slider': 'assets/bower/seiyria-bootstrap-slider/dist',
-    'dropzone': 'assets/bower/dropzone-4.3.0/dist',
-
+    'dropzone': 'assets/bower/dropzone-4.3.0/dist'
 };
 
 elixir.config.sourcemaps = false;
@@ -58,7 +57,7 @@ elixir(function(mix) {
         '../../' + paths.slider + '/css/bootstrap-slider.css',
         '../../' + paths.dropzone + '/dropzone.css',
         'main.css',
-        'star-rating.css',
+        'star-rating.css'
     ], 'public/css/site.css');
 
     // Merge Site scripts.
@@ -74,7 +73,7 @@ elixir(function(mix) {
         'dropzone.js',
         'tinymce.min.js',
         'star-rating.js',
-        'google-analitics.js',
+        'google-analitics.js'
     ], 'public/js/site.js');
 
     // Merge Admin CSSs.
@@ -88,7 +87,7 @@ elixir(function(mix) {
         '../../' + paths.dataTablesBootstrap3Plugin + '/css/datatables-bootstrap3.css',
         '../../' + paths.metisMenu + '/metisMenu.css',
         '../../' + paths.select2 + '/css/select2.css',
-        'sb-admin-2.css',
+        'sb-admin-2.css'
     ], 'public/css/admin.css');
 
     // Merge Admin scripts.

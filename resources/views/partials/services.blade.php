@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-6">
 
-            <h2>Find teaching aids materials and resources fast</h2>
+            <h3>Find teaching aids materials and resources fast</h3>
 
             <p>Materials Share has been designed to be as simple, quick and easy to use as possible whilst still being a
                 robust and powerful application. Materials Share offers a selection of categories to describe your
@@ -36,7 +36,7 @@
 
         </div>
         <div class="col-md-6">
-            <h2>Save your teaching material and resources to the cloud:</h2>
+            <h3>Save your teaching material and resources to the cloud:</h3>
 
             <p>Materials saved in the cloud are available to you and other teachers (you don’t have to share your
                 materials) from any location and from any device that is attached to the internet. Your laptop or work
@@ -51,7 +51,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h2>Sharing teaching aids materials with other teachers:</h2>
+            <h3>Sharing teaching aids materials with other teachers:</h3>
 
             <p>Material Share allows you to access materials from any other teacher who has uploaded a material. If you
                 don’t have much time before a class and want supplementary materials do a quick search and find a
@@ -66,7 +66,7 @@
             {!! Html::image('img/search.jpg', 'search', ['class' => 'img-responsive']) !!}
         </div>
         <div class="col-md-6">
-            <h2>Search for teaching material, resources and teaching aids:</h2>
+            <h3>Search for teaching material, resources and teaching aids:</h3>
 
             <p>Materials Share allows you to search through all the uploaded materials for a specific detail. This could
                 be level: intermediate, book: Headway, grammar point: simple past, topic: family. </p>
@@ -74,7 +74,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h2>Get feedback and ratings on your uploaded teaching resources:</h2>
+            <h3>Get feedback and ratings on your uploaded teaching resources:</h3>
 
             <p>Each material can be rated by teachers on a scale of 1 -5 hearts. It is easy to do and can help you get
                 the best material for your class. In addition to rating each material has a comments section for
