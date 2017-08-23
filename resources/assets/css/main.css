@@ -74,14 +74,12 @@ h3, .h3 {
 }
 
 .save-work {
-    text-align: center;
-    margin: 25px auto;
+    margin: 25px 0;
 }
 
 .search {
     text-align: center;
     width:80%;
-    margin: 0 auto;
     padding-top: 30px;
 }
 
@@ -153,9 +151,43 @@ h3, .h3 {
     color: white;
 }
 
-.checkbox_option {
+.checkbox_option_left {
     width: 175px;
+    float: right;
 }
+
+.checkbox_option_right {
+    width: 175px;
+    float: left;
+}
+
+
+.btn-danger {
+    color: #272727;
+}
+
+/* Materials list index page filter */
+
+.filter {
+    width: 300px;
+    display: inline;
+
+}
+
+.input-box{
+    width:100%;
+}
+
+.filter-button {
+    text-align: center;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+
+
 /*  create form edit form warning button */
 .button_disabled {
     display: none;
@@ -385,5 +417,89 @@ div.tooltip-inner {
         text-align: justify;
         font-size: 1.8em;
     }
+
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) and (max-width: 1920px) {
+    .title {
+        width: 300px;
+        margin: 25px auto;
+    }
+
+    .selling_points li {
+        text-align: justify;
+        font-size: 1.3em;
+        line-height: 1.8;
+    }
+
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    .title {
+        width: 300px;
+        margin: 25px auto;
+    }
+
+    .selling_points li {
+        text-align: justify;
+        font-size: 1.3em;
+        line-height: 1.8;
+    }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+
 
 }

@@ -18,7 +18,7 @@
     @show
 
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/site.js') }}"></script>
+
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     @yield('styles')
@@ -46,6 +46,6 @@
 
         <!-- Scripts -->
 @yield('scripts')
-
+<script  src="{{ asset('js/site.js') }}"></script>
 </body>
 </html>

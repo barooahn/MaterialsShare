@@ -13,14 +13,14 @@
         <meta name="author" content="Nicholas R Barooah"/>
     @show @section('meta_description')
         <meta name="description"
-              content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe and forever.  Never lose another resource again."/>
+              content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe forever"/>
     @show
     <meta property="og:title" content="Materials Share: Share Save Teaching Resources">
     <meta property="og:url" content="http://materialsshare.com">
-    <meta property="og:description" content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe and forever.  Never lose another resource again.">
+    <meta property="og:description" content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe forever">
 
     <meta name="twitter:title" content="Materials Share: Share Save Teaching Resources">
-    <meta name="twitter:description" content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe and forever.  Never lose another resource again.">
+    <meta name="twitter:description" content="ELT TEFL teaching materials and resources - create save share teaching aids.  Save your teaching material to the cloud safe forever">
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
 
 

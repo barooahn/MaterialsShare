@@ -20,12 +20,12 @@
         {!! Form::open(['action' => 'MaterialsController@postOptions']) !!}
         <div class="col-md-6">
 
-            <div class="btn-group-vertical checkbox_option" data-toggle="buttons">
+            <div class="btn-group-vertical checkbox_option_left" data-toggle="buttons">
 
                 @for($i=1; $i < 11; $i++)
 
 
-                <label class="btn btn-primary {{$options[$i]->option}}">
+                <label class="btn btn-danger {{$options[$i]->option}}">
                     {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success'
                     ]) !!} {{ucwords(str_replace('_', ' ', $options[$i]->option))}}
 
@@ -41,12 +41,12 @@
         </div>
         <div class="col-md-6">
 
-            <div class="btn-group-vertical checkbox_option" data-toggle="buttons">
+            <div class="btn-group-vertical checkbox_option_right" data-toggle="buttons">
 
                 @for($i=11; $i < count($options); $i++)
 
 
-                    <label class="btn btn-primary  {{$options[$i]->option}}">
+                    <label class="btn btn-danger  {{$options[$i]->option}}">
                         {!!  Form::checkbox($options[$i]->option, 1, null, ['data-onstyle'=> 'success'
                         ]) !!} {{ucwords(str_replace('_', ' ', $options[$i]->option))}}
 
@@ -64,7 +64,7 @@
 
     </div>
 
-    <div id="format" class="padding_tb col-md-12">
+    <div id="format" class="padding_tb col-md-6 col-md-offset-3">
         {!! Form::submit('Create your material', ['class' => 'btn btn-success form-control']) !!}
         {!! Form::close() !!}
     </div>

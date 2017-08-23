@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ URL::to('home') }}">Materials Share</a>
+            <a class="navbar-brand" href="{{ URL::to('home') }}" title="Materials Share Home page"><span><img class="img-responsive" src="/img/logo.png" alt="Materials Share - Share teaching material and resources - Logo"></span></a>
         </div>
 
 
