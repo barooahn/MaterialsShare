@@ -176,12 +176,25 @@ h3, .h3 {
 
 }
 
+.filter-button {
+    margin-top: 10px;
+    width:100%;
+}
+
 .input-box{
     width:100%;
 }
 
-.filter-button {
-    text-align: center;
+.filter-text{
+    width:100%;
+}
+
+.select2-search__field {
+    width:100%;
+}
+
+.select2-container {
+    width: 100% !important;
 }
 
 .content {
@@ -202,11 +215,6 @@ h3, .h3 {
 }
 
 /* index page filter */
-
-.filter {
-    width: 300px;
-    display: inline;
-}
 
 .green {
     color: #22B24C;
