@@ -68,7 +68,7 @@
                     @foreach($item->files as $key => $file)
 
                         @if($key ==0)
-                                <a href="{{ URL::to('material/'.$item->slug) }}"><img class="material_image"
+                                <a href="{{ URL::to('material/'.$item->slug) }}"><img class="material_image img-responsive"
                                                                                       src="{{url('/imagesIndex/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
                                                                                       title="{{$file->filename}}">
                                 </a>

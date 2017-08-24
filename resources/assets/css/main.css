@@ -351,14 +351,6 @@ div.tooltip-inner {
         margin: 0;
     }
 
-    /*/!* Large desktop *!/*/
-    /*@media (min-width: 1200px) { ... }*/
-    /*/!* Portrait tablet to landscape and desktop *!/*/
-    /*@media (min-width: 768px) and (max-width: 979px) { ... }*/
-    /*/!* Landscape phone to portrait tablet *!/*/
-    /*@media (max-width: 767px) { ... }*/
-    /*/!* Landscape phones and down *!/*/
-    /*@media (max-width: 480px) { ... }*/
 }
 
 .scrollToTop{
@@ -383,57 +375,6 @@ div.tooltip-inner {
 
 .start_padding {
     padding-top: 70px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-
-    body {
-        font-size: 14px;
-    }
-
-    .splash {
-        background-image: none;
-    }
-
-    .selling_points {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
-    .title {
-        display: none;
-    }
-
-    .splash h1 {
-        font-size: 20px;
-    }
-
-    .search {
-        padding-top: 0;
-    }
-
-    .save-work {
-        margin: 12px auto;
-    }
-
-    .selling_points li {
-        text-align: justify;
-        font-size: 1.0em;
-        line-height: 1.8em;
-    }
-
-}
-
-@media screen and (min-width: 988px) and (max-width: 1024px) {
-    .splash h1 {
-        font-size: 23px;
-    }
-
-    .selling_points li {
-        text-align: justify;
-        font-size: 1.8em;
-    }
-
 }
 
 /*
@@ -461,7 +402,7 @@ div.tooltip-inner {
   ##Screen = B/w 1025px to 1280px
 */
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
 
     .title {
         width: 300px;
@@ -481,8 +422,15 @@ div.tooltip-inner {
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .splash h1 {
+        font-size: 23px;
+    }
 
+    .selling_points li {
+        text-align: justify;
+        font-size: 1.8em;
+    }
 
 
 }
@@ -492,7 +440,7 @@ div.tooltip-inner {
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
 
 
@@ -503,8 +451,7 @@ div.tooltip-inner {
   ##Screen = B/w 481px to 767px
 */
 
-@media (min-width: 481px) and (max-width: 767px) {
-
+@media screen and (min-width: 481px) and (max-width: 767px) {
 
 
 }
@@ -514,8 +461,50 @@ div.tooltip-inner {
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
 
+    body {
+        font-size: 14px;
+    }
 
+    .splash {
+        background-image: none;
+    }
+
+    .selling_points {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .splash h1 {
+        font-size: 20px;
+    }
+
+    .search {
+        padding-top: 0;
+        width:100%;
+    }
+
+    .save-work {
+        margin: 12px auto;
+    }
+
+    .save-work-button {
+        width:100%;
+    }
+
+    .selling_points li {
+        text-align: justify;
+        font-size: 1.0em;
+        line-height: 1.8em;
+    }
+
+    .material_image{
+        margin: 15px auto;
+    }
 
 }
