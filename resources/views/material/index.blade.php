@@ -18,7 +18,7 @@
             <div class="row">
 
                 <div class="col-md-4">
-                    <h2><a href="{{ URL::to('material/'.$item->slug) }}">{{ $item->title }}</a></h2>
+                    <a href="{{ URL::to('material/'.$item->slug) }}">{{ $item->title }}</a>
 
                     @if($item->objective)
                         <div>
@@ -68,11 +68,10 @@
                     @foreach($item->files as $key => $file)
 
                         @if($key ==0)
-                            <div class="form_padding">
                                 <a href="{{ URL::to('material/'.$item->slug) }}"><img class="material_image"
                                                                                       src="{{url('/imagesIndex/'.  pathinfo($file->filename, PATHINFO_FILENAME).'.jpg')}}"
-                                                                                      title="{{$file->filename}}"></a>
-                            </div>
+                                                                                      title="{{$file->filename}}">
+                                </a>
                         @endif
 
                     @endforeach
@@ -98,7 +97,7 @@
 
                     @if(Auth::User())
                         @if(Auth::User()->id != $item->user_id )
-                            <div class="btn-group-vertical material_image" role="group">
+                            <div class="btn-group-vertical material_button" role="group">
                                 @if($item->liked())
 
                                     <a class="btn btn-danger"

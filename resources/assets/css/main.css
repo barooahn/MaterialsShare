@@ -2,6 +2,7 @@
 
 html {
     height: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -17,6 +18,7 @@ h1, .h1 {
 
 h2, .h2 {
     font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h3, .h3 {
@@ -186,7 +188,13 @@ h3, .h3 {
     margin-top: 20px;
 }
 
+.star-rating  {
+    float: right;
+}
 
+.material_image {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+}
 
 /*  create form edit form warning button */
 .button_disabled {

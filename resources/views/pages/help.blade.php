@@ -67,8 +67,6 @@
 
         </div>
         <div class="col-md-9">
-
-            <hr>
             <h3>
                 <a class="start_padding" name="quickstart">Quick Start</a>
             </h3>
